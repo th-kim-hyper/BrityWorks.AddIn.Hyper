@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>엑셀 셀 서식 지정하기</Summary>
+  <Detail>새 엑셀 파일을 열어 데이터를 입력하고, 셀 서식을 지정합니다.
+- 글꼴 설정, 글꼴 색 설정, 배경색 설정, 굵게, 밑줄 설정
+- 테두리 설정
+- 셀 크기 설정</Detail>
+  <Library />
+  <Steps>
+    <Step id="S6d4887b716ca4e668511b94b5b8f7ab0">
+      <Assists>
+        <Assist type="Summary" value="Headless 모드로 빈 엑셀 문서를 엽니다." />
+        <Assist type="Property" propertyKey="Output_OutputExcel" value="열리는 엑셀 파일을 담을 변수를 지정할 수 있습니다.&#xD;&#xA;기본값으로 RESULT에 저장합니다." />
+        <Assist type="Property" propertyKey="File_Invisible" value="엑셀 문서를 열 떄 화면에 보이게 할지 여부를 지정합니다.&#xD;&#xA;활성화 시, 엑셀 파일이 보이지 않게 됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S3c495a6fc82a42ff83b2d6a6e6070d82">
+      <Assists>
+        <Assist type="Summary" value="엑셀 파일에 지정된 영역에 값을 입력합니다." />
+        <Assist type="Property" propertyKey="Input_DataArray" value="입력할 값을 배열로 지정합니다.&#xD;&#xA;this.data를 입력하세요. (해당 변수에는 입력할 값이 할당되어 있습니다.)" />
+        <Assist type="Property" propertyKey="Sheet_StartCell" value="입력을 시작할 셀 주소를 입력합니다.&#xD;&#xA;'A1'부터 값이 입력되게 됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S3e03e98d1c0840fe8cba7de4ecc82eab">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역에 가로, 세로 크기를 설정합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'A1:C5'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_Width" value="가로 크기를 설정합니다.&#xD;&#xA;30을 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_Height" value="세로 크기를 설정합니다.&#xD;&#xA;30을 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="Sdf7403e5f3c44b6490b5a1f4ec400812">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'A1:C5'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_Border" value="테두리 종류를 지정합니다.&#xD;&#xA;All Borders를 선택하세요." />
+      </Assists>
+    </Step>
+    <Step id="S862a8861e67042108aa74c0ed972a5cd">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역의 폰트 색을 설정합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'B1:B5'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_FontColor" value="RGB 값을 기준으로 색을 지정합니다.&#xD;&#xA;'0,0,255'를 입력하세요. (파란색)" />
+      </Assists>
+    </Step>
+    <Step id="S4753aebf4f2046a59ac357a1159b1d36">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역의 배경색을 설정합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'C1:C5'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_BackgroundColor" value="RGB 값을 기준으로 색을 지정합니다.&#xD;&#xA;'255,255,0'를 입력하세요. (노란색)" />
+      </Assists>
+    </Step>
+    <Step id="S4dfbdaae7c1546539bc9bb7fbeeac947">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역의 텍스트를 굵게 설정합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'A2:C2'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_FontBold" value="True로 설정하여 굵게 설정을 하세요." />
+      </Assists>
+    </Step>
+    <Step id="S955f162c23bc4201b2728cc4901e9b0d">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역에 밑줄 설정을 합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'A3:C3'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_FontUnderline" value="True로 설정하여 밑줄 설정을 하세요." />
+      </Assists>
+    </Step>
+    <Step id="S6cd7f546b21f451caf397df174b95987">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역에 가로 맞춤 설정을 합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'A4:C4'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_AlignHorizontal" value="가로 맞춤을 Center로 선택하세요." />
+      </Assists>
+    </Step>
+    <Step id="Saca045f22232400892733e57b7ba936d">
+      <Assists>
+        <Assist type="Summary" value="지정한 영역에 글꼴 크기를 설정합니다." />
+        <Assist type="Property" propertyKey="Sheet_Range" value="범위를 지정합니다.&#xD;&#xA;'A5:C5'를 입력하세요." />
+        <Assist type="Property" propertyKey="Cell_FontSize" value="글꼴 크기를 15로 설정하세요." />
+      </Assists>
+    </Step>
+    <Step id="S9d509a2ec8fa488bb7c3795c39e5a328">
+      <Assists>
+        <Assist type="Summary" value="엑셀 파일을 저장합니다." />
+        <Assist type="Property" propertyKey="File_SaveAs" value="파일을 저장할 경로를 지정합니다.&#xD;&#xA;현재 프로젝트 경로에 저장하기 위해Global.ProjectDir + 'test.xlsx'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S411e49eef35641598d75dbe4e8437620">
+      <Assists>
+        <Assist type="Summary" value="백그라운드로 열린 엑셀 문서를 닫습니다." />
+        <Assist type="Property" propertyKey="File_Force" value="강제 종료 여부를 지정합니다.&#xD;&#xA;강제 종료를 위해 활성화하세요." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

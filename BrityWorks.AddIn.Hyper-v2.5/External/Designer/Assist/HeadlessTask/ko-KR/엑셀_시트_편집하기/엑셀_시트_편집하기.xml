@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>엑셀 시트 편집하기</Summary>
+  <Detail>새 엑셀 파일을 열어 시트를 추가, 삭제, 선택 등을 진행합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S776c053751ff4739939e1e05658e58a1">
+      <Assists>
+        <Assist type="Summary" value="Headless 모드로 빈 엑셀 문서를 엽니다." />
+        <Assist type="Property" propertyKey="Output_OutputExcel" value="열리는 엑셀 파일을 담을 변수를 지정할 수 있습니다.&#xD;&#xA;기본값으로 RESULT에 저장합니다." />
+        <Assist type="Property" propertyKey="File_Invisible" value="엑셀 문서를 열 떄 화면에 보이게 할지 여부를 지정합니다.&#xD;&#xA;활성화 시, 엑셀 파일이 보이지 않게 됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S02667c01f6b54816b1e4878eea4b7e0b">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_SheetName" value="시트 이름을 지정합니다.&#xD;&#xA;'Sheet Brity'를 입력하세요." />
+        <Assist type="Property" propertyKey="Sheet_Position" value="새 워크시트를 생성할 위치를 지정할 수 있습니다. &#xD;&#xA;1로 지정시, 첫번째 시트 뒤에 생성됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S8b5e24c51e50440f920ae6281b750e85">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_Position" value="이름을 가져올 워크시트의 순번을 입력합니다.&#xD;&#xA;두번째 시트 명(Sheet Brity)을 가져오기 위해 2을 입력하세요." />
+        <Assist type="Property" propertyKey="Output_SheetName" value="시트명을 저장할 변수를 지정합니다.&#xD;&#xA;this.SheetName을 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="Sd22fe664ac0e4394afbe446876623a7f">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_InputString" value="입력할 문자열을 지정합니다.&#xD;&#xA;이 전에 구한 시트명을 입력하기 위해 this.SheetName을 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S74493f9b26d84661b014fa15fa9e6e46">
+      <Assists>
+        <Assist type="Property" propertyKey="File_SourceSheet" value="복사할 대상 시트 이름을 지정합니다.&#xD;&#xA;'Sheet Brity'를 입력하세요" />
+        <Assist type="Property" propertyKey="File_TargetSheet" value="붙여 넣을 대상 시트 이름을 지정합니다.&#xD;&#xA;'Sheet Brity 2'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="Sd15b8129b2e346e2a552e4e81cce7eb3">
+      <Assists>
+        <Assist type="Property" propertyKey="File_SourceSheet" value="복사할 대상 시트 이름을 지정합니다.&#xD;&#xA;'Sheet Brity'를 입력하세요" />
+        <Assist type="Property" propertyKey="File_TargetSheet" value="붙여 넣을 대상 시트 이름을 지정합니다.&#xD;&#xA;'Sheet Brity 3'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S78cf978e37334dcaad4ab92ae949d740">
+      <Assists>
+        <Assist type="Property" propertyKey="File_SourceSheet" value="이동할 대상 시트 이름을 지정합니다.&#xD;&#xA;'Sheet Brity 2'를 입력하세요" />
+        <Assist type="Property" propertyKey="File_BeforeSheet" value="이동 대상 뒤에 위치할 시트명을 지정합니다.&#xD;&#xA;맨 앞에 이동시키기 위해 'Sheet1'을 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S308ff78dcdac448abe7cd34240e20a4a">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_SheetName" value="삭제할 시트명을 지정합니다.&#xD;&#xA;'Sheet Brity'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="Scc9646bab1524f88b87d371a7ab25eb6">
+      <Assists>
+        <Assist type="Summary" value="엑셀 파일을 저장합니다." />
+        <Assist type="Property" propertyKey="File_SaveAs" value="파일을 저장할 경로를 지정합니다.&#xD;&#xA;현재 프로젝트 경로에 저장하기 위해Global.ProjectDir + 'test.xlsx'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S33774fc9cc314cf3814d0e958c8ccce1">
+      <Assists>
+        <Assist type="Summary" value="백그라운드로 열린 엑셀 문서를 닫습니다." />
+        <Assist type="Property" propertyKey="File_Force" value="강제 종료 여부를 지정합니다.&#xD;&#xA;강제 종료를 위해 활성화하세요." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

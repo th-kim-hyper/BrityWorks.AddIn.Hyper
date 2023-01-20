@@ -1,0 +1,212 @@
+<Process id="6757258f-e11e-4e19-8488-1565036a1e15" type="LibraryTemplate" workType="foreground" name="Filtering_and_Sorting_Excel_data" version="" designerVersion="2.4.900.00524.D1" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="# summary Filtering and Sorting Excel Data&#xD;&#xA;# detail Open a new Excel file, input data, filter, and sort." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="5560x1920" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-30 10:26:28" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-30 13:09:09" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="data" scope="Normal" valueType="Any" formatType="Any" initValue="[['ID','Name','Age'],['1','Brity','30'],['2','RPA','25'],['3','Designer','40'],['4','Yellow','35']]" desc="" />
+    <Variable name="searchRange" scope="Normal" valueType="Any" formatType="Any" initValue="['B5']" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S7e5447c5864e4f2fb928391fa061abcb" ver="220526001" createVer="220523001" type="Excel" name="NewExcel" dpName="NewExcel" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="f69b64c2-3bab-47a9-ba8a-02c7b544adec" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Output_OutputExcel" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="File_Invisible" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Excel" key="File_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.NewExcel', this.newexcel_info_1);]]></Script>
+    </Step>
+    <Step id="Sc8e6bd557d6c4289900f124239807f5b" ver="220526001" createVer="220523001" type="Excel" name="WriteRange" dpName="WriteRange" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="99e28367-00de-4190-bcde-82efbdcebefc" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Write a value in the area specified in the Excel file." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Input_DataArray" controlType="Object[][]" valueType="System.Object[][]" formatType="Array2D" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_StartCell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="File_AutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.WriteRange', this.writerange_info_2);]]></Script>
+    </Step>
+    <Step id="Sadedf4e23f1149ab942167a5c021c3a4" ver="220526001" createVer="220523001" type="Excel" name="SearchString" dpName="SearchString" dpValue="1:1048576" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="69f3da3a-59e3-4a87-8d11-1e8d01e90ca2" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Returns the location of a specific string in the Excel file." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Output_OutputRange" controlType="OutputControlType" valueType="System.String" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Range" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'1:1048576'" />
+        <Property type="Excel" key="Sheet_FindString" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'string'" />
+        <Property type="Excel" key="Sheet_PartMatch" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_CaseMatch" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Excel" key="Input_ValueOrFormula" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="Value;Formula" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.SearchString', this.searchstring_info_3);]]></Script>
+    </Step>
+    <Step id="S9190921362a34414800abb0349c52064" ver="220526001" createVer="220523001" type="Excel" name="SetStyleRange" dpName="SetStyleRange" dpValue="A1:B2" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="a15b05d1-41f6-46ff-975c-2bbba1e0e807" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Sets the style of the area specified in the Excel document.&#xD;&#xA;Let's set the background color of cells with Yellow value to yellow." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Range" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="Cell_FontName" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" valuelist="72;72 Black;72 Condensed;72 Light;Agency FB;Algerian;Arial;Arial Black;Arial monospaced for SAP;Arial Narrow;Arial Rounded MT Bold;Arial Unicode MS;Bahnschrift;Bahnschrift Condensed;Bahnschrift Light;Bahnschrift Light Condensed;Bahnschrift Light SemiCondensed;Bahnschrift SemiBold;Bahnschrift SemiBold Condensed;Bahnschrift SemiBold SemiConden;Bahnschrift SemiCondensed;Bahnschrift SemiLight;Bahnschrift SemiLight Condensed;Bahnschrift SemiLight SemiConde;Baskerville Old Face;Bauhaus 93;Bell MT;Berlin Sans FB;Berlin Sans FB Demi;Bernard MT Condensed;Blackadder ITC;Bodoni MT;Bodoni MT Black;Bodoni MT Condensed;Bodoni MT Poster Compressed;Book Antiqua;Bookman Old Style;Bookshelf Symbol 7;Bradley Hand ITC;Britannic Bold;Broadway;Brush Script MT;Calibri;Calibri Light;Californian FB;Calisto MT;Cambria;Cambria Math;Candara;Candara Light;Castellar;Centaur;Century;Century Gothic;Century Schoolbook;Chiller;Colonna MT;Comic Sans MS;Consolas;Constantia;Cooper Black;Copperplate Gothic Bold;Copperplate Gothic Light;Corbel;Corbel Light;Courier New;Curlz MT;Ebrima;Edwardian Script ITC;Elephant;Engravers MT;Eras Bold ITC;Eras Demi ITC;Eras Light ITC;Eras Medium ITC;Felix Titling;Footlight MT Light;Forte;Franklin Gothic Book;Franklin Gothic Demi;Franklin Gothic Demi Cond;Franklin Gothic Heavy;Franklin Gothic Medium;Franklin Gothic Medium Cond;Freestyle Script;French Script MT;Gabriola;Gadugi;Garamond;Georgia;Gigi;Gill Sans MT;Gill Sans MT Condensed;Gill Sans MT Ext Condensed Bold;Gill Sans Ultra Bold;Gill Sans Ultra Bold Condensed;Gloucester MT Extra Condensed;Goudy Old Style;Goudy Stout;Haettenschweiler;Harlow Solid Italic;Harrington;High Tower Text;HoloLens MDL2 Assets;HY견고딕;HY견명조;HY궁서B;HY그래픽M;HY목각파임B;HY신명조;HY얕은샘물M;HY엽서L;HY엽서M;HY중고딕;HY헤드라인M;Impact;Imprint MT Shadow;Informal Roman;Ink Free;Javanese Text;Jokerman;Juice ITC;Kristen ITC;Kunstler Script;Leelawadee;Leelawadee UI;Leelawadee UI Semilight;Lucida Bright;Lucida Calligraphy;Lucida Console;Lucida Fax;Lucida Handwriting;Lucida Sans;Lucida Sans Typewriter;Lucida Sans Unicode;Magneto;Maiandra GD;Marlett;Matura MT Script Capitals;Microsoft Himalaya;Microsoft JhengHei;Microsoft JhengHei Light;Microsoft JhengHei UI;Microsoft JhengHei UI Light;Microsoft New Tai Lue;Microsoft PhagsPa;Microsoft Sans Serif;Microsoft Tai Le;Microsoft Uighur;Microsoft YaHei;Microsoft YaHei Light;Microsoft YaHei UI;Microsoft YaHei UI Light;Microsoft Yi Baiti;MingLiU-ExtB;MingLiU_HKSCS-ExtB;Mistral;Modern No. 20;Mongolian Baiti;Monotype Corsiva;MS Gothic;MS Outlook;MS PGothic;MS Reference Sans Serif;MS Reference Specialty;MS UI Gothic;MV Boli;Myanmar Text;Niagara Engraved;Niagara Solid;Nirmala UI;Nirmala UI Semilight;NSimSun;OCR A Extended;Old English Text MT;Onyx;Palace Script MT;Palatino Linotype;Papyrus;Parchment;Perpetua;Perpetua Titling MT;Playbill;PMingLiU-ExtB;Poor Richard;Pristina;Rage Italic;Ravie;Rockwell;Rockwell Condensed;Rockwell Extra Bold;SAPDings;SAPGUI-Belize-Icons;SAPGUI-Icons;SAPIcons;Script MT Bold;Segoe MDL2 Assets;Segoe Print;Segoe Script;Segoe UI;Segoe UI Black;Segoe UI Emoji;Segoe UI Historic;Segoe UI Light;Segoe UI Semibold;Segoe UI Semilight;Segoe UI Symbol;Showcard Gothic;SimSun;SimSun-ExtB;Sitka Banner;Sitka Display;Sitka Heading;Sitka Small;Sitka Subheading;Sitka Text;Snap ITC;Stencil;Sylfaen;Symbol;Tahoma;Tempus Sans ITC;Times New Roman;Trebuchet MS;Tw Cen MT;Tw Cen MT Condensed;Tw Cen MT Condensed Extra Bold;Verdana;Viner Hand ITC;Vivaldi;Vladimir Script;Webdings;Wide Latin;Wingdings;Wingdings 2;Wingdings 3;Yu Gothic;Yu Gothic Light;Yu Gothic Medium;Yu Gothic UI;Yu Gothic UI Light;Yu Gothic UI Semibold;Yu Gothic UI Semilight;굴림;굴림체;궁서;궁서체;나눔스퀘어;나눔스퀘어 Bold;나눔스퀘어 ExtraBold;나눔스퀘어 Light;돋움;돋움체;맑은 고딕;맑은 고딕 Semilight;바탕;바탕체;새굴림;휴먼둥근헤드라인;휴먼매직체;휴먼모음T;휴먼아미체;휴먼엑스포;휴먼옛체;휴먼편지체" />
+        <Property type="Excel" key="Cell_FontBold" controlType="PropertyItemToggleExView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Current" toggle="True;Current;False" />
+        <Property type="Excel" key="Cell_FontItalic" controlType="PropertyItemToggleExView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Current" toggle="True;Current;False" />
+        <Property type="Excel" key="Cell_FontUnderline" controlType="PropertyItemToggleExView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Current" toggle="True;Current;False" />
+        <Property type="Excel" key="Cell_FontSize" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Excel" key="Cell_FontColor" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Excel" key="Cell_BackgroundColor" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Excel" key="Cell_Width" controlType="Double" valueType="System.Double" formatType="Double" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Excel" key="Cell_Height" controlType="Double" valueType="System.Double" formatType="Double" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Excel" key="Cell_AlignHorizontal" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" valuelist=";Right;Left;Justify;Distributed;Center;General;Fill;CenterAcrossSelection" />
+        <Property type="Excel" key="Cell_AlignVertical" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" valuelist=";Top;Justify;Distributed;Center;Bottom" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.SetStyleRange', this.setstylerange_info_4);]]></Script>
+    </Step>
+    <Step id="Sf8d4d1ab40974c4d898e92529d103b02" ver="220526001" createVer="220523001" type="Excel" name="SetFilter" dpName="SetFilter" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="a023a46a-dee2-4c1d-b29e-25711eb54d05" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Specify a filter in the Excel document.&#xD;&#xA;Let's set the filter with Age value between 30 and 35." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Output_OutputRange" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_FilterCell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="Sheet_IncludeHeader" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_FilterQuery" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Excel" key="Sheet_FilterQuery2" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Excel" key="Sheet_FilterOperAND" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_GetTotalRange" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.SetFilter', this.setfilter_info_5);]]></Script>
+    </Step>
+    <Step id="Sda561ca103cc438aa354a8d526f14aa0" ver="220526001" createVer="220523001" type="Excel" name="SetColorFilter" dpName="SetColorFilter" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="0c3f6275-d9a8-4eb1-b9f8-3d96a432763c" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Specify a filter using font or color in the Excel document.&#xD;&#xA;Let's set up a filter whose background color for the Name value is yellow." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Output_OutputRange" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_FilterCell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="Sheet_FilterColor" controlType="String" valueType="System.String" formatType="String" required="True" visible="False" readonly="False" encrypted="False" isChanged="N" value="'255,255,255'" />
+        <Property type="Excel" key="Sheet_FontColor" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_IncludeHeader" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_GetTotalRange" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_UseFontAuto" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_UseNoFill" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.SetColorFilter', this.setcolorfilter_info_6);]]></Script>
+    </Step>
+    <Step id="S393cba853c42414984f4f2d02fc9fd8d" ver="220526001" createVer="220523001" type="Excel" name="ReleaseFilter" dpName="ReleaseFilter" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="ab4b6207-7f64-4b51-978c-92c7b63e51e0" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_FilterCell" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.ReleaseFilter', this.releasefilter_info_7);]]></Script>
+    </Step>
+    <Step id="Se6f10124fcab4470ad5fa943ab034433" ver="220526001" createVer="220523001" type="Excel" name="SortData" dpName="SortData" dpValue="A1:B2" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="9b4679f8-7082-4a60-a201-29d05f310793" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Sort the Excel data.&#xD;&#xA;Let's sort by Age in descending order." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Key" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="Sheet_Range" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="Sheet_Order" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="ASC;DESC" />
+        <Property type="Excel" key="Sheet_Orientation" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="ROW;COLUMN" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.SortData', this.sortdata_info_8);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Excel</string>
+  </Libraries>
+  <JScript><![CDATA[function Filtering_and_Sorting_Excel_data() {
+
+    this.data = [['ID','Name','Age'],['1','Brity','30'],['2','RPA','25'],['3','Designer','40'],['4','Yellow','35']];
+    this.searchRange = ['B5'];
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S7e5447c5864e4f2fb928391fa061abcb', '[1] NewExcel');
+        RESULT = StepPlayer.Run('Excel.NewExcel', this.newexcel_info_1);
+
+        //------------------------------------------------
+        STEP('Sc8e6bd557d6c4289900f124239807f5b', '[2] WriteRange');
+        StepPlayer.Run('Excel.WriteRange', this.writerange_info_2);
+
+        //------------------------------------------------
+        STEP('Sadedf4e23f1149ab942167a5c021c3a4', '[3] SearchString');
+        RESULT = StepPlayer.Run('Excel.SearchString', this.searchstring_info_3);
+
+        //------------------------------------------------
+        STEP('S9190921362a34414800abb0349c52064', '[4] SetStyleRange');
+        StepPlayer.Run('Excel.SetStyleRange', this.setstylerange_info_4);
+
+        //------------------------------------------------
+        STEP('Sf8d4d1ab40974c4d898e92529d103b02', '[5] SetFilter');
+        RESULT = StepPlayer.Run('Excel.SetFilter', this.setfilter_info_5);
+
+        //------------------------------------------------
+        STEP('Sda561ca103cc438aa354a8d526f14aa0', '[6] SetColorFilter');
+        RESULT = StepPlayer.Run('Excel.SetColorFilter', this.setcolorfilter_info_6);
+
+        //------------------------------------------------
+        STEP('S393cba853c42414984f4f2d02fc9fd8d', '[7] ReleaseFilter');
+        StepPlayer.Run('Excel.ReleaseFilter', this.releasefilter_info_7);
+
+        //------------------------------------------------
+        STEP('Se6f10124fcab4470ad5fa943ab034433', '[8] SortData');
+        StepPlayer.Run('Excel.SortData', this.sortdata_info_8);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S7e5447c5864e4f2fb928391fa061abcb" group_name="5332c8a4-164b-4a0a-9d30-b236c6f1acb4_New Excel" folded="False" />
+      <StepNode step_id="Sc8e6bd557d6c4289900f124239807f5b" group_name="fec7b832-4ce0-44a3-8927-3a62452a2d3c_Edit Data" folded="False" />
+      <StepNode step_id="Sadedf4e23f1149ab942167a5c021c3a4" group_name="fec7b832-4ce0-44a3-8927-3a62452a2d3c_Edit Data" folded="False" />
+      <StepNode step_id="S9190921362a34414800abb0349c52064" group_name="fec7b832-4ce0-44a3-8927-3a62452a2d3c_Edit Data" folded="False" />
+      <StepNode step_id="Sf8d4d1ab40974c4d898e92529d103b02" group_name="39989c97-cf80-45a1-a812-3882f749e3c2_Filter Data" folded="False" />
+      <StepNode step_id="Sda561ca103cc438aa354a8d526f14aa0" group_name="39989c97-cf80-45a1-a812-3882f749e3c2_Filter Data" folded="False" />
+      <StepNode step_id="S393cba853c42414984f4f2d02fc9fd8d" group_name="39989c97-cf80-45a1-a812-3882f749e3c2_Filter Data" folded="False" />
+      <StepNode step_id="Se6f10124fcab4470ad5fa943ab034433" group_name="e549d09d-c364-469b-8024-a8e27181d9c1_Sort Data" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>qTQRRCpW0cnbwx+eHPQoExWKSdM=</DigestValue></Reference></SignedInfo><SignatureValue>PXNgdw3JAWIJWJEWzS3FeCJ7ZXj2fA4P6SPzBDOEN4U3+8WubJwJOU4DJ9ahR7XX1ChnixERAXeWV8Z0rWjfciypc4m/eh4Q6mo+V8eyxNJlYk39zcDwwH08FniWYp4r6jYVLSrFiHkOaTwcJX6U2R7jVkbLEYHuv8cD+Q+ncVxDFCryakz6P7iWYbQIXDBM2ko8ODrJnDPkEWqQh24udEAjuSJ9n6/SOuravigDrgy4g0iIVP+5tlakurF09JYBn+GtER0qbO+Xx/H+IofqLas27vgLlVgbD/tBhlMFV5QSHWVmHROMtdbTFnbP4eh6qkqUHZeIYGz9Ez1rtyaLaA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-HTLA2, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Searching mails using Outlook</Summary>
+  <Detail>Among the emails received this month in Outlook installed on the PC, the emails with a specific phrase in the subject are searched. In addition, the searched mail is extracted as an external mail file format.
+
+ This template uses some of the following custom libraries to convert Date and String type objects.
+
+  - DateTime_DateFormat: Converts the date and time information of a Date object into a specified format string. To count strings corresponding to the first and last days of the current month.
+
+  - DateTime_GetLastDateOfMonth: Gets the Date object corresponding to the last day of the month of the Date object.
+
+  - String_ReplaceAll: Replaces a specific character in a string with another character.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sc072adfbbbcf41c08f0a82bfdd2fb771">
+      <Assists>
+        <Assist type="Summary" value="The date and time to search for mail and the extraction destination path are stored in variables." />
+      </Assists>
+    </Step>
+    <Step id="S28832ca2e3fb4c3fa9e974045571c751">
+      <Assists>
+        <Assist type="Summary" value="Check if the destination path to extract mail exists, and if it does not exist, create a folder with that path on the file system." />
+        <Assist type="Property" propertyKey="Command_Path" value="Specifies the folder path string where the extracted mail files will be saved. Enter a path or string variable enclosed in ''. Enter this.mMailDir here." />
+      </Assists>
+    </Step>
+    <Step id="S90f32bc9e2744f5e8d7f9d026e23e1ab">
+      <Assists>
+        <Assist type="Summary" value="You can convert the date and time information in a Date object to a specified format string. Converts the date and time corresponding to the first day of this month to a string and saves it." />
+        <Assist type="Property" propertyKey="Arguments_date" value="Enter the variable this.mToday that stores today's date." />
+        <Assist type="Property" propertyKey="Arguments_format" value="You can format the date.&#xD;&#xA;Enter 'yyyy-MM-01 00:00:00' ." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Enter this.mFirstDayStr.&#xD;&#xA;The first day of the month is converted to a string and saved." />
+      </Assists>
+    </Step>
+    <Step id="Sf6f379d6d4664715814cba5ab2cc78ba">
+      <Assists>
+        <Assist type="Summary" value="You can get a Date object corresponding to the last day of the month from the specified Date object." />
+        <Assist type="Property" propertyKey="Arguments_date" value="Enter the variable this.mToday that stores today's date." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Enter this.mToday.&#xD;&#xA;It is saved as the last date in the variable that was storing today's date." />
+      </Assists>
+    </Step>
+    <Step id="S11cb2192bae8458297c918e5a11a5bfe">
+      <Assists>
+        <Assist type="Summary" value="You can convert the date and time information in a Date object to a specified format string. Converts the date and time corresponding to the last day of the current month to a string and saves it." />
+        <Assist type="Property" propertyKey="Arguments_date" value="Enter the variable this.mToday that stores the last date." />
+        <Assist type="Property" propertyKey="Arguments_format" value="You can format the date.&#xD;&#xA;'yyyy-MM-dd 23:59:59'" />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Enter this.mLastDayStr.&#xD;&#xA;The last date is converted to a string and saved." />
+      </Assists>
+    </Step>
+    <Step id="S4bc79a1500cd43ef958da7604a21a23e">
+      <Assists>
+        <Assist type="Summary" value="It fetches the latest mail from the mail server connected to the Outlook account and synchronizes it to the Outlook Inbox." />
+        <Assist type="Property" propertyKey="Input_Account" value="Enter the email address of your Outlook account. Enter CURRENT_OUTLOOK_ACCOUNT here to use the first account configured in Outlook." />
+        <Assist type="Test" value="Please check that your Outlook account is valid and that mail is received successfully." />
+      </Assists>
+    </Step>
+    <Step id="S1c1e5a03768b462b94419b5eb0abd34a">
+      <Assists>
+        <Assist type="Summary" value="Import a list of mails received this month with a specific phrase in the subject line from Outlook." />
+        <Assist type="Property" propertyKey="Output_Messages" value="Specifies the this.mMails variable to store the list of extracted mails." />
+        <Assist type="Property" propertyKey="Input_Account" value="Enter the email address of your Outlook account. Enter CURRENT_OUTLOOK_ACCOUNT here to use the first account configured in Outlook." />
+        <Assist type="Property" propertyKey="Input_MailFolder" value="Specifies the name of the inbox used by the Outlook account." />
+        <Assist type="Property" propertyKey="Filter_Title" value="Specify the required string so that only mails with a specific phrase in the subject can be obtained." />
+        <Assist type="Property" propertyKey="Filter_StartTime" value="Specifies the string on the first day of the month stored in this.mFirstDayStr so that only mails received after the start of the current month are retrieved." />
+        <Assist type="Property" propertyKey="Filter_EndTime" value="Specifies the string of the last day of the month stored in this.mLastDayStr so that only mails received before the end of the current month are retrieved." />
+      </Assists>
+    </Step>
+    <Step id="Scf7d5d4f56aa48669b985b38bc02ef29">
+      <Assists>
+        <Assist type="Summary" value="Allows you to traverse the filtered incoming mail for each mail item." />
+        <Assist type="Property" propertyKey="Conditions_ForList" value="Specifies the variable this.mMails that stores the entire filtered list of incoming mail." />
+        <Assist type="Property" propertyKey="Conditions_EachItem" value="Allows you to store the mail item to be used in the current traversal in the this.mMailItem variable of the entire mail list." />
+      </Assists>
+    </Step>
+    <Step id="S937f3eb2cce8460c8b5d8e4a32cbbe1d">
+      <Assists>
+        <Assist type="Summary" value="Extract subject information from specific mail items." />
+        <Assist type="Property" propertyKey="Output_MailField" value="Specifies the this.mMailSubject string variable where the extracted mail information will be stored." />
+        <Assist type="Property" propertyKey="Input_MailItem" value="Specifies the variable that stores the current mail item. Specifies the this.mMailItem variable set in ForEach ." />
+        <Assist type="Property" propertyKey="Input_MailField" value="Select the kind of information to extract from the mail. Specify Subject to extract subject." />
+      </Assists>
+    </Step>
+    <Step id="S9e81631051c1418fabf92bcc89cc4bc6">
+      <Assists>
+        <Assist type="Summary" value="It accumulates and collects the subject of the inquired mail, and creates a valid file name for extracting to an external mail file. &#xD;&#xA;If necessary, you can use functions that conform to JavaScript syntax, such as replace()." />
+        <Assist type="Property" propertyKey="Key_Script" value="Characters that are not allowed in file names (\ / * ? &quot; &lt; &gt; |) are replaced with '_'." />
+      </Assists>
+    </Step>
+    <Step id="S34055386dd7b4727b757edf8db0ba0d6">
+      <Assists>
+        <Assist type="Summary" value="Replaces certain characters in a string with other characters." />
+      </Assists>
+    </Step>
+    <Step id="S658c6c545e184f1eaec3e62b4a8ed842">
+      <Assists>
+        <Assist type="Summary" value="Replaces certain characters in a string with other characters." />
+      </Assists>
+    </Step>
+    <Step id="S17ebe64f032b42f68505091dc30aaa88">
+      <Assists>
+        <Assist type="Summary" value="Extracts the current mail item to an external file." />
+        <Assist type="Property" propertyKey="Input_MailItem" value="Specifies the variable that stores the current mail item. Specifies the this.mMailItem variable set in ForEach ." />
+        <Assist type="Property" propertyKey="Input_Filename" value="Enter the full path to the file where this email will be saved. Enter this.mMailDir + this.mMailSubject.&#xD;&#xA;mMailDir variable stores the folder path, and mMailSubject calculates a valid file name." />
+      </Assists>
+    </Step>
+    <Step id="Sa4beb990699a49c096da9f934a7b8650">
+      <Assists />
+    </Step>
+    <Step id="S7b98b5dd796e455d8cc84bd6e7e2605d">
+      <Assists>
+        <Assist type="Summary" value="Prints to the user a list of mail subjects received this month and with certain conditions." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specifies the total number of retrieved messages and a list of mail subjects. The total number of mails can be obtained through the Count member of the list stored in the this.mMails variable." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

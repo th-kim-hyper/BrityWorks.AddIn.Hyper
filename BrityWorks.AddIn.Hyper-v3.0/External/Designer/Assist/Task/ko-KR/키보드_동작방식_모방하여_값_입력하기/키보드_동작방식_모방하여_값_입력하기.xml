@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="200">
+  <Summary>키보드 동작 방식 모방하여 값 입력하기</Summary>
+  <Detail>키보드 동작 방식을 모방하여서 메모장에 값과 명령을 입력합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S641085330b5449e1b15e159bc277a4a9">
+      <Assists>
+        <Assist type="Summary" value="지정한 앱을 실행할 수 있습니다. 메모장을 실행해보세요." />
+        <Assist type="Property" propertyKey="Application_Command" value="'notepad.exe' 를 입력하세요." />
+        <Assist type="Test" value="실행 버튼을 클릭해서 메모장을 실행해보세요." />
+      </Assists>
+    </Step>
+    <Step id="Sd693533cc2b2403598e4c5f8be613066">
+      <Assists>
+        <Assist type="Summary" value="열린 메모장에 지정한 텍스트를 입력해보세요." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하고, &#xD;&#xA;메모장의 빈 부분을 지정하세요." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="타겟으로 지정한 메모장에 입력할&#xD;&#xA;텍스트를 설정합니다.&#xD;&#xA;텍스트 박스에 'test'를 입력해주세요." />
+        <Assist type="Test" value="실행 버튼을 클릭해서 텍스트 입력을 확인해보세요." />
+      </Assists>
+    </Step>
+    <Step id="Scc96b1ca468d481182904f5f98205e39">
+      <Assists>
+        <Assist type="Summary" value="열린 메모장에 지정한 텍스트를 입력해보세요. &#xD;&#xA;(SetText와는 텍스트를 하나씩 입력하는 차이가 있습니다.)" />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하고, 메모장의 빈 부분을 지정하세요." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="타겟으로 지정한 메모장에 입력할 텍스트를 설정합니다.&#xD;&#xA;텍스트 박스에 'test1 test2'를 입력해주세요." />
+        <Assist type="Property" propertyKey="Keyboard_ClearAll" value="텍스트 입력 전 기존의 텍스트를 모두 지울지 설정합니다.&#xD;&#xA;해당 설정을 활성화해주세요." />
+        <Assist type="Test" value="실행 버튼을 클릭해서 텍스트 입력을 확인해보세요." />
+      </Assists>
+    </Step>
+    <Step id="S8bd444ec7d574d7dadc3bbcb0e02223e">
+      <Assists>
+        <Assist type="Summary" value="키보드 동작을 설정하여 바꾸기 창을 열어보세요." />
+        <Assist type="Property" propertyKey="Keyboard_KeyInput" value="키 이벤트를 설정합니다. 빨간색 원을 클릭하면 다시 원을 클릭하기 전까지의 동작을 감지합니다.&#xD;&#xA;Ctrl+H 명령 동작을 설정해보세요." />
+      </Assists>
+    </Step>
+    <Step id="S85420fae75f64d7db38bacc85d17a86f">
+      <Assists>
+        <Assist type="Summary" value="텍스트를 입력하는 키보드 동작을 설정해 보세요.&#xD;&#xA;(바꾸기 창에서 찾을 내용을 설정하는 동작입니다.)" />
+        <Assist type="Property" propertyKey="Keyboard_KeyInput" value="키 이벤트를 설정합니다. 위와 같은 방법으로 test 텍스트 입력 동작을 설정해보세요." />
+      </Assists>
+    </Step>
+    <Step id="S433e01e68ebb49cbb1c4f1e3784e2c69">
+      <Assists>
+        <Assist type="Summary" value="키보드 동작을 모방하여 텍스트 입력과 명령을 설정해 보세요.&#xD;&#xA;(바꾸기 창에서 바꿀 내용을 설정하는 동작입니다.)" />
+        <Assist type="Property" propertyKey="Keyboard_KeyInput" value="키 이벤트를 설정합니다. 위와 같은 방법으로 tab 명령 후 replace 텍스트 입력 동작을 설정해보세요." />
+      </Assists>
+    </Step>
+    <Step id="Sc13a14bf81b14fe89dca1e2cbc13aa1d">
+      <Assists>
+        <Assist type="Summary" value="키보드 동작을 설정하여 모두 바꾸기를 실행해보세요." />
+        <Assist type="Property" propertyKey="Keyboard_KeyInput" value="키 이벤트를 설정합니다. 위와 같은 방법으로 Alt+A 명령을 설정해보세요." />
+      </Assists>
+    </Step>
+    <Step id="S5707e42970ac4eab82fc41486de01347">
+      <Assists>
+        <Assist type="Summary" value="키보드 동작을 설정하여 바꾸기 창을 닫아보세요." />
+        <Assist type="Property" propertyKey="Keyboard_KeyInput" value="키 이벤트를 설정합니다. 위와 같은 방법으로 esc 명령을 설정해보세요." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

@@ -1,0 +1,211 @@
+<Process id="7ec1ae2b-5088-45eb-9480-e215057855d9" type="LibraryTemplate" workType="background" name="Editing_Excel_Sheets" version="" designerVersion="2.4.900.00524.D1" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="# summary Editing Excel Sheets&#xD;&#xA;# detail Open a new Excel file to add, delete, and select sheets." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="5560x1920" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-27 13:31:01" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-30 09:31:02" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="SheetName" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="Sc96fa926e89b4397887a5813a34b9f24" ver="220526001" createVer="220526001" type="Excel" name="HeadlessNewExcel" dpName="HeadlessNewExcel" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="c3954338-38e7-49c9-a541-1d8e0c399a64" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Output_OutputExcel" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="File_Invisible" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.HeadlessNewExcel', this.headlessnewexcel_info_1);]]></Script>
+    </Step>
+    <Step id="S89c18d0033a04862868c4b964314c18d" ver="220526001" createVer="220526001" type="Excel" name="CreateWorkSheet" dpName="CreateWorkSheet" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="da9005d4-3911-4347-97ab-6313aaa331a9" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Sheet_Position" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="1" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CreateWorkSheet', this.createworksheet_info_2);]]></Script>
+    </Step>
+    <Step id="Sd41cbb8211c94ef7b2e8e52ec7bcc5a2" ver="220526001" createVer="220526001" type="Excel" name="GetSheetName" dpName="GetSheetName" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="36a0463a-b737-419d-a35e-7e4c96e91786" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Output_SheetName" controlType="OutputControlType" valueType="System.String" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="Sheet_Position" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="1" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.GetSheetName', this.getsheetname_info_3);]]></Script>
+    </Step>
+    <Step id="Se71c634eecfa48338353ebb576d705a6" ver="220526001" createVer="220526001" type="Excel" name="WriteString" dpName="WriteString" dpValue="A1:B2" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="b0f26d4a-cb6a-45d4-87f9-63102e8dbf1d" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Range" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="Sheet_InputString" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="File_AutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.WriteString', this.writestring_info_4);]]></Script>
+    </Step>
+    <Step id="Saebf0e664c5e42eab569194bf8dcbdf1" ver="220526001" createVer="220526001" type="Excel" name="CopyWorkSheet" dpName="CopyWorkSheet" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="d2544be1-2787-4ab2-b86e-0e006334f7c4" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_SourceSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="File_TargetSheet" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'Sheet_Copy'" />
+        <Property type="Excel" key="File_BeforeSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="File_AfterSheet" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CopyWorkSheet', this.copyworksheet_info_5);]]></Script>
+    </Step>
+    <Step id="S24d3756bed73484c8990e262ec59af22" ver="220526001" createVer="220526001" type="Excel" name="CopyWorkSheet" dpName="CopyWorkSheet" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="307daee7-c426-4b95-8f93-ae44971f8d59" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_SourceSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="File_TargetSheet" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'Sheet_Copy'" />
+        <Property type="Excel" key="File_BeforeSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="File_AfterSheet" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CopyWorkSheet', this.copyworksheet_info_6);]]></Script>
+    </Step>
+    <Step id="S97165593c6604de59f3a73ad79beaf8b" ver="220526001" createVer="220526001" type="Excel" name="MoveWorkSheet" dpName="MoveWorkSheet" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="56a84a5d-ad47-4665-97f1-27ebda8ed626" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_SourceSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="File_BeforeSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Excel" key="File_AfterSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.MoveWorkSheet', this.moveworksheet_info_7);]]></Script>
+    </Step>
+    <Step id="S0d783ad302d04afd90061da6f1624315" ver="220526001" createVer="220526001" type="Excel" name="DeleteWorkSheet" dpName="DeleteWorkSheet" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="6aee7d97-3d83-4cce-9020-5c1d21cbb2fa" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.DeleteWorkSheet', this.deleteworksheet_info_8);]]></Script>
+    </Step>
+    <Step id="S1fc9e04ba477417abb11900dabf1dbc1" ver="220526001" createVer="220526001" type="Excel" name="SaveExcel" dpName="SaveExcel" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="d1764b89-5884-4ef1-8604-d9f9d007aa9a" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_SaveAs" controlType="Excel" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_9);]]></Script>
+    </Step>
+    <Step id="S3f5e2e671e324ca8a7e19fe84a7f8e27" ver="220526001" createVer="220526001" type="Excel" name="CloseExcel" dpName="CloseExcel" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="8f3bd208-6380-423f-9adc-01e42fdf0435" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Close the Excel document opened in the background." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_Force" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_10);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Excel</string>
+  </Libraries>
+  <JScript><![CDATA[function Editing_Excel_Sheets() {
+
+    this.SheetName;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('Sc96fa926e89b4397887a5813a34b9f24', '[1] HeadlessNewExcel');
+        RESULT = StepPlayer.Run('Excel.HeadlessNewExcel', this.headlessnewexcel_info_1);
+
+        //------------------------------------------------
+        STEP('S89c18d0033a04862868c4b964314c18d', '[2] CreateWorkSheet');
+        StepPlayer.Run('Excel.CreateWorkSheet', this.createworksheet_info_2);
+
+        //------------------------------------------------
+        STEP('Sd41cbb8211c94ef7b2e8e52ec7bcc5a2', '[3] GetSheetName');
+        RESULT = StepPlayer.Run('Excel.GetSheetName', this.getsheetname_info_3);
+
+        //------------------------------------------------
+        STEP('Se71c634eecfa48338353ebb576d705a6', '[4] WriteString');
+        StepPlayer.Run('Excel.WriteString', this.writestring_info_4);
+
+        //------------------------------------------------
+        STEP('Saebf0e664c5e42eab569194bf8dcbdf1', '[5] CopyWorkSheet');
+        StepPlayer.Run('Excel.CopyWorkSheet', this.copyworksheet_info_5);
+
+        //------------------------------------------------
+        STEP('S24d3756bed73484c8990e262ec59af22', '[6] CopyWorkSheet');
+        StepPlayer.Run('Excel.CopyWorkSheet', this.copyworksheet_info_6);
+
+        //------------------------------------------------
+        STEP('S97165593c6604de59f3a73ad79beaf8b', '[7] MoveWorkSheet');
+        StepPlayer.Run('Excel.MoveWorkSheet', this.moveworksheet_info_7);
+
+        //------------------------------------------------
+        STEP('S0d783ad302d04afd90061da6f1624315', '[8] DeleteWorkSheet');
+        StepPlayer.Run('Excel.DeleteWorkSheet', this.deleteworksheet_info_8);
+
+        //------------------------------------------------
+        STEP('S1fc9e04ba477417abb11900dabf1dbc1', '[9] SaveExcel');
+        StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_9);
+
+        //------------------------------------------------
+        STEP('S3f5e2e671e324ca8a7e19fe84a7f8e27', '[10] CloseExcel');
+        StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_10);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="Sc96fa926e89b4397887a5813a34b9f24" group_name="14b14947-74b7-486b-8d9a-dbe29e3ebf92_New Excel" folded="False" />
+      <StepNode step_id="S89c18d0033a04862868c4b964314c18d" group_name="1dbdc369-1eee-4e10-967f-f43867fbce4b_Create&amp;Edit WorkSheet" folded="False" />
+      <StepNode step_id="Sd41cbb8211c94ef7b2e8e52ec7bcc5a2" group_name="1dbdc369-1eee-4e10-967f-f43867fbce4b_Create&amp;Edit WorkSheet" folded="False" />
+      <StepNode step_id="Se71c634eecfa48338353ebb576d705a6" group_name="1dbdc369-1eee-4e10-967f-f43867fbce4b_Create&amp;Edit WorkSheet" folded="False" />
+      <StepNode step_id="Saebf0e664c5e42eab569194bf8dcbdf1" group_name="1709c856-9f9d-443b-9b66-116d45787f32_Copy WorkSheet" folded="False" />
+      <StepNode step_id="S24d3756bed73484c8990e262ec59af22" group_name="1709c856-9f9d-443b-9b66-116d45787f32_Copy WorkSheet" folded="False" />
+      <StepNode step_id="S97165593c6604de59f3a73ad79beaf8b" group_name="33e3ad9b-47b2-4822-b5ae-bf2670a573c1_Move WorkSheet" folded="False" />
+      <StepNode step_id="S0d783ad302d04afd90061da6f1624315" group_name="11e12cac-2125-4501-b01c-11aa181c1d79_Delete WorkSheet" folded="False" />
+      <StepNode step_id="S1fc9e04ba477417abb11900dabf1dbc1" group_name="68926286-881c-45cf-8dfd-368d82b7afb0_Save&amp;Close WorkSheet" folded="False" />
+      <StepNode step_id="S3f5e2e671e324ca8a7e19fe84a7f8e27" group_name="68926286-881c-45cf-8dfd-368d82b7afb0_Save&amp;Close WorkSheet" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>WOYmDkpHTMy6ujQyEr3AaCnuFQA=</DigestValue></Reference></SignedInfo><SignatureValue>COlvPsU/HoIeu0hrnWu/NV15WnYtaC0qw47k2Q10+ytgcOo0jhWZqXgIYOCEDUNErzL4WxLB4qw0MNi2ud7bry5YDzXFDbBM4BHpUkl5mLmE+EXR8bsipjEj9ymE0xdkRBIb+nax0sqqt6hUQW7Tkqdcl+u6Vxt5y8JZEiiH/FFVvL+78oAp8qKEze/+7jLHF4793o25BLr4KskrgJys84gplQn1POP/m9NVgGzTQkRmBQ7aMGWGjED3SyJlQgXvKQru8g6kPJqcQQbnXghB1dVu2AT7r4kdAHVpdK/D5GuCnvEoAr7VxLW8D+aMWCCDUizaVdcWX1cfqP6z/u4qSw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-HTLA2, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

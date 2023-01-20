@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Capture the screen that changes every moment.</Summary>
+  <Detail>Capture consecutively the screen that changes every second and save it.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sc2bd7fef0d7144dfbea8bfefcb5f5f9d">
+      <Assists>
+        <Assist type="Summary" value="Open a browser and access Naver." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Enter the URL to connect to.&#xD;&#xA;Type 'https://www.naver.com'" />
+        <Assist type="Test" value="Click Run button below and open a browser." />
+      </Assists>
+    </Step>
+    <Step id="S3161d2a974f1414087bc9b1420d0a1c0">
+      <Assists>
+        <Assist type="Summary" value="Make the capture run repeatedly." />
+        <Assist type="Property" propertyKey="Conditions_IterationCount" value="Specify the number of iterations.&#xD;&#xA;Enter 5." />
+      </Assists>
+    </Step>
+    <Step id="S98a98b0f77be48aa8dc0fd2ab30de445">
+      <Assists>
+        <Assist type="Summary" value="Take a screenshot of a section of the browser." />
+        <Assist type="Target" value="After double-click the highlighted box, click the section below the login box." />
+        <Assist type="Property" propertyKey="CaptureImage_CapturePath" value="Increment this.count as it captures and add it to the end of the file name. Enter the capture path as below.&#xD;&#xA;Global.ProjectDir+'partCapture'+(++this.count)+'.png'" />
+        <Assist type="Property" propertyKey="Target_Name" value="As the names of the captured objects are not identical, disenable the option to uncheck their names." />
+      </Assists>
+    </Step>
+    <Step id="S4ee0f98d9744403db09117425d9c0f0f">
+      <Assists>
+        <Assist type="Summary" value="Set a time interval between captures." />
+        <Assist type="Property" propertyKey="Conditions_Second" value="Enter the time interval in seconds.&#xD;&#xA;Type 2." />
+      </Assists>
+    </Step>
+    <Step id="Se311a9e9855d4265bc8e09c101fae082">
+      <Assists />
+    </Step>
+    <Step id="Sc55fc3baf8714e7aa472b34405637092">
+      <Assists />
+    </Step>
+  </Steps>
+</TaskDescription>

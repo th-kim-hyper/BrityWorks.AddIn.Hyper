@@ -1,0 +1,330 @@
+<Process id="be163a81-66a6-45dd-b5c5-27430409ba49" type="LibraryTemplate" workType="foreground" name="Use_Different_Types_of_Variables" version="" designerVersion="2.4.900.00524.D0" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="# summary Use different types of variables&#xD;&#xA;# detail Store the value entered by the user and use it in the forms of text, number, date and array." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="4480x1440" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-25 11:05:08" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-31 15:09:24" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="today" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="monthOld" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="animals" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="animalArray" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="birthday" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="count" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="countRounded" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="index" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S93a83b6523274505a1e40f1f27dcc103" ver="220526001" createVer="220523001" type="Desktop" name="InputBox" dpName="InputBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="9e7e6dd0-bc50-4dc7-be24-dd9c67296bae" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Ask the user to enter the animals." />
+        <Property type="Desktop" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_PromptType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="OK;OK/Cancel;Yes/No;Yes/No/Cancel;Abort/Retry/Ignore;Retry/Cancel;Text" />
+        <Property type="Desktop" key="Conditions_DefaultValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_DefaultItem" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_PromptMessage" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_TimeoutSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="600" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Please set result variable : InputBox')]]></Script>
+    </Step>
+    <Step id="Sc2c12adb3a934b6da6ec8f436ff5d139" ver="220526001" createVer="220523001" type="Flow" name="CustomLibrary" dpName="Array1D_StringToArray" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="ddb75a0f-18ca-42fa-88e5-505fcbd9f3e6" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Convert a string type variable the user entered into a array type variable." />
+        <Property type="Flow" key="Conditions_LibraryScope" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Global" />
+        <Property type="Flow" key="Conditions_LibraryNamespace" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="DataConverter" />
+        <Property type="Flow" key="Conditions_LibraryName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="Array1D_StringToArray" />
+        <Property type="Flow" key="Conditions_LibraryType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="DotNetDll" />
+        <Property type="Flow" key="Conditions_Result" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Options_Instance" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Arguments_data" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Arguments_seperator" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Flow" key="Conditions_TargetAssembly" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_TargetClass" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_Array" />
+        <Property type="Flow" key="Conditions_TargetMethod" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="System.Object StringToArray(System.Object, System.String)" />
+        <Property type="Flow" key="Conditions_ExternLibrary" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_ExternLibraryModule" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_Array" />
+        <Property type="Flow" key="Conditions_ExternLibraryMethodFullName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="System.Object StringToArray(System.Object, System.String)" />
+        <Property type="Flow" key="Conditions_TargetMethodType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Static_Method" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[Script.DataConverter.Array1D_StringToArray(null, , );]]></Script>
+    </Step>
+    <Step id="S4ea06eff5e17442daabb5bd7c5556fac" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="865b7d31-de46-4153-bc97-182d4b8cec96" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Print and check the converted array." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="S2574742af0314600a89c1a0a30ae9d4f" ver="220526001" createVer="220523001" type="Desktop" name="InputBox" dpName="InputBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="9e7e6dd0-bc50-4dc7-be24-dd9c67296bae" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Ask the user to enter today's date." />
+        <Property type="Desktop" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_PromptType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="OK;OK/Cancel;Yes/No;Yes/No/Cancel;Abort/Retry/Ignore;Retry/Cancel;Text" />
+        <Property type="Desktop" key="Conditions_DefaultValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_DefaultItem" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_PromptMessage" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_TimeoutSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="600" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Please set result variable : InputBox')]]></Script>
+    </Step>
+    <Step id="Sb7c782d62c984d418e489b88a4832c8d" ver="220526001" createVer="220523001" type="Desktop" name="InputBox" dpName="InputBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="8cb78e07-bdfe-48f9-a145-7d5a5d5f6e66" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Ask the user to enter the number of months." />
+        <Property type="Desktop" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_PromptType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="OK;OK/Cancel;Yes/No;Yes/No/Cancel;Abort/Retry/Ignore;Retry/Cancel;Text" />
+        <Property type="Desktop" key="Conditions_DefaultValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_DefaultItem" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_PromptMessage" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_TimeoutSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="600" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Please set result variable : InputBox')]]></Script>
+    </Step>
+    <Step id="Saa9517a12bea4df688b958171cdd05cd" ver="220526001" createVer="220523001" type="Flow" name="CustomLibrary" dpName="DateTime_AddMonths" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="575cf6f2-1e54-43f8-8194-5b6e49edeacd" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Gets the birthday by today's date and the number of months." />
+        <Property type="Flow" key="Conditions_LibraryScope" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Global" />
+        <Property type="Flow" key="Conditions_LibraryNamespace" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="DataConverter" />
+        <Property type="Flow" key="Conditions_LibraryName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="DateTime_AddMonths" />
+        <Property type="Flow" key="Conditions_LibraryType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="DotNetDll" />
+        <Property type="Flow" key="Conditions_Result" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Options_Instance" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Arguments_date" controlType="String" valueType="System.String" formatType="String_DateTime" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Arguments_monthValue" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Flow" key="Conditions_TargetAssembly" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_TargetClass" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_DateTime" />
+        <Property type="Flow" key="Conditions_TargetMethod" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="System.Object AddMonths(System.Object, Int32)" />
+        <Property type="Flow" key="Conditions_ExternLibrary" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_ExternLibraryModule" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_DateTime" />
+        <Property type="Flow" key="Conditions_ExternLibraryMethodFullName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="System.Object AddMonths(System.Object, Int32)" />
+        <Property type="Flow" key="Conditions_TargetMethodType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Static_Method" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[Script.DataConverter.DateTime_AddMonths(null, , );]]></Script>
+    </Step>
+    <Step id="Sd5084257a3cc458daa91b4b4aa21d9d9" ver="220526001" createVer="220523001" type="Flow" name="CustomLibrary" dpName="DateTime_DateFormat" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="39be5965-9db7-4fae-9e10-d9178d6aad57" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Convert the date to the specified format." />
+        <Property type="Flow" key="Conditions_LibraryScope" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Global" />
+        <Property type="Flow" key="Conditions_LibraryNamespace" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="DataConverter" />
+        <Property type="Flow" key="Conditions_LibraryName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="DateTime_DateFormat" />
+        <Property type="Flow" key="Conditions_LibraryType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="DotNetDll" />
+        <Property type="Flow" key="Conditions_Result" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Options_Instance" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Arguments_date" controlType="String" valueType="System.String" formatType="String_DateTime" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Arguments_format" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Flow" key="Conditions_TargetAssembly" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_TargetClass" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_DateTime" />
+        <Property type="Flow" key="Conditions_TargetMethod" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="System.Object DateFormat(System.Object, System.String)" />
+        <Property type="Flow" key="Conditions_ExternLibrary" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_ExternLibraryModule" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_DateTime" />
+        <Property type="Flow" key="Conditions_ExternLibraryMethodFullName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="System.Object DateFormat(System.Object, System.String)" />
+        <Property type="Flow" key="Conditions_TargetMethodType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Static_Method" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[Script.DataConverter.DateTime_DateFormat(null, , );]]></Script>
+    </Step>
+    <Step id="Sdebcad4261f843188582e4a51bd1d0b5" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="fd6ab7b3-1bf4-4b20-b162-f66788bf3784" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Print and check the converted date." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="S7517bb6d8a994d1cba96c25e7327d330" ver="220526001" createVer="220523001" type="Desktop" name="InputBox" dpName="InputBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="9e7e6dd0-bc50-4dc7-be24-dd9c67296bae" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Ask the user to enter the number of animals." />
+        <Property type="Desktop" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_PromptType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="OK;OK/Cancel;Yes/No;Yes/No/Cancel;Abort/Retry/Ignore;Retry/Cancel;Text" />
+        <Property type="Desktop" key="Conditions_DefaultValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_DefaultItem" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_PromptMessage" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_TimeoutSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="600" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Please set result variable : InputBox')]]></Script>
+    </Step>
+    <Step id="Sd64b09a9b5cf4812be92cc29240fe261" ver="220526001" createVer="220523001" type="Flow" name="CustomLibrary" dpName="Number_Round" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="fe4150a2-ba41-41fb-a979-74f2a96307c1" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Round the number the user entered to make it integer." />
+        <Property type="Flow" key="Conditions_LibraryScope" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Global" />
+        <Property type="Flow" key="Conditions_LibraryNamespace" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="DataConverter" />
+        <Property type="Flow" key="Conditions_LibraryName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="Number_Round" />
+        <Property type="Flow" key="Conditions_LibraryType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="DotNetDll" />
+        <Property type="Flow" key="Conditions_Result" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Options_Instance" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Arguments_data" controlType="Double" valueType="System.Double" formatType="Double" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Arguments_decimals" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Flow" key="Conditions_TargetAssembly" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_TargetClass" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_Number" />
+        <Property type="Flow" key="Conditions_TargetMethod" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="System.Object Round(System.Object, Int32)" />
+        <Property type="Flow" key="Conditions_ExternLibrary" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="IPA.Custom.ExtendLibrary.dll" />
+        <Property type="Flow" key="Conditions_ExternLibraryModule" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="RPAGO.Custom.ExtendLibrary.DataConverter_Number" />
+        <Property type="Flow" key="Conditions_ExternLibraryMethodFullName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="System.Object Round(System.Object, Int32)" />
+        <Property type="Flow" key="Conditions_TargetMethodType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Static_Method" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[Script.DataConverter.Number_Round(null, , );]]></Script>
+    </Step>
+    <Step id="Sf4f11f98fd6949aca80c3624d0fefb1a" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="865b7d31-de46-4153-bc97-182d4b8cec96" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Print and check the rounded number." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="S771165ec5c854b6ca3f4cf6770309cb1" ver="220526001" createVer="220523001" type="Desktop" name="InputBox" dpName="InputBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="ee322bcd-938b-42bf-a5fb-9cfead6821db" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Ask the user to enter the index of the array." />
+        <Property type="Desktop" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_PromptType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="OK;OK/Cancel;Yes/No;Yes/No/Cancel;Abort/Retry/Ignore;Retry/Cancel;Text" />
+        <Property type="Desktop" key="Conditions_DefaultValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_DefaultItem" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_PromptMessage" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_TimeoutSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="600" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Please set result variable : InputBox')]]></Script>
+    </Step>
+    <Step id="Sa81b70c5e1e14afda838513603bb2a04" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="fa176236-861a-4898-8036-a3470f28857c" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Print and check the animal of the index in the array." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>System</string>
+    <string>DataConverter</string>
+  </Libraries>
+  <JScript><![CDATA[function Use_Different_Types_of_Variables() {
+
+    this.today;
+    this.monthOld;
+    this.animals;
+    this.animalArray;
+    this.birthday;
+    this.count;
+    this.countRounded;
+    this.index;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S93a83b6523274505a1e40f1f27dcc103', '[1] InputBox');
+        MsgBox('Please set result variable : InputBox')
+
+        //------------------------------------------------
+        STEP('Sc2c12adb3a934b6da6ec8f436ff5d139', '[2] Array1D_StringToArray');
+        Script.DataConverter.Array1D_StringToArray(null, , );
+
+        //------------------------------------------------
+        STEP('S4ea06eff5e17442daabb5bd7c5556fac', '[3] MessageBox');
+        MsgBox();
+
+        //------------------------------------------------
+        STEP('S2574742af0314600a89c1a0a30ae9d4f', '[4] InputBox');
+        MsgBox('Please set result variable : InputBox')
+
+        //------------------------------------------------
+        STEP('Sb7c782d62c984d418e489b88a4832c8d', '[5] InputBox');
+        MsgBox('Please set result variable : InputBox')
+
+        //------------------------------------------------
+        STEP('Saa9517a12bea4df688b958171cdd05cd', '[6] DateTime_AddMonths');
+        Script.DataConverter.DateTime_AddMonths(null, , );
+
+        //------------------------------------------------
+        STEP('Sd5084257a3cc458daa91b4b4aa21d9d9', '[7] DateTime_DateFormat');
+        Script.DataConverter.DateTime_DateFormat(null, , );
+
+        //------------------------------------------------
+        STEP('Sdebcad4261f843188582e4a51bd1d0b5', '[8] MessageBox');
+        MsgBox();
+
+        //------------------------------------------------
+        STEP('S7517bb6d8a994d1cba96c25e7327d330', '[9] InputBox');
+        MsgBox('Please set result variable : InputBox')
+
+        //------------------------------------------------
+        STEP('Sd64b09a9b5cf4812be92cc29240fe261', '[10] Number_Round');
+        Script.DataConverter.Number_Round(null, , );
+
+        //------------------------------------------------
+        STEP('Sf4f11f98fd6949aca80c3624d0fefb1a', '[11] MessageBox');
+        MsgBox();
+
+        //------------------------------------------------
+        STEP('S771165ec5c854b6ca3f4cf6770309cb1', '[12] InputBox');
+        MsgBox('Please set result variable : InputBox')
+
+        //------------------------------------------------
+        STEP('Sa81b70c5e1e14afda838513603bb2a04', '[13] MessageBox');
+        MsgBox();
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S93a83b6523274505a1e40f1f27dcc103" group_name="7c43d4a9-996e-4e0a-8e1e-625e7cd6d6a8_Untitled" folded="False" />
+      <StepNode step_id="Sc2c12adb3a934b6da6ec8f436ff5d139" group_name="7c43d4a9-996e-4e0a-8e1e-625e7cd6d6a8_Untitled" folded="False" />
+      <StepNode step_id="S4ea06eff5e17442daabb5bd7c5556fac" group_name="7c43d4a9-996e-4e0a-8e1e-625e7cd6d6a8_Untitled" folded="False" />
+      <StepNode step_id="S2574742af0314600a89c1a0a30ae9d4f" group_name="f834f1df-b64d-4290-97e9-d256e20f297e_Untitled" folded="False" />
+      <StepNode step_id="Sb7c782d62c984d418e489b88a4832c8d" group_name="f834f1df-b64d-4290-97e9-d256e20f297e_Untitled" folded="False" />
+      <StepNode step_id="Saa9517a12bea4df688b958171cdd05cd" group_name="f834f1df-b64d-4290-97e9-d256e20f297e_Untitled" folded="False" />
+      <StepNode step_id="Sd5084257a3cc458daa91b4b4aa21d9d9" group_name="f834f1df-b64d-4290-97e9-d256e20f297e_Untitled" folded="False" />
+      <StepNode step_id="Sdebcad4261f843188582e4a51bd1d0b5" group_name="f834f1df-b64d-4290-97e9-d256e20f297e_Untitled" folded="False" />
+      <StepNode step_id="S7517bb6d8a994d1cba96c25e7327d330" group_name="f1d6b5c4-0217-47cd-9f0e-5bf169f319ac_Untitled" folded="False" />
+      <StepNode step_id="Sd64b09a9b5cf4812be92cc29240fe261" group_name="f1d6b5c4-0217-47cd-9f0e-5bf169f319ac_Untitled" folded="False" />
+      <StepNode step_id="Sf4f11f98fd6949aca80c3624d0fefb1a" group_name="f1d6b5c4-0217-47cd-9f0e-5bf169f319ac_Untitled" folded="False" />
+      <StepNode step_id="S771165ec5c854b6ca3f4cf6770309cb1" group_name="973308ba-69d5-4d07-90ae-80e8d3bbd8a6_Untitled" folded="False" />
+      <StepNode step_id="Sa81b70c5e1e14afda838513603bb2a04" group_name="973308ba-69d5-4d07-90ae-80e8d3bbd8a6_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>XjwlX9MfVlxATuEfApQPTsrFpjI=</DigestValue></Reference></SignedInfo><SignatureValue>RbQUohKLs/53TbqbIupgauZh1tP+0WLeYJOt094jhimlcSl5x/TF+rlqXumgGjDfJA6jz0FpU3qObDoH43Av+iU/6E5zP4jzDImIEVaUE4a+hfDUK0QpsiEdiHNx98stAxBFIiP0EsT6TaITMmKyo4BS+QKvurwr+9MF1CNwqt//viff39WBTTjUVlV1QoadlOZlAAVHvc0dM+KRcgm55n3hX1iyCHItmp7ayln6eHIuWMoKxezveBT8ZRZ56BsQAZax8IERI/W6QRfHcgUwgm21ngSIvwcMEpijqOh6SirNjH9kPtjQuOkrEQLpaOwZ1pNjXF579Btb8gr4Cw2wEg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-G8Z9K, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

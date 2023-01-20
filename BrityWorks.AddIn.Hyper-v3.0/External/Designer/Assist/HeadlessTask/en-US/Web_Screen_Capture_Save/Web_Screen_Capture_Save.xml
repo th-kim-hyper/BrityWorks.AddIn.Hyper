@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Web Screen Capture and Save</Summary>
+  <Detail>Capture and save the web page screen and check the captured content by running the file.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S0386ef10939241bfb34256307ffa0941">
+      <Assists>
+        <Assist type="Summary" value="Launch the Chrome browser and go to the amazon page." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter the variable 'this.browser' to store the executed browser information." />
+        <Assist type="Property" propertyKey="CHROME_BrowserType" value="Activate to use headless mode." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Enter the site 'https://www.amazon.com' where you want to take a screen capture." />
+      </Assists>
+    </Step>
+    <Step id="Se6e61d60c4ad49a7ad295fa066875171">
+      <Assists>
+        <Assist type="Summary" value="Captures the screen of the current page and saves it as a file." />
+        <Assist type="Property" propertyKey="CHROME_Result" value="Enter the variable 'this.screenshotFile' to store the path containing the file name where the screenshot is saved." />
+        <Assist type="Property" propertyKey="CHROME_FilePath" value="Enter the variable 'Global.ProjectDir' that means the project path as the path to the file to save the screenshot." />
+      </Assists>
+    </Step>
+    <Step id="S4a2ef382635f4c71ac52cf7c27cb61ec">
+      <Assists>
+        <Assist type="Summary" value="Quit your browser." />
+      </Assists>
+    </Step>
+    <Step id="S51c6ac9e31594979aeea0eb1d7f28745">
+      <Assists>
+        <Assist type="Summary" value="Displays the path where the file is saved for checking the file where the screenshot is saved." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Enter the variable 'this.screenshotFile' where the file path to display is stored." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

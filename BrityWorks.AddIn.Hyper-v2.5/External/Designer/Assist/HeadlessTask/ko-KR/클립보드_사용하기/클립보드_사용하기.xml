@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>클립보드 사용하기</Summary>
+  <Detail>클립보드에 텍스트를 쓰기, 읽기, 파일로 저장합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sffaf448c0209483f85d504ab0429e2df">
+      <Assists>
+        <Assist type="Summary" value="'sample text'텍스트를 클립보드에 저장합니다." />
+        <Assist type="Property" propertyKey="Command_Input" value="클립보드에 저장할 텍스트 &#xD;&#xA;'sample text'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S275a7b07cec64286948d8d74a8efebc1">
+      <Assists>
+        <Assist type="Summary" value="클립보드에 저장된 'sample text'텍스트를 가져와서 this.clipboard에 저장합니다." />
+        <Assist type="Property" propertyKey="Command_Output" value="클립보드에 저장되어 있는 텍스트 'sample text'를 가져와 저장할 변수 'this.clipboard'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S4c7849beb83241919c92d4d048d11b0d">
+      <Assists>
+        <Assist type="Summary" value="this.clipboard 의 값을 메시지박스로 출력합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지박스에 표시할 값이 저장된 변수 'this.clipboard'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sb5b612cc124243f8b9848e527d796328">
+      <Assists>
+        <Assist type="Summary" value="클립보드에 저장된 값('sample text')을 'C:\\sampletext.txt'파일로 저장합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="클립보드 내용을 저장할 경로와 파일 'C:\\sampletext.txt'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S253ff79168034905b9ba374fa078c55c">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampletext.txt'파일을 실행하고 실행된 앱의 pid를 저장합니다." />
+        <Assist type="Property" propertyKey="Command_Output" value="실행한 앱의 pid 를 저장하기 위한 변수 'this.pid'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="실행할 파일(경로 포함) &#xD;&#xA;'C:\\sampletext.txt'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sb693a7fd490140ddafef46dcab470566">
+      <Assists>
+        <Assist type="Summary" value="실행된 파일의 내용을 확인할 시간으로 3초를 지정합니다." />
+        <Assist type="Property" propertyKey="Conditions_Second" value="'3'을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sbbd49a55269f4fa482993860c3dc7db8">
+      <Assists>
+        <Assist type="Summary" value="실행된 'C:\\sampletext.txt'파일을 pid를 이용하여 종료합니다." />
+        <Assist type="Property" propertyKey="Command_Input" value="종료할 앱의 pid 가 저장된 변수 'this.pid'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S843e3e8767db418e9813914a52bddc3f">
+      <Assists>
+        <Assist type="Summary" value="확인이 완료된 'C:\\sampletext.txt'파일을 삭제합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="삭제할 경로와 파일 &#xD;&#xA;'C:\\sampletext.txt'를 입력합니다." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

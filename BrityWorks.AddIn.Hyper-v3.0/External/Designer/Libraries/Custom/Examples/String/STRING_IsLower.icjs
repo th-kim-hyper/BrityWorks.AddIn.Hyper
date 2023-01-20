@@ -1,0 +1,38 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id 2c95a044-9a40-4c7c-b474-e9c77025e21f
+* @createdDate 2020-05-25 16:44:48
+* @lastModifiedDate 2020-05-25 16:44:48
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 지정된 문자열이 소문자 문자열인지 여부를 반환합니다.
+*  @brf (Returns whether the specified string is a lowercase string.)
+* @param stringValue<String> (ex, 'abc')
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.STRING_IsLower == null || Script.JavaScript.STRING_IsLower == undefined) {
+	Script.JavaScript.STRING_IsLower = function (stringValue) {
+	//Body Begin
+		this.IsValid = function (parm, val) {
+		    if (parm == "") return true;
+		    for (var i = 0; i < parm.length; i++) {
+		        if (val.indexOf(parm.charAt(i), 0) == -1)
+		            return false;
+		    }
+		    return true;
+		}
+		
+		var lwr = 'abcdefghijklmnopqrstuvwxyz';
+		return this.IsValid(inputString, lwr);
+	//Body End
+	}
+}

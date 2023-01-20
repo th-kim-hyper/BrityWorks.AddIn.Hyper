@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Execute only when conditions are met</Summary>
+  <Detail>Ask the user to enter a score, print pass or fail, ask the user to enter whether to retake the exam and print guide messages.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S47073c1ff4554c75aaacd903fe576af0">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter the score and store it." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.score." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Enter your test score.'" />
+      </Assists>
+    </Step>
+    <Step id="S5800578b9f964b08a3e5a9f19d07e85b">
+      <Assists>
+        <Assist type="Summary" value="The next steps are executed only when the score is 100 or less." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="Enter a condition as below.&#xD;&#xA;this.score&lt;=100" />
+      </Assists>
+    </Step>
+    <Step id="S902e9afec21240c1bab42d08c40aae00">
+      <Assists>
+        <Assist type="Summary" value="The next steps are executed respectively depending on whether score is above 70 or not." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="Enter a condition as below.&#xD;&#xA;this.score&gt;=70" />
+      </Assists>
+    </Step>
+    <Step id="S76b5523c2c874d4bbd0a67f08f8ccb8b">
+      <Assists>
+        <Assist type="Summary" value="A messagebox is displayed when the score is above 70." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;'You passed the exam.'" />
+      </Assists>
+    </Step>
+    <Step id="S9311bd1e576d43d49a2ecc43d7fb0f97">
+      <Assists />
+    </Step>
+    <Step id="S7d42e57d47514d0f95ecb4d2a4d88a12">
+      <Assists>
+        <Assist type="Summary" value="A messagebox is displayed when the score is less than 70." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;'You failed the exam.'" />
+      </Assists>
+    </Step>
+    <Step id="Sd1c38e4dc93d46b3843a73fdb6fac203">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter whether to retake the exam and store it." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store whether to retake the exam.&#xD;&#xA;Type this.retry." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Would you like to retake the exam?? Type Y or N.'" />
+      </Assists>
+    </Step>
+    <Step id="Sad07e55c07d540668bc7287dc1405f6e">
+      <Assists>
+        <Assist type="Summary" value="The next step is executed respectively depending on what the user entered." />
+        <Assist type="Property" propertyKey="Conditions_Condition" value="Enter a variable to apply the condition.&#xD;&#xA;Type this.retry." />
+      </Assists>
+    </Step>
+    <Step id="Sd685cdcc987240dbabf23e1e0e69f208">
+      <Assists>
+        <Assist type="Summary" value="Define execution when the user entered 'Y'." />
+        <Assist type="Property" propertyKey="Conditions_Case" value="Enter 'Y'." />
+      </Assists>
+    </Step>
+    <Step id="S9ab0fd96e0254a12b80ed73e5b3432dc">
+      <Assists>
+        <Assist type="Summary" value="Display a message box when 'Y' was entered." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;'Go for it!'" />
+      </Assists>
+    </Step>
+    <Step id="S30586e0f0213476f871ededb6b62095e">
+      <Assists />
+    </Step>
+    <Step id="S9ccff0aa28774883b95e6134b8d69f35">
+      <Assists>
+        <Assist type="Summary" value="Define execution when the user entered 'N'." />
+        <Assist type="Property" propertyKey="Conditions_Case" value="Enter 'N'." />
+      </Assists>
+    </Step>
+    <Step id="Sa01c6677fafd4af0ad107b7a79b55838">
+      <Assists>
+        <Assist type="Summary" value="Display a message box when 'N' was entered." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;'Too bad!'" />
+      </Assists>
+    </Step>
+    <Step id="Sd823af63c2b7447084447fdb5ce8a67b">
+      <Assists />
+    </Step>
+    <Step id="S6444a27199564a26a020a05688bbcd54">
+      <Assists>
+        <Assist type="Summary" value="Define execution when the user entered neither 'Y' nor 'N'." />
+      </Assists>
+    </Step>
+    <Step id="S4bd8504798d54f52a5673817a97170c3">
+      <Assists>
+        <Assist type="Summary" value="Display a message box when neither 'Y' nor 'N' was entered." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;'Wrong input.'" />
+      </Assists>
+    </Step>
+    <Step id="S15371732d94c4c3ea85015f7d2010c87">
+      <Assists />
+    </Step>
+    <Step id="S093dd8c2faa54886867eaa39e6311aef">
+      <Assists>
+        <Assist type="Summary" value="Execution was complete depending on whether score is above 70 or not." />
+      </Assists>
+    </Step>
+    <Step id="S504198ee88a84ef09799be66d6115a13">
+      <Assists>
+        <Assist type="Summary" value="Execution was complete when the score is 100 or less." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

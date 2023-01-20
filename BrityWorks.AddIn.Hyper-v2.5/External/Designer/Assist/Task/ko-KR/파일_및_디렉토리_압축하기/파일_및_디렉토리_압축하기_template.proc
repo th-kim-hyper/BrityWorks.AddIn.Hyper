@@ -1,0 +1,301 @@
+<Process id="6a7ded64-351f-4376-a232-5591d7f5fd46" type="LibraryTemplate" workType="foreground" name="파일_및_디렉토리_압축하기" version="" designerVersion="2.4.900.00524.D0" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary 파일 및 디렉토리 압축하기&#xD;&#xA;#detail 파일이 포함된 디렉토리를 압축하고 압축풀기 합니다." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="1920x1080" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-25 18:00:24" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-27 13:13:35" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="isDirExist" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="fileList" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="fileCount" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="Scee4e11fb2f349b3a80f672fe3e9e505" ver="220526001" createVer="220523001" type="Desktop" name="IsDirectoryExist" dpName="IsDirectoryExist" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="d9e19ba2-3f6d-4523-ac7e-b4eaa6b674bd" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리가 존재하는지 확인하여 'this.isDirExist'변수에 저장합니다." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.IsDirectoryExist', this.isdirectoryexist_info_1);]]></Script>
+    </Step>
+    <Step id="S13e343de2f86418db842f50d199e00b1" ver="220526001" createVer="220523001" type="Flow" name="DecisionThen" dpName="IfThen" dpValue="RESULT == true" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0">
+      <Properties id="caf0b5a1-0225-4c3f-ba65-f9943775e27f" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="디렉토리를 생성하기 위한 조건('C:\\sampleDir'디렉토리 존재 여부)을 확인합니다." />
+        <Property type="Flow" key="Conditions_Expression" controlType="PropertyItemTextEditorView" valueType="System.Object" formatType="Condition" required="True" visible="False" readonly="True" encrypted="False" isChanged="N" value="RESULT == true" order="1" />
+        <Property type="Flow" key="Conditions_CombineCondition" controlType="PropertyItemCombineConditionView" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" order="2" />
+        <Property type="Flow" key="Conditions_Expression1" controlType="PropertyItemExpressionView" valueType="System.Object" formatType="Condition" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT == true" order="3" />
+        <Property type="Flow" key="Conditions_AddCondition" controlType="PropertyItemAddConditionView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S22d1e372b7864ce0b2593173e5129a75" type="Flow" name="EndDecisionThen" />
+      </RelatedSteps>
+      <Script><![CDATA[if (RESULT == true) {]]></Script>
+    </Step>
+    <Step id="Sc4d9e98ce4064c0fbc5f378f8b853935" ver="220526001" createVer="220523001" type="Desktop" name="CreateDirectory" dpName="CreateDirectory" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="46ce6b26-58fe-480a-ba00-ac892d5317ff" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리를 생성합니다." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.CreateDirectory', this.createdirectory_info_3);]]></Script>
+    </Step>
+    <Step id="S22d1e372b7864ce0b2593173e5129a75" ver="220526001" createVer="220523001" type="Flow" name="EndDecisionThen" dpName="End-IfThen" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="017a5676-7278-4198-958a-a47ccbe36700" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S13e343de2f86418db842f50d199e00b1" type="Flow" name="DecisionThen" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="Sdf4b605703dc453d84920fef10580121" ver="220526001" createVer="220523001" type="Flow" name="Loop" dpName="For" dpValue="this.i &lt; 1" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0">
+      <Properties id="5d3fee5a-5fa1-429e-b33c-88bd244d32b9" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="내부에 있는 CreateDirectory 를 입력된 조건(10회)만큼 반복합니다." />
+        <Property type="Flow" key="Conditions_InitializeIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i = 0" />
+        <Property type="Flow" key="Conditions_LoopCondition" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i &lt; 1" />
+        <Property type="Flow" key="Conditions_UpdateIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i++" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sb71ede29df3a4070ba5d731ca9d62d76" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for (this.i = 0; this.i < 1; this.i++) {]]></Script>
+    </Step>
+    <Step id="Sb74b4c98dca54d17be6bfa8f4c87bd15" ver="220526001" createVer="220523001" type="Desktop" name="CreateFile" dpName="CreateFile" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="f326938b-0f03-4b5d-82b0-430c42610886" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리를 생성합니다." />
+        <Property type="Desktop" key="Command_Path" controlType="File" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Overwrite" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.CreateFile', this.createfile_info_6);]]></Script>
+    </Step>
+    <Step id="Sb71ede29df3a4070ba5d731ca9d62d76" ver="220526001" createVer="220523001" type="Flow" name="EndLoop" dpName="End-For" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="48a8b043-ee95-479c-9921-4111dab13dce" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sdf4b605703dc453d84920fef10580121" type="Flow" name="Loop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="Seb786ac9c8a648bfb558528d56f8056c" ver="220526001" createVer="220523001" type="Desktop" name="GetFileList" dpName="GetFileList" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="9f6221b0-aae5-4666-ac21-fc66c19b1142" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 가져옵니다." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Object[]" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_8);]]></Script>
+    </Step>
+    <Step id="S712ebb91fa434eae81280d25a7f27d57" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="c92b190a-d6ae-4194-9b31-b038ed449f13" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 메시지 박스로 표시합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="S7cc162a9821d4408b2c781d35c8b90a8" ver="220526001" createVer="220523001" type="Desktop" name="Zip" dpName="Zip" dpValue="from  &#xA;to " dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="be038997-718d-4543-906e-3b7226402537" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리를 압축하여 'C:\\sampleDir'경로에 압축파일을 생성합니다." />
+        <Property type="Desktop" key="Command_SrcFilePath" controlType="File" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="11" />
+        <Property type="Desktop" key="Command_SrcDirPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" order="12" />
+        <Property type="Desktop" key="Command_DestDirPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="13" />
+        <Property type="Desktop" key="Command_MaxMegaBytes" controlType="Double" valueType="System.Double" formatType="Double" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" order="14" />
+        <Property type="Desktop" key="Command_DirectoryOrFile" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" toggle="Directory;File" order="15" />
+        <Property type="Desktop" key="Command_IncludeDirectoryPath" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" order="16" />
+        <Property type="Desktop" key="Command_Overwrite" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" order="17" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.Zip', this.zip_info_10);]]></Script>
+    </Step>
+    <Step id="S3d9d0dcf5c354cb2871d85e2fabaee7d" ver="220526001" createVer="220523001" type="Desktop" name="GetFileList" dpName="GetFileList" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="9f6221b0-aae5-4666-ac21-fc66c19b1142" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 가져와 'C:\\sampleDir\\sampleDir.zip'파일이 추가된 것을 확인합니다." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Object[]" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_11);]]></Script>
+    </Step>
+    <Step id="S97a33ec05b1b4b1994f68015e4972e64" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="c92b190a-d6ae-4194-9b31-b038ed449f13" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 메시지 박스로 표시합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="S93a547ad4ca740b687693703719b65a5" ver="220526001" createVer="220523001" type="Desktop" name="UnZip" dpName="UnZip" dpValue="from  &#xA;to " dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="65b9afbe-0a4a-4fb5-9126-d100e27d9d65" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir\\sampleDir.zip'압축파일을 압축 해제 합니다." />
+        <Property type="Desktop" key="Command_SrcFilePath" controlType="ZIP" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="11" />
+        <Property type="Desktop" key="Command_DestDirPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="12" />
+        <Property type="Desktop" key="Command_Overwrite" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" order="13" />
+        <Property type="Desktop" key="Command_MakeDirectory" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" order="14" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.UnZip', this.unzip_info_13);]]></Script>
+    </Step>
+    <Step id="S5a6ce38413a64384b63a29781af08abf" ver="220526001" createVer="220523001" type="Desktop" name="GetFileList" dpName="GetFileList" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="9f6221b0-aae5-4666-ac21-fc66c19b1142" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\sampleDir\sampleDir'디렉토리에 존재하는 파일 목록을 가져옵니다." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Object[]" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_14);]]></Script>
+    </Step>
+    <Step id="Sf4ff7009167b4728ae487f78841f0a69" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="5493808e-92ec-4d7a-8bed-f0f865e05c69" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir\\sampleDir'디렉토리에 존재하는 파일 목록을 메시지 박스로 표시합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="S7f50904502474837a47f560a7c753581" ver="220526001" createVer="220523001" type="Desktop" name="DeleteDirectory" dpName="DeleteDirectory" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="2189cca1-bc9b-4c7d-aa8c-052eef710ab2" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="'C:\\sampleDir'디렉토리를 삭제합니다." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.DeleteDirectory', this.deletedirectory_info_16);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>System</string>
+    <string>FlowControl</string>
+  </Libraries>
+  <JScript><![CDATA[function 파일_및_디렉토리_압축하기() {
+
+    this.isDirExist;
+    this.fileList;
+    this.fileCount;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('Scee4e11fb2f349b3a80f672fe3e9e505', '[1] IsDirectoryExist');
+        RESULT = StepPlayer.Run('Desktop.IsDirectoryExist', this.isdirectoryexist_info_1);
+
+        //------------------------------------------------
+        STEP('S13e343de2f86418db842f50d199e00b1', '[2] IfThen');
+        if (RESULT == true) {
+
+            //------------------------------------------------
+            STEP('Sc4d9e98ce4064c0fbc5f378f8b853935', '[3] CreateDirectory');
+            StepPlayer.Run('Desktop.CreateDirectory', this.createdirectory_info_3);
+
+        //------------------------------------------------
+        }
+        STEP('S22d1e372b7864ce0b2593173e5129a75', '[4] End-IfThen');
+
+        //------------------------------------------------
+        STEP('Sdf4b605703dc453d84920fef10580121', '[5] For');
+        for (this.i = 0; this.i < 1; this.i++) {
+
+            //------------------------------------------------
+            STEP('Sb74b4c98dca54d17be6bfa8f4c87bd15', '[6] CreateFile');
+            StepPlayer.Run('Desktop.CreateFile', this.createfile_info_6);
+
+        //------------------------------------------------
+        }
+        STEP('Sb71ede29df3a4070ba5d731ca9d62d76', '[7] End-For');
+
+        //------------------------------------------------
+        STEP('Seb786ac9c8a648bfb558528d56f8056c', '[8] GetFileList');
+        RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_8);
+
+        //------------------------------------------------
+        STEP('S712ebb91fa434eae81280d25a7f27d57', '[9] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('S7cc162a9821d4408b2c781d35c8b90a8', '[10] Zip');
+        StepPlayer.Run('Desktop.Zip', this.zip_info_10);
+
+        //------------------------------------------------
+        STEP('S3d9d0dcf5c354cb2871d85e2fabaee7d', '[11] GetFileList');
+        RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_11);
+
+        //------------------------------------------------
+        STEP('S97a33ec05b1b4b1994f68015e4972e64', '[12] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('S93a547ad4ca740b687693703719b65a5', '[13] UnZip');
+        StepPlayer.Run('Desktop.UnZip', this.unzip_info_13);
+
+        //------------------------------------------------
+        STEP('S5a6ce38413a64384b63a29781af08abf', '[14] GetFileList');
+        RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_14);
+
+        //------------------------------------------------
+        STEP('Sf4ff7009167b4728ae487f78841f0a69', '[15] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('S7f50904502474837a47f560a7c753581', '[16] DeleteDirectory');
+        StepPlayer.Run('Desktop.DeleteDirectory', this.deletedirectory_info_16);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="Scee4e11fb2f349b3a80f672fe3e9e505" group_name="30cd876a-4f72-4e13-87e3-0ab1951bdcd0_Untitled" folded="False" />
+      <StepNode step_id="S13e343de2f86418db842f50d199e00b1" group_name="" folded="False" />
+      <StepNode step_id="Sc4d9e98ce4064c0fbc5f378f8b853935" group_name="25aebcd6-a0a4-4382-b845-2e89752455cd_Untitled" folded="False" />
+      <StepNode step_id="S22d1e372b7864ce0b2593173e5129a75" group_name="" folded="False" />
+      <StepNode step_id="Sdf4b605703dc453d84920fef10580121" group_name="" folded="False" />
+      <StepNode step_id="Sb74b4c98dca54d17be6bfa8f4c87bd15" group_name="a3863928-5870-4909-bcb3-29dc2491c5b7_Untitled" folded="False" />
+      <StepNode step_id="Sb71ede29df3a4070ba5d731ca9d62d76" group_name="" folded="False" />
+      <StepNode step_id="Seb786ac9c8a648bfb558528d56f8056c" group_name="a2f91e43-57de-4294-bbf3-65421d7990ed_Untitled" folded="False" />
+      <StepNode step_id="S712ebb91fa434eae81280d25a7f27d57" group_name="a2f91e43-57de-4294-bbf3-65421d7990ed_Untitled" folded="False" />
+      <StepNode step_id="S7cc162a9821d4408b2c781d35c8b90a8" group_name="a2f91e43-57de-4294-bbf3-65421d7990ed_Untitled" folded="False" />
+      <StepNode step_id="S3d9d0dcf5c354cb2871d85e2fabaee7d" group_name="a2f91e43-57de-4294-bbf3-65421d7990ed_Untitled" folded="False" />
+      <StepNode step_id="S97a33ec05b1b4b1994f68015e4972e64" group_name="a2f91e43-57de-4294-bbf3-65421d7990ed_Untitled" folded="False" />
+      <StepNode step_id="S93a547ad4ca740b687693703719b65a5" group_name="f39b642e-dbe7-440e-9bae-47ad17013ad5_Untitled" folded="False" />
+      <StepNode step_id="S5a6ce38413a64384b63a29781af08abf" group_name="f39b642e-dbe7-440e-9bae-47ad17013ad5_Untitled" folded="False" />
+      <StepNode step_id="Sf4ff7009167b4728ae487f78841f0a69" group_name="f39b642e-dbe7-440e-9bae-47ad17013ad5_Untitled" folded="False" />
+      <StepNode step_id="S7f50904502474837a47f560a7c753581" group_name="18cf4941-a244-46e1-8eea-0c8f0bab32ae_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>jf8tH+LOSIr7UiWMTEFdXzOPl48=</DigestValue></Reference></SignedInfo><SignatureValue>FkwV4eRO8/5fgQp2iyilZ4hs6Qt2PdHowB4xXu7lfKbZhfyUS7a3/STaFJmOHDiwiE3LXHC/tX1Ovp/lK/WIlgcUtVCbdEhUWPM18QwxC0TdD2L8FLj3iBM5NzzFmYpDImREGExWU3afxpfUFXJuxAcP1HjT+wohcOG+ovXGJQqN4Twj3SY047CCSWsoqyQhHxVxvvqKiHlPn7V8uyThaKdBHxoFYBK9A7WslPeEzySKkWbZ8Ni/h2CrDvUnFIdK/BNIVXTD4cGNEOdzRtZWuU8QQ2hhjH8evE0hVXXuScph7Y0D1ph53gkIL5Mh9TloXW7PB0Wt8I2PMa8A030cFQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-0AOI4, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

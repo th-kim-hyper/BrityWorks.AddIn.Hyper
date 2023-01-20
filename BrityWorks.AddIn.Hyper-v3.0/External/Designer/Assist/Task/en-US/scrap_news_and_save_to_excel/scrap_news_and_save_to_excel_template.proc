@@ -1,0 +1,228 @@
+<Process id="d446e7b4-519b-4d41-8066-ad07bff1aee7" type="LibraryTemplate" workType="foreground" name="Pattern_scrap_news_and_save_to_excel" version="" designerVersion="2.4.900.00524.D1" lastPublishedServer="" readonly="false" isValid="true" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary Scrap news and save to Excel&#xD;&#xA;#detail Access the Chrome browser and clip the news title and save it in an Excel document." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="5120x1440" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-10 17:35:29" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 11:46:46" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="chromeResult" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S3abb839f23c0489e88af9c1eb5b93f86" ver="220526001" createVer="220526001" type="Excel" name="NewExcel" dpName="NewExcel" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="7089c0ff-1354-4e37-b8b9-994d2d114cdd" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Open a new Excel document to save news titles." />
+        <Property type="Excel" key="Output_OutputExcel" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="File_Invisible" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Excel" key="File_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.NewExcel', this.newexcel_info_1);]]></Script>
+    </Step>
+    <Step id="S76d1553cccb04a56ab4e92033a39db15" ver="220526001" createVer="211222001" type="Chrome" name="ChromeOpen" dpName="ChromeOpen" dpValue="about:blank" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="12016fc3-48b4-435a-84b4-2653aa1dbf5f" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Open your browser.&#xD;&#xA;This time, we will try to connect to Naver." assist="False" />
+        <Property type="Chrome" key="CHROME_Browser" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" assist="False" />
+        <Property type="Chrome" key="CHROME_TypeOfBrowser" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Chrome" assist="False" valuelist="Chrome;Edge" />
+        <Property type="Chrome" key="CHROME_BrowserType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" assist="False" />
+        <Property type="Chrome" key="CHROME_URL" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'about:blank'" assist="True" />
+        <Property type="Chrome" key="CHROME_ChromePath" controlType="File" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" assist="False" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="60" assist="False" />
+        <Property type="Chrome" key="CHROME_ExtensionList" controlType="PropertyItemChromeInstalledExtensionsView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_DownloadPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_2);]]></Script>
+    </Step>
+    <Step id="S2e28b827cab34d3e8da8493e9da6a276" ver="220526001" createVer="220302001" type="Chrome" name="ChromeClick" dpName="ChromeClick" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="36dd7cc5-c90c-4cbf-81f6-d1503bf22da5" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Click the specified object in an open browser.&#xD;&#xA;This time we will click on '뉴스'." assist="False" />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" assist="False" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" assist="False" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" assist="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" assist="False" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_3);]]></Script>
+    </Step>
+    <Step id="S901100dc10344427a94818401593a2eb" ver="220526001" createVer="211222001" type="Chrome" name="ChromeClick" dpName="ChromeClick" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="e5fd83f9-de5b-4627-a345-1a20bb6dfc9b" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Click the specified object in an open browser.&#xD;&#xA;This time we will click on 'IT/과학'." assist="False" />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" assist="False" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" assist="False" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" assist="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" assist="False" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_4);]]></Script>
+    </Step>
+    <Step id="S70153de79c5b483fb8c8d35c3d605c56" ver="220526001" createVer="220429001" type="Chrome" name="ChromeGetTableData" dpName="ChromeGetTableData" dpValue="RESULT" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="e1e5062a-1cb5-43af-b8c7-092f122fadee" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="This time we will bring you a list of headline news.&#xD;&#xA;The imported list is stored as an array." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DataType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="Text;Element" order="1" />
+        <Property type="Chrome" key="CHROME_ExpectedValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="" valuelist="" order="2" />
+        <Property type="Chrome" key="CHROME_Scope" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="2" />
+        <Property type="Chrome" key="CHROME_Data" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeGetTableData', this.chromegettabledata_info_5);]]></Script>
+    </Step>
+    <Step id="S0c29d1690b7644f4b627366e13dc6646" ver="220526001" createVer="211222001" type="Excel" name="WriteRange" dpName="WriteRange" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="3a379248-18cd-444f-8e7a-20132b5df40a" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Enter the saved data into an Excel file." assist="False" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" assist="False" />
+        <Property type="Excel" key="Input_DataArray" controlType="Object[][]" valueType="System.Object[][]" formatType="Array2D" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="True" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" assist="False" />
+        <Property type="Excel" key="Sheet_StartCell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" assist="True" />
+        <Property type="Excel" key="File_AutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" assist="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.WriteRange', this.writerange_info_6);]]></Script>
+    </Step>
+    <Step id="S40b6db77179d43338932e7910bc4e78e" ver="220526001" createVer="211222001" type="Excel" name="SaveExcel" dpName="SaveExcel" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="f4849acd-6a64-4222-b4b6-93115c9a9db5" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Save the created Excel file." assist="False" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" assist="False" />
+        <Property type="Excel" key="File_SaveAs" controlType="Excel" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_7);]]></Script>
+    </Step>
+    <Step id="S2ca4a8f4294a4c4ea9c2019653597c95" ver="220526001" createVer="220526001" type="Excel" name="CloseExcel" dpName="CloseExcel" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="da3fe651-af66-4c5f-9bdf-4cbc46c7ab81" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="You can close the previously opened Excel document." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_Force" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_8);]]></Script>
+    </Step>
+    <Step id="S93b56e1f7b9f465fa82c1a26f9b14adb" ver="220526001" createVer="211222001" type="Chrome" name="ChromeClose" dpName="ChromeClose" dpValue="LATEST_BROWSER" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="0da9e039-c839-41bb-8035-d83be49b27a1" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" assist="False" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Close the Chrome browser opened earlier." assist="False" />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" assist="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_9);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Excel</string>
+    <string>Chrome</string>
+  </Libraries>
+  <JScript><![CDATA[function Pattern_scrap_news_and_save_to_excel() {
+
+    this.chromeResult;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S3abb839f23c0489e88af9c1eb5b93f86', '[1] NewExcel');
+        RESULT = StepPlayer.Run('Excel.NewExcel', this.newexcel_info_1);
+
+        //------------------------------------------------
+        STEP('S76d1553cccb04a56ab4e92033a39db15', '[2] ChromeOpen');
+        RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_2);
+
+        //------------------------------------------------
+        STEP('S2e28b827cab34d3e8da8493e9da6a276', '[3] ChromeClick');
+        StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_3);
+
+        //------------------------------------------------
+        STEP('S901100dc10344427a94818401593a2eb', '[4] ChromeClick');
+        StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_4);
+
+        //------------------------------------------------
+        STEP('S70153de79c5b483fb8c8d35c3d605c56', '[5] ChromeGetTableData');
+        RESULT = StepPlayer.Run('Chrome.ChromeGetTableData', this.chromegettabledata_info_5);
+
+        //------------------------------------------------
+        STEP('S0c29d1690b7644f4b627366e13dc6646', '[6] WriteRange');
+        StepPlayer.Run('Excel.WriteRange', this.writerange_info_6);
+
+        //------------------------------------------------
+        STEP('S40b6db77179d43338932e7910bc4e78e', '[7] SaveExcel');
+        StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_7);
+
+        //------------------------------------------------
+        STEP('S2ca4a8f4294a4c4ea9c2019653597c95', '[8] CloseExcel');
+        StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_8);
+
+        //------------------------------------------------
+        STEP('S93b56e1f7b9f465fa82c1a26f9b14adb', '[9] ChromeClose');
+        StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_9);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S3abb839f23c0489e88af9c1eb5b93f86" group_name="6c97f6bc-e006-4a6d-b7ef-05f3296f67be_Untitled" folded="False" />
+      <StepNode step_id="S76d1553cccb04a56ab4e92033a39db15" group_name="a15acbc5-a072-47b5-af7f-b57b58508392_Untitled" folded="False" />
+      <StepNode step_id="S2e28b827cab34d3e8da8493e9da6a276" group_name="a15acbc5-a072-47b5-af7f-b57b58508392_Untitled" folded="False" />
+      <StepNode step_id="S901100dc10344427a94818401593a2eb" group_name="a15acbc5-a072-47b5-af7f-b57b58508392_Untitled" folded="False" />
+      <StepNode step_id="S70153de79c5b483fb8c8d35c3d605c56" group_name="a15acbc5-a072-47b5-af7f-b57b58508392_Untitled" folded="False" />
+      <StepNode step_id="S0c29d1690b7644f4b627366e13dc6646" group_name="c090fe35-377d-4b8c-b948-8fdd773a7e88_Untitled" folded="False" />
+      <StepNode step_id="S40b6db77179d43338932e7910bc4e78e" group_name="c090fe35-377d-4b8c-b948-8fdd773a7e88_Untitled" folded="False" />
+      <StepNode step_id="S2ca4a8f4294a4c4ea9c2019653597c95" group_name="c090fe35-377d-4b8c-b948-8fdd773a7e88_Untitled" folded="False" />
+      <StepNode step_id="S93b56e1f7b9f465fa82c1a26f9b14adb" group_name="a96c90b3-6251-4a40-9d60-3f1114bf11d4_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ciGysbjlajPfX13pLxHZKrEYZ2E=</DigestValue></Reference></SignedInfo><SignatureValue>k/AJ+Lr6a5aULgfzDkvgyXu3mk4jQzhlLtPLt5Jsg9EYV8kY4VvRlvj8YO1CcWhfbEqEW930Og2zlJMQl4zIYvoSJ4mQtFeu4jMiRkvXseNguVH7ow9XHl7k8SHjQlNbernj3rHXRO/H/8LmOXGrrjjx2LUOB5mRYxjOi7TpHz8ZigxyRf8i3wxTT+VLjnnvYh7yu7qWzzoppce2ujmdoxAPT93jA633xMfI8lmXwmmRUba3NCYbUSMtkYuqvb9jNc6jrTbBSx2F6+57o2q+M+9V7U8AZDxbfmEOBRc+c5B9EGd1O7bGsFK/OAeSaL2KPRda+ImZJrC/sHuy6SqV6Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-Q7M11, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

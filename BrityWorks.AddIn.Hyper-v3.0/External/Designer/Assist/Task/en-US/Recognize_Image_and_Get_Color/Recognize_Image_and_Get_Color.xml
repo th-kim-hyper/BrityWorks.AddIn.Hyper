@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Recognize an image and get color values</Summary>
+  <Detail>Get the color vof the first letter of the Google logo and fill the canvas with the color.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sbf20e043afac49baa05b26050d99b445">
+      <Assists>
+        <Assist type="Summary" value="Open a browser and access Google." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Enter the URL to connect to.&#xD;&#xA;Type 'https://www.google.com'" />
+        <Assist type="Test" value="Click Run button below and open a browser." />
+      </Assists>
+    </Step>
+    <Step id="Sffd83a677e3c4f6195613a9f2b40f950">
+      <Assists>
+        <Assist type="Summary" value="Wait until the logo appears." />
+        <Assist type="Target" value="After double-click the highlighted box, drag the Google logo." />
+      </Assists>
+    </Step>
+    <Step id="Sb750355f3ec9442a990fa243881d4af9">
+      <Assists>
+        <Assist type="Summary" value="Get the color of the first letter of the logo." />
+        <Assist type="Target" value="After double-click the highlighted box, drag the logo and click 'G', the first letter." />
+        <Assist type="Property" propertyKey="FindImage_Output" value="Specify a variable to store the color values.&#xD;&#xA;Type this.color." />
+      </Assists>
+    </Step>
+    <Step id="S144ad2d6e36245f29b3716f94561874c">
+      <Assists>
+        <Assist type="Summary" value="Print and check the color values." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.color." />
+      </Assists>
+    </Step>
+    <Step id="S9903ed748b2040dfbebbb07a87efe534">
+      <Assists>
+        <Assist type="Summary" value="Seperate the color values ​​by commas(,) and store them as an array." />
+        <Assist type="Property" propertyKey="Arguments_data" value="Specify a variable to be converted to an array. &#xD;&#xA;Type this.color." />
+        <Assist type="Property" propertyKey="Arguments_seperator" value="Type the seperator.&#xD;&#xA;Type ', '." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the converted array.&#xD;&#xA;Type this.rgb." />
+      </Assists>
+    </Step>
+    <Step id="Se6a26f00742b44d78944b37baa86d589">
+      <Assists>
+        <Assist type="Summary" value="Launch the paint app." />
+        <Assist type="Property" propertyKey="Application_Command" value="Enter the command of the paint execution.&#xD;&#xA;Type 'mspaint.exe'." />
+      </Assists>
+    </Step>
+    <Step id="S02bfdb110545491ebd4260fe2f1cc4ce">
+      <Assists>
+        <Assist type="Summary" value="Click the 'Fill with color' icon." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Fill with color' icon." />
+      </Assists>
+    </Step>
+    <Step id="S562a9ed8f5de4b49be43cc3ebe4de76e">
+      <Assists>
+        <Assist type="Summary" value="Click the 'Edit colors' icon." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Edit colors' icon." />
+      </Assists>
+    </Step>
+    <Step id="S5aa975df2b624f54a52fdecac1927b31">
+      <Assists>
+        <Assist type="Summary" value="Enter the value of red in the 'Edit colors' pop-up." />
+        <Assist type="Target" value="After double-click the highlighted box, click the input area of Red." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Specify a value of red.&#xD;&#xA;Type this.rgb[0]." />
+      </Assists>
+    </Step>
+    <Step id="S5dfa8fe46cdd4076a39461484b0e99f4">
+      <Assists>
+        <Assist type="Summary" value="Enter the value of green in the 'Edit colors' pop-up." />
+        <Assist type="Target" value="After double-click the highlighted box, click the input area of Green." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Specify a value of green.&#xD;&#xA;Type this.rgb[1]." />
+      </Assists>
+    </Step>
+    <Step id="S59643d8becff458897d1e93cefc42639">
+      <Assists>
+        <Assist type="Summary" value="Enter the value of blue in the 'Edit colors' pop-up." />
+        <Assist type="Target" value="After double-click the highlighted box, click the input area of Blue." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Specify a value of blue.&#xD;&#xA;Type this.rgb[2]." />
+      </Assists>
+    </Step>
+    <Step id="Sce1e28a3176e48e6bb4f2d218a02d13f">
+      <Assists>
+        <Assist type="Summary" value="Click the 'OK' button in the 'Edit colors' pop-up." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'OK' button" />
+      </Assists>
+    </Step>
+    <Step id="Sccc3949bbb0847c49ba5466cc1b3a63d">
+      <Assists>
+        <Assist type="Summary" value="Fill the canvas with the color." />
+        <Assist type="Target" value="After double-click the highlighted box, click the canvas area." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

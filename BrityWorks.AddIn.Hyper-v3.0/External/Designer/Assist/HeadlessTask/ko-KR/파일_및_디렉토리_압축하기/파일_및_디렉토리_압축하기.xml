@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>파일 및 디렉토리 압축하기</Summary>
+  <Detail>파일이 포함된 디렉토리를 압축하고 압축풀기 합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Scee4e11fb2f349b3a80f672fe3e9e505">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리가 존재하는지 확인하여 'this.isDirExist'변수에 저장합니다." />
+        <Assist type="Property" propertyKey="Command_Output" value="디렉토리 존재 여부를 저장할 변수 'this.isDirExist'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="존재 여부를 확인할 디렉토리 경로 'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S13e343de2f86418db842f50d199e00b1">
+      <Assists>
+        <Assist type="Summary" value="디렉토리를 생성하기 위한 조건('C:\\sampleDir'디렉토리 존재 여부)을 확인합니다." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="디렉토리가 존재하지 않는 조건 'this.isDirExist == false'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sc4d9e98ce4064c0fbc5f378f8b853935">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리를 생성합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="생성할 디렉토리 경로 &#xD;&#xA;'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S22d1e372b7864ce0b2593173e5129a75">
+      <Assists />
+    </Step>
+    <Step id="Sdf4b605703dc453d84920fef10580121">
+      <Assists>
+        <Assist type="Summary" value="내부에 있는 CreateDirectory 를 입력된 조건(10회)만큼 반복합니다." />
+        <Assist type="Property" propertyKey="Conditions_InitializeIndex" value="초기값으로 'this.fileCount = 0'을 입력합니다." />
+        <Assist type="Property" propertyKey="Conditions_LoopCondition" value="initialize 속성에 입력된 초기값을 확인하고 반복할 횟수(생성할 파일의 개수)를 입력합니다. 초기값이 0 이기 때문에 10개의 파일을 생성하기 위해 'this.fileCount &lt; 10'을 입력합니다." />
+        <Assist type="Property" propertyKey="Conditions_UpdateIndex" value="수행 시 마다 개수를 1개 증가하기 위해 'this.fileCount++'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sb74b4c98dca54d17be6bfa8f4c87bd15">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리를 생성합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="경로를 포함하여 생성할 파일을 입력합니다.&#xD;&#xA;파일은 중복을 방지하기 위해 반복횟수를 이용하여 ('C:\\sampleDir\\sampleText'+this.fileCount+'.txt') 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sb71ede29df3a4070ba5d731ca9d62d76">
+      <Assists />
+    </Step>
+    <Step id="Seb786ac9c8a648bfb558528d56f8056c">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 가져옵니다." />
+        <Assist type="Property" propertyKey="Command_Output" value="파일 목록을 저장할 변수 &#xD;&#xA;'this.fileList'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="파일 목록을 가져올 디렉토리 경로 'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S712ebb91fa434eae81280d25a7f27d57">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 메시지 박스로 표시합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스로 표시할 파일 목록이 저장된 변수 'this.fileList'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S7cc162a9821d4408b2c781d35c8b90a8">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리를 압축하여 'C:\\sampleDir'경로에 압축파일을 생성합니다." />
+        <Assist type="Property" propertyKey="Command_DirectoryOrFile" value="압축할 대상인 'Directory'를 선택합니다." />
+        <Assist type="Property" propertyKey="Command_SrcDirPath" value="압축할 디렉토리 경로 &#xD;&#xA;'C:\\sampleDir'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_DestDirPath" value="압축파일이 생성될 디렉토리 경로 'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S3d9d0dcf5c354cb2871d85e2fabaee7d">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 가져와 'C:\\sampleDir\\sampleDir.zip'파일이 추가된 것을 확인합니다." />
+        <Assist type="Property" propertyKey="Command_Output" value="파일 목록을 저장할 변수 &#xD;&#xA;'this.fileList'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="파일 목록을 가져올 디렉토리 경로 'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S97a33ec05b1b4b1994f68015e4972e64">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리에 존재하는 파일 목록을 메시지 박스로 표시합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스로 표시할 파일 목록이 저장된 변수 'this.fileList'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S93a547ad4ca740b687693703719b65a5">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir\\sampleDir.zip'압축파일을 압축 해제 합니다." />
+        <Assist type="Property" propertyKey="Command_SrcFilePath" value="압축 해제할 Zip파일 경로 &#xD;&#xA;'C:\\sampleDir\\sampleDir.zip'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_DestDirPath" value="압축을 풀 디렉토리 경로 &#xD;&#xA;'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S5a6ce38413a64384b63a29781af08abf">
+      <Assists>
+        <Assist type="Summary" value="'C:\sampleDir\sampleDir'디렉토리에 존재하는 파일 목록을 가져옵니다." />
+        <Assist type="Property" propertyKey="Command_Output" value="파일 목록을 저장할 변수 &#xD;&#xA;'this.fileList'를 입력합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="파일 목록을 가져올 디렉토리 경로 'C:\\sampleDir\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sf4ff7009167b4728ae487f78841f0a69">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir\\sampleDir'디렉토리에 존재하는 파일 목록을 메시지 박스로 표시합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스로 표시할 파일 목록이 저장된 변수 'this.fileList'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S7f50904502474837a47f560a7c753581">
+      <Assists>
+        <Assist type="Summary" value="'C:\\sampleDir'디렉토리를 삭제합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="삭제할 디렉토리 경로&#xD;&#xA;'C:\\sampleDir'를 입력합니다." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

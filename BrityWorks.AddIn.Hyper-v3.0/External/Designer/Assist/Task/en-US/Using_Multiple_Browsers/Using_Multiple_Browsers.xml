@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Using multiple browsers</Summary>
+  <Detail>Create and control multiple browsers with two ChromeOpens.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sd9b61cf28069475ebe2457ce9151bdac">
+      <Assists>
+        <Assist type="Summary" value="Launch the Chrome browser and go to the Google page." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter the variable 'this.googlebrowser' to store the browser that displays the Google page." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Enter 'https://www.google.com/?hl=en'." />
+        <Assist type="Test" value="Create a browser and go to the Google page." />
+      </Assists>
+    </Step>
+    <Step id="Sb49be68ad11b4f899bf17fe37ff67f94">
+      <Assists>
+        <Assist type="Summary" value="Launch the chrome browser and go to the bing page." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter the variable 'this.bingbrowser' to store the browser that displays the bing page." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Enter 'https://www.bing.com/?setlang=en'." />
+        <Assist type="Test" value="Create a browser and go to the bing page." />
+      </Assists>
+    </Step>
+    <Step id="S8857f5c9f6874173beb194c9436ae64e">
+      <Assists>
+        <Assist type="Summary" value="On the bing page, enter 'samsung' in the search field and search." />
+        <Assist type="Target" value="Specify a search box on the bing page." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Enter the text to be entered, 'samsung'." />
+        <Assist type="Property" propertyKey="Keyboard_UseDone" value="Activate it to type enter after entering a search term." />
+        <Assist type="Test" value="Enter a search term and type enter ." />
+      </Assists>
+    </Step>
+    <Step id="Sdd032a48d2004b119753f0a3b5c1388b">
+      <Assists>
+        <Assist type="Summary" value="Enter 'samsung' in the search field on the Google page and search." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'this.googlebrowser' to target Google Pages. In the case of LATEST_BROWSER , it means the bing page, which is the page you previously controlled." />
+        <Assist type="Target" value="Specify the search field on the Google page." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Enter the text to be entered, 'samsung'." />
+        <Assist type="Property" propertyKey="Keyboard_UseDone" value="Activate it to type enter after entering a search term." />
+        <Assist type="Test" value="Enter a search term and type enter ." />
+      </Assists>
+    </Step>
+    <Step id="Sff489c84d66a4341bbcefd4c4aae22ac">
+      <Assists>
+        <Assist type="Summary" value="Enter 'samsung sds' in the search field on the Google page and search." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'this.googlebrowser' to target Google Pages, or keep 'LATEST_BROWSER' to mean Google Pages, which is a previously controlled page." />
+        <Assist type="Target" value="Specify the search field on the Google page." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Enter the text to be entered, 'samsung sds'." />
+        <Assist type="Property" propertyKey="Keyboard_UseDone" value="Activate it to type enter after entering a search term." />
+        <Assist type="Test" value="Enter a search term and type enter ." />
+      </Assists>
+    </Step>
+    <Step id="S7d86340abc0145d18871925fa114eb2f">
+      <Assists>
+        <Assist type="Summary" value="On the bing page, enter 'samsung sds' in the search field and search." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'this.bingbrowser' to target the bing page." />
+        <Assist type="Target" value="Specify a search box on the bing page." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Enter the text to be entered, 'samsung sds'." />
+        <Assist type="Property" propertyKey="Keyboard_UseDone" value="Activate it to type enter after entering a search term." />
+        <Assist type="Test" value="Enter a search term and type enter ." />
+      </Assists>
+    </Step>
+    <Step id="S54923985e434450193cbc5921f175ba1">
+      <Assists>
+        <Assist type="Summary" value="Click the samsung sds item that came up as a search result on the Google page." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'this.googlebrowser' to target Google Pages." />
+        <Assist type="Target" value="Specifies the samsung sds item in the search results on the Google page." />
+        <Assist type="Test" value="Click the samsung sds item in the search results." />
+      </Assists>
+    </Step>
+    <Step id="Sfb24cc39547e4bcd965f3ef4c6cef0fa">
+      <Assists>
+        <Assist type="Summary" value="On the bing page, click the samsung sds item that came up as a search result." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'this.bingbrowser' to target the bing page." />
+        <Assist type="Target" value="Specifies the samsung sds item in the search results on the bing page." />
+        <Assist type="Test" value="Click the samsung sds item in the search results." />
+      </Assists>
+    </Step>
+    <Step id="Sbe94f005635b400ca4bca572b8fcc7bc">
+      <Assists>
+        <Assist type="Summary" value="Exit the bing page." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'LATEST_BROWSER' or 'this.bingbrowser' to target the bing page you just controlled." />
+        <Assist type="Test" value="Quit the browser with the bing page." />
+      </Assists>
+    </Step>
+    <Step id="S27cc539b03f84fbbb1f1290883679c01">
+      <Assists>
+        <Assist type="Summary" value="Close the Google page." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter 'LATEST_BROWSER' or 'this.googlebrowser' to target the previously controlled Google page because the previously controlled bing page was terminated." />
+        <Assist type="Test" value="Quit the browser with the bing page." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

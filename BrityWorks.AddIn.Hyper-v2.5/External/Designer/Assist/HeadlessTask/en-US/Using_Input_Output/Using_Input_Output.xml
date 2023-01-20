@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Using inputs and outputs</Summary>
+  <Detail>It receives a message from the user, stores it in a variable, and outputs the message stored in the variable.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S47dcd076618b4654b2f585b62e0a9e19">
+      <Assists>
+        <Assist type="Summary" value="This activity stores the value a user entered as text in a variable.&#xD;&#xA;Check the variable(var1) created in advance in the variable window." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Double-click the property field and select this.var1." />
+        <Assist type="Property" propertyKey="Conditions_PromptType" value="Select Text in the list." />
+      </Assists>
+    </Step>
+    <Step id="S6d78348376f74225890ca95e8a914194">
+      <Assists>
+        <Assist type="Summary" value="This activity prints a specified variable in a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Double-click the property field and select this.var1." />
+      </Assists>
+    </Step>
+    <Step id="S85bbf1b376804426a1ffef58760c3054">
+      <Assists>
+        <Assist type="Summary" value="This activity stores the value a user entered as OK or Cancel in a variable.&#xD;&#xA;Check the variable(var2) created in advance in the variable window." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Double-click the property field and select this.var2." />
+        <Assist type="Property" propertyKey="Conditions_PromptType" value="Select OK/Cancel in the list." />
+      </Assists>
+    </Step>
+    <Step id="Sf15db959e24c4ca9b6ef2a1a894b38b0">
+      <Assists>
+        <Assist type="Summary" value="This activity prints a specified variable in a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Double-click the property field and select this.var2." />
+      </Assists>
+    </Step>
+    <Step id="Sa5508efc99bb4664a4ad7b22c8baf313">
+      <Assists>
+        <Assist type="Summary" value="This activity stores the value a user entered as Abort, Retry or Ignore in a variable.&#xD;&#xA;Check the variable(var3) created in advance in the variable window." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Double-click the property field and select this.var3." />
+        <Assist type="Property" propertyKey="Conditions_PromptType" value="Select Abort/Retry/Ignore in the list." />
+      </Assists>
+    </Step>
+    <Step id="S2c85f68d487b4a0a903c717636a6b914">
+      <Assists>
+        <Assist type="Summary" value="This activity prints a specified variable in a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Double-click the property field and select this.var3." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

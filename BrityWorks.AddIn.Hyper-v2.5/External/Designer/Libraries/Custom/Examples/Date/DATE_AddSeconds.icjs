@@ -1,0 +1,31 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id 104e4da8-4030-4e69-9a8d-0f794f07aabf
+* @createdDate 2020-05-25 16:10:44
+* @lastModifiedDate 2020-05-25 16:11:56
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 지정된 초 수를 이 인스턴스의 값에 더하는 새 Date 개체를 반환합니다.
+*  @brf (This method is used to return a new Date that adds the specified number of seconds to the value of this instance.)
+* @param date<String_DateTime> (ex, '2020-01-01 03:24:00')
+* @param secondsValue<Integer> (ex, 15)
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.DATE_AddSeconds == null || Script.JavaScript.DATE_AddSeconds == undefined) {
+	Script.JavaScript.DATE_AddSeconds = function (date, secondsValue) {
+	//Body Begin
+		var result = new Date(date);
+		result.setSeconds(result.getSeconds() + secondsValue);
+		return result;
+	//Body End
+	}
+}

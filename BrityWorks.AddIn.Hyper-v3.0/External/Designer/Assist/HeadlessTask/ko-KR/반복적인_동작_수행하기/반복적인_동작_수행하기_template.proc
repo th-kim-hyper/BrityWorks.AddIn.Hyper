@@ -1,0 +1,402 @@
+<Process id="d6e95e79-83b0-491a-8711-98a65c1e2a54" type="LibraryTemplate" workType="foreground" name="반복적인_동작_수행하기" version="" designerVersion="2.4.900.00524.D0" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary 반복적인 동작 수행하기&#xD;&#xA;#detail 일정 횟수 반복하기, 전체 탐색 할 때까지 반복하기, 특정 조건에 따라 반복하기" enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="4480x1440" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-26 17:31:16" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-30 11:24:12" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="textArray" scope="Normal" valueType="Array1D" formatType="Array1D" initValue="['a','b','c','d','e']" desc="" />
+    <Variable name="numberArray" scope="Normal" valueType="Array1D" formatType="Array1D" initValue="[1,2,3,4,5,6,7,8,9,10]" desc="" />
+    <Variable name="alphabet" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="keyNumber" scope="Normal" valueType="Any" formatType="Any" initValue="0" desc="" />
+    <Variable name="index1" scope="Normal" valueType="Integer" formatType="Integer" initValue="0" desc="" />
+    <Variable name="index2" scope="Normal" valueType="Any" formatType="Any" initValue="-1" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S495a1bb746f64032a80196f4ce91e84d" ver="220526001" createVer="220523001" type="Flow" name="ForLoop" dpName="Loop" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0" ready="False">
+      <Properties id="fdc9be17-98e1-4d4d-bfcd-be78d847de15" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="지정한 횟수만큼 이후의 액티비티를 반복시킵니다." />
+        <Property type="Flow" key="Conditions_LoopType" controlType="PropertyItemLoopView" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" order="1" />
+        <Property type="Flow" key="Conditions_IterationCount" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Flow" key="Conditions_IterationVariable" controlType="Object" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Flow" key="Conditions_StartIndex" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" order="4" />
+        <Property type="Flow" key="Conditions_ListVariable" controlType="Object" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" order="5" />
+        <Property type="Flow" key="Conditions_ItemVariable" controlType="Object" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" order="6" />
+        <Property type="Flow" key="Conditions_Start" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" order="7" />
+        <Property type="Flow" key="Conditions_Count" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" order="8" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sa2b960ec35d74c1ab6170ea824adb904" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for (this.forloop_info_1_iter = 0; this.forloop_info_1_iter < 0 + ; this.forloop_info_1_iter++) {]]></Script>
+    </Step>
+    <Step id="S0919e295217a4d6fb165d6748619a339" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="1f965849-1b49-4bda-965f-5dd6b0ad9666" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="메시지 박스를 반복될 액티비티로 설정합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="Sa2b960ec35d74c1ab6170ea824adb904" ver="220526001" createVer="220523001" type="Flow" name="EndLoop" dpName="End-Loop" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="08857540-951c-4b13-9b95-fae4f3ddc07b" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S495a1bb746f64032a80196f4ce91e84d" type="Flow" name="ForLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="Sa2717df5b54943e399acc656af5b9d06" ver="220526001" createVer="220523001" type="Flow" name="Foreach" dpName="Foreach" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0" ready="False">
+      <Properties id="68de0efc-179b-40b6-8f45-831e7097d08b" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="배열에서 데이터를 하나씩 꺼내며 전체를 탐색할 때까지 반복합니다." />
+        <Property type="Flow" key="Conditions_ForList" controlType="Object" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Conditions_EachItem" controlType="Object" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Conditions_ForOfOrIn" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="for-of;for-in" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sdc7b9f162bb14a64b043573360bb5353" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for( of ) {]]></Script>
+    </Step>
+    <Step id="S452adc70dbd14a00a5852a72b0eb4f5e" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="705318f1-1753-4293-a2f7-7485ef649d5f" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="배열의 데이터를 메시지 박스를 통해 확인합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="Sdc7b9f162bb14a64b043573360bb5353" ver="220526001" createVer="220523001" type="Flow" name="EndLoop" dpName="End-Foreach" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="e658b3f8-c490-46e3-b082-17d1b2c3c42f" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sa2717df5b54943e399acc656af5b9d06" type="Flow" name="Foreach" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="S0f706ffbda904c82b55567f24844a98c" ver="220526001" createVer="220523001" type="Desktop" name="InputBox" dpName="InputBox" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="bd57075c-5d3f-4940-b754-15456b38445d" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="사용자로부터 숫자를 입력받습니다. 배열 탐색 중 이 숫자가 조회되면 탐색을 멈추게 할 것입니다." />
+        <Property type="Desktop" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_PromptType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="OK;OK/Cancel;Yes/No;Yes/No/Cancel;Abort/Retry/Ignore;Retry/Cancel;Text" />
+        <Property type="Desktop" key="Conditions_DefaultValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_DefaultItem" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Desktop" key="Conditions_PromptMessage" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Conditions_TimeoutSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="600" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Please set result variable : InputBox')]]></Script>
+    </Step>
+    <Step id="Safcac4a7446c402b8e7f652871a928d1" ver="220526001" createVer="220523001" type="Flow" name="UntilLoop" dpName="While" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0" ready="False">
+      <Properties id="93904cfe-70ef-4faf-b8aa-494ed758b2ed" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="배열의 인덱스를 1씩 증가하며 탐색하다가, 특정 조건을 만족하면 반복을 빠져나옵니다." />
+        <Property type="Flow" key="Conditions_Expression" controlType="PropertyItemTextEditorView" valueType="System.Object" formatType="Condition" required="True" visible="False" readonly="True" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Conditions_CombineCondition" controlType="PropertyItemCombineConditionView" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" order="2" />
+        <Property type="Flow" key="Conditions_Expression1" controlType="PropertyItemExpressionView" valueType="System.Object" formatType="Condition" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Flow" key="Conditions_AddCondition" controlType="PropertyItemAddConditionView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sbc7ad25633ae45f5abdcd95e6012632a" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[while () {]]></Script>
+    </Step>
+    <Step id="S5fc01393b5194a099f6dd1be2841370c" ver="220526001" createVer="220523001" type="Flow" name="DecisionThen" dpName="IfThen" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="OpenBlock" enabled="True" mainSet="0" ready="False">
+      <Properties id="d092b403-b80e-4a31-b24c-c8b205553581" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="특정 조건(사용자가 입력한 숫자와 순서대로 탐색되는 배열의 데이터가 일치할 때)이 만족하는지 판단합니다." />
+        <Property type="Flow" key="Conditions_Expression" controlType="PropertyItemTextEditorView" valueType="System.Object" formatType="Condition" required="True" visible="False" readonly="True" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Conditions_CombineCondition" controlType="PropertyItemCombineConditionView" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" order="2" />
+        <Property type="Flow" key="Conditions_Expression1" controlType="PropertyItemExpressionView" valueType="System.Object" formatType="Condition" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Flow" key="Conditions_AddCondition" controlType="PropertyItemAddConditionView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S36787f2dda5e41c1a75838d498e6bdd7" type="Flow" name="EndDecisionThen" />
+      </RelatedSteps>
+      <Script><![CDATA[if () {]]></Script>
+    </Step>
+    <Step id="S9d9e6f16a55e49fd8d71aae9d8296c9c" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="876e6cb9-48e2-47db-b08a-1b2fac0fc780" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="앞선 조건을 만족하면 메시지 박스로 정보를 확인합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="Sf5375159f9f44bd2ae4b569feb5d2312" ver="220526001" createVer="220523001" type="Flow" name="Break" dpName="Break" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="Jump" enabled="True" mainSet="0">
+      <Properties id="a55bde1c-8ef6-47b8-9131-05b7c16adc7d" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="앞선 조건을 만족하면 반복문을 빠져나갑니다." />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[break;]]></Script>
+    </Step>
+    <Step id="S36787f2dda5e41c1a75838d498e6bdd7" ver="220526001" createVer="220523001" type="Flow" name="EndDecisionThen" dpName="End-IfThen" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="e01ca7bb-bc32-41ab-a506-0066f930da3f" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S5fc01393b5194a099f6dd1be2841370c" type="Flow" name="DecisionThen" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="Sf70e4e44cb554959831742c189172408" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="6eccc045-9379-4dec-a512-71b4c1626b98" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="앞선 조건을 만족하지 않은 변수를 메시지 박스로 확인합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="S76b776f77cb4487aa056426c24550355" ver="220526001" createVer="220523001" type="Flow" name="Assign" dpName="Assign" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="adb55371-17cc-4652-b3b6-e99ce3fbc73a" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="반복문을 수행할 때에는 탐색 인덱스가 1 증가해야 합니다." />
+        <Property type="Flow" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Conditions_Value" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[ = ;]]></Script>
+    </Step>
+    <Step id="Sbc7ad25633ae45f5abdcd95e6012632a" ver="220526001" createVer="220523001" type="Flow" name="EndLoop" dpName="End-While" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="09b30877-6eb1-4013-a417-be7ae84e29a2" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Safcac4a7446c402b8e7f652871a928d1" type="Flow" name="UntilLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="S598718da0d5049eb81ad2784655edae7" ver="220526001" createVer="220523001" type="Flow" name="UntilLoop" dpName="While" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0" ready="False">
+      <Properties id="93904cfe-70ef-4faf-b8aa-494ed758b2ed" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="배열의 인덱스를 1씩 증가하며 탐색하다가, 특정 조건을 만족하면 이후의 액티비티는 수행하지 않고 반복을 계속합니다." />
+        <Property type="Flow" key="Conditions_Expression" controlType="PropertyItemTextEditorView" valueType="System.Object" formatType="Condition" required="True" visible="False" readonly="True" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Conditions_CombineCondition" controlType="PropertyItemCombineConditionView" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" order="2" />
+        <Property type="Flow" key="Conditions_Expression1" controlType="PropertyItemExpressionView" valueType="System.Object" formatType="Condition" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Flow" key="Conditions_AddCondition" controlType="PropertyItemAddConditionView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S5b51f1e3d0f14dceba58851c64ad6746" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[while () {]]></Script>
+    </Step>
+    <Step id="S8f2c98a72cb246949363449abd20567d" ver="220526001" createVer="220523001" type="Flow" name="Assign" dpName="Assign" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="adb55371-17cc-4652-b3b6-e99ce3fbc73a" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="반복문을 수행할 때에는 탐색 인덱스가 1 증가해야 합니다." />
+        <Property type="Flow" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Conditions_Value" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[ = ;]]></Script>
+    </Step>
+    <Step id="Sf0b6512dbe92422ea7f169b244bd5a0b" ver="220526001" createVer="220523001" type="Flow" name="DecisionThen" dpName="IfThen" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="OpenBlock" enabled="True" mainSet="0" ready="False">
+      <Properties id="d092b403-b80e-4a31-b24c-c8b205553581" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="특정 조건(순서대로 탐색되는 배열의 데이터가 짝수일 때)이 만족하는지 판단합니다." />
+        <Property type="Flow" key="Conditions_Expression" controlType="PropertyItemTextEditorView" valueType="System.Object" formatType="Condition" required="True" visible="False" readonly="True" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Flow" key="Conditions_CombineCondition" controlType="PropertyItemCombineConditionView" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" order="2" />
+        <Property type="Flow" key="Conditions_Expression1" controlType="PropertyItemExpressionView" valueType="System.Object" formatType="Condition" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Flow" key="Conditions_AddCondition" controlType="PropertyItemAddConditionView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S590ea72a57f34180be6542e0e60416e3" type="Flow" name="EndDecisionThen" />
+      </RelatedSteps>
+      <Script><![CDATA[if () {]]></Script>
+    </Step>
+    <Step id="S1c8f63a3b0c9482ca119cd822955e59f" ver="220526001" createVer="220526001" type="Flow" name="Continue" dpName="Continue" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="Jump" enabled="True" mainSet="0">
+      <Properties id="dd461dcf-9ca9-4657-a52e-482c9c6beff9" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="앞선 조건을 만족하면, 이후의 액티비티를 수행하지 않고 반복을 계속합니다." />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[continue;]]></Script>
+    </Step>
+    <Step id="S590ea72a57f34180be6542e0e60416e3" ver="220526001" createVer="220523001" type="Flow" name="EndDecisionThen" dpName="End-IfThen" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="e01ca7bb-bc32-41ab-a506-0066f930da3f" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sf0b6512dbe92422ea7f169b244bd5a0b" type="Flow" name="DecisionThen" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="S7611f521ae174e5c9c7dc74ae7510211" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="6eccc045-9379-4dec-a512-71b4c1626b98" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="앞선 조건문을 만족하지 않은 변수를 메시지 박스로 확인합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox();]]></Script>
+    </Step>
+    <Step id="S5b51f1e3d0f14dceba58851c64ad6746" ver="220526001" createVer="220523001" type="Flow" name="EndLoop" dpName="End-While" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="09b30877-6eb1-4013-a417-be7ae84e29a2" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S598718da0d5049eb81ad2784655edae7" type="Flow" name="UntilLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>FlowControl</string>
+    <string>System</string>
+  </Libraries>
+  <JScript><![CDATA[function 반복적인_동작_수행하기() {
+
+    this.textArray = ['a','b','c','d','e'];
+    this.numberArray = [1,2,3,4,5,6,7,8,9,10];
+    this.alphabet;
+    this.keyNumber = 0;
+    this.index1 = 0;
+    this.index2 = -1;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S495a1bb746f64032a80196f4ce91e84d', '[1] Loop');
+        for (this.forloop_info_1_iter = 0; this.forloop_info_1_iter < 0 + ; this.forloop_info_1_iter++) {
+
+            //------------------------------------------------
+            STEP('S0919e295217a4d6fb165d6748619a339', '[2] MessageBox');
+            MsgBox();
+
+        //------------------------------------------------
+        }
+        STEP('Sa2b960ec35d74c1ab6170ea824adb904', '[3] End-Loop');
+
+        //------------------------------------------------
+        STEP('Sa2717df5b54943e399acc656af5b9d06', '[4] Foreach');
+        for( of ) {
+
+            //------------------------------------------------
+            STEP('S452adc70dbd14a00a5852a72b0eb4f5e', '[5] MessageBox');
+            MsgBox();
+
+        //------------------------------------------------
+        }
+        STEP('Sdc7b9f162bb14a64b043573360bb5353', '[6] End-Foreach');
+
+        //------------------------------------------------
+        STEP('S0f706ffbda904c82b55567f24844a98c', '[7] InputBox');
+        MsgBox('Please set result variable : InputBox')
+
+        //------------------------------------------------
+        STEP('Safcac4a7446c402b8e7f652871a928d1', '[8] While');
+        while () {
+
+            //------------------------------------------------
+            STEP('S5fc01393b5194a099f6dd1be2841370c', '[9] IfThen');
+            if () {
+
+                //------------------------------------------------
+                STEP('S9d9e6f16a55e49fd8d71aae9d8296c9c', '[10] MessageBox');
+                MsgBox();
+
+                //------------------------------------------------
+                STEP('Sf5375159f9f44bd2ae4b569feb5d2312', '[11] Break');
+                break;
+
+            //------------------------------------------------
+            }
+            STEP('S36787f2dda5e41c1a75838d498e6bdd7', '[12] End-IfThen');
+
+            //------------------------------------------------
+            STEP('Sf70e4e44cb554959831742c189172408', '[13] MessageBox');
+            MsgBox();
+
+            //------------------------------------------------
+            STEP('S76b776f77cb4487aa056426c24550355', '[14] Assign');
+             = ;
+
+        //------------------------------------------------
+        }
+        STEP('Sbc7ad25633ae45f5abdcd95e6012632a', '[15] End-While');
+
+        //------------------------------------------------
+        STEP('S598718da0d5049eb81ad2784655edae7', '[16] While');
+        while () {
+
+            //------------------------------------------------
+            STEP('S8f2c98a72cb246949363449abd20567d', '[17] Assign');
+             = ;
+
+            //------------------------------------------------
+            STEP('Sf0b6512dbe92422ea7f169b244bd5a0b', '[18] IfThen');
+            if () {
+
+                //------------------------------------------------
+                STEP('S1c8f63a3b0c9482ca119cd822955e59f', '[19] Continue');
+                continue;
+
+            //------------------------------------------------
+            }
+            STEP('S590ea72a57f34180be6542e0e60416e3', '[20] End-IfThen');
+
+            //------------------------------------------------
+            STEP('S7611f521ae174e5c9c7dc74ae7510211', '[21] MessageBox');
+            MsgBox();
+
+        //------------------------------------------------
+        }
+        STEP('S5b51f1e3d0f14dceba58851c64ad6746', '[22] End-While');
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S495a1bb746f64032a80196f4ce91e84d" group_name="" folded="False" />
+      <StepNode step_id="S0919e295217a4d6fb165d6748619a339" group_name="611fa444-c711-41dc-baa6-042c1f758c06_Untitled" folded="False" />
+      <StepNode step_id="Sa2b960ec35d74c1ab6170ea824adb904" group_name="" folded="False" />
+      <StepNode step_id="Sa2717df5b54943e399acc656af5b9d06" group_name="" folded="False" />
+      <StepNode step_id="S452adc70dbd14a00a5852a72b0eb4f5e" group_name="a31b796b-f14f-4c99-ade9-0cce912ebb37_Untitled" folded="False" />
+      <StepNode step_id="Sdc7b9f162bb14a64b043573360bb5353" group_name="" folded="False" />
+      <StepNode step_id="S0f706ffbda904c82b55567f24844a98c" group_name="e72ab98c-81ba-41ff-ba68-d76194007c51_Untitled" folded="False" />
+      <StepNode step_id="Safcac4a7446c402b8e7f652871a928d1" group_name="" folded="False" />
+      <StepNode step_id="S5fc01393b5194a099f6dd1be2841370c" group_name="" folded="False" />
+      <StepNode step_id="S9d9e6f16a55e49fd8d71aae9d8296c9c" group_name="1357e19e-07f1-431f-b0b8-5aafcb572927_Untitled" folded="False" />
+      <StepNode step_id="Sf5375159f9f44bd2ae4b569feb5d2312" group_name="1357e19e-07f1-431f-b0b8-5aafcb572927_Untitled" folded="False" />
+      <StepNode step_id="S36787f2dda5e41c1a75838d498e6bdd7" group_name="" folded="False" />
+      <StepNode step_id="Sf70e4e44cb554959831742c189172408" group_name="0d8d1838-4a7a-4631-85dd-b34e2828f31f_Untitled" folded="False" />
+      <StepNode step_id="S76b776f77cb4487aa056426c24550355" group_name="f1c00119-987f-4b07-bcc7-e7be6104900b_Untitled" folded="False" />
+      <StepNode step_id="Sbc7ad25633ae45f5abdcd95e6012632a" group_name="" folded="False" />
+      <StepNode step_id="S598718da0d5049eb81ad2784655edae7" group_name="" folded="False" />
+      <StepNode step_id="S8f2c98a72cb246949363449abd20567d" group_name="8d1593da-6889-4585-a4fd-211e81b60579_Untitled" folded="False" />
+      <StepNode step_id="Sf0b6512dbe92422ea7f169b244bd5a0b" group_name="" folded="False" />
+      <StepNode step_id="S1c8f63a3b0c9482ca119cd822955e59f" group_name="75240e58-bdcb-4cdd-ba55-08fd6248b827_Untitled" folded="False" />
+      <StepNode step_id="S590ea72a57f34180be6542e0e60416e3" group_name="" folded="False" />
+      <StepNode step_id="S7611f521ae174e5c9c7dc74ae7510211" group_name="8ca79601-09d0-4497-b59d-d091dae58cb2_Untitled" folded="False" />
+      <StepNode step_id="S5b51f1e3d0f14dceba58851c64ad6746" group_name="" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>2wN55HUQwiCPhlTzsNOJiLCYHLU=</DigestValue></Reference></SignedInfo><SignatureValue>bsHvX1XxM7xZhaJPDUIvZILU+lzuvXtJVN9xk51Q6Y3jl2V0C/BaS9MfleDyRc7t9doM2sfCpdafKu9bHHetQPeIbSV6D6m6zmAIzgSodKMy/kCBNbQQHCYssbV4r9EW059hnVWDAROkLcKhjAHQlDZJPrGTJXkiG85Kny+/D2vUqUmiVNgHN/JAWMJb1gFThNCDBCMdJcH4Ltm+G/hZBVNDke8GhrRFICl7uoB9q/nVZ5Y36+IX1339UUVWBKprt7PlJ+AErLohB9iFaqPUMhW3crX68ok1jrZHiGBuWIEimcPXefw3cVAYNwR6iqhmdGOM09snczLv+pQFD9iPIQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-G8Z9K, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

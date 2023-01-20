@@ -1,0 +1,1110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MindFusion.Vsx</name>
+    </assembly>
+    <members>
+        <member name="T:MindFusion.Vsx.Point">
+            <summary>
+            Represents a 2-dimensional point.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Point.#ctor">
+            <summary>
+            Initializes a new instance of the Point class.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Point.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the Point class.
+            </summary>
+            <param name="x">
+            The x-coordinate of the new point.
+            </param>
+            <param name="y">
+            The y-coordinate of the new point.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Point.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="P:MindFusion.Vsx.Point.X">
+            <summary>
+            Gets or sets the x-coordinate of the point.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Point.Y">
+            <summary>
+            Gets or sets the y-coordinate of the point.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.GeometryOperator">
+            <summary>
+            Represents the base class for all geometry operators.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.GeometryStorage">
+            <summary>
+            Represents a geometry object, which is defined by up to six parameters.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryStorage.#ctor(MindFusion.Vsx.IFormulaEvaluator)">
+            <summary>
+            Initializes a new instance of the GeometryStorage class.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryStorage.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.X">
+            <summary>
+            Gets the first parameter of the geometry.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.Y">
+            <summary>
+            Gets the second parameter of the geometry.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.A">
+            <summary>
+            Gets the third parameter of the geometry.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.ARaw">
+            <summary>
+            Gets the raw value of the third parameter of the geometry.
+            If the value is a formula, it is not evaluated.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.B">
+            <summary>
+            Gets the fourth parameter of the geometry.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.C">
+            <summary>
+            Gets the fifth parameter of the geometry.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.GeometryStorage.D">
+            <summary>
+            Gets the sixth parameter of the geometry.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Geometry">
+            <summary>
+            Represents a geometry in a Visio shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Geometry.Operators">
+            <summary>
+            Gets a list of the operators that define the geometry.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Geometry.NoShow">
+            <summary>
+            Gets or sets a value indicating whether the geometry should not be hidden.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Geometry.NoFill">
+            <summary>
+            Gets or sets a value indicating whether the geometry should not be filled.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Geometry.NoLine">
+            <summary>
+            Gets or sets a value indicating whether the geometry should not be stroked.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Action">
+            <summary>
+            Represents an action in a Visio shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Action.Name">
+            <summary>
+            Gets the name of the action.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Action.Id">
+            <summary>
+            Gets the action identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Action.Checked">
+            <summary>
+            Gets or sets a value indicating whether the action is active.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Action.Inivisble">
+            <summary>
+            Gets or sets a value indicating whether the action is visible.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.UserValue">
+            <summary>
+            Represents a user value in a Visio shape.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.UserValue.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="P:MindFusion.Vsx.UserValue.Name">
+            <summary>
+            Gets the name of the user value.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.UserValue.Id">
+            <summary>
+            Gets the user value identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.UserValue.Value">
+            <summary>
+            Gets or sets the actual value of the user value.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Shape`2">
+            <summary>
+            Represents a Visio shape.
+            </summary>
+            <typeparam name="TColor">The color type.</typeparam>
+            <typeparam name="TImage">The image type.</typeparam>
+        </member>
+        <member name="M:MindFusion.Vsx.Shape`2.#ctor(MindFusion.Vsx.Stencil{`0,`1})">
+            <summary>
+            Initializes a new instance of the Shape class.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Shape`2.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.Shape`2.Clone(MindFusion.Vsx.Shape{`0,`1})">
+            <summary>
+            Creates a deep copy of this shape.
+            </summary>
+            <param name="parent">
+            The shape to use as a parent of the new shape.
+            </param>
+            <returns>
+            The newly created shape object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.Shape`2.FindShape(System.String)">
+            <summary>
+            Searches for a shape with the specified identifier in this shape's hierarchy.
+            </summary>
+            <param name="id">
+            The identifier of the shape to find.
+            </param>
+            <returns>
+            The found shape, or null.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.Shape`2.ResetLocalValues">
+            <summary>
+            Clears any previously set local values for properties
+            in this shape's hierarchy.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Id">
+            <summary>
+            Gets the shape identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Parent">
+            <summary>
+            Gets the shape parent.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Shapes">
+            <summary>
+            Gets a list with the subordinate shapes.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Geometries">
+            <summary>
+            Gets a list with the shape's geometries.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ScratchValues">
+            <summary>
+            Gets the "scratch" values associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.UserValues">
+            <summary>
+            Gets the user values associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Controls">
+            <summary>
+            Gets the control points associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Connections">
+            <summary>
+            Gets the connection points associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Properties">
+            <summary>
+            Gets the properties associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Actions">
+            <summary>
+            Gets the actions associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Text">
+            <summary>
+            Gets the shape's text.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.HasPositionInfo">
+            <summary>
+            Gets a value indicating whether the shape specifies positioning information.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LineColor">
+            <summary>
+            Gets the line color of the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LineColorTransparency">
+            <summary>
+            Gets the transparency of the line color, ranging from 0 (opaque) to 1 (fully transparent).
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LineWeight">
+            <summary>
+            Gets the thickness of the shape's line.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LinePattern">
+            <summary>
+            Gets the style of the shape's line.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LineRounding">
+            <summary>
+            Gets the rounding factor of the contour joints of the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LineBeginArrow">
+            <summary>
+            Gets the arrowhead of the shape's line.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LineEndArrow">
+            <summary>
+            Gets the arrowhead of the shape's line.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Width">
+            <summary>
+            Gets or sets the width of the shape, expressed in inches.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Height">
+            <summary>
+            Gets or sets the width of the shape, expressed in inches.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.PinX">
+            <summary>
+            Gets the x-coordinate of the shape, expressed in inches, relative to its parent.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.PinY">
+            <summary>
+            Gets the y-coordinate of the shape, expressed in inches, relative to its parent.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LocPinX">
+            <summary>
+            Gets the x-coordinate, expressed in inches, of the point used as the transformation center.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.LocPinY">
+            <summary>
+            Gets the y-coordinate, expressed in inches, of the point used as the transformation center.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Angle">
+            <summary>
+            Gets the angle of rotation, expressed in radians.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.FlipX">
+            <summary>
+            Gets a value indicating whether the shape is flipped along the x-axis.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.FlipY">
+            <summary>
+            Gets a value indicating whether the shape is flipped along the y-axis.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.BackgroundColor">
+            <summary>
+            Gets or sets the background color of the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.BackgroundColorTransparency">
+            <summary>
+            Gets or sets the transparency of the background color, ranging from 0 (opaque) to 1 (fully transparent).
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ForegroundColor">
+            <summary>
+            Gets or sets the foreground color of the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ForegroundColorTransparency">
+            <summary>
+            Gets the transparency of the foreground color, ranging from 0 (opaque) to 1 (fully transparent).
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.FillPattern">
+            <summary>
+            Gets the fill pattern of the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.Image">
+            <summary>
+            Gets the image associated with the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ImageOffsetX">
+            <summary>
+            Gets the x-axis offset of the shape's image, expressed in inches, relative to the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ImageOffsetY">
+            <summary>
+            Gets the y-axis offset of the shape's image, expressed in inches, relative to the shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ImageWidth">
+            <summary>
+            Gets the width of the shape's image, expressed in inches.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Shape`2.ImageHeight">
+            <summary>
+            Gets the height of the shape's image, expressed in inches.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Property">
+            <summary>
+            Represents a property in a Visio shape.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Property.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="P:MindFusion.Vsx.Property.Name">
+            <summary>
+            Gets the name of the property.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Property.Id">
+            <summary>
+            Gets the property identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Property.Value">
+            <summary>
+            Gets or sets the property value.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Property.Format">
+            <summary>
+            Gets or sets the allowed property values.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.GeometryVisitor">
+            <summary>
+            Represents a visitor of a Geometry object.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.Visit(MindFusion.Vsx.Geometry)">
+            <summary>
+            Visits the specified Geometry object.
+            </summary>
+            <param name="geometry">
+            The geometry to visit.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.MoveTo(System.Double,System.Double)">
+            <summary>
+            Called when visiting MoveTo operators.
+            </summary>
+            <param name="x">
+            The x-coordinate of the operation.
+            </param>
+            <param name="y">
+            The y-coordinate of the operation.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.LineTo(System.Double,System.Double)">
+            <summary>
+            Called when visiting LineTo operators.
+            </summary>
+            <param name="x">
+            The x-coordinate of the operation.
+            </param>
+            <param name="y">
+            The y-coordinate of the operation.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.EllipticalArcTo(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Called when visiting EllipticalArcTo operators.
+            </summary>
+            <param name="cpx">
+            The x-coordinate of the arc's center.
+            </param>
+            <param name="cpy">
+            The y-coordinate of the arc's center.
+            </param>
+            <param name="x">
+            The x-coordinate of the arc's end point.
+            </param>
+            <param name="y">
+            The y-coordinate of the arc's end point.
+            </param>
+            <param name="angle">
+            The rotation angle of the arc, relative to the x-axis.
+            </param>
+            <param name="ratio">
+            The axes ratio of the arc's ellipse.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.ArcTo(System.Double,System.Double,System.Double)">
+            <summary>
+            Called when visiting ArcTo operators.
+            </summary>
+            <param name="x">
+            The x-coordinate of the arc's end point.
+            </param>
+            <param name="y">
+            The y-coordinate of the arc's end point.
+            </param>
+            <param name="a">
+            The arc's sweep angle.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.Ellipse(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Called when visiting Ellipse operators.
+            </summary>
+            <param name="cpx">
+            The x-coordinate of the ellipse's center.
+            </param>
+            <param name="cpy">
+            The y-coordinate of the ellipse's center.
+            </param>
+            <param name="ax">
+            The x-coordinate of the first incident point.
+            </param>
+            <param name="ay">
+            The y-coordinate of the first incident point.
+            </param>
+            <param name="bx">
+            The x-coordinate of the second incident point.
+            </param>
+            <param name="by">
+            The y-coordinate of the second incident point.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.GeometryVisitor.PolylineTo(System.Double,System.Double,System.Double[])">
+            <summary>
+            Called when visiting PolylineTo operators.
+            </summary>
+            <param name="x">
+            The x-coordinate of the last point of the polyline.
+            </param>
+            <param name="y">
+            The y-coordinate of the last point of the polyline.
+            </param>
+            <param name="polyline">
+            An array of coordinates describing the points of the polyline.
+            </param>
+        </member>
+        <member name="T:MindFusion.Vsx.Connection">
+            <summary>
+            Represents a connection point in a Visio shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Connection.Name">
+            <summary>
+            Gets the name of the connection point.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Connection.Id">
+            <summary>
+            Gets the connection point identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Connection.X">
+            <summary>
+            Gets or sets the x-coordinate of the connection point.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Connection.Y">
+            <summary>
+            Gets or sets the y-coordinate of the connection point.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.IPlatformHelper`2">
+            <summary>
+            An object that provides platform-specific functions, such
+            as creating an image or color.
+            </summary>
+            <typeparam name="TColor">The color type.</typeparam>
+            <typeparam name="TImage">The image type.</typeparam>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.CreateColor(System.String)">
+            <summary>
+            Creates a color from the specified string representation.
+            </summary>
+            <param name="value">
+            The string representation.
+            </param>
+            <returns>
+            The newly created color object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.CreateColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a color from the specified red, green, and blue values.
+            </summary>
+            <param name="r">
+            The red component value for the new color.
+            </param>
+            <param name="g">
+            The green component value for the new color.
+            </param>
+            <param name="b">
+            The blue component value for the new color.
+            </param>
+            <returns>
+            The newly created color object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.CreateColor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a color from the specified red, green, and blue values.
+            </summary>
+            <param name="a">
+            The alpha component value for the new color.
+            </param>
+            <param name="r">
+            The red component value for the new color.
+            </param>
+            <param name="g">
+            The green component value for the new color.
+            </param>
+            <param name="b">
+            The blue component value for the new color.
+            </param>
+            <returns>
+            The newly created color object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.ToString(`0)">
+            <summary>
+            Converts the specified color to its string representation.
+            </summary>
+            <param name="color">
+            The color to convert.
+            </param>
+            <returns>
+            The string representation of the color.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.CreateImage(System.IO.Stream)">
+            <summary>
+            Creates an image from the specified stream.
+            </summary>
+            <param name="stream">
+            The stream that contains the data for the image.
+            </param>
+            <returns>
+            The newly created image object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.SaveImage(System.IO.Stream,`1)">
+            <summary>
+            Saves the specified image to the specified stream.
+            </summary>
+            <param name="stream">
+            The stream where the image will be saved.
+            </param>
+            <param name="image">
+            The image to save.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.GetA(`0)">
+            <summary>
+            Retrieves the alpha component of the specified color.
+            </summary>
+            <param name="color">
+            A color object.
+            </param>
+            <returns>
+            The alpha component of the color.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.GetR(`0)">
+            <summary>
+            Retrieves the red component of the specified color.
+            </summary>
+            <param name="color">
+            A color object.
+            </param>
+            <returns>
+            The red component of the color.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.GetG(`0)">
+            <summary>
+            Retrieves the green component of the specified color.
+            </summary>
+            <param name="color">
+            A color object.
+            </param>
+            <returns>
+            The green component of the color.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.IPlatformHelper`2.GetB(`0)">
+            <summary>
+            Retrieves the blue component of the specified color.
+            </summary>
+            <param name="color">
+            A color object.
+            </param>
+            <returns>
+            The blue component of the color.
+            </returns>
+        </member>
+        <member name="T:MindFusion.Vsx.Rect">
+            <summary>
+            Represents a 2-dimensional rectangle.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Rect.#ctor">
+            <summary>
+            Initializes a new instance of the Rect class.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Rect.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the Rect class.
+            </summary>
+            <param name="x">
+            The x-coordinate of the new rectangle.
+            </param>
+            <param name="y">
+            The y-coordinate of the new rectangle.
+            </param>
+            <param name="width">
+            The width of the new rectangle.
+            </param>
+            <param name="height">
+            The height of the new rectangle.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Rect.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="P:MindFusion.Vsx.Rect.X">
+            <summary>
+            Gets or sets the x-coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Rect.Y">
+            <summary>
+            Gets or sets the y-coordinate of the rectangle.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Rect.Width">
+            <summary>
+            Gets or sets the width of the rectangle.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Rect.Height">
+            <summary>
+            Gets or sets the height of the rectangle.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Stencil`2">
+            <summary>
+            Represents a Visio stencil.
+            </summary>
+            <typeparam name="TColor">The color type.</typeparam>
+            <typeparam name="TImage">The image type.</typeparam>
+        </member>
+        <member name="M:MindFusion.Vsx.Stencil`2.#ctor(MindFusion.Vsx.IPlatformHelper{`0,`1})">
+            <summary>
+            Initializes a new instance of the Stencil class.
+            </summary>
+            <param name="platformHelper">
+            An object implementing the IPlatformHelper interface.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Stencil`2.LoadFromXml(System.String)">
+            <summary>
+            Loads the Visio stencil from the file with the specified name.
+            </summary>
+            <param name="filePath">
+            The file containing the stencil to load.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Stencil`2.SaveTo(System.Xml.XmlElement)">
+            <summary>
+            Saves the stencil to the specified XML element.
+            </summary>
+            <param name="element">
+            The XML element to save to.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Stencil`2.LoadFrom(System.Xml.XmlElement)">
+            <summary>
+            Loads the stencil from the specified XML element.
+            </summary>
+            <param name="element">
+            The XML element to load from.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Stencil`2.SaveTo(System.IO.BinaryWriter)">
+            <summary>
+            Saves the stencil to the stream identified by the specified writer.
+            </summary>
+            <param name="writer">
+            The BinaryWriter to write to.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Stencil`2.LoadFrom(System.IO.BinaryReader)">
+            <summary>
+            Loads the stencil from the stream identified by the specified reader.
+            </summary>
+            <param name="reader">
+            The BinaryReader to read from.
+            </param>
+        </member>
+        <member name="P:MindFusion.Vsx.Stencil`2.Masters">
+            <summary>
+            Gets a list with all masters in this stencil.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Stencil`2.MastersByName">
+            <summary>
+            Gets a list with all masters in the stencil, mapped by name.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Master`2">
+            <summary>
+            Represents a master Visio shape.
+            </summary>
+            <typeparam name="TColor">The color type.</typeparam>
+            <typeparam name="TImage">The image type.</typeparam>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.#ctor(MindFusion.Vsx.Stencil{`0,`1})">
+            <summary>
+            Initializes a new instance of the Master class.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.ToString">
+            <summary>
+            Object.ToString override.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.Clone">
+            <summary>
+            Creates an exact deep copy of this object.
+            </summary>
+            <returns>
+            A Master instance representing the copy.
+            </returns>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.SaveLocalState(System.IO.BinaryWriter)">
+            <summary>
+            Saves all locally set property values across this object
+            and its subordinate shapes.
+            </summary>
+            <param name="writer">
+            The BinaryWriter to save the state to.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.LoadLocalState(System.IO.BinaryReader)">
+            <summary>
+            Restores previously saved local property values.
+            </summary>
+            <param name="reader">
+            The BinaryReader to load the state from.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.ResetLocalValues">
+            <summary>
+            Clears all locally set property values across this object
+            and its subordinate shapes.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Master`2.Invalidate">
+            <summary>
+            Call this method after changing any of the properties of this object
+            or its subordinate shapes to force all dependent properties to be recalculated.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Master`2.UniversalName">
+            <summary>
+            Gets the name of the master.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Master`2.Id">
+            <summary>
+            Gets the master identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Master`2.Shapes">
+            <summary>
+            Gets a list with the subordinate shapes.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Master`2.Icon">
+            <summary>
+            Gets or sets the preview icon of this shape.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Ellipse">
+            <summary>
+            Represents an ellipse, defined by two incident points and a center.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Ellipse.#ctor(MindFusion.Vsx.Point,MindFusion.Vsx.Point,MindFusion.Vsx.Point)">
+            <summary>
+            Initializes a new instance of the Ellipse class.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Ellipse.Solve(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            Finds the center and the radii of an ellipse, given its center and two incident points.
+            If no ellipse could be found, the calculated values are NaN.
+            </summary>
+            <param name="CX">
+            The x-coordinate of the center.
+            </param>
+            <param name="CY">
+            The y-coordinate of the center.
+            </param>
+            <param name="X1">
+            The x-coordinate of the first incident point.
+            </param>
+            <param name="Y1">
+            The y-coordinate of the first incident point.
+            </param>
+            <param name="X2">
+            The x-coordinate of the second incident point.
+            </param>
+            <param name="Y2">
+            The y-coordinate of the second incident point.
+            </param>
+            <param name="A">
+            Upon the function completion, contains the calculated first radius of the ellipse.
+            </param>
+            <param name="B">
+            Upon the function completion, contains the calculated second radius of the ellipse.
+            </param>
+        </member>
+        <member name="P:MindFusion.Vsx.Ellipse.Center">
+            <summary>
+            Gets the center of the ellipse.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Ellipse.Bounds">
+            <summary>
+            Gets the bounding rectangle of the ellipse.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.Control">
+            <summary>
+            Represents a control point in a Visio shape.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Control.Name">
+            <summary>
+            Gets the name of the control point.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Control.Id">
+            <summary>
+            Gets the control point identifier.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Control.X">
+            <summary>
+            Gets or sets the x-coordinate of the control point.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.Control.Y">
+            <summary>
+            Gets or sets the y-coordinate of the control point.
+            </summary>
+        </member>
+        <member name="T:MindFusion.Vsx.EllipticalArc">
+            <summary>
+            Represents an elliptical arc defined by three incident points,
+            rotation angle and axes ratio.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.EllipticalArc.#ctor(System.Collections.Generic.List{MindFusion.Vsx.Point},System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the EllipticalArc class.
+            </summary>
+            <param name="points">
+            The three incident points.
+            </param>
+            <param name="dangle">
+            The rotation angle of the arc's ellipse, relative to the x-axis, expressed in degrees.
+            </param>
+            <param name="ratio">
+            The ratio of the two axes of the arc's ellipse.
+            </param>
+        </member>
+        <member name="M:MindFusion.Vsx.EllipticalArc.Solve(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Finds the center and the radii of an ellipse, given three incident points,
+            rotation angle, and radii ratio. If no ellipse could be found, the calculated
+            values are NaN.
+            </summary>
+            <param name="X1">
+            The x-coordinate of the first incident point.
+            </param>
+            <param name="Y1">
+            The y-coordinate of the first incident point.
+            </param>
+            <param name="X2">
+            The x-coordinate of the second incident point.
+            </param>
+            <param name="Y2">
+            The y-coordinate of the second incident point.
+            </param>
+            <param name="X3">
+            The x-coordinate of the third incident point.
+            </param>
+            <param name="Y3">
+            The y-coordinate of the third incident point.
+            </param>
+            <param name="Angle">
+            The rotation angle, expressed in radians.
+            </param>
+            <param name="R">
+            The ratio of the two radii.
+            </param>
+            <param name="CX">
+            Upon the function completion, contains the calculated
+            x-coordinate of the ellipse center.
+            </param>
+            <param name="CY">
+            Upon the function completion, contains the calculated
+            y-coordinate of the ellipse center.
+            </param>
+            <param name="A">
+            Upon the function completion, contains the calculated first radius of the ellipse.
+            </param>
+            <param name="B">
+            Upon the function completion, contains the calculated second radius of the ellipse.
+            </param>
+        </member>
+        <member name="P:MindFusion.Vsx.EllipticalArc.Center">
+            <summary>
+            Gets the center of the arc's ellipse.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.EllipticalArc.Bounds">
+            <summary>
+            Gets the bounding rectangle of the arc's ellipse.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.EllipticalArc.Start">
+            <summary>
+            Gets the start angle of the arc.
+            </summary>
+        </member>
+        <member name="P:MindFusion.Vsx.EllipticalArc.Sweep">
+            <summary>
+            Gets the sweep angle of the arc.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Utilities.ToDegrees(System.Double)">
+            <summary>
+            Converts the specified value, expressed in radians, to degrees.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Utilities.ToRadians(System.Double)">
+            <summary>
+            Converts the specified value, expressed in degrees, to radians.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Utilities.PolarToCartesian(MindFusion.Vsx.Point,System.Double,System.Double,MindFusion.Vsx.Point@)">
+            <summary>
+            Converts polar coordinates to the corresponding Cartesian coordinates,
+            using the specified point as a center of the coordinate system.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Utilities.CartesianToPolar(MindFusion.Vsx.Point,MindFusion.Vsx.Point,System.Double@,System.Double@)">
+            <summary>
+            Converts Cartesian coordinates to the corresponding polar coordinates,
+            using the specified point as a center of the coordinate system.
+            </summary>
+        </member>
+        <member name="M:MindFusion.Vsx.Utilities.Ccw(MindFusion.Vsx.Point,MindFusion.Vsx.Point,MindFusion.Vsx.Point)">
+            <summary>
+            Determines, given three points, if when travelling from the first to
+            the second to the third, we travel in a counterclockwise direction.
+            </summary>
+            <remarks>
+            1 if the movement is in a counterclockwise direction, -1 if not.
+            </remarks>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,190 @@
+<Process id="9e46eed7-60da-4779-9358-79bc2e3ccfd2" type="LibraryTemplate" workType="background" name="엑셀파일을_활용하여_데이터_편집하기" version="" designerVersion="2.4.900.00524.D1" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="# summary 엑셀 파일을 활용하여 데이터 편집하기&#xD;&#xA;# detail 새 엑셀 파일을 열어 데이터 입력, 편집, 저장 등을 진행합니다." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="5560x1920" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-26 16:12:41" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-26 16:48:47" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="data" scope="Normal" valueType="Any" formatType="Any" initValue="[['ID','Name','Age'],['1','Brity','30'],['2','RPA','25'],['3','Designer','35']]" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S928eeb4541c144e3b466c12c17da2182" ver="220526001" createVer="220526001" type="Excel" name="HeadlessNewExcel" dpName="HeadlessNewExcel" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="a8797ccd-d5b8-4832-a835-b8c9f153636a" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Headless 모드로 빈 엑셀 문서를 엽니다." />
+        <Property type="Excel" key="Output_OutputExcel" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="File_Invisible" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.HeadlessNewExcel', this.headlessnewexcel_info_1);]]></Script>
+    </Step>
+    <Step id="S924f4329c04c44c08e0be4a5d3b16e25" ver="220526001" createVer="220526001" type="Excel" name="WriteString" dpName="WriteString" dpValue="A1:B2" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="2543b179-b24e-454e-87d9-54e8e7d3ab45" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="엑셀 파일에 문자열을 입력합니다." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Range" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="Sheet_InputString" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="File_AutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.WriteString', this.writestring_info_2);]]></Script>
+    </Step>
+    <Step id="S29b2f7644bc8476a930bc668dd44eca8" ver="220526001" createVer="220526001" type="Excel" name="ReplaceString" dpName="ReplaceString" dpValue="1:1048576" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="50fe30ad-b6ec-4035-9977-ec2992e07ec2" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="엑셀 파일에서 특정 문자열을 변경합니다." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Range" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'1:1048576'" />
+        <Property type="Excel" key="Sheet_InputString" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Sheet_ReplaceString" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Sheet_PartMatch" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Excel" key="Sheet_CaseMatch" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.ReplaceString', this.replacestring_info_3);]]></Script>
+    </Step>
+    <Step id="Sa9608ef3c9764cf994c58ae5f06d58d2" ver="220526001" createVer="220526001" type="Excel" name="WriteRange" dpName="WriteRange" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="b9f8618f-1789-4003-aea4-3229a852c62f" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="엑셀 파일에 지정된 영역에 값을 입력합니다." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Input_DataArray" controlType="Object[][]" valueType="System.Object[][]" formatType="Array2D" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_StartCell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="File_AutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.WriteRange', this.writerange_info_4);]]></Script>
+    </Step>
+    <Step id="S705b9ad35d1c4f97bb8bf442006c0547" ver="220526001" createVer="220526001" type="Excel" name="CopyPaste" dpName="CopyPaste" dpValue="from  &#xA;to " dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="5e8a7acc-df21-46f1-9be1-5c9e9771873f" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="엑셀 파일의 특정 영역을 복사하고, 붙여넣을 수 있습니다." />
+        <Property type="Excel" key="File_SourceExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="File_SourceSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'Sheet1'" />
+        <Property type="Excel" key="File_SourceRange" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="File_TargetExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="File_TargetSheet" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'Sheet1'" />
+        <Property type="Excel" key="File_TargetRange" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="File_TargetAutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Excel" key="Input_PasteType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="All" valuelist="All;UsingSourceTheme;Formulas;ExceptBorders;Values;ColumnWidths;Formats;FormulasAndNumberFormats;Comments;ValuesAndNumberFormats;Validation;MergingConditionalFormats" />
+        <Property type="Excel" key="Input_PasteOperation" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="None" valuelist="None;Add;Subtract;Multiply;Divide" />
+        <Property type="Excel" key="Input_PasteSkipBlanks" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Excel" key="Input_PasteTranspose" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Excel" key="Input_PasteUseLink" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CopyPaste', this.copypaste_info_5);]]></Script>
+    </Step>
+    <Step id="S615f0e306c2c47219d28b290573539ea" ver="220526001" createVer="220526001" type="Excel" name="DeleteRow" dpName="DeleteRow" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="22511529-816a-4c90-9e59-4a59bc360dcd" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="엑셀 파일의 행을 삭제합니다." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Position" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.DeleteRow', this.deleterow_info_6);]]></Script>
+    </Step>
+    <Step id="Scb5746a1bec84b4a9ed395419b624d57" ver="220526001" createVer="220526001" type="Excel" name="SaveExcel" dpName="SaveExcel" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="d1764b89-5884-4ef1-8604-d9f9d007aa9a" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="엑셀 파일을 저장합니다." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_SaveAs" controlType="Excel" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_7);]]></Script>
+    </Step>
+    <Step id="S6cda0959395f4920aa580354a6a3290f" ver="220526001" createVer="220526001" type="Excel" name="CloseExcel" dpName="CloseExcel" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="8f3bd208-6380-423f-9adc-01e42fdf0435" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="백그라운드로 열린 엑셀 문서를 닫습니다." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_Force" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_8);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Excel</string>
+  </Libraries>
+  <JScript><![CDATA[function 엑셀파일을_활용하여_데이터_편집하기() {
+
+    this.data = [['ID','Name','Age'],['1','Brity','30'],['2','RPA','25'],['3','Designer','35']];
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S928eeb4541c144e3b466c12c17da2182', '[1] HeadlessNewExcel');
+        RESULT = StepPlayer.Run('Excel.HeadlessNewExcel', this.headlessnewexcel_info_1);
+
+        //------------------------------------------------
+        STEP('S924f4329c04c44c08e0be4a5d3b16e25', '[2] WriteString');
+        StepPlayer.Run('Excel.WriteString', this.writestring_info_2);
+
+        //------------------------------------------------
+        STEP('S29b2f7644bc8476a930bc668dd44eca8', '[3] ReplaceString');
+        StepPlayer.Run('Excel.ReplaceString', this.replacestring_info_3);
+
+        //------------------------------------------------
+        STEP('Sa9608ef3c9764cf994c58ae5f06d58d2', '[4] WriteRange');
+        StepPlayer.Run('Excel.WriteRange', this.writerange_info_4);
+
+        //------------------------------------------------
+        STEP('S705b9ad35d1c4f97bb8bf442006c0547', '[5] CopyPaste');
+        StepPlayer.Run('Excel.CopyPaste', this.copypaste_info_5);
+
+        //------------------------------------------------
+        STEP('S615f0e306c2c47219d28b290573539ea', '[6] DeleteRow');
+        StepPlayer.Run('Excel.DeleteRow', this.deleterow_info_6);
+
+        //------------------------------------------------
+        STEP('Scb5746a1bec84b4a9ed395419b624d57', '[7] SaveExcel');
+        StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_7);
+
+        //------------------------------------------------
+        STEP('S6cda0959395f4920aa580354a6a3290f', '[8] CloseExcel');
+        StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_8);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S928eeb4541c144e3b466c12c17da2182" group_name="b6c1de36-1d5e-4944-8560-82044851fb55_Untitled" folded="False" />
+      <StepNode step_id="S924f4329c04c44c08e0be4a5d3b16e25" group_name="fcde6b93-900f-4137-be36-bea441f1e583_Untitled" folded="False" />
+      <StepNode step_id="S29b2f7644bc8476a930bc668dd44eca8" group_name="fcde6b93-900f-4137-be36-bea441f1e583_Untitled" folded="False" />
+      <StepNode step_id="Sa9608ef3c9764cf994c58ae5f06d58d2" group_name="09eafa31-184b-4c58-8a50-6b4760db75f4_Untitled" folded="False" />
+      <StepNode step_id="S705b9ad35d1c4f97bb8bf442006c0547" group_name="09eafa31-184b-4c58-8a50-6b4760db75f4_Untitled" folded="False" />
+      <StepNode step_id="S615f0e306c2c47219d28b290573539ea" group_name="09eafa31-184b-4c58-8a50-6b4760db75f4_Untitled" folded="False" />
+      <StepNode step_id="Scb5746a1bec84b4a9ed395419b624d57" group_name="d223b46f-f56b-453f-b0a2-b7e262487129_Untitled" folded="False" />
+      <StepNode step_id="S6cda0959395f4920aa580354a6a3290f" group_name="d223b46f-f56b-453f-b0a2-b7e262487129_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>OqbZvxwgzqMWMV63BYIbvUZ7Zxo=</DigestValue></Reference></SignedInfo><SignatureValue>foInkUFrX3U0dRNM3pnCAm6M0Xkt58LdP/ueGwtLvCKrN2i7N+kMMYwHjKH/yeHWNyrFfaXL34F3q81pHnAfHBzEjViCK/IlJzjh1SSC7yjSyKdF34nZFqVgsZl07PPIQDA9Vo5f5LJYQmBoeYQxygosHkGbfTb4FfO11gmob4JcS29R+unKfTVkpubwuVwXJKPFiohbGpZV+nOP0txfmMDoHbhh+tO48WhpPeMZEzyWel3hIQ6+ssPbOCiMSuh/uARvlbIv1TFglxoZF5WPf6hHad9BwnFeFqUIw7u+MzK0XUVOAaJDBArosNjQOXrARjK0cNyu5kcm+lo3NzrG2A==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-HTLA2, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

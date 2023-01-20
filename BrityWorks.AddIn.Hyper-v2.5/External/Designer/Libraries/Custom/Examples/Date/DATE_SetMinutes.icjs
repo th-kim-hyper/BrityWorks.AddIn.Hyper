@@ -1,0 +1,31 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id f09d921d-2faa-4d1c-aa91-576938008612
+* @createdDate 2020-05-25 16:31:53
+* @lastModifiedDate 2020-05-25 16:31:53
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 현지 시간에 따라 지정된 날짜의 분을 설정한다.
+*  @brf (This method sets the minutes for a specified date according to local time.)
+* @param date<String_DateTime> (ex, '2020-01-01 03:24:00')
+* @param minutesValue<Integer> (ex, 30)
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.DATE_SetMinutes == null || Script.JavaScript.DATE_SetMinutes == undefined) {
+	Script.JavaScript.DATE_SetMinutes = function (date, minutesValue) {
+	//Body Begin
+		var varDate = new Date(date);
+		varDate.setMinutes(minutesValue);
+		return varDate;
+	//Body End
+	}
+}

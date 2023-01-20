@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>아웃룩으로 메일 검색하기</Summary>
+  <Detail>현재 PC에 설치된 아웃룩에 이번 달에 수신된 메일들 가운데, 제목에 특정 문구를 포함한 메일들을 검색합니다. 또한 조회된 메일들을 외부 메일 파일 형식으로 추출합니다.
+
+ 이 템플릿에는 Date 와 String 형식 객체를 변환하는 다음과 같은 커스텀 라이브러리가 일부 사용되었습니다.
+
+  - DateTime_DateFormat: Date 객체의 일시 정보를 지정한 형식 문자열로 변환함. 이번달의 첫날과 마지막 날에 해당하는 문자열을 계산하기 위함.
+
+  - DateTime_GetLastDateOfMonth:  Date 객체의 월의 가장 마지막 날에 해당하는 Date 객체를 얻음.
+
+  - String_ReplaceAll: 문자열에 포함된 특정 문자를 다른 문자로 치환함.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sc072adfbbbcf41c08f0a82bfdd2fb771">
+      <Assists>
+        <Assist type="Summary" value="메일을 조회할 일시 및 추출 대상 경로 등을 변수에 저장합니다." />
+      </Assists>
+    </Step>
+    <Step id="S28832ca2e3fb4c3fa9e974045571c751">
+      <Assists>
+        <Assist type="Summary" value="메일을 추출할 대상 경로가 존재하는 지 확인하고, 존재하지 않으면 파일 시스템 상에 해당 경로의 폴더를 생성합니다." />
+        <Assist type="Property" propertyKey="Command_Path" value="추출된 메일 파일들이 저장될 폴더 경로 문자열을 지정합니다. '' 로 감싼 경로나, 문자열 변수를 입력합니다. 여기서는 this.mMailDir 를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S90f32bc9e2744f5e8d7f9d026e23e1ab">
+      <Assists>
+        <Assist type="Summary" value="Date 객체의 일시 정보를 지정한 형식 문자열로 변환할 수 있습니다. 이번달의 첫날에 해당하는 일시를 문자열로 변환하여 저장합니다." />
+        <Assist type="Property" propertyKey="Arguments_date" value="오늘 날짜를 저장하고 있는 변수 this.mToday 를 입력하세요." />
+        <Assist type="Property" propertyKey="Arguments_format" value="날짜 형식을 지정할 수 있습니다.&#xD;&#xA;'yyyy-MM-01 00:00:00' 를 입력하세요." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="this.mFirstDayStr 를 입력하세요.&#xD;&#xA;이달의 첫번째 날짜가 문자열로 변환되어 저장됩니다." />
+      </Assists>
+    </Step>
+    <Step id="Sf6f379d6d4664715814cba5ab2cc78ba">
+      <Assists>
+        <Assist type="Summary" value="지정한 Date 객체로부터 월의 가장 마지막 날에 해당하는 Date 객체를 얻을 수 있습니다." />
+        <Assist type="Property" propertyKey="Arguments_date" value="오늘 날짜를 저장하고 있는 변수 this.mToday 를 입력하세요." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="this.mToday를 입력하세요.&#xD;&#xA;오늘 날짜를 저장하고 있던 변수에 마지막 날짜로 바뀌어 저장됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S11cb2192bae8458297c918e5a11a5bfe">
+      <Assists>
+        <Assist type="Summary" value="Date 객체의 일시 정보를 지정한 형식 문자열로 변환할 수 있습니다. 이번달의 마지막날에 해당하는 일시를 문자열로 변환하여 저장합니다." />
+        <Assist type="Property" propertyKey="Arguments_date" value="마지막 날짜를 저장하고 있는 변수 this.mToday 를 입력하세요." />
+        <Assist type="Property" propertyKey="Arguments_format" value="날짜 형식을 지정할 수 있습니다.&#xD;&#xA;'yyyy-MM-dd 23:59:59' 를 입력하세요." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="this.mLastDayStr를 입력하세요.&#xD;&#xA;마지막 날짜가 문자열로 변환되어 저장됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S4bc79a1500cd43ef958da7604a21a23e">
+      <Assists>
+        <Assist type="Summary" value="아웃룩 계정에 연결된 메일 서버에서 최신 메일들을 가져와 아웃룩의 수신 메일함에 동기화합니다." />
+        <Assist type="Property" propertyKey="Input_Account" value="아웃룩 계정의 메일 주소를 입력합니다. 여기서는 CURRENT_OUTLOOK_ACCOUNT 를 입력하여, 아웃룩에 구성된 첫번째 계정을 사용하도록 합니다." />
+        <Assist type="Test" value="아웃룩 계정이 유효하고, 메일이 성공적으로 수신되는지 확인해주세요." />
+      </Assists>
+    </Step>
+    <Step id="S1c1e5a03768b462b94419b5eb0abd34a">
+      <Assists>
+        <Assist type="Summary" value="이번 달에 수신된, 특정 문구를 제목에 포함하는 메일들 목록을 아웃룩에서 가져옵니다." />
+        <Assist type="Property" propertyKey="Output_Messages" value="추출된 메일들의 목록을 저장할 this.mMails 변수를 지정합니다." />
+        <Assist type="Property" propertyKey="Input_Account" value="아웃룩 계정의 메일 주소를 입력합니다. 여기서는 CURRENT_OUTLOOK_ACCOUNT 를 입력하여, 아웃룩에 구성된 첫번째 계정을 사용하도록 합니다." />
+        <Assist type="Property" propertyKey="Input_MailFolder" value="아웃룩 계정에서 사용하는 수신 메일함의 이름을 지정합니다." />
+        <Assist type="Property" propertyKey="Filter_Title" value="제목에 특정 문구가 포함된 메일들만 획득할 수 있도록, 필요한 문자열을 지정합니다." />
+        <Assist type="Property" propertyKey="Filter_StartTime" value="이번달 시작일 이후에 수신된 메일들만획득할 수 있도록, this.mFirstDayStr 에 저장된 월의 첫날 문자열을 지정합니다." />
+        <Assist type="Property" propertyKey="Filter_EndTime" value="이번달 종료일 이전에 수신된 메일들만획득할 수 있도록, this.mLastDayStr 에 저장된 월의 마지막날 문자열을 지정합니다." />
+      </Assists>
+    </Step>
+    <Step id="Scf7d5d4f56aa48669b985b38bc02ef29">
+      <Assists>
+        <Assist type="Summary" value="필터링 된 수신 메일들을 각 메일 항목 별로 순회할 수 있도록 합니다." />
+        <Assist type="Property" propertyKey="Conditions_ForList" value="필터링된 수신 메일 전체 목록을 저장한 변수 this.mMails 를 지정합니다." />
+        <Assist type="Property" propertyKey="Conditions_EachItem" value="전체 메일 목록 중 현재 순회에서 사용할 메일 항목을 this.mMailItem 변수에 저장할 수 있도록 합니다." />
+      </Assists>
+    </Step>
+    <Step id="S937f3eb2cce8460c8b5d8e4a32cbbe1d">
+      <Assists>
+        <Assist type="Summary" value="특정 메일 항목에서 제목 정보를 추출합니다." />
+        <Assist type="Property" propertyKey="Output_MailField" value="추출된 메일 정보가 저장될 this.mMailSubject 문자열 변수를 지정합니다." />
+        <Assist type="Property" propertyKey="Input_MailItem" value="현재 메일 항목을 저장한 변수를 지정합니다. ForEach 에서 설정한 this.mMailItem 변수를 지정합니다." />
+        <Assist type="Property" propertyKey="Input_MailField" value="메일에서 추출할 정보 종류를 선택합니다. 제목을 추출하기 위하여 Subject 를 지정합니다." />
+      </Assists>
+    </Step>
+    <Step id="S9e81631051c1418fabf92bcc89cc4bc6">
+      <Assists>
+        <Assist type="Summary" value="조회된 메일의 제목들을 누적하여 취합하고, 외부 메일 파일로 추출하기 위한 유효한 파일명을 생성합니다. &#xD;&#xA;필요한 경우 replace() 등과 같이 JavaScript 문법에 맞는 함수 들을 사용할 수 있습니다." />
+        <Assist type="Property" propertyKey="Key_Script" value="파일명에 허용되지 않는 문자(\ / * ? &quot; &lt; &gt; |)들을 '_' 로 치환합니다." />
+      </Assists>
+    </Step>
+    <Step id="S34055386dd7b4727b757edf8db0ba0d6">
+      <Assists>
+        <Assist type="Summary" value="문자열에 포함된 특정 문자를 다른 문자로 치환합니다." />
+      </Assists>
+    </Step>
+    <Step id="S658c6c545e184f1eaec3e62b4a8ed842">
+      <Assists>
+        <Assist type="Summary" value="문자열에 포함된 특정 문자를 다른 문자로 치환합니다." />
+      </Assists>
+    </Step>
+    <Step id="S17ebe64f032b42f68505091dc30aaa88">
+      <Assists>
+        <Assist type="Summary" value="현재 메일 항목을 외부 파일로 추출합니다." />
+        <Assist type="Property" propertyKey="Input_MailItem" value="현재 메일 항목을 저장한 변수를 지정합니다. ForEach 에서 설정한 this.mMailItem 변수를 지정합니다." />
+        <Assist type="Property" propertyKey="Input_Filename" value="이 메일이 저장될 파일 전체 경로를 입력합니다.  this.mMailDir + this.mMailSubject 를 입력하세요.&#xD;&#xA;mMailDir 변수에는 폴더 경로가 저장되어 있으며, mMailSubject 에는 유효한 파일명이 계산되어 있습니다." />
+      </Assists>
+    </Step>
+    <Step id="Sa4beb990699a49c096da9f934a7b8650">
+      <Assists />
+    </Step>
+    <Step id="S7b98b5dd796e455d8cc84bd6e7e2605d">
+      <Assists>
+        <Assist type="Summary" value="이번 달에 수신된, 특정 조건의 메일 제목들의 목록을 사용자에게 출력합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="검색된 전체 메일의 개수와 메일 제목 목록을 지정합니다. 전체 메일의 개수는 this.mMails 변수에 저장된 목록의 Count 멤버를 통해 획득할 수 있습니다." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

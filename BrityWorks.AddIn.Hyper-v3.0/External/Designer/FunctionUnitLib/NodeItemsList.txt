@@ -1,0 +1,18 @@
+0,즐겨찾기,Favorites
+1,최근 사용 라이브러리,Hisotry
+2,웹,Web
+3,엑셀,Excel
+4,파일/폴더,File/Folder
+5,메일/메시지,Mail/Message
+6,앱(공통),App(Common)
+7,앱(비표준UI),App(Non-standard UI)
+8,흐름제어,Flow Control
+9,변환/스크립트,Conversion/Script
+10,데스크탑,Desktop
+11,SAP,SAP
+12,오피스문서,Office Document
+13,이미지,Image
+14,RPA서버 연계,RPA Server Connection
+15,외부 연계,External Connection
+16,Cognitive,Cognitive
+17,기타,Etc
