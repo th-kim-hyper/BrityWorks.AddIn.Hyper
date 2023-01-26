@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BrityWorks.AddIn.Hyper</RootNamespace>
-    <AssemblyName>BrityWorks.AddIn.Hyper-v2.5</AssemblyName>
+    <AssemblyName>BrityWorks.AddIn.Hyper</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
