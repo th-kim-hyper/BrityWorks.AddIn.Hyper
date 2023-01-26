@@ -21,6 +21,7 @@ namespace BrityWorks.AddIn.Hyper
                 new CloseWindowHwnd(),
                 new CaptureChrome(),
                 new SendMailEx(),
+                new ReceiveMailEx(),
             };
 
             return activities;
