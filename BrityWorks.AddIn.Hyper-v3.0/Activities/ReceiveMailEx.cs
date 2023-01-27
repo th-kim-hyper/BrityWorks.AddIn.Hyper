@@ -17,6 +17,12 @@ using MailKit.Net.Imap;
 using MailKit.Search;
 using MailKit.Security;
 using MailKit;
+using System.Diagnostics;
+using MimeKit.Utils;
+using BrityWorks.Shared.AddIn.Dto;
+using System.Windows;
+using HtmlAgilityPack;
+using System.Text;
 
 namespace BrityWorks.AddIn.Hyper.Activities
 {
@@ -49,42 +55,13 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
 
-        public PropKey DisplayTextProperty => new PropKey("", "HyperInfo Recevie dMail");
+        public PropKey DisplayTextProperty => new PropKey("", "HyperInfo Receive dMail");
 
         public PropKey OutputProperty => OutputPropKey;
 
         private PropertySet PropertyList;
 
-        public List<Property> OnCreateProperties()
-        {
-            var properties = new List<Property>()
-            {
-                new Property(this, OutputPropKey, "RESULT"),
-
-                new Property(this, ProtocolPropKey, "'POP3'").SetDropDownList("POP3;IMAP").SetValueChangedHandler(OnSelectChanged),
-                new Property(this, HostNamePropKey, "'smtp.mail.com'").SetRequired(),
-                new Property(this, PortPropKey, 995).SetRequired(),
-                //new Property(this, IdPorpKey, "'from@mail.com'").SetRequired(),
-                //new Property(this, PwdPropKey, "", true).SetControlType(PropertyControls.PropertyItemPasswordView).SetRequired(),
-                //new Property(this, UseSSLPropKey, true),
-
-                //new Property(this, BeginTimePropKey, "'" + DateTime.Now.ToString("yyyy-MM-dd 00:00:00") + "'"),
-                //new Property(this, EndTimePropKey, ""),
-                //new Property(this, SenderPropKey, ""),
-                //new Property(this, SubjectPropKey, ""),
-                //new Property(this, MaxCountPropKey, 1),
-                //new Property(this, StartNoPropKey, "", DataTypes.Integer, DataFormatTypes.Integer),
-                //new Property(this, WithContentsPropKey, false),
-                //new Property(this, IgnoreHTMLTagPropKey, true),
-                //new Property(this, IgnoreBodyAttachmentsPropKey, true),
-                //new Property(this, RecentFirstPropKey, true),
-                //new Property(this, CheckUnorderedListPropKey, false),
-            };
-
-            return properties;
-        }
-
-        void OnSelectChanged(object oldValue, object newValue)
+        private void OnSelectChanged(object oldValue, object newValue)
         {
             var protocol = newValue.ToStr();
             var portPropItem = PropertyList[PortPropKey];
@@ -92,115 +69,59 @@ namespace BrityWorks.AddIn.Hyper.Activities
             ReloadPropertyEvent.Publish();
         }
 
+        public List<Property> OnCreateProperties()
+        {
+            var properties = new List<Property>()
+            {
+                new Property(this, OutputPropKey, "RESULT"),
+
+                new Property(this, ProtocolPropKey, "'POP3'").SetDropDownList("POP3;IMAP"),
+                new Property(this, HostNamePropKey, "'smtp.mail.com'").SetRequired(),
+                new Property(this, PortPropKey, 995).SetRequired(),
+                new Property(this, IdPorpKey, "'from@mail.com'").SetRequired(),
+                new Property(this, PwdPropKey, "", true).SetControlType(PropertyControls.PropertyItemPasswordView).SetRequired(),
+                new Property(this, UseSSLPropKey, true),
+
+                new Property(this, BeginTimePropKey, "'" + DateTime.Now.ToString("yyyy-MM-dd 00:00:00") + "'"),
+                new Property(this, EndTimePropKey, ""),
+                new Property(this, SenderPropKey, ""),
+                new Property(this, SubjectPropKey, ""),
+                new Property(this, MaxCountPropKey, 1),
+                new Property(this, StartNoPropKey, "", DataTypes.Integer, DataFormatTypes.Integer),
+                new Property(this, WithContentsPropKey, false),
+                new Property(this, IgnoreHTMLTagPropKey, true).SetInternal(true),
+                new Property(this, IgnoreBodyAttachmentsPropKey, true).SetInternal(true),
+                new Property(this, RecentFirstPropKey, true).SetInternal(true),
+                new Property(this, CheckUnorderedListPropKey, false).SetInternal(true),
+            };
+
+            ReloadPropertyEvent.Publish();
+            return properties;
+        }
 
         public void OnLoad(PropertySet properties)
         {
+            properties[ProtocolPropKey].ResetValueChangedHandler().SetValueChangedHandler(OnSelectChanged);
             PropertyList = properties;
         }
 
-        //private List<FileInfo> GetFiles(string files)
-        //{
-        //    List<FileInfo> result = null;
-
-        //    if(files?.Length > 0)
-        //    {
-        //        var fileArray = files.Split(';');
-
-        //        if (fileArray?.Length > 0)
-        //        {
-        //            result = fileArray.Select(file => new FileInfo(file)).ToList();
-        //        }
-        //    }
-
-        //    return result;
-        //}
-
-        //private MimeMessage CreateMessage(string sender, string receivers, string subject, string body
-        //    , bool isHTML = false, string ccs = null, string bccs = null, List<FileInfo> attachments = null)
-        //{
-        //    var receiverArray = receivers?.Split(';');
-        //    var ccArray = ccs?.Split(';');
-        //    var bccArray = bccs?.Split(';');
-        //    var entities = new List<MimeEntity>();
-        //    var textFormat = (isHTML) ? TextFormat.Html : TextFormat.Plain;
-        //    var textPart = new TextPart(textFormat) { Text = body };
-        //    var message = new MimeMessage();
-        //    message.From.Add(new MailboxAddress(null, sender));
-        //    message.Subject = subject;
-        //    message.To.AddRange(receiverArray.Select(receiver => new MailboxAddress(null, receiver)));
-            
-        //    if (ccArray?.Length > 0)
-        //    {
-        //        message.Cc.AddRange(ccArray.Select(cc => new MailboxAddress(null, cc)));
-        //    }
-
-        //    if (bccArray?.Length > 0)
-        //    {
-        //        message.Bcc.AddRange(bccArray.Select(bcc => new MailboxAddress(null, bcc)));
-        //    }
-
-        //    if (attachments?.Count > 0)
-        //    {
-        //        var multipart = new Multipart("mixed")
-        //        {
-        //            textPart
-        //        };
-
-        //        foreach ( var fileInfo in attachments)
-        //        {
-        //            var filePath = fileInfo.FullName;
-        //            var attachment = new MimePart()
-        //            {
-        //                Content = new MimeContent(File.OpenRead(filePath)),
-        //                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-        //                ContentTransferEncoding = ContentEncoding.Base64,
-        //                FileName = Path.GetFileName(filePath)
-        //            };
-
-        //            multipart.Add(attachment);
-        //            message.Body = multipart;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        message.Body = textPart;
-        //    }
-
-        //    return message;
-        //}
-
-        //private string SendMail(string host, int port, bool useSsl, string id, string password, MimeMessage message)
-        //{
-        //    string result = null;
-
-        //    using (var client = new SmtpClient())
-        //    {
-        //        client.Connect(host, port, useSsl);
-        //        client.Authenticate(id, password);
-        //        result = client.Send(message);
-        //        client.Disconnect(true);
-        //    }
-
-        //    return result;
-        //}
-
         public object OnRun(IDictionary<string, object> properties)
         {
-            string[] result = null;
-            
-            var protocol = properties[ProtocolPropKey]?.ToStr();
-            var host = properties[HostNamePropKey]?.ToStr();
-            var port = (int)properties[PortPropKey]?.ToIntValue();
-            var id = properties[IdPorpKey]?.ToStr();
-            var password = properties[PwdPropKey]?.ToStr();
-            var useSsl = (bool)properties[UseSSLPropKey]?.ToBoolValue();
+            var result = null as List<MailMessage>;
 
-            var beginTime = properties[BeginTimePropKey]?.ToStr();
-            var endTime = properties[EndTimePropKey]?.ToStr();
-            var sender = properties[SenderPropKey]?.ToStr();
-            var subject = properties[SubjectPropKey]?.ToStr();
-            var maxCount = properties[MaxCountPropKey]?.ToIntValue() ?? 0;
-            var startNo = properties[StartNoPropKey]?.ToIntValue() ?? 0;
+            var protocol = properties[ProtocolPropKey].ToStr();
+            var host = properties[HostNamePropKey].ToStr();
+            var port = properties[PortPropKey].ToIntValue();
+            var id = properties[IdPorpKey].ToStr();
+            var password = properties[PwdPropKey].ToStr();
+            var useSsl = properties[UseSSLPropKey].ToBoolValue();
+
+            var beginTime = properties[BeginTimePropKey].ToStr();
+            var endTime = properties[EndTimePropKey].ToStr();
+            var sender = properties[SenderPropKey].ToStr();
+            var subject = properties[SubjectPropKey].ToStr();
+            var maxCount = (properties[MaxCountPropKey].ToStr() == "[undefined]") ? 100 : properties[MaxCountPropKey].ToIntValue();
+            var startNo = (properties[StartNoPropKey].ToStr() == "[undefined]") ? 0 : properties[StartNoPropKey].ToIntValue();
             var withContents = properties[WithContentsPropKey].ToBoolValue();
             var ignoreHTMLTag = properties[IgnoreHTMLTagPropKey].ToBoolValue();
             var ignoreBodyAttachments = properties[IgnoreBodyAttachmentsPropKey].ToBoolValue();
@@ -211,14 +132,110 @@ namespace BrityWorks.AddIn.Hyper.Activities
             {
                 client.Connect(host, port, useSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
                 client.Authenticate(id, password);
-                client.Inbox.Open(FolderAccess.ReadOnly);
+                var inbox = client.Inbox;
+                inbox.Open(FolderAccess.ReadOnly);
+                var inboxCount = inbox.Count;
+                var query = SearchQuery.All;
 
-                var uids = client.Inbox.Search(SearchQuery.All);
-                result = uids.Select(u => client.Inbox.GetMessage(u).Subject).ToArray();
+                if (subject?.Length > 0)
+                {
+                    query = query.And(SearchQuery.SubjectContains(subject));
+                }
+
+                if (sender?.Length > 0)
+                {
+                    query = query.And(SearchQuery.FromContains(sender));
+                }
+
+                if (beginTime?.Length > 0 && DateUtils.TryParse(beginTime, out DateTimeOffset beginDateTimeOffset))
+                {
+                    query = query.And(SearchQuery.DeliveredAfter(beginDateTimeOffset.DateTime));
+                }
+
+                if (endTime?.Length > 0 && DateUtils.TryParse(endTime, out DateTimeOffset endDateTimeOffset))
+                {
+                    query = query.And(SearchQuery.DeliveredBefore(endDateTimeOffset.DateTime));
+                }
+
+                if (startNo < 0)
+                {
+                    startNo = 0;
+                }
+
+                query = query.And(SearchQuery.DeliveredAfter(DateTime.Now.AddDays(-3)));
+
+                var uids = inbox.Search(query);
+                var uidCount = uids.Count;
+
+                Debug.WriteLine($"inbox search {uidCount}/{inboxCount}");
+
+                if(uidCount > 0)
+                {
+                    var messages = new List<MimeMessage>();
+                    var minCount = Math.Min(uidCount, maxCount);
+                    result = new List<MailMessage>();
+
+                    if (recentFirst)
+                    {
+                        uids = uids.Reverse().ToList();
+                    }
+
+                    for (int i = startNo; i < minCount; i++)
+                    {
+                        var mailMessage = new MailMessage();
+                        var uid = uids[i];
+                        var headers = inbox.GetHeaders(uid);
+                        var message = inbox.GetMessage(uid);
+                        var receivedDate = headers[HeaderId.Received];
+
+                        DateUtils.TryParse(receivedDate, out DateTimeOffset receivedDateOffset);
+
+                        if (withContents)
+                        {
+                            var messageSubject = headers[HeaderId.Subject];
+                            var isHtml = (message.HtmlBody?.Length > 0);
+                            var messageBody = message.TextBody;
+
+                            if(isHtml)
+                            {
+                                messageBody = message.HtmlBody;
+
+                                if(ignoreHTMLTag)
+                                {
+                                    HtmlDocument htmlDoc = new HtmlDocument();
+                                    htmlDoc.LoadHtml(messageBody);
+
+                                    if(htmlDoc != null)
+                                    {
+                                        messageBody = htmlDoc.DocumentNode.InnerText;
+                                    }                                    
+                                }
+                            }
+
+                            // ignoreBodyAttachments
+                            // recentFirst
+                            // checkUnorderedList
+
+                            mailMessage = new MailMessage()
+                            {
+                                UinqueId = uid.Id,
+                                ReceiveDate = receivedDateOffset.DateTime,
+                                Sender = sender,
+                                Subject = messageSubject,
+                                Body = messageBody,
+                                IsHtml = isHtml,
+                            };
+                        }
+
+                        result.Add(mailMessage);
+                    }
+                }
+               
+                inbox.Close();
                 client.Disconnect(true);
             }
 
-            return result;
+            return result?.ToArray();
         }
     }
 }
