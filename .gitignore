@@ -365,4 +365,3 @@ FodyWeavers.xsd
 # 디자이너 링크
 **/External/Designer
 **/.vs/
-**/packages/
