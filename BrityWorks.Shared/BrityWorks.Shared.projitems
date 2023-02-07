@@ -6,11 +6,13 @@
     <SharedGUID>cd4dc7f0-5c4e-4cfe-bec0-315094f6a545</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>BrityWorks.Shared</Import_RootNamespace>
+    <Import_RootNamespace>BrityWorks</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn\Activities\CaptureChrome.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn\Activities\CloseWindowHwnd.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)BrityWorks\AddIn\Hyper\Dto\MailMessageDTO.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\CaptureChrome.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\CloseWindowHwnd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\NonTargetActivityBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\ReceiveMail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\SendMail.cs" />
   </ItemGroup>
 </Project>

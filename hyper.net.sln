@@ -9,11 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrityWorks.AddIn.Hyper-v2.5
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BrityWorks.Shared", "BrityWorks.Shared\BrityWorks.Shared.shproj", "{CD4DC7F0-5C4E-4CFE-BEC0-315094F6A545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrityWorks.AddIn.Sample", "BrityWorks.AddIn.Sample\BrityWorks.AddIn.Sample.csproj", "{A4070F08-47FE-4649-BE80-20E66ED496B9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrityWorks.AddIn.Hyper-v2.1", "BrityWorks.AddIn.Hyper-v2.1\BrityWorks.AddIn.Hyper-v2.1.csproj", "{3D252CCF-A88F-4FCE-85E1-E90FFB552A8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hyperinfo.lib.net461", "hyperinfo.lib.net4.6.1\hyperinfo.lib.net461.csproj", "{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrityWorks.AddIn.Sample", "BrityWorks.AddIn.Sample\BrityWorks.AddIn.Sample.csproj", "{A4070F08-47FE-4649-BE80-20E66ED496B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperInfo.Lib.Net461", "HyperInfo.Lib.Net461\HyperInfo.Lib.Net461.csproj", "{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +29,14 @@ Global
 		{382C2056-308F-4F40-8EEF-02573669B705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382C2056-308F-4F40-8EEF-02573669B705}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382C2056-308F-4F40-8EEF-02573669B705}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D252CCF-A88F-4FCE-85E1-E90FFB552A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D252CCF-A88F-4FCE-85E1-E90FFB552A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D252CCF-A88F-4FCE-85E1-E90FFB552A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D252CCF-A88F-4FCE-85E1-E90FFB552A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4070F08-47FE-4649-BE80-20E66ED496B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU

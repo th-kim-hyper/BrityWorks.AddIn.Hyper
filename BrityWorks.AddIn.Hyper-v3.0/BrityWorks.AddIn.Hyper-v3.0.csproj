@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -41,6 +42,9 @@
     <Reference Include="ClearScript">
       <HintPath>External\Designer\ClearScript.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="Costura, Version=4.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Costura.Fody.4.1.0\lib\net40\Costura.dll</HintPath>
     </Reference>
     <Reference Include="IPA.AddIn">
       <HintPath>External\Designer\IPA.AddIn.dll</HintPath>
@@ -91,36 +95,29 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\ReceiveMailEx.cs" />
-    <Compile Include="Activities\SendMailEx.cs" />
+    <Compile Include="Activities\CaptureChrome_v30.cs" />
+    <Compile Include="Activities\CloseWindowHwnd_v30.cs" />
+    <Compile Include="Activities\ReceiveMail_v30.cs" />
+    <Compile Include="Activities\SendMail_v30.cs" />
     <Compile Include="AddIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="init.cmd" />
-    <None Include="Resources\excute.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\hi.works.png" />
-    <Content Include="Resources\hi.works_excute.png" />
-    <Content Include="Resources\hi.works_over.png" />
     <Content Include="ReadMe.txt" />
-    <None Include="Resources\send-mail.png" />
-    <Content Include="Resources\Hyper_Over.png" />
-    <Content Include="Resources\Hyper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HyperInfo.Lib.Net461\HyperInfo.Lib.Net461.csproj">
+      <Project>{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}</Project>
+      <Name>HyperInfo.Lib.Net461</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\String\String-en-US.xaml">
@@ -133,17 +130,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="External\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\hyperinfo.lib.net4.6.1\hyperinfo.lib.net461.csproj">
-      <Project>{9ae4d8a8-7ad4-4ff8-8d72-85b2a8521ec2}</Project>
-      <Name>hyperinfo.lib.net461</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="..\BrityWorks.Shared\BrityWorks.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.0.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.0.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.4.1.0\build\Costura.Fody.props'))" />
+  </Target>
 </Project>

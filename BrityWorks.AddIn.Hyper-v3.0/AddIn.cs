@@ -1,5 +1,5 @@
 ﻿using BrityWorks.AddIn.Hyper.Activities;
-using BrityWorks.AddIn.Hyper.Properties;
+using HyperInfo.Lib.Net461.Properties;
 using RPAGO.AddIn;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,7 +8,7 @@ namespace BrityWorks.AddIn.Hyper
 {
     public class AddIn : ActivityAddInBase
     {
-        protected override string AddInDisplayName => "Hyperinformation";
+        protected override string AddInDisplayName => "Hyperinformation v3.0";
 
         protected override Bitmap AddInIcon => Resources.hi_works;
 
@@ -18,10 +18,10 @@ namespace BrityWorks.AddIn.Hyper
         {
             List<IActivity> activities = new List<IActivity>
             {
-                new CloseWindowHwnd(),
-                new CaptureChrome(),
-                new SendMail(),
-                new ReceiveMail(),
+                new CloseWindowHwnd_v30(),
+                new CaptureChrome_v30(),
+                new SendMail_v30(),
+                new ReceiveMail_v30(),
             };
 
             return activities;

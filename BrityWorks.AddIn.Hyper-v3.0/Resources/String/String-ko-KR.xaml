@@ -26,21 +26,31 @@
     <system:String x:Key="PROP_Hyper_Capture_Prop4">옵션\[Input] 파일명 (기본값 Image) (*)</system:String>
     <system:String x:Key="PROP_Hyper_Capture_Prop5">옵션\[Input] 파일 형식</system:String>
 
-    <system:String x:Key="PROP_SendMailEx_CONNECTION_HostName">CONNECTION\Host Name</system:String>
-    <system:String x:Key="PROP_SendMailEx_CONNECTION_Port">CONNECTION\Port</system:String>
-    <system:String x:Key="PROP_SendMailEx_CONNECTION_ID">CONNECTION\ID</system:String>
-    <system:String x:Key="PROP_SendMailEx_CONNECTION_Password">CONNECTION\Password</system:String>
-    <system:String x:Key="PROP_SendMailEx_CONNECTION_UseSSL">CONNECTION\Use SSL</system:String>
+    <system:String x:Key="PROP_Hyper_OUTPUT_MailMessages">OUTPUT\메세지 리스트</system:String>
 
-    <system:String x:Key="PROP_SendMailEx_MAIL_Sender">MAIL\Sender</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_Receivers">MAIL\Receivers</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_Ccs">MAIL\Ccs</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_Bccs">MAIL\Bccs</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_Subject">MAIL\Subject</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_Attachments">MAIL\Attachments</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_FileSize">MAIL\File Size (MB)</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_Body">MAIL\Body</system:String>
-    <system:String x:Key="PROP_SendMailEx_MAIL_IsHTML">MAIL\IsHTML</system:String>
+    <system:String x:Key="PROP_Hyper_CONNECTION_Protocol">CONNECTION\프로토콜</system:String>
+    <system:String x:Key="PROP_Hyper_CONNECTION_HostName">CONNECTION\메일서버</system:String>
+    <system:String x:Key="PROP_Hyper_CONNECTION_Port">CONNECTION\포트번호</system:String>
+    <system:String x:Key="PROP_Hyper_CONNECTION_ID">CONNECTION\아이디</system:String>
+    <system:String x:Key="PROP_Hyper_CONNECTION_Password">CONNECTION\비밀번호</system:String>
+    <system:String x:Key="PROP_Hyper_CONNECTION_UseSSL">CONNECTION\SSL사용</system:String>
+
+    <system:String x:Key="PROP_Hyper_MAIL_Sender">MAIL\보내는 사람</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_Receivers">MAIL\받는 사람</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_Ccs">MAIL\참조</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_Bccs">MAIL\숨은 참조</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_Subject">MAIL\제목</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_Attachments">MAIL\첨부파일</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_FileSize">MAIL\첨부파일 최대크기(MB)</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_Body">MAIL\본문</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_IsHTML">MAIL\HTML작성여부</system:String>
+
+    <system:String x:Key="PROP_Hyper_MAIL_DateTimeRange">MAIL\일자검색 범위</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_BeginTime">MAIL\시작일시</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_EndTime">MAIL\종료일시</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_WithAttachments">MAIL\첨부파일 저장</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_SaveDir">MAIL\첨부파일 저장경로</system:String>
+    <system:String x:Key="PROP_Hyper_MAIL_RecentFirst">MAIL\최근 메세지부터 일기</system:String>
 
     <!-- Property Description
       Res Key format1('_') : DESC_[AddinName]_[PropertyGroup]_[PropertyName]  (Basic - It's for all properties in addin)
