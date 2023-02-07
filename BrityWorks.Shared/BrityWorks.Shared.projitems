@@ -11,6 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AddIn\Activities\CaptureChrome.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn\Activities\CloseWindowHwnd.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn\Dto\MailMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BrityWorks\AddIn\Hyper\Dto\MailMessageDTO.cs" />
   </ItemGroup>
 </Project>

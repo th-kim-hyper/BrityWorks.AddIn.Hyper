@@ -10,9 +10,9 @@ namespace BrityWorks.AddIn.Hyper
     {
         protected override string AddInDisplayName => "Hyperinformation";
 
-        protected override Bitmap AddInIcon => Resources.Hyper;
+        protected override Bitmap AddInIcon => Resources.hi_works;
 
-        protected override Bitmap AddInOverIcon => Resources.Hyper_Over;
+        protected override Bitmap AddInOverIcon => Resources.hi_works_over;
 
         protected override List<IActivity> CreateActivites()
         {
@@ -20,8 +20,8 @@ namespace BrityWorks.AddIn.Hyper
             {
                 new CloseWindowHwnd(),
                 new CaptureChrome(),
-                new SendMailEx(),
-                new ReceiveMailEx(),
+                new SendMail(),
+                new ReceiveMail(),
             };
 
             return activities;

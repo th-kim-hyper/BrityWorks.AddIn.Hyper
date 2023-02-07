@@ -17,7 +17,7 @@
         </RadPaneGroup>
       </Items>
     </RadSplitContainer>
-    <RadSplitContainer Dock="DockedRight" Width="325">
+    <RadSplitContainer Dock="DockedRight" Width="447">
       <Items>
         <RadPaneGroup SerializationTag="rightGroup" SelectedIndex="0">
           <Items>

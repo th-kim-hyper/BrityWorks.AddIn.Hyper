@@ -11,5 +11,5 @@ ECHO.
 ECHO.
 ECHO STEP2 : 디자이너 링크 생성
 ECHO ===============================================================================
-mklink /j External\Designer "%AppData%\Brity RPA Designer v2.5"
+mklink /D External\Designer "%AppData%\Brity RPA Designer v2.5"
 ECHO ===============================================================================

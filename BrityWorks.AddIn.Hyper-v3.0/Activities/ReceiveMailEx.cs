@@ -1,32 +1,19 @@
 ﻿using BrityWorks.AddIn.Hyper.Properties;
-using MailKit.Net.Smtp;
-using Microsoft.ClearScript.V8;
-using Microsoft.ClearScript;
-using MimeKit;
-using MimeKit.Text;
 using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Event;
 using RPAGO.Common.Library;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Bitmap = System.Drawing.Bitmap;
-using MailKit.Net.Imap;
-using MailKit.Search;
-using MailKit.Security;
-using MailKit;
-using System.Diagnostics;
-using MimeKit.Utils;
-using BrityWorks.Shared.AddIn.Dto;
-using System.Windows;
-using HtmlAgilityPack;
-using System.Text;
+using hyperinfo.lib.net461;
+using System.Linq;
+using Win32;
+using BrityWorks.AddIn.Hyper.Dto;
 
 namespace BrityWorks.AddIn.Hyper.Activities
 {
-    public class ReceiveMailEx : IActivityItem
+    public class ReceiveMail : IActivityItem
     {
         public static readonly PropKey OutputPropKey = new PropKey("OUTPUT", "Mails");
 
@@ -37,21 +24,25 @@ namespace BrityWorks.AddIn.Hyper.Activities
         public static readonly PropKey PwdPropKey = new PropKey("CONNECTION", "Password");
         public static readonly PropKey UseSSLPropKey = new PropKey("CONNECTION", "UseSSL");
 
+        public static readonly PropKey DateTimeRangePropKey = new PropKey("MAIL", "DateTimeRange");
         public static readonly PropKey BeginTimePropKey = new PropKey("MAIL", "BeginTime");
         public static readonly PropKey EndTimePropKey = new PropKey("MAIL", "EndTime");
         public static readonly PropKey SenderPropKey = new PropKey("MAIL", "Sender");
         public static readonly PropKey SubjectPropKey = new PropKey("MAIL", "Subject");
-        public static readonly PropKey MaxCountPropKey = new PropKey("MAIL", "MaxCount");
-        public static readonly PropKey StartNoPropKey = new PropKey("MAIL", "StartNo");
-        public static readonly PropKey WithContentsPropKey = new PropKey("MAIL", "WithContents");
-        public static readonly PropKey IgnoreHTMLTagPropKey = new PropKey("MAIL", "IgnoreHTMLTag");
-        public static readonly PropKey IgnoreBodyAttachmentsPropKey = new PropKey("MAIL", "IgnoreBodyAttachments");
+        public static readonly PropKey WithAttachmentsPropKey = new PropKey("MAIL", "WithAttachments");
+        public static readonly PropKey SaveDirPropKey = new PropKey("MAIL", "SaveDir");
+
+        //public static readonly PropKey MaxCountPropKey = new PropKey("MAIL", "MaxCount");
+        //public static readonly PropKey StartNoPropKey = new PropKey("MAIL", "StartNo");
+        //public static readonly PropKey WithContentsPropKey = new PropKey("MAIL", "WithContents");
+        //public static readonly PropKey IgnoreHTMLTagPropKey = new PropKey("MAIL", "IgnoreHTMLTag");
+        //public static readonly PropKey IgnoreBodyAttachmentsPropKey = new PropKey("MAIL", "IgnoreBodyAttachments");
         public static readonly PropKey RecentFirstPropKey = new PropKey("MAIL", "RecentFirst");
-        public static readonly PropKey CheckUnorderedListPropKey = new PropKey("MAIL", "CheckUnorderedList");
+        //public static readonly PropKey CheckUnorderedListPropKey = new PropKey("MAIL", "CheckUnorderedList");
 
         public string DisplayName => "Hyper Receive Mail";
 
-        public Bitmap Icon => Resources.mail;
+        public Bitmap Icon => Resources.hi_works_excute;
 
         public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
 
@@ -61,11 +52,79 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         private PropertySet PropertyList;
 
-        private void OnSelectChanged(object oldValue, object newValue)
+        public string PresetRange { get; set; } = "All;Today;This Week;This Month;This Year";
+
+        private void OnProtocolChanged(object oldValue, object newValue)
         {
-            var protocol = newValue.ToStr();
-            var portPropItem = PropertyList[PortPropKey];
-            portPropItem.Value = (protocol == "IMAP") ? 993 : 995;
+            var value = newValue.ToStr();
+            var propItem = PropertyList[PortPropKey];
+            propItem.Value = (value == "IMAP") ? 993 : 995;
+            ReloadPropertyEvent.Publish();
+        }
+
+        private void OnWithAttachmentsChanged(object oldValue, object newValue)
+        {
+            var value = newValue?.ToBoolValue();
+            var propItem = PropertyList[SaveDirPropKey];
+            propItem.SetVisible(value == true ? true : false);
+            ReloadPropertyEvent.Publish();
+        }
+
+        private void OnPresetRangeChanged(object oldValue, object newValue)
+        {
+            var value = newValue?.ToStr();
+            var beginTimeItem = PropertyList[BeginTimePropKey];
+            var endTimeItem = PropertyList[EndTimePropKey];
+            var presetRanges = PresetRange.Split(';');
+
+            beginTimeItem.ValueChangedHandler = null;
+            endTimeItem.ValueChangedHandler = null;
+
+            if (value.EqualsEx(presetRanges[0], true))
+            {
+                beginTimeItem.Value = "";
+                endTimeItem.Value = "";
+            }
+            else if (value.EqualsEx(presetRanges[1], true))
+            {
+                beginTimeItem.Value = "'" + DateTime.Now.ToString("yyyy-MM-dd 00:00:00") + "'";
+                endTimeItem.Value = "";
+            }
+            else if (value.EqualsEx(presetRanges[2], true))
+            {
+                var dateTime = DateTime.Now;
+                var week = dateTime.DayOfWeek;
+
+                dateTime = (week == DayOfWeek.Sunday) ? dateTime = dateTime.AddDays(-6) : dateTime.AddDays(1 - (int)week);
+                beginTimeItem.Value = "'" + dateTime.ToString("yyyy-MM-dd 00:00:00") + "'";
+                endTimeItem.Value = "";
+            }
+            else if (value.EqualsEx(presetRanges[3], true))
+            {
+                beginTimeItem.Value = "'" + DateTime.Now.ToString("yyyy-MM-01 00:00:00") + "'";
+                endTimeItem.Value = "";
+            }
+            else if (value.EqualsEx(presetRanges[4], true))
+            {
+                beginTimeItem.Value = "'" + DateTime.Now.ToString("yyyy-01-01 00:00:00") + "'";
+                endTimeItem.Value = "";
+            }
+
+            beginTimeItem.ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
+            endTimeItem.ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
+            ReloadPropertyEvent.Publish();
+        }
+
+        private void OnDateTimeChanged(object oldValue, object newValue)
+        {
+            var value = newValue?.ToStr();
+            var rangePropItem = PropertyList[DateTimeRangePropKey];
+            var presetRanges = PresetRange.Split(';');
+
+            rangePropItem.ValueChangedHandler = null;
+            rangePropItem.Value = presetRanges[0];
+
+            rangePropItem.ResetValueChangedHandler().SetValueChangedHandler(OnPresetRangeChanged);
             ReloadPropertyEvent.Publish();
         }
 
@@ -73,26 +132,30 @@ namespace BrityWorks.AddIn.Hyper.Activities
         {
             var properties = new List<Property>()
             {
-                new Property(this, OutputPropKey, "RESULT"),
+                new Property(this, OutputPropKey, "RESULT").SetOrder(0),
 
-                new Property(this, ProtocolPropKey, "'POP3'").SetDropDownList("POP3;IMAP"),
-                new Property(this, HostNamePropKey, "'smtp.mail.com'").SetRequired(),
+                new Property(this, ProtocolPropKey, "'IMAP'").SetDropDownList("IMAP;POP3"),
+                new Property(this, HostNamePropKey, "'imap.mail.com'").SetRequired(),
                 new Property(this, PortPropKey, 995).SetRequired(),
                 new Property(this, IdPorpKey, "'from@mail.com'").SetRequired(),
                 new Property(this, PwdPropKey, "", true).SetControlType(PropertyControls.PropertyItemPasswordView).SetRequired(),
                 new Property(this, UseSSLPropKey, true),
 
+                new Property(this, DateTimeRangePropKey, PresetRange.Split(';')[1]).SetDropDownList(PresetRange),
                 new Property(this, BeginTimePropKey, "'" + DateTime.Now.ToString("yyyy-MM-dd 00:00:00") + "'"),
                 new Property(this, EndTimePropKey, ""),
                 new Property(this, SenderPropKey, ""),
                 new Property(this, SubjectPropKey, ""),
-                new Property(this, MaxCountPropKey, 1),
-                new Property(this, StartNoPropKey, "", DataTypes.Integer, DataFormatTypes.Integer),
-                new Property(this, WithContentsPropKey, false),
-                new Property(this, IgnoreHTMLTagPropKey, true).SetInternal(true),
-                new Property(this, IgnoreBodyAttachmentsPropKey, true).SetInternal(true),
-                new Property(this, RecentFirstPropKey, true).SetInternal(true),
-                new Property(this, CheckUnorderedListPropKey, false).SetInternal(true),
+                new Property(this, WithAttachmentsPropKey, false),
+                new Property(this, SaveDirPropKey, "").SetVisible(false),
+
+                //new Property(this, MaxCountPropKey, 1),
+                //new Property(this, StartNoPropKey, "", DataTypes.Integer, DataFormatTypes.Integer),
+                //new Property(this, WithContentsPropKey, false),
+                //new Property(this, IgnoreHTMLTagPropKey, true).SetInternal(true),
+                //new Property(this, IgnoreBodyAttachmentsPropKey, true).SetInternal(true),
+                new Property(this, RecentFirstPropKey, true),
+                //new Property(this, CheckUnorderedListPropKey, false).SetInternal(true),
             };
 
             ReloadPropertyEvent.Publish();
@@ -101,14 +164,18 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         public void OnLoad(PropertySet properties)
         {
-            properties[ProtocolPropKey].ResetValueChangedHandler().SetValueChangedHandler(OnSelectChanged);
+            properties[DateTimeRangePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnPresetRangeChanged);
+            properties[BeginTimePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
+            properties[EndTimePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
+
+            properties[ProtocolPropKey].ResetValueChangedHandler().SetValueChangedHandler(OnProtocolChanged);
+            properties[WithAttachmentsPropKey].ResetValueChangedHandler().SetValueChangedHandler(OnWithAttachmentsChanged);
+            properties.Values.ToList().ForEach((item) => item.SetOrder(properties.Values.ToList().IndexOf(item)));
             PropertyList = properties;
         }
 
         public object OnRun(IDictionary<string, object> properties)
         {
-            var result = null as List<MailMessage>;
-
             var protocol = properties[ProtocolPropKey].ToStr();
             var host = properties[HostNamePropKey].ToStr();
             var port = properties[PortPropKey].ToIntValue();
@@ -120,122 +187,38 @@ namespace BrityWorks.AddIn.Hyper.Activities
             var endTime = properties[EndTimePropKey].ToStr();
             var sender = properties[SenderPropKey].ToStr();
             var subject = properties[SubjectPropKey].ToStr();
-            var maxCount = (properties[MaxCountPropKey].ToStr() == "[undefined]") ? 100 : properties[MaxCountPropKey].ToIntValue();
-            var startNo = (properties[StartNoPropKey].ToStr() == "[undefined]") ? 0 : properties[StartNoPropKey].ToIntValue();
-            var withContents = properties[WithContentsPropKey].ToBoolValue();
-            var ignoreHTMLTag = properties[IgnoreHTMLTagPropKey].ToBoolValue();
-            var ignoreBodyAttachments = properties[IgnoreBodyAttachmentsPropKey].ToBoolValue();
+            var withAttachements = (properties[WithAttachmentsPropKey]?.ToBoolValue() == true);
+            var saveDir = properties[SaveDirPropKey].ToStr();
+
+            //var maxCount = (properties[MaxCountPropKey].ToStr() == "[undefined]") ? 100 : properties[MaxCountPropKey].ToIntValue();
+            //var startNo = (properties[StartNoPropKey].ToStr() == "[undefined]") ? 0 : properties[StartNoPropKey].ToIntValue();
+            //var withContents = properties[WithContentsPropKey].ToBoolValue();
+            //var ignoreHTMLTag = properties[IgnoreHTMLTagPropKey].ToBoolValue();
+            //var ignoreBodyAttachments = properties[IgnoreBodyAttachmentsPropKey].ToBoolValue();
             var recentFirst = properties[RecentFirstPropKey].ToBoolValue();
-            var checkUnorderedList = properties[CheckUnorderedListPropKey].ToBoolValue();
+            //var checkUnorderedList = properties[CheckUnorderedListPropKey].ToBoolValue();
+            var messages = null as IList<MailMessageDTO>;
 
-            using (var client = new ImapClient())
+            if (protocol.EqualsEx("IMAP", true))
             {
-                client.Connect(host, port, useSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
-                client.Authenticate(id, password);
-                var inbox = client.Inbox;
-                inbox.Open(FolderAccess.ReadOnly);
-                var inboxCount = inbox.Count;
-                var query = SearchQuery.All;
-
-                if (subject?.Length > 0)
-                {
-                    query = query.And(SearchQuery.SubjectContains(subject));
-                }
-
-                if (sender?.Length > 0)
-                {
-                    query = query.And(SearchQuery.FromContains(sender));
-                }
-
-                if (beginTime?.Length > 0 && DateUtils.TryParse(beginTime, out DateTimeOffset beginDateTimeOffset))
-                {
-                    query = query.And(SearchQuery.DeliveredAfter(beginDateTimeOffset.DateTime));
-                }
-
-                if (endTime?.Length > 0 && DateUtils.TryParse(endTime, out DateTimeOffset endDateTimeOffset))
-                {
-                    query = query.And(SearchQuery.DeliveredBefore(endDateTimeOffset.DateTime));
-                }
-
-                if (startNo < 0)
-                {
-                    startNo = 0;
-                }
-
-                query = query.And(SearchQuery.DeliveredAfter(DateTime.Now.AddDays(-3)));
-
-                var uids = inbox.Search(query);
-                var uidCount = uids.Count;
-
-                Debug.WriteLine($"inbox search {uidCount}/{inboxCount}");
-
-                if(uidCount > 0)
-                {
-                    var messages = new List<MimeMessage>();
-                    var minCount = Math.Min(uidCount, maxCount);
-                    result = new List<MailMessage>();
-
-                    if (recentFirst)
-                    {
-                        uids = uids.Reverse().ToList();
-                    }
-
-                    for (int i = startNo; i < minCount; i++)
-                    {
-                        var mailMessage = new MailMessage();
-                        var uid = uids[i];
-                        var headers = inbox.GetHeaders(uid);
-                        var message = inbox.GetMessage(uid);
-                        var receivedDate = headers[HeaderId.Received];
-
-                        DateUtils.TryParse(receivedDate, out DateTimeOffset receivedDateOffset);
-
-                        if (withContents)
-                        {
-                            var messageSubject = headers[HeaderId.Subject];
-                            var isHtml = (message.HtmlBody?.Length > 0);
-                            var messageBody = message.TextBody;
-
-                            if(isHtml)
-                            {
-                                messageBody = message.HtmlBody;
-
-                                if(ignoreHTMLTag)
-                                {
-                                    HtmlDocument htmlDoc = new HtmlDocument();
-                                    htmlDoc.LoadHtml(messageBody);
-
-                                    if(htmlDoc != null)
-                                    {
-                                        messageBody = htmlDoc.DocumentNode.InnerText;
-                                    }                                    
-                                }
-                            }
-
-                            // ignoreBodyAttachments
-                            // recentFirst
-                            // checkUnorderedList
-
-                            mailMessage = new MailMessage()
-                            {
-                                UinqueId = uid.Id,
-                                ReceiveDate = receivedDateOffset.DateTime,
-                                Sender = sender,
-                                Subject = messageSubject,
-                                Body = messageBody,
-                                IsHtml = isHtml,
-                            };
-                        }
-
-                        result.Add(mailMessage);
-                    }
-                }
-               
-                inbox.Close();
-                client.Disconnect(true);
+                messages = HyperMail.ReceiveIMAP(host, port, id, password, useSsl, beginTime, endTime, sender, subject, withAttachements, saveDir);
+            }
+            else if (protocol.EqualsEx("POP3", true))
+            {
+                messages = HyperMail.ReceivePOP3(host, port, id, password, useSsl, beginTime, endTime, sender, subject, withAttachements, saveDir);
             }
 
-            return result?.ToArray();
+            if(messages?.Count > 0)
+            {
+                messages = messages.OrderBy(m => m.ReceiveDate.Ticks).ToList();
+
+                if(recentFirst == true)
+                {
+                    messages = messages.Reverse().ToList();
+                }
+            }
+
+            return messages?.ToArray();
         }
     }
 }

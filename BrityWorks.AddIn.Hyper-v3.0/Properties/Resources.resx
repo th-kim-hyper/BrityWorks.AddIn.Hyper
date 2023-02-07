@@ -121,6 +121,15 @@
   <data name="excute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\excute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="hi_works" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hi.works.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hi_works_excute" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hi.works_excute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hi_works_over" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hi.works_over.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Hyper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hyper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
