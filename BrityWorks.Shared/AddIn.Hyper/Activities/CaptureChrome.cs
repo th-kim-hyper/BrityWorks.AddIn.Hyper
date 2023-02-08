@@ -33,9 +33,9 @@ namespace BrityWorks.AddIn.Hyper.Activities
         public PropKey OutputProperty => OutputPropKey;
 
         // 아래에서 사용될 propertylist 선언
-        private PropertySet PropertyList;
+        protected PropertySet PropertyList;
 
-        public List<Property> OnCreateProperties()
+        public virtual List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -51,7 +51,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
         }
 
         // 선택하는 옵션 전용
-        protected void OnTogglePropValueChanged(object oldValue, object newValue)
+        protected virtual void OnTogglePropValueChanged(object oldValue, object newValue)
         {
             var togglePropItem = PropertyList[FileExtension];
 
@@ -77,13 +77,13 @@ namespace BrityWorks.AddIn.Hyper.Activities
         }
 
         // 로드 되었을 때
-        public void OnLoad(PropertySet properties)
+        public virtual void OnLoad(PropertySet properties)
         {
             PropertyList = properties;
         }
 
         // 실행 시 (카드 run)
-        public object OnRun(IDictionary<string, object> properties)
+        public virtual object OnRun(IDictionary<string, object> properties)
         {
             // 클리어스크립트 선언
             V8ScriptEngine v8 = new V8ScriptEngine();

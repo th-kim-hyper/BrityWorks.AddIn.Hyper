@@ -41,10 +41,9 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         public PropKey OutputProperty => OutputPropKey;
 
+        protected PropertySet PropertyList;
 
-        private PropertySet PropertyList;
-
-        public List<Property> OnCreateProperties()
+        public virtual List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -68,7 +67,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return properties;
         }
 
-        public void OnLoad(PropertySet properties)
+        public virtual void OnLoad(PropertySet properties)
         {
             PropertyList = properties;
         }
@@ -90,7 +89,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return result;
         }
 
-        public object OnRun(IDictionary<string, object> properties)
+        public virtual object OnRun(IDictionary<string, object> properties)
         {
             string result = "";
             IList<FileInfo> files = null;

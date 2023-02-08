@@ -30,9 +30,9 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         public PropKey OutputProperty => OutputPropKey;
 
-        private PropertySet PropertyList;
+        protected PropertySet PropertyList;
 
-        public List<Property> OnCreateProperties()
+        public virtual List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -46,13 +46,13 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return properties;
         }
 
-        public void OnLoad(PropertySet properties)
+        public virtual void OnLoad(PropertySet properties)
         {
             PropertyList = properties;
         }
 
         // 창 닫기 전용
-        protected void close_window(IntPtr hwnd, bool force, int outs)
+        protected virtual void close_window(IntPtr hwnd, bool force, int outs)
         {
             // 혹시 모르니, 한번 Active
             User.SendMessageTimeout(hwnd, 0x1C, 1, 1, 0x0, 1, ref outs);
@@ -71,7 +71,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         }
 
-        public object OnRun(IDictionary<string, object> properties)
+        public virtual object OnRun(IDictionary<string, object> properties)
         {
             // 클리어 스크립트 선언 ( 형변환 전용 )
             V8ScriptEngine v8 = new V8ScriptEngine();

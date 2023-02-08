@@ -27,7 +27,4 @@
     <None Include="$(MSBuildThisFileDirectory)Resources\send-mail.png" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Set.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\Base\" />
-  </ItemGroup>
 </Project>

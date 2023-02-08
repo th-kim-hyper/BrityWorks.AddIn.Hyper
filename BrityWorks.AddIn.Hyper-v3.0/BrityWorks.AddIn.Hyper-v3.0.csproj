@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="init-v2.1.cmd" />
     <None Include="init.cmd" />
   </ItemGroup>
   <ItemGroup>
