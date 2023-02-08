@@ -15,5 +15,7 @@ if exist External\Designer (
 	rmdir /S /Q External\Designer
 )
 
+mkdir External\
+
 mklink /J External\Designer "%AppData%\Brity RPA Designer v2.5"
 ECHO ===============================================================================
