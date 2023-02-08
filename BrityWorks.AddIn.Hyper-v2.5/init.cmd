@@ -11,13 +11,9 @@ ECHO.
 ECHO.
 ECHO STEP2 : 디자이너 링크 생성
 ECHO ===============================================================================
-if not exist "%AppData%\Brity RPA Designer v2.5" (
-	mklink /D "%AppData%\Brity RPA Designer v2.5" "%AppData%\Brity RPA Designer"
-)
-
 if exist External\Designer (
 	rmdir /S /Q External\Designer
 )
 
-mklink /D External\Designer "%AppData%\Brity RPA Designer v2.5"
+mklink /J External\Designer "%AppData%\Brity RPA Designer v2.5"
 ECHO ===============================================================================

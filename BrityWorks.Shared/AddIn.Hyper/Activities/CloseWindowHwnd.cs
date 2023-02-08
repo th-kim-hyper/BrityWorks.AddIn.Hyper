@@ -1,18 +1,18 @@
-﻿using RPAGO.AddIn;
+﻿using BrityWorks.AddIn.Hyper.Properties;
+using Microsoft.ClearScript;
+using Microsoft.ClearScript.V8;
+using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Library;
 using System;
 using System.Collections.Generic;
-using Microsoft.ClearScript.V8;
-using Microsoft.ClearScript;
 using Win32;
-using HyperInfo.Lib.Net461.Properties;
 
 namespace BrityWorks.AddIn.Hyper.Activities
 {
-    public class CloseWindowHwnd : NonTargetActivityBase
+    public class CloseWindowHwnd : IActivityItem
     {
-        public new static readonly PropKey OutputPropKey = new PropKey("Close", "Prop1");
+        public static readonly PropKey OutputPropKey = new PropKey("Close", "Prop1");
 
         public static readonly PropKey InputPropKey = new PropKey("Close", "Prop2");
 
@@ -20,19 +20,19 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         public static readonly PropKey OnOffPropKey = new PropKey("Close", "Prop4");
 
-        public override string DisplayName => "Close Window Hwnd";
+        public string DisplayName => "Close Window Hwnd";
 
-        public override System.Drawing.Bitmap Icon => Resources.excute;
+        public System.Drawing.Bitmap Icon => Resources.excute;
 
-        //public override LibraryHeadlessType Mode => LibraryHeadlessType.Both;
+        public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
 
-        //public override PropKey DisplayTextProperty => OutputPropKey;
+        public PropKey DisplayTextProperty => OutputPropKey;
 
-        //public override PropKey OutputProperty => OutputPropKey;
+        public PropKey OutputProperty => OutputPropKey;
 
-        //private PropertySet PropertyList;
+        private PropertySet PropertyList;
 
-        public override List<Property> OnCreateProperties()
+        public List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -46,13 +46,13 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return properties;
         }
 
-        public override void OnLoad(PropertySet properties)
+        public void OnLoad(PropertySet properties)
         {
             PropertyList = properties;
         }
 
         // 창 닫기 전용
-        protected virtual void close_window(IntPtr hwnd, bool force, int outs)
+        protected void close_window(IntPtr hwnd, bool force, int outs)
         {
             // 혹시 모르니, 한번 Active
             User.SendMessageTimeout(hwnd, 0x1C, 1, 1, 0x0, 1, ref outs);
@@ -71,7 +71,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
 
         }
 
-        public override object OnRun(IDictionary<string, object> properties)
+        public object OnRun(IDictionary<string, object> properties)
         {
             // 클리어 스크립트 선언 ( 형변환 전용 )
             V8ScriptEngine v8 = new V8ScriptEngine();

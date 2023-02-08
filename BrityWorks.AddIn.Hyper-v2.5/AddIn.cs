@@ -1,5 +1,5 @@
 ﻿using BrityWorks.AddIn.Hyper.Activities;
-using HyperInfo.Lib.Net461.Properties;
+using BrityWorks.AddIn.Hyper.Properties;
 using RPAGO.AddIn;
 using System.Collections.Generic;
 using System.Drawing;

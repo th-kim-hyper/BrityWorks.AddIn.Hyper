@@ -11,8 +11,23 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\CaptureChrome.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\CloseWindowHwnd.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\NonTargetActivityBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\ReceiveMail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\SendMail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Custom.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Custom_Over.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\excute.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Get.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\hi.works.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\hi.works_excute.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\hi.works_over.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Hyper.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Hyper_Over.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\send-mail.png" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Set.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\Base\" />
   </ItemGroup>
 </Project>

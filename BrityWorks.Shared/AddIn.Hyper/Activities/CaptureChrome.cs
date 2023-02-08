@@ -1,40 +1,41 @@
 ﻿using RPAGO.Common.Data;
-using RPAGO.Common.Library;
 using System;
 using System.Collections.Generic;
 using Microsoft.ClearScript.V8;
 using Microsoft.ClearScript;
 using PuppeteerSharp;
 using RPAGO.Common.Event;
-using HyperInfo.Lib.Net461.Properties;
+using BrityWorks.AddIn.Hyper.Properties;
+using RPAGO.AddIn;
+using RPAGO.Common.Library;
 
 namespace BrityWorks.AddIn.Hyper.Activities
 {
-    public class CaptureChrome : NonTargetActivityBase
+    public class CaptureChrome : IActivityItem
     {
         // 디자이너 옵션들 (Resources/String/ xaml 파일들에서 세부내용 수정)
-        public new static readonly PropKey OutputPropKey = new PropKey("Capture", "Prop1");
+        public static readonly PropKey OutputPropKey = new PropKey("Capture", "Prop1");
         public static readonly PropKey InputPropKey_Find = new PropKey("Capture", "Prop2");
         public static readonly PropKey InputPropKey_Path = new PropKey("Capture", "Prop3");
         public static readonly PropKey InputPropKey_Name = new PropKey("Capture", "Prop4");
         public static readonly PropKey FileExtension = new PropKey("Capture", "Prop5");
 
         // 카드 이름
-        public override string DisplayName => "Chrome Find Capture";
+        public string DisplayName => "Chrome Find Capture";
 
         // 아이콘 설정
-        public override System.Drawing.Bitmap Icon => Resources.excute;
+        public System.Drawing.Bitmap Icon => Resources.excute;
 
-        //public override LibraryHeadlessType Mode => LibraryHeadlessType.Both;
+        public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
 
         // 아웃풋 설정
-        //public override PropKey DisplayTextProperty => OutputPropKey;
-        //public override PropKey OutputProperty => OutputPropKey;
+        public PropKey DisplayTextProperty => OutputPropKey;
+        public PropKey OutputProperty => OutputPropKey;
 
         // 아래에서 사용될 propertylist 선언
-        //private PropertySet PropertyList;
+        private PropertySet PropertyList;
 
-        public override List<Property> OnCreateProperties()
+        public List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -50,7 +51,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
         }
 
         // 선택하는 옵션 전용
-        protected virtual void OnTogglePropValueChanged(object oldValue, object newValue)
+        protected void OnTogglePropValueChanged(object oldValue, object newValue)
         {
             var togglePropItem = PropertyList[FileExtension];
 
@@ -76,13 +77,13 @@ namespace BrityWorks.AddIn.Hyper.Activities
         }
 
         // 로드 되었을 때
-        public override void OnLoad(PropertySet properties)
+        public void OnLoad(PropertySet properties)
         {
             PropertyList = properties;
         }
 
         // 실행 시 (카드 run)
-        public override object OnRun(IDictionary<string, object> properties)
+        public object OnRun(IDictionary<string, object> properties)
         {
             // 클리어스크립트 선언
             V8ScriptEngine v8 = new V8ScriptEngine();

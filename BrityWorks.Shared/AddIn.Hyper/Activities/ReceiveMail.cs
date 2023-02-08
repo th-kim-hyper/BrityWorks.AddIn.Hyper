@@ -1,20 +1,20 @@
-﻿using HyperInfo.Lib.Net461.Properties;
-using RPAGO.AddIn;
+﻿using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Event;
-using RPAGO.Common.Library;
 using System;
 using System.Collections.Generic;
-using HyperInfo.Lib.Net461;
 using System.Linq;
 using HyperInfo.Lib.Net461.Dto;
 using System.Drawing;
+using BrityWorks.AddIn.Hyper.Properties;
+using RPAGO.Common.Library;
+using HyperInfo.Lib.Net461.Mail;
 
 namespace BrityWorks.AddIn.Hyper.Activities
 {
-    public class ReceiveMail : NonTargetActivityBase
+    public class ReceiveMail : IActivityItem
     {
-        public new static readonly PropKey OutputPropKey = new PropKey("OUTPUT", "MailMessages");
+        public static readonly PropKey OutputPropKey = new PropKey("OUTPUT", "Result");
 
         public static readonly PropKey ProtocolPropKey = new PropKey("CONNECTION", "Protocol");
         public static readonly PropKey HostNamePropKey = new PropKey("CONNECTION", "HostName");
@@ -32,15 +32,21 @@ namespace BrityWorks.AddIn.Hyper.Activities
         public static readonly PropKey SaveDirPropKey = new PropKey("MAIL", "SaveDir");
         public static readonly PropKey RecentFirstPropKey = new PropKey("MAIL", "RecentFirst");
 
-        public override string DisplayName => "Hyper Receive Mail";
+        public string DisplayName => "Hyper Receive Mail";
 
-        public override Bitmap Icon => Resources.hi_works_excute;
+        public Bitmap Icon => Resources.hi_works_excute;
 
-        public override PropKey OutputProperty => OutputPropKey;
+        public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
 
-        public virtual string PresetRange { get; set; } = "All;Today;This Week;This Month;This Year";
+        public PropKey DisplayTextProperty => OutputPropKey;
 
-        protected virtual void OnProtocolChanged(object oldValue, object newValue)
+        public PropKey OutputProperty => OutputPropKey;
+
+        private PropertySet PropertyList;
+
+        public string PresetRange { get; set; } = "All;Today;This Week;This Month;This Year";
+
+        protected void OnProtocolChanged(object oldValue, object newValue)
         {
             var value = newValue.ToStr();
             var propItem = PropertyList[PortPropKey];
@@ -48,7 +54,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             ReloadPropertyEvent.Publish();
         }
 
-        protected virtual void OnWithAttachmentsChanged(object oldValue, object newValue)
+        protected void OnWithAttachmentsChanged(object oldValue, object newValue)
         {
             var value = newValue?.ToBoolValue();
             var propItem = PropertyList[SaveDirPropKey];
@@ -56,7 +62,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             ReloadPropertyEvent.Publish();
         }
 
-        protected virtual void OnPresetRangeChanged(object oldValue, object newValue)
+        protected void OnPresetRangeChanged(object oldValue, object newValue)
         {
             var value = newValue?.ToStr();
             var beginTimeItem = PropertyList[BeginTimePropKey];
@@ -101,7 +107,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             ReloadPropertyEvent.Publish();
         }
 
-        protected virtual void OnDateTimeChanged(object oldValue, object newValue)
+        protected void OnDateTimeChanged(object oldValue, object newValue)
         {
             var value = newValue?.ToStr();
             var rangePropItem = PropertyList[DateTimeRangePropKey];
@@ -114,7 +120,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             ReloadPropertyEvent.Publish();
         }
 
-        public override List<Property> OnCreateProperties()
+        public List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -141,7 +147,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return properties;
         }
 
-        public override void OnLoad(PropertySet properties)
+        public void OnLoad(PropertySet properties)
         {
             properties[DateTimeRangePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnPresetRangeChanged);
             properties[BeginTimePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
@@ -153,7 +159,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             PropertyList = properties;
         }
 
-        public override object OnRun(IDictionary<string, object> properties)
+        public object OnRun(IDictionary<string, object> properties)
         {
             var protocol = properties[ProtocolPropKey].ToStr();
             var host = properties[HostNamePropKey].ToStr();

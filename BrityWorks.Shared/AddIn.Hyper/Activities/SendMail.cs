@@ -1,5 +1,5 @@
-﻿using HyperInfo.Lib.Net461;
-using HyperInfo.Lib.Net461.Properties;
+﻿using BrityWorks.AddIn.Hyper.Properties;
+using HyperInfo.Lib.Net461.Mail;
 using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Library;
@@ -11,8 +11,10 @@ using Bitmap = System.Drawing.Bitmap;
 
 namespace BrityWorks.AddIn.Hyper.Activities
 {
-    public class SendMail : NonTargetActivityBase
+    public class SendMail : IActivityItem
     {
+        public static readonly PropKey OutputPropKey = new PropKey("Output", "Result");
+
         public static readonly PropKey HostNamePropKey = new PropKey("CONNECTION", "HostName");
         public static readonly PropKey PortPropKey = new PropKey("CONNECTION", "Port");
         public static readonly PropKey IdPorpKey = new PropKey("CONNECTION", "ID");
@@ -29,11 +31,20 @@ namespace BrityWorks.AddIn.Hyper.Activities
         public static readonly PropKey BodyPropKey = new PropKey("MAIL", "Body");
         public static readonly PropKey IsHTMLPropKey = new PropKey("MAIL", "IsHTML");
 
-        public override string DisplayName => "Hyper Send Mail";
+        public string DisplayName => "Hyper Send Mail";
 
-        public override Bitmap Icon => Resources.hi_works_excute;
+        public Bitmap Icon { get; set; } = Resources.hi_works_excute;
 
-        public override List<Property> OnCreateProperties()
+        public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
+
+        public PropKey DisplayTextProperty => OutputPropKey;
+
+        public PropKey OutputProperty => OutputPropKey;
+
+
+        private PropertySet PropertyList;
+
+        public List<Property> OnCreateProperties()
         {
             var properties = new List<Property>()
             {
@@ -57,7 +68,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return properties;
         }
 
-        public override void OnLoad(PropertySet properties)
+        public void OnLoad(PropertySet properties)
         {
             PropertyList = properties;
         }
@@ -79,7 +90,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
             return result;
         }
 
-        public override object OnRun(IDictionary<string, object> properties)
+        public object OnRun(IDictionary<string, object> properties)
         {
             string result = "";
             IList<FileInfo> files = null;
@@ -114,7 +125,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
                 }
             }
 
-            result = HyperMail.SendMailWithFiles(files, host, port, useSsl, id, password, sender, receivers, subject, body, isHTML, ccs, bccs);
+            result = HyperMail.SendMailWithFiles(attachments, host, port, useSsl, id, password, sender, receivers, subject, body, isHTML, ccs, bccs);
 
             return result;
         }

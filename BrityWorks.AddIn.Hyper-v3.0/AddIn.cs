@@ -1,5 +1,5 @@
 ﻿using BrityWorks.AddIn.Hyper.Activities;
-using HyperInfo.Lib.Net461.Properties;
+using BrityWorks.AddIn.Hyper.Properties;
 using RPAGO.AddIn;
 using System.Collections.Generic;
 using System.Drawing;
@@ -18,7 +18,7 @@ namespace BrityWorks.AddIn.Hyper
         {
             List<IActivity> activities = new List<IActivity>
             {
-                new CloseWindowHwnd_v30(),
+                new CloseWindowHwnd_v30(){  },
                 new CaptureChrome_v30(),
                 new SendMail_v30(),
                 new ReceiveMail_v30(),
