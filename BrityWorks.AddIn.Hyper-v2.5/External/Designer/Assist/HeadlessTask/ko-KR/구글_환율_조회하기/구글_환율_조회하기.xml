@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>구글 원.엔화 환율 조회</Summary>
+  <Detail>Headless 모드로 구글에서 원, 엔화 환율을 조회합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sd453ab16c1704ea38b3014ee1b80d7c9">
+      <Assists>
+        <Assist type="Summary" value="크롬 브라우저를 실행하고 구글 페이지로 이동합니다." />
+        <Assist type="Property" propertyKey="CHROME_BrowserType" value="Headless 모드로 동작하도록 활성화 합니다." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="환율을 조회할 사이트 'google.com'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sb73023ad941546bbb0b9794b71096548">
+      <Assists>
+        <Assist type="Summary" value="검색란에 '환율조회' 를 입력합니다." />
+        <Assist type="Target" value="검색란을 지정합니다." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="입력할 텍스트로 '환율조회'를 입력합니다." />
+        <Assist type="Property" propertyKey="Keyboard_UseDone" value="활성화 하여 텍스트를 입력이 완료되면 '엔터'를 입력하도록 합니다." />
+      </Assists>
+    </Step>
+    <Step id="S44bd2acfad8845da91f2cbc6ae2abf13">
+      <Assists>
+        <Assist type="Summary" value="환율조회 대상 국가를 대한민국으로 변경합니다." />
+        <Assist type="Target" value="환율조회의 표시된 국가중 위에 있는 국가 콤보박스를 지정합니다." />
+        <Assist type="Property" propertyKey="CHROME_Text" value="콤보박스에 있는 선택할 내용의 텍스트 '대한민국 원'을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sf6c5ba46fc7f41228a78f4463eeb78f8">
+      <Assists>
+        <Assist type="Summary" value="환율조회 대상 국가를 일본으로 변경합니다." />
+        <Assist type="Target" value="환율조회의 표시된 국가중 아래에 있는 국가 콤보박스를 지정합니다." />
+        <Assist type="Property" propertyKey="CHROME_Text" value="콤보박스에 있는 선택할 내용의 텍스트 '일본 엔'을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sbace16fece9244758e93958ace8d9b58">
+      <Assists>
+        <Assist type="Summary" value="변경한 내용이 화면에 반영될 시간으로 1초동안 대기합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sc3e57d8db77c4825bd56f3fa8c2e0b99">
+      <Assists>
+        <Assist type="Summary" value="환율조회 결과를 변수에 입력합니다." />
+        <Assist type="Target" value="환율 조회 결과로 표시된 텍스트를 2개가 선택되도록 지정합니다. (예시 : '1 대한민국 원 =', '0.1 일본 엔')" />
+        <Assist type="Property" propertyKey="CHROME_Data" value="지정된 객체들을 리스트 타입으로 저장할 변수 'this.exchange'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S87d7980804f0441ba441d58de8e439fb">
+      <Assists>
+        <Assist type="Summary" value="환율조회 결과를 메시지박스로 출력합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="환율조회 결과인 2개의 데이터가 리스트 형태로 저장된 변수를 활용하여 'this.exchange[0]+this.exchange[1]'를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sf756859b64eb4488b0f4cec5ce7815ba">
+      <Assists>
+        <Assist type="Summary" value="브라우저를 종료합니다." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="종료할 브라우저를 입력합니다. 'LATEST_BROWSER' 로 입력하면 가장 최근에 시나리오를 통해 제어한 브라우저를 종료합니다." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

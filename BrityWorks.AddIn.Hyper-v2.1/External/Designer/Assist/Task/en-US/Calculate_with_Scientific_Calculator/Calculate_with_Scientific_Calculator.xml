@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Calculate with scientific calculator</Summary>
+  <Detail>Launch the calculator app and get the area of ​​a circle.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Scbce5b50b1814627aab70bee2a69afdf">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter the radius of the circle." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.userValue." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Enter the radius of the circle.'" />
+      </Assists>
+    </Step>
+    <Step id="S55a68bb1d96c45ff86ee5c963e244ce4">
+      <Assists>
+        <Assist type="Summary" value="Convert a string type variable into a number type variable." />
+        <Assist type="Property" propertyKey="Converter_Output" value="Specify a variable to store the converted number.&#xD;&#xA;Type this.radius." />
+        <Assist type="Property" propertyKey="Converter_Input" value="Specify the string to be converted.&#xD;&#xA;Type this.userValue." />
+        <Assist type="Property" propertyKey="Converter_Type" value="Select Number." />
+        <Assist type="Property" propertyKey="Converter_Method" value="Select toNumber." />
+      </Assists>
+    </Step>
+    <Step id="Sbe7e1340706c4b369f9613c0428bcff3">
+      <Assists>
+        <Assist type="Summary" value="Launch the calculator app." />
+        <Assist type="Property" propertyKey="Application_Command" value="Enter the command of the calculator execution.&#xD;&#xA;Type 'calc.exe'." />
+        <Assist type="Property" propertyKey="Application_DerivedApp" value="You may specify the name of the derived app.&#xD;&#xA;Type null." />
+        <Assist type="Test" value="Click Run below to launch the calculator." />
+      </Assists>
+    </Step>
+    <Step id="S42547d69ef3e4d6e8ae7b4b417fc3592">
+      <Assists>
+        <Assist type="Summary" value="Click the 'Open Navigation' button." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Open Navigation' button." />
+      </Assists>
+    </Step>
+    <Step id="Sb0ac1be2f9a74bc29d31fad03f116dd0">
+      <Assists>
+        <Assist type="Summary" value="Click the 'Scientific' button." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Scientific' button." />
+      </Assists>
+    </Step>
+    <Step id="S5e9c7da45c8049f6a42e71da03ead671">
+      <Assists>
+        <Assist type="Summary" value="Set the value to be input in the calculator." />
+        <Assist type="Target" value="After double-click the highlighted box, click the input space of the calculator." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Specify a variable to be input.&#xD;&#xA;Type this.radius." />
+      </Assists>
+    </Step>
+    <Step id="S6ee775d2e5964704906821298cb68948">
+      <Assists>
+        <Assist type="Summary" value="Square the input value." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Square' button." />
+      </Assists>
+    </Step>
+    <Step id="S18832121011d4cefb9932bfc1fb7c6ee">
+      <Assists>
+        <Assist type="Summary" value="Apply multiplication." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Multiply by' button." />
+      </Assists>
+    </Step>
+    <Step id="S8ea09044fea941bb89d2dd4ffb97dab1">
+      <Assists>
+        <Assist type="Summary" value="Multiply pi." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Pi' button." />
+      </Assists>
+    </Step>
+    <Step id="Sda1295c42a124fea8a62f5f832ea5eaa">
+      <Assists>
+        <Assist type="Summary" value="Get the result of the calculation." />
+        <Assist type="Target" value="After double-click the highlighted box, click the 'Equals' button." />
+      </Assists>
+    </Step>
+    <Step id="Sb846e93a98c4414dbfb0fb81bcdef99c">
+      <Assists>
+        <Assist type="Summary" value="Copy the result and save it to the clipboard." />
+      </Assists>
+    </Step>
+    <Step id="S8fad7325a3a548a88d375a24b35ab6ff">
+      <Assists>
+        <Assist type="Summary" value="Store the value stored in the clipboard in a variable." />
+        <Assist type="Property" propertyKey="Command_Output" value="Specify a variable to store the value.&#xD;&#xA;Type this.circleArea." />
+      </Assists>
+    </Step>
+    <Step id="Sf6914aac089a47b085d6e2bf28af81b8">
+      <Assists>
+        <Assist type="Summary" value="Print the calculation result in a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.circleArea." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

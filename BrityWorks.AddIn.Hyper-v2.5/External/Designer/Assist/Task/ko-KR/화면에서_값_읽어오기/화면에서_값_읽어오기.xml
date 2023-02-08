@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="500">
+  <Summary>화면에서 값 읽어오기</Summary>
+  <Detail>메모장을 실행하여 텍스트, 리스트, 라디오 버튼 체크 여부를 읽어옵니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sd130219a26c14629a51081b8c3a40608">
+      <Assists>
+        <Assist type="Summary" value="메모장을 실행합니다." />
+        <Assist type="Property" propertyKey="Application_Command" value="메모장 실행 명령을 입력합니다.&#xD;&#xA;'notepad'라고 입력합니다." />
+        <Assist type="Test" value="" />
+      </Assists>
+    </Step>
+    <Step id="S9159ebe6366a4d4497f9b0d93c1e38ee">
+      <Assists>
+        <Assist type="Summary" value="메뉴에서 '편집'을 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, '편집'을 클릭합니다." />
+      </Assists>
+    </Step>
+    <Step id="S1b34ef09747a44ef85b212097477b646">
+      <Assists>
+        <Assist type="Summary" value="'시간/날짜'를 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 컨트롤 키를 눌러 객체 선택을 비활성화하여 '편집'을 누른 후, 다시 컨트롤 키를 눌러 객체 선택을 활성화하고 '시간/날짜'를 누릅니다." />
+      </Assists>
+    </Step>
+    <Step id="Sbe31f4c099f84e389c103c992d1f9d87">
+      <Assists>
+        <Assist type="Summary" value="텍스트를 읽어옵니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 메모장의 입력 영역을 클릭합니다." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="읽어온 텍스트를 저장할 변수를 지정합니다.&#xD;&#xA;this.Text라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sbcf15edfe7914238a4e49145b8cd442d">
+      <Assists>
+        <Assist type="Summary" value="메시지 박스로 읽어온 텍스트를 확인합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스에 표시될 내용을 입력합니다.&#xD;&#xA;this.Text를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sa46dd3dea12049d9b175a0e3424032fa">
+      <Assists>
+        <Assist type="Summary" value="메뉴에서 '서식'을 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, '서식'을 클릭합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sedd3ed0db759456b90c950abb73f06ab">
+      <Assists>
+        <Assist type="Summary" value="'글꼴'을 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 컨트롤 키를 눌러 객체 선택을 비활성화하여 '서식'을 누른 후, 다시 컨트롤 키를 눌러 객체 선택을 활성화하고 '글꼴'을 누릅니다." />
+      </Assists>
+    </Step>
+    <Step id="S3b6aa01a726540b295112e4089a9bfb3">
+      <Assists>
+        <Assist type="Summary" value="글꼴 리스트를 읽어옵니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 글꼴리스트를 클릭합니다." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="글꼴 리스트를 저장할 변수를 지정합니다.&#xD;&#xA;this.Fonts를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S18f8ff1b3261463ba3a65f3f26064cc0">
+      <Assists>
+        <Assist type="Summary" value="메시지 박스로 읽어온 리스트를 확인합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스에 표시될 내용을 입력합니다.&#xD;&#xA;this.Fonts를 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S865e10e1e9484e6492a706b0d466a157">
+      <Assists>
+        <Assist type="Summary" value="글꼴 팝업을 닫습니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 닫기 버튼을 클릭합니다." />
+      </Assists>
+    </Step>
+    <Step id="S3ea334cb5e104bf7bb239073f73a3c2a">
+      <Assists>
+        <Assist type="Summary" value="메뉴에서 '파일'을 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, '파일'을 클릭합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sbfa986d4c5d542b492719d9a08daa8a3">
+      <Assists>
+        <Assist type="Summary" value="메뉴에서 '페이지 설정'을 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 컨트롤 키를 눌러 객체 선택을 비활성화하여 '파일'을 누른 후, 다시 컨트롤 키를 눌러 객체 선택을 활성화하고 '페이지 설정'을 누릅니다." />
+      </Assists>
+    </Step>
+    <Step id="S608357ef51b54e5aa101a2a1d3e9f4f7">
+      <Assists>
+        <Assist type="Summary" value="방향의 세로 여부를 읽어옵니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 세로 라디오 버튼 영역을 클릭합니다." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="세로 라디오 버튼 값을 저장할 변수를 지정합니다.&#xD;&#xA;this.IsVertical을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S2aa3ab3367cc476195d7fd8039d14cc1">
+      <Assists>
+        <Assist type="Summary" value="메시지 박스로 읽어온 세로 여부를 확인합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스에 표시될 내용을 입력합니다.&#xD;&#xA;this.IsVertical을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sf083479487194094a97fc4eed0447f26">
+      <Assists>
+        <Assist type="Summary" value="방향의 가로 여부를 읽어옵니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 가로 라디오 버튼 영역을 클릭합니다." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="가로 라디오 버튼 값을 저장할 변수를 지정합니다.&#xD;&#xA;this.IsHorizontal을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sc7bb7f474fd54489a22c078716c73422">
+      <Assists>
+        <Assist type="Summary" value="메시지 박스로 읽어온 가로 여부를 확인합니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="메시지 박스에 표시될 내용을 입력합니다.&#xD;&#xA;this.IsHorizontal을 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S09ca4bae18604a819f62f7e2f83c9827">
+      <Assists>
+        <Assist type="Summary" value="페이지 설정 팝업을 닫습니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 닫기 버튼을 클릭합니다." />
+      </Assists>
+    </Step>
+    <Step id="S3919e82f0177469baa3cb397a825c6b7">
+      <Assists>
+        <Assist type="Summary" value="메모장을 닫습니다." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

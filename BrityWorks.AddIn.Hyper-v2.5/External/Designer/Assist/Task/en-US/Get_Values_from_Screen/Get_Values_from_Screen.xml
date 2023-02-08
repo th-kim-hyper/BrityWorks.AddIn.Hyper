@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Get values from the screen</Summary>
+  <Detail>Launch the notepad app and get the values of texts, lists and radio buttons.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sd130219a26c14629a51081b8c3a40608">
+      <Assists>
+        <Assist type="Summary" value="Launch the notepad app." />
+        <Assist type="Property" propertyKey="Application_Command" value="Enter the command of the notepad execution.&#xD;&#xA;Type 'notepad'." />
+        <Assist type="Test" value="Click Run below to launch the notepad." />
+      </Assists>
+    </Step>
+    <Step id="S9159ebe6366a4d4497f9b0d93c1e38ee">
+      <Assists>
+        <Assist type="Summary" value="Click 'Edit' in the menu." />
+        <Assist type="Target" value="After double-click the highlighted box, click 'Edit'." />
+      </Assists>
+    </Step>
+    <Step id="S1b34ef09747a44ef85b212097477b646">
+      <Assists>
+        <Assist type="Summary" value="Click 'Time/Date'." />
+        <Assist type="Target" value="After double-click the highlighted box, press the Control key to disable image recognition and click 'Edit'.&#xD;&#xA;Then press the Control key again to enable image recognition and click 'Time/Date'." />
+      </Assists>
+    </Step>
+    <Step id="Sbe31f4c099f84e389c103c992d1f9d87">
+      <Assists>
+        <Assist type="Summary" value="Get text from the notepad." />
+        <Assist type="Target" value="After double-click the highlighted box, click the input area of the notepad." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the text in the input area.&#xD;&#xA;Type this.Text." />
+      </Assists>
+    </Step>
+    <Step id="Sbcf15edfe7914238a4e49145b8cd442d">
+      <Assists>
+        <Assist type="Summary" value="Print and check the text." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.Text." />
+      </Assists>
+    </Step>
+    <Step id="Sa46dd3dea12049d9b175a0e3424032fa">
+      <Assists>
+        <Assist type="Summary" value="Click 'Format' in the menu." />
+        <Assist type="Target" value="After double-click the highlighted box, click 'Format'." />
+      </Assists>
+    </Step>
+    <Step id="Sedd3ed0db759456b90c950abb73f06ab">
+      <Assists>
+        <Assist type="Summary" value="Click 'Font'." />
+        <Assist type="Target" value="After double-click the highlighted box, press the Control key to disable image recognition and click 'Format'.&#xD;&#xA;Then press the Control key again to enable image recognition and click 'Font'." />
+      </Assists>
+    </Step>
+    <Step id="S3b6aa01a726540b295112e4089a9bfb3">
+      <Assists>
+        <Assist type="Summary" value="Get items from the font list." />
+        <Assist type="Target" value="After double-click the highlighted box, click the font list." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the font list.&#xD;&#xA;Type this.Fonts." />
+      </Assists>
+    </Step>
+    <Step id="S18f8ff1b3261463ba3a65f3f26064cc0">
+      <Assists>
+        <Assist type="Summary" value="Print and check the list." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.Fonts." />
+      </Assists>
+    </Step>
+    <Step id="S865e10e1e9484e6492a706b0d466a157">
+      <Assists>
+        <Assist type="Summary" value="Close the 'Font' pop-up." />
+        <Assist type="Target" value="After double-click the highlighted box, click the close button." />
+      </Assists>
+    </Step>
+    <Step id="S3ea334cb5e104bf7bb239073f73a3c2a">
+      <Assists>
+        <Assist type="Summary" value="Click 'File' in the menu." />
+        <Assist type="Target" value="After double-click the highlighted box, click 'File'." />
+      </Assists>
+    </Step>
+    <Step id="Sbfa986d4c5d542b492719d9a08daa8a3">
+      <Assists>
+        <Assist type="Summary" value="Click 'Page Setup'." />
+        <Assist type="Target" value="After double-click the highlighted box, press the Control key to disable image recognition and click 'File'.&#xD;&#xA;Then press the Control key again to enable image recognition and click 'Page Setup'." />
+      </Assists>
+    </Step>
+    <Step id="S608357ef51b54e5aa101a2a1d3e9f4f7">
+      <Assists>
+        <Assist type="Summary" value="Get which page orientation is checked." />
+        <Assist type="Target" value="After double-click the highlighted box, click the area of 'Portrait' radio button." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the value of the radio button.&#xD;&#xA;Type this.IsVertical." />
+      </Assists>
+    </Step>
+    <Step id="S2aa3ab3367cc476195d7fd8039d14cc1">
+      <Assists>
+        <Assist type="Summary" value="Print and check if the page is portrait oriention." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.IsVertical." />
+      </Assists>
+    </Step>
+    <Step id="Sf083479487194094a97fc4eed0447f26">
+      <Assists>
+        <Assist type="Summary" value="Get which page orientation is checked." />
+        <Assist type="Target" value="After double-click the highlighted box, click the area of 'Landscape' radio button." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the value of the radio button.&#xD;&#xA;Type this.IsHorizontal." />
+      </Assists>
+    </Step>
+    <Step id="Sc7bb7f474fd54489a22c078716c73422">
+      <Assists>
+        <Assist type="Summary" value="Print and check if the page is landscape oriention." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.IsHorizontal." />
+      </Assists>
+    </Step>
+    <Step id="S09ca4bae18604a819f62f7e2f83c9827">
+      <Assists>
+        <Assist type="Summary" value="Close the 'Page Setup' pop-up." />
+        <Assist type="Target" value="After double-click the highlighted box, click the close button." />
+      </Assists>
+    </Step>
+    <Step id="S3919e82f0177469baa3cb397a825c6b7">
+      <Assists>
+        <Assist type="Summary" value="Close the notepad app." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

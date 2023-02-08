@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Google exchange rate Search</Summary>
+  <Detail>Search the exchange rate of won and yen on Google.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S659258acfd4b4875a96d42a98f837981">
+      <Assists>
+        <Assist type="Summary" value="Launch the Chrome browser and go to the Google page." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Enter 'google.com', a site to view exchange rates." />
+      </Assists>
+    </Step>
+    <Step id="Sff59a672eb444af6922d43bbb31a06f1">
+      <Assists>
+        <Assist type="Summary" value="Enter 'exchange rate' in the search field." />
+        <Assist type="Target" value="Specify the search box." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Enter 'exchange rate' as the text to be entered." />
+        <Assist type="Property" propertyKey="Keyboard_UseDone" value="Activate it to enter 'Enter' when text input is complete." />
+      </Assists>
+    </Step>
+    <Step id="Scdb0992ae3114104a3d314f33ad2698f">
+      <Assists>
+        <Assist type="Summary" value="Change the country for exchange rate to Korea." />
+        <Assist type="Target" value="Designate the country combo box above among the countries displayed in the exchange rate." />
+        <Assist type="Property" propertyKey="CHROME_Text" value="Enter the text 'South Korean won' of the content to select in the combo box." />
+      </Assists>
+    </Step>
+    <Step id="Sf758a9ca9e9c4c52b0cf25ec2b999cfc">
+      <Assists>
+        <Assist type="Summary" value="Change the target country of exchange rate to Japan." />
+        <Assist type="Target" value="Select the country combo box below among the countries displayed in the exchange rate." />
+        <Assist type="Property" propertyKey="CHROME_Text" value="Enter the text 'Japanese Yen' for the selection in the combo box." />
+      </Assists>
+    </Step>
+    <Step id="S71ccb79cd13743cea70d014a5d16fc23">
+      <Assists>
+        <Assist type="Summary" value="Wait for 1 second for the change to be reflected on the screen." />
+      </Assists>
+    </Step>
+    <Step id="S2c095466dcfe4a63b589663effa14d6a">
+      <Assists>
+        <Assist type="Summary" value="Enter the result of the search exchange rate into the variable." />
+        <Assist type="Target" value="Specifies that two texts displayed as a result of the exchange rate lookup are selected. (Example: '1 Korean Won =', '0.1 Japanese Yen')" />
+        <Assist type="Property" propertyKey="CHROME_Data" value="Enter the variable 'this.exchange' to store the specified objects as a list type." />
+      </Assists>
+    </Step>
+    <Step id="S33fba6c64ffa4a6f8508eba736adb5cb">
+      <Assists>
+        <Assist type="Summary" value="The exchange rate result is output to the message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Enter 'this.exchange[0] + this.exchange[1]' using a variable in which the two data, the result of the exchange rate, are stored in a list format." />
+      </Assists>
+    </Step>
+    <Step id="Sdc2b4df5272441baafb3f085585d4e90">
+      <Assists>
+        <Assist type="Summary" value="Quit your browser." />
+        <Assist type="Property" propertyKey="CHROME_Browser" value="Enter the browser you want to quit. Enter 'LATEST_BROWSER' to close the browser most recently controlled through the scenario." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

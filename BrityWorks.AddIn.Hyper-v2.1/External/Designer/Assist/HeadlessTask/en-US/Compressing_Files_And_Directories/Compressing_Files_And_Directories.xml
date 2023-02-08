@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Compressing files and directories</Summary>
+  <Detail>Compress and decompress the directory containing the files.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sce9cba8d2256402882a8d3eca76eecc6">
+      <Assists>
+        <Assist type="Summary" value="Checks if directory 'C:\\sampleDir' exists and stores it in variable 'this.isDirExist'." />
+        <Assist type="Property" propertyKey="Command_Output" value="Enter the variable 'this.isDirExist' to store the existence of the directory." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the directory path 'C:\\sampleDir' to check for existence." />
+      </Assists>
+    </Step>
+    <Step id="S7aa345b7d4274997ad18862bcc8e3a08">
+      <Assists>
+        <Assist type="Summary" value="Check the condition for creating the directory (the existence of directory 'C:\\sampleDir')." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="Enter the condition that the directory does not exist 'this.isDirExist == false'." />
+      </Assists>
+    </Step>
+    <Step id="S543030e6528c4e50b050fd699d567f79">
+      <Assists>
+        <Assist type="Summary" value="Create directory 'C:\\sampleDir'." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the directory path 'C:\\sampleDir' to be created." />
+      </Assists>
+    </Step>
+    <Step id="S9bc90ec76637458596832b4fd5b96826">
+      <Assists />
+    </Step>
+    <Step id="S7eb4a9984d8a4d00947b555aff4cf6aa">
+      <Assists>
+        <Assist type="Summary" value="Repeat the CreateDirectory inside as many times as the input condition (10 times)." />
+        <Assist type="Property" propertyKey="Conditions_InitializeIndex" value="Enter 'this.fileCount = 0' as the initial value." />
+        <Assist type="Property" propertyKey="Conditions_LoopCondition" value="Check the initial value entered in the initialize property and enter the number of times to repeat (the number of files to be created). Since the initial value is 0 , enter 'this.fileCount &lt; 10' to create 10 files." />
+        <Assist type="Property" propertyKey="Conditions_UpdateIndex" value="Enter 'this.fileCount++' to increase the count by 1 each time it is executed." />
+      </Assists>
+    </Step>
+    <Step id="S6b08e88941c0430781e87a94d4a7009e">
+      <Assists>
+        <Assist type="Summary" value="Create directory 'C:\\sampleDir'." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the file to be created, including the path.&#xD;&#xA;In order to avoid duplication, the file is input using the number of repetitions ('C:\\sampleDir\\sampleText'+this.fileCount+'.txt')." />
+      </Assists>
+    </Step>
+    <Step id="S62f0c55d2b004b6a8b222237f06d9675">
+      <Assists />
+    </Step>
+    <Step id="S2bc54dd2a77d47d1b175dd9f99073d45">
+      <Assists>
+        <Assist type="Summary" value="Get a list of files that exist in directory 'C:\\sampleDir'." />
+        <Assist type="Property" propertyKey="Command_Output" value="Enter the variable 'this.fileList' to store the file list." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the directory path 'C:\\sampleDir' to get the list of files from." />
+      </Assists>
+    </Step>
+    <Step id="S0099bd818ded4e768b04cff827e5c591">
+      <Assists>
+        <Assist type="Summary" value="Display a list of files present in directory 'C:\\sampleDir' as a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Enter the variable 'this.fileList' where the list of files to be displayed as a message box is stored." />
+      </Assists>
+    </Step>
+    <Step id="Sf5c94f7629d54293a94e34f7092c03b8">
+      <Assists>
+        <Assist type="Summary" value="Compress the 'C:\\sampleDir' directory to create a compressed file in the 'C:\\sampleDir' path." />
+        <Assist type="Property" propertyKey="Command_DirectoryOrFile" value="Select the 'Directory' to compress." />
+        <Assist type="Property" propertyKey="Command_SrcDirPath" value="Enter the directory path 'C:\\sampleDir' to compress." />
+        <Assist type="Property" propertyKey="Command_DestDirPath" value="Enter the directory path 'C:\\sampleDir' where the compressed file will be created." />
+      </Assists>
+    </Step>
+    <Step id="S34d7ff03595f4de09f0e7abd667bdc4c">
+      <Assists>
+        <Assist type="Summary" value="Get the list of files that exist in the 'C:\\sampleDir' directory and check that the 'C:\\sampleDir\\sampleDir.zip' file has been added." />
+        <Assist type="Property" propertyKey="Command_Output" value="Enter the variable 'this.fileList' to store the file list." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the directory path 'C:\\sampleDir' to get the list of files from." />
+      </Assists>
+    </Step>
+    <Step id="S4a9f1b776849414781abaee8a742c5ef">
+      <Assists>
+        <Assist type="Summary" value="Display a list of files present in directory 'C:\\sampleDir' as a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Enter the variable 'this.fileList' where the list of files to be displayed as a message box is stored." />
+      </Assists>
+    </Step>
+    <Step id="S62dd6ee98dbd467b855853e2c014082a">
+      <Assists>
+        <Assist type="Summary" value="Unzip the compressed file 'C:\\sampleDir\\sampleDir.zip'." />
+        <Assist type="Property" propertyKey="Command_SrcFilePath" value="Enter the zip file path 'C:\\sampleDir\\sampleDir.zip' to unzip." />
+        <Assist type="Property" propertyKey="Command_DestDirPath" value="Enter the directory path 'C:\\sampleDir' to extract." />
+      </Assists>
+    </Step>
+    <Step id="Sb0b89449854b478b80e14494e89ff4e6">
+      <Assists>
+        <Assist type="Summary" value="Get a list of files that exist in directory 'C:\sampleDir\sampleDir'." />
+        <Assist type="Property" propertyKey="Command_Output" value="Enter the variable 'this.fileList' to store the file list." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the directory path 'C:\\sampleDir\\sampleDir' to get the list of files from." />
+      </Assists>
+    </Step>
+    <Step id="S31becbedd30b4c03b9d84cdf548640c1">
+      <Assists>
+        <Assist type="Summary" value="Displays a list of files present in directory 'C:\\sampleDir\\sampleDir' as a message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Enter the variable 'this.fileList' where the list of files to be displayed as a message box is stored." />
+      </Assists>
+    </Step>
+    <Step id="S97160286479543cab79861a7ffee8e08">
+      <Assists>
+        <Assist type="Summary" value="Delete the 'C:\\sampleDir' directory." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the directory path to be deleted 'C:\\sampleDir'." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

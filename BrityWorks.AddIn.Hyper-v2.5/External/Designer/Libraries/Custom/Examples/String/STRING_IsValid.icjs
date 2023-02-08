@@ -1,0 +1,34 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id 7c90d14e-9a18-4307-872c-d2a376128a26
+* @createdDate 2020-05-25 16:44:51
+* @lastModifiedDate 2020-05-25 16:44:51
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 해당 문자열이 기준문자열에 포함되는지 여부를 반환한다.
+*  @brf (Returns whether the corresponding string is included in the reference string.)
+* @param inputString<String> (ex, 'aabbcc')
+* @param referenceValue<String> (ex, 'abcdefghijklmnopqrstuvwxyz')
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.STRING_IsValid == null || Script.JavaScript.STRING_IsValid == undefined) {
+	Script.JavaScript.STRING_IsValid = function (inputString, referenceValue) {
+	//Body Begin
+		if (inputString == "") return true;
+		for (var i = 0; i < inputString.length; i++) {
+		    if (validChars.indexOf(inputString.charAt(i), 0) == -1)
+		        return false;
+		}
+		return true;
+	//Body End
+	}
+}

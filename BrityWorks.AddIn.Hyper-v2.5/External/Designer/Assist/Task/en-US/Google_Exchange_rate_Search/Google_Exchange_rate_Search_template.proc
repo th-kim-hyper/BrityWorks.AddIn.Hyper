@@ -1,0 +1,224 @@
+<Process designerVersion="2.1.200.00531.D1" id="b7ba6851-795b-4ceb-82a5-3c2988c9ebeb" type="LibraryTemplate" workType="foreground" name="Google_Exchange_rate_Search" version="" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary&#xA;Google exchange rate Search&#xA;#detail&#xA;Search the exchange rate of won and yen on Google." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="3840x1080" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 12:11:30" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 14:13:37" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="exchange" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S659258acfd4b4875a96d42a98f837981" ver="220526001" createVer="220517001" type="Chrome" name="ChromeOpen" dpName="ChromeOpen" dpValue="about:blank" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="77b88488-bb4b-4790-a696-6f5e1855965c" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Launch the Chrome browser and go to the Google page." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Chrome" key="CHROME_TypeOfBrowser" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Chrome" valuelist="Chrome;Edge" />
+        <Property type="Chrome" key="CHROME_BrowserType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_URL" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'about:blank'" />
+        <Property type="Chrome" key="CHROME_ChromePath" controlType="File" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="60" />
+        <Property type="Chrome" key="CHROME_ExtensionList" controlType="PropertyItemChromeInstalledExtensionsView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DownloadPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_1);]]></Script>
+    </Step>
+    <Step id="Sff59a672eb444af6922d43bbb31a06f1" ver="220526001" createVer="220517001" type="Chrome" name="ChromeSetText" dpName="ChromeSetText" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="c2ba7376-4580-4ebf-a1de-2a850759e7bf" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Enter 'exchange rate' in the search field." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Keyboard_ClearAll" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Chrome" key="Keyboard_NewText" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Chrome" key="Keyboard_UseDone" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_Invoke" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeSetText', this.chromesettext_info_2);]]></Script>
+    </Step>
+    <Step id="Scdb0992ae3114104a3d314f33ad2698f" ver="220526001" createVer="220517001" type="Chrome" name="ChromeSelectListItem" dpName="ChromeSelectListItem" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="09b35c9c-012c-4b88-89fb-2eba0cbe774e" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Change the country for exchange rate to Korea." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Text" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeSelectListItem', this.chromeselectlistitem_info_3);]]></Script>
+    </Step>
+    <Step id="Sf758a9ca9e9c4c52b0cf25ec2b999cfc" ver="220526001" createVer="220517001" type="Chrome" name="ChromeSelectListItem" dpName="ChromeSelectListItem" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="09b35c9c-012c-4b88-89fb-2eba0cbe774e" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Change the target country of exchange rate to Japan." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Text" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeSelectListItem', this.chromeselectlistitem_info_4);]]></Script>
+    </Step>
+    <Step id="S71ccb79cd13743cea70d014a5d16fc23" ver="220526001" createVer="220517001" type="Flow" name="Delay" dpName="Delay" dpValue="1 sec" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="30ae5003-fde7-476e-9de4-d72792176f64" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Wait for 1 second for the change to be reflected on the screen." />
+        <Property type="Flow" key="Conditions_Second" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="1" />
+        <Property type="Flow" key="Conditions_Millisecond" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[Delay(1000);]]></Script>
+    </Step>
+    <Step id="S2c095466dcfe4a63b589663effa14d6a" ver="220526001" createVer="220517001" type="Chrome" name="ChromeGetListData" dpName="ChromeGetListData" dpValue="RESULT" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="8f2e7f94-95b4-4a27-909c-d01ec828dd96" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Enter the result of the search exchange rate into the variable." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DataType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="Text;Element" order="1" />
+        <Property type="Chrome" key="CHROME_ExpectedValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="" valuelist="" order="2" />
+        <Property type="Chrome" key="CHROME_Scope" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="2" />
+        <Property type="Chrome" key="CHROME_Data" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeGetListData', this.chromegetlistdata_info_6);]]></Script>
+    </Step>
+    <Step id="S33fba6c64ffa4a6f8508eba736adb5cb" ver="220526001" createVer="220517001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="342fb4e2-06f4-4284-86cd-68c4377d0ed0" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="The exchange rate result is output to the message box." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="Sdc2b4df5272441baafb3f085585d4e90" ver="220526001" createVer="220517001" type="Chrome" name="ChromeClose" dpName="ChromeClose" dpValue="LATEST_BROWSER" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="bcfcca70-1d88-4ea6-bc6a-ec61f95b3611" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Quit your browser." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_8);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Chrome</string>
+    <string>FlowControl</string>
+    <string>System</string>
+  </Libraries>
+  <JScript><![CDATA[function Google_Exchange_rate_Search() {
+
+    this.exchange;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S659258acfd4b4875a96d42a98f837981', '[1] ChromeOpen');
+        RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_1);
+
+        //------------------------------------------------
+        STEP('Sff59a672eb444af6922d43bbb31a06f1', '[2] ChromeSetText');
+        StepPlayer.Run('Chrome.ChromeSetText', this.chromesettext_info_2);
+
+        //------------------------------------------------
+        STEP('Scdb0992ae3114104a3d314f33ad2698f', '[3] ChromeSelectListItem');
+        StepPlayer.Run('Chrome.ChromeSelectListItem', this.chromeselectlistitem_info_3);
+
+        //------------------------------------------------
+        STEP('Sf758a9ca9e9c4c52b0cf25ec2b999cfc', '[4] ChromeSelectListItem');
+        StepPlayer.Run('Chrome.ChromeSelectListItem', this.chromeselectlistitem_info_4);
+
+        //------------------------------------------------
+        STEP('S71ccb79cd13743cea70d014a5d16fc23', '[5] Delay');
+        Delay(1000);
+
+        //------------------------------------------------
+        STEP('S2c095466dcfe4a63b589663effa14d6a', '[6] ChromeGetListData');
+        RESULT = StepPlayer.Run('Chrome.ChromeGetListData', this.chromegetlistdata_info_6);
+
+        //------------------------------------------------
+        STEP('S33fba6c64ffa4a6f8508eba736adb5cb', '[7] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('Sdc2b4df5272441baafb3f085585d4e90', '[8] ChromeClose');
+        StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_8);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S659258acfd4b4875a96d42a98f837981" group_name="a5872902-5a93-4c74-a746-02c186740b9c_Untitled" folded="False" />
+      <StepNode step_id="Sff59a672eb444af6922d43bbb31a06f1" group_name="a5872902-5a93-4c74-a746-02c186740b9c_Untitled" folded="False" />
+      <StepNode step_id="Scdb0992ae3114104a3d314f33ad2698f" group_name="a5872902-5a93-4c74-a746-02c186740b9c_Untitled" folded="False" />
+      <StepNode step_id="Sf758a9ca9e9c4c52b0cf25ec2b999cfc" group_name="a5872902-5a93-4c74-a746-02c186740b9c_Untitled" folded="False" />
+      <StepNode step_id="S71ccb79cd13743cea70d014a5d16fc23" group_name="a5872902-5a93-4c74-a746-02c186740b9c_Untitled" folded="False" />
+      <StepNode step_id="S2c095466dcfe4a63b589663effa14d6a" group_name="e97a1ffd-c9e0-4a84-a331-96704c796508_Untitled" folded="False" />
+      <StepNode step_id="S33fba6c64ffa4a6f8508eba736adb5cb" group_name="e97a1ffd-c9e0-4a84-a331-96704c796508_Untitled" folded="False" />
+      <StepNode step_id="Sdc2b4df5272441baafb3f085585d4e90" group_name="e97a1ffd-c9e0-4a84-a331-96704c796508_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>ol41paYsOiA46inALlOlrPoFSys=</DigestValue></Reference></SignedInfo><SignatureValue>dixDiOd1lkgFQe4X7+lvf6I3+x1MpBggaG3VtHkSgmxvTU4rUV1mlWWKVzo+Kt+9/NB22UemW74RUzaWjQVtYzJ1JUS5ss0ENw8//p4EElYszYLaw/XG8m24ItkGniBYEP/9lIv3SOFKRJ2gVpFarwUibz6DO/227OlnlNmAR9mJE7Hm91za2TjGGnAaXXw6zeQ78YYMPnCUlpNQAQ96dIsnAuFmYwAIl3c5VrzUz9uj0DBnBTKE4jDiA4QtDnUmG4R9U+/ryY7VXKfcez+G2QKaxhEx9cxe6GHRSjsirUdXA+s9bNweuwoBT/nHz2VYSJajnA0++WCqBq1BBfXVwQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-00255, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

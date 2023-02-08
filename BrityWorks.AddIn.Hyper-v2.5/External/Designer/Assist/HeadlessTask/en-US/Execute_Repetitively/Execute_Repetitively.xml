@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Execute Repetitively</Summary>
+  <Detail>Repeat a cenrtain number of times, repeat until an array is explored to the end, and repeat according to conditions.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S495a1bb746f64032a80196f4ce91e84d">
+      <Assists>
+        <Assist type="Summary" value="Repeats subsequent activity for the specified number of times." />
+        <Assist type="Property" propertyKey="Conditions_IterationCount" value="Enter number of repetitions.&#xD;&#xA;Type 3." />
+      </Assists>
+    </Step>
+    <Step id="S0919e295217a4d6fb165d6748619a339">
+      <Assists>
+        <Assist type="Summary" value="Displaying a message box is repeated." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;'This activity is repeated.'" />
+      </Assists>
+    </Step>
+    <Step id="Sa2b960ec35d74c1ab6170ea824adb904">
+      <Assists />
+    </Step>
+    <Step id="Sa2717df5b54943e399acc656af5b9d06">
+      <Assists>
+        <Assist type="Summary" value="Repeat retrieving each item from the array  to the end." />
+        <Assist type="Property" propertyKey="Conditions_ForList" value="Specify an array to be explored.&#xD;&#xA;Type this.textArray." />
+        <Assist type="Property" propertyKey="Conditions_EachItem" value="Specify a variable to store each item of the array.&#xD;&#xA;Type this.alphabet." />
+      </Assists>
+    </Step>
+    <Step id="S452adc70dbd14a00a5852a72b0eb4f5e">
+      <Assists>
+        <Assist type="Summary" value="Print and check each item of the array." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.alphabet." />
+      </Assists>
+    </Step>
+    <Step id="Sdc7b9f162bb14a64b043573360bb5353">
+      <Assists />
+    </Step>
+    <Step id="S0f706ffbda904c82b55567f24844a98c">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter a number.&#xD;&#xA;Repetitive retrieving stops when it finds the number." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.keyNumber." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Please enter an integer greater than or equal to 1.'" />
+      </Assists>
+    </Step>
+    <Step id="Safcac4a7446c402b8e7f652871a928d1">
+      <Assists>
+        <Assist type="Summary" value="Retrieve each item of an array as the index of the array is incremented by 1, and escape from the iteration if certain condition is satisfied." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="The index of an array should be less than the size of the array.&#xD;&#xA; Enter a condition as below.&#xD;&#xA;this.index1&lt;10" />
+      </Assists>
+    </Step>
+    <Step id="S5fc01393b5194a099f6dd1be2841370c">
+      <Assists>
+        <Assist type="Summary" value="The next steps are executed only when the retrieved item equals to the number entered by the user." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="Enter a condition as below.&#xD;&#xA;this.numberArray[this.index1]==this.keyNumber" />
+      </Assists>
+    </Step>
+    <Step id="S9d9e6f16a55e49fd8d71aae9d8296c9c">
+      <Assists>
+        <Assist type="Summary" value="Print and check the retrieved item that satisfies the condition." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;this.keyNumber+' was retrieved. Stop iteration.'" />
+      </Assists>
+    </Step>
+    <Step id="Sf5375159f9f44bd2ae4b569feb5d2312">
+      <Assists>
+        <Assist type="Summary" value="Escape from the iteration of retrieving." />
+      </Assists>
+    </Step>
+    <Step id="S36787f2dda5e41c1a75838d498e6bdd7">
+      <Assists />
+    </Step>
+    <Step id="Sf70e4e44cb554959831742c189172408">
+      <Assists>
+        <Assist type="Summary" value="Print and check the retrieved item that does not satisfy the condition." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;this.numberArray[this.index1]+' was not the value the user entered.'" />
+      </Assists>
+    </Step>
+    <Step id="S76b776f77cb4487aa056426c24550355">
+      <Assists>
+        <Assist type="Summary" value="Increment the index of the array to be retrieved." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to assign a value.&#xD;&#xA;Type this.index1." />
+        <Assist type="Property" propertyKey="Conditions_Value" value="Enter a value.&#xD;&#xA;The index should be 1 greater than before so type as below.&#xD;&#xA;this.index1+1" />
+      </Assists>
+    </Step>
+    <Step id="Sbc7ad25633ae45f5abdcd95e6012632a">
+      <Assists />
+    </Step>
+    <Step id="S598718da0d5049eb81ad2784655edae7">
+      <Assists>
+        <Assist type="Summary" value="Retrieve each item of an array as the index of the array is incremented by 1, and skip subsequent execution while continuing iteration if certain condition is satisfied." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="The index of an array should be less than the size of the array. The index will be incremented before checking a condition.&#xD;&#xA;Enter a condition as below.&#xD;&#xA;this.index2+1&lt;10" />
+      </Assists>
+    </Step>
+    <Step id="S8f2c98a72cb246949363449abd20567d">
+      <Assists>
+        <Assist type="Summary" value="Increment the index of the array to be retrieved." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to assign a value.&#xD;&#xA;Type this.index2." />
+        <Assist type="Property" propertyKey="Conditions_Value" value="Enter a value.&#xD;&#xA;The index should be 1 greater than before so type as below.&#xD;&#xA;this.index2+1" />
+      </Assists>
+    </Step>
+    <Step id="Sf0b6512dbe92422ea7f169b244bd5a0b">
+      <Assists>
+        <Assist type="Summary" value="The next step after End-IfThen is not executed when the retrieved item is even." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="Enter a condition as below.&#xD;&#xA;this.numberArray[this.index2]%2==0" />
+      </Assists>
+    </Step>
+    <Step id="S1c8f63a3b0c9482ca119cd822955e59f">
+      <Assists>
+        <Assist type="Summary" value="Skip the next activities and continue the iteration of retrieving." />
+      </Assists>
+    </Step>
+    <Step id="S590ea72a57f34180be6542e0e60416e3">
+      <Assists />
+    </Step>
+    <Step id="S7611f521ae174e5c9c7dc74ae7510211">
+      <Assists>
+        <Assist type="Summary" value="Print and check the retrieved item that does not match the condition." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;this.numberArray[this.index2]+' is not even.'" />
+      </Assists>
+    </Step>
+    <Step id="S5b51f1e3d0f14dceba58851c64ad6746">
+      <Assists />
+    </Step>
+  </Steps>
+</TaskDescription>

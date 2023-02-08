@@ -1,0 +1,169 @@
+<Process designerVersion="2.1.200.00531.D1" id="86386639-74a9-4130-81bc-45e40dbf8009" type="LibraryTemplate" workType="foreground" name="Using_The_Clipboard" version="" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary&#xD;&#xA;Using the clipboard&#xD;&#xA;#detail&#xD;&#xA;Writes, reads, and saves text to the clipboard as a file." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="3840x1080" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 19:20:48" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 19:25:57" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="clipboard" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="pid" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="Sd022850ebaac4f5c861a7bc037cf387f" ver="220526001" createVer="220523001" type="Desktop" name="SetClipboard" dpName="SetClipboard" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="d7701cb5-b28d-4408-a3dd-4cd90604a5de" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Save the 'sample text' text to the clipboard." />
+        <Property type="Desktop" key="Command_Input" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.SetClipboard', this.setclipboard_info_1);]]></Script>
+    </Step>
+    <Step id="S8dc42d4fc9dc43169596f8a16c94d14e" ver="220526001" createVer="220523001" type="Desktop" name="GetClipboard" dpName="GetClipboard" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="ad09f925-4a85-49ba-a105-18dd5b00a879" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Get the 'sample text' text stored in the clipboard and save it to this.clipboard." />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.String" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.GetClipboard', this.getclipboard_info_2);]]></Script>
+    </Step>
+    <Step id="S5e1c0d4f55ef478ca08420a194b83cdd" ver="220526001" createVer="220523001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="7209180f-d735-4d2f-85b7-c1a5637d58d3" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Outputs the value of this.clipboard to the message box." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="S35549d03d6fb4a4b9f279c02fab6237c" ver="220526001" createVer="220523001" type="Desktop" name="ClipboardToFile" dpName="ClipboardToFile" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="8616a647-8eba-4588-b8b4-a3883627275c" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Saves the value ('sample text') stored in the clipboard as 'C:\\sampletext.txt' file." />
+        <Property type="Desktop" key="Command_Path" controlType="TextOrImage" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_DataFormat" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="Text;Image" />
+        <Property type="Desktop" key="Command_Overwrite" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.ClipboardToFile', this.clipboardtofile_info_4);]]></Script>
+    </Step>
+    <Step id="S96e2b6fe2f7a460281099c9d255ae4d1" ver="220526001" createVer="220523001" type="Desktop" name="ExecuteFile" dpName="ExecuteFile" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="516ce038-e8af-483d-9f37-dd3c860a8e74" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Execute the 'C:\\sampletext.txt' file and save the pid of the launched app." />
+        <Property type="Desktop" key="Command_Path" controlType="File" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.ExecuteFile', this.executefile_info_5);]]></Script>
+    </Step>
+    <Step id="S77f069f419334dc4ad6aa9c57e3e2544" ver="220526001" createVer="220523001" type="Flow" name="Delay" dpName="Delay" dpValue="1 sec" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="71d6b8a9-bd30-4411-9195-f98d3c264b01" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Specify 3 seconds as the time to check the contents of the executed file." />
+        <Property type="Flow" key="Conditions_Second" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="1" />
+        <Property type="Flow" key="Conditions_Millisecond" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[Delay(1000);]]></Script>
+    </Step>
+    <Step id="Se6b6001be2ab4978b16e33b48749c591" ver="220526001" createVer="220523001" type="Desktop" name="CloseFile" dpName="CloseFile" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="544a6287-4e84-4e8a-9c0e-443e1cbf6c97" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="The executed 'C:\\sampletext.txt' file is terminated using pid." />
+        <Property type="Desktop" key="Command_Input" controlType="InputControlType" valueType="System.Int32" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.CloseFile', this.closefile_info_7);]]></Script>
+    </Step>
+    <Step id="S196205131d84418881dac16b33cf12a5" ver="220526001" createVer="220523001" type="Desktop" name="DeleteFile" dpName="DeleteFile" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="3c11a972-8192-43b0-b35a-3d369e59b07c" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Delete the 'C:\\sampletext.txt' file that has been verified." />
+        <Property type="Desktop" key="Command_Path" controlType="File" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.DeleteFile', this.deletefile_info_8);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>System</string>
+    <string>FlowControl</string>
+  </Libraries>
+  <JScript><![CDATA[function Using_The_Clipboard() {
+
+    this.clipboard;
+    this.pid;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('Sd022850ebaac4f5c861a7bc037cf387f', '[1] SetClipboard');
+        StepPlayer.Run('Desktop.SetClipboard', this.setclipboard_info_1);
+
+        //------------------------------------------------
+        STEP('S8dc42d4fc9dc43169596f8a16c94d14e', '[2] GetClipboard');
+        RESULT = StepPlayer.Run('Desktop.GetClipboard', this.getclipboard_info_2);
+
+        //------------------------------------------------
+        STEP('S5e1c0d4f55ef478ca08420a194b83cdd', '[3] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('S35549d03d6fb4a4b9f279c02fab6237c', '[4] ClipboardToFile');
+        StepPlayer.Run('Desktop.ClipboardToFile', this.clipboardtofile_info_4);
+
+        //------------------------------------------------
+        STEP('S96e2b6fe2f7a460281099c9d255ae4d1', '[5] ExecuteFile');
+        RESULT = StepPlayer.Run('Desktop.ExecuteFile', this.executefile_info_5);
+
+        //------------------------------------------------
+        STEP('S77f069f419334dc4ad6aa9c57e3e2544', '[6] Delay');
+        Delay(1000);
+
+        //------------------------------------------------
+        STEP('Se6b6001be2ab4978b16e33b48749c591', '[7] CloseFile');
+        StepPlayer.Run('Desktop.CloseFile', this.closefile_info_7);
+
+        //------------------------------------------------
+        STEP('S196205131d84418881dac16b33cf12a5', '[8] DeleteFile');
+        StepPlayer.Run('Desktop.DeleteFile', this.deletefile_info_8);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="Sd022850ebaac4f5c861a7bc037cf387f" group_name="f508e3c8-9195-4cea-b9ea-a0a510b08943_Untitled" folded="False" />
+      <StepNode step_id="S8dc42d4fc9dc43169596f8a16c94d14e" group_name="007b3620-9267-4a36-a650-48f7cede1643_Untitled" folded="False" />
+      <StepNode step_id="S5e1c0d4f55ef478ca08420a194b83cdd" group_name="007b3620-9267-4a36-a650-48f7cede1643_Untitled" folded="False" />
+      <StepNode step_id="S35549d03d6fb4a4b9f279c02fab6237c" group_name="e5118fad-2182-4ade-a316-ecbdc123992a_Untitled" folded="False" />
+      <StepNode step_id="S96e2b6fe2f7a460281099c9d255ae4d1" group_name="3fb9e396-78c1-4dce-bb17-f131ae584eb4_Untitled" folded="False" />
+      <StepNode step_id="S77f069f419334dc4ad6aa9c57e3e2544" group_name="3fb9e396-78c1-4dce-bb17-f131ae584eb4_Untitled" folded="False" />
+      <StepNode step_id="Se6b6001be2ab4978b16e33b48749c591" group_name="3fb9e396-78c1-4dce-bb17-f131ae584eb4_Untitled" folded="False" />
+      <StepNode step_id="S196205131d84418881dac16b33cf12a5" group_name="3fb9e396-78c1-4dce-bb17-f131ae584eb4_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>bRyLUYCjxgjv2AsLI7Hzb82QBc4=</DigestValue></Reference></SignedInfo><SignatureValue>sPTtXdNzlvUHaRUn1jaOw1UtuLeoudJ+AOeRau1mR4/Xrdt6r3k2eKCcttb8bWwVOtJV2Go8q0R2bvt52D6LNa6Bwj4q/rz8NxJkFSL/JIhOd2KSn7TiwdK3lWSkWowLOu6V6BSJOZmMNpStQ8VqwmirwI1H82fiTCg5NVEu1QVl1mE8LcjFHpXbw3cJzoxeqNUN2yahNCpkhAlSi11pkuL22e394NEYAlVbES2wHdCLIWczC1qJviLvnUZz9O8iz5JeYBaDZH7c0dq4tS2MaZCTdy0jTuLGQpl/B3g9GOMyhisXHtpIPoC5q7eNpWiFGJBU0maBaJEuf61TZOiK3g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-00255, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

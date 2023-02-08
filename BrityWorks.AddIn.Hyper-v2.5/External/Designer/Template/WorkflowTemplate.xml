@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkFlow 
+          id=""
+          namespace="" 
+          category="workflow" 
+          name=""
+          version="">
+  <Process />
+  <Dialog />
+  <Properties />
+  <Resources />
+  <Steps />
+  <JScript></JScript>
+
+  <Diagram version="1.000">
+    <Nodes>
+      <Node id="0" step_id="" container_id="" order="" type="StartNode" invoke_type="" expanded="" text="START" bounds="30,30,56,56" />
+      <Node id="1" step_id="" container_id="" order="" type="EndNode" invoke_type="" expanded="" text="END" bounds="116,30,56,56" />
+    </Nodes>
+    <Links>
+      <Link id="2" color="#FF5B5B5B" origin_node_id="0" dest_node_id="1" text="" bounds="83,55,36,6" points="86,58;116,58" />
+    </Links>
+  </Diagram>
+</WorkFlow>

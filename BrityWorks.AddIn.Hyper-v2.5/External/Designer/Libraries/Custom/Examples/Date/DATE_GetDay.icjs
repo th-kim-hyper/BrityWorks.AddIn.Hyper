@@ -1,0 +1,29 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id c7f3c8f7-e79e-4b52-8fe9-9a09968b46ca
+* @createdDate 2020-05-25 16:31:48
+* @lastModifiedDate 2020-05-25 16:31:48
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 주어진 날짜의 현지 시간 기준 요일을 반환합니다. 0은 일요일을 나타냅니다.
+*  @brf (This method returns the day of the week for the specified date according to local time, , where 0 represents Sunday. For the day of the mont)
+* @param date<String_DateTime> (ex, '2020-01-01 03:24:00')
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.DATE_GetDay == null || Script.JavaScript.DATE_GetDay == undefined) {
+	Script.JavaScript.DATE_GetDay = function (date) {
+	//Body Begin
+		var varDate = new Date(date);
+		return varDate.getDay();
+	//Body End
+	}
+}

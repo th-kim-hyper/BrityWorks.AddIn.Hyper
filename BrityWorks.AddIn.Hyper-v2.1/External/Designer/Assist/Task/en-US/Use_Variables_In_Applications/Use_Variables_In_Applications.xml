@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>Use variables in an application.</Summary>
+  <Detail>Store a value in a variable and write it on Notepad.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sad8a0efe4d5c4b68b91a2af2d4a9ff53">
+      <Assists>
+        <Assist type="Summary" value="This activity launches Notepad.&#xD;&#xA;Check the variable(processID) created in advance in the variables window." />
+        <Assist type="Property" propertyKey="Application_PID" value="Double-click the property field and select this.processID." />
+        <Assist type="Property" propertyKey="Application_Command" value="Type 'notepad.exe'." />
+      </Assists>
+    </Step>
+    <Step id="S6c66c0efc9fa463f9a5eb0dde984d992">
+      <Assists>
+        <Assist type="Summary" value="This activity stores a value in a variable.&#xD;&#xA;Check the variable(var1) created in advance in the variables window." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Double-click the property field and select this.var1." />
+        <Assist type="Property" propertyKey="Conditions_Value" value="Type 'Hello Brity RPA'." />
+      </Assists>
+    </Step>
+    <Step id="S5a512f51782b4128982591e9eca3bbf6">
+      <Assists>
+        <Assist type="Summary" value="This activity enter a value stored in a variable into Notepad." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="Type this.var1 in the property field." />
+      </Assists>
+    </Step>
+    <Step id="S8582e0f683674863abcb74c6db0654a6">
+      <Assists>
+        <Assist type="Summary" value="This activity closes Notepad using process ID." />
+        <Assist type="Property" propertyKey="Application_PID" value="Double-click the property field and select this.processID." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

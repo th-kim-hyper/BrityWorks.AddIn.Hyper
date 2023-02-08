@@ -1,0 +1,393 @@
+<Process designerVersion="2.1.200.00531.D1" id="590f3303-7739-45ab-be41-2bb4135f584d" type="LibraryTemplate" workType="foreground" name="PDF_Data_Search" version="" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary PDF data search&#xD;&#xA;#detail After creating a temporary directory, download the RPA v2.1.1 user manual to the temporary directory using the Chrome library.&#xD;&#xA;Search the manual (PDF) for pages containing the 'Center' character.&#xD;&#xA;Displays text on the entire page as a message box.&#xD;&#xA;Saves images that exist on each page containing the 'Center' character as a file and displays the list as a message box.&#xD;&#xA;Delete the temporary directory." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="3840x1080" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 10:34:41" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 11:55:35" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="workDir" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="browser" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="pdfFileName" scope="Normal" valueType="Any" formatType="Any" initValue="'Birty RPA User Manual (v2.1.1).pdf'" desc="" />
+    <Variable name="pages" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="images" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="fileList" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="text" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="imageCount" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="pageCount" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S39c7a396beb84b34a59226d2d28b6d87" ver="220526001" createVer="220526001" type="Flow" name="Assign" dpName="Assign" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="993deebf-d124-47e6-9a6e-4e70b6adeaa8" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Sets a temporary directory path for downloading files." />
+        <Property type="Flow" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Flow" key="Conditions_Value" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ;]]></Script>
+    </Step>
+    <Step id="S364c370e6b5347cb9241bdc8e25540ea" ver="220526001" createVer="220526001" type="Desktop" name="CreateDirectory" dpName="CreateDirectory" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="a69c82e5-0e2c-433c-bc97-8226b3a91e24" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Creates a directory." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.CreateDirectory', this.createdirectory_info_2);]]></Script>
+    </Step>
+    <Step id="Sd69af6bcf4474f299ecb37f78a4f4eab" ver="220526001" createVer="220526001" type="Chrome" name="ChromeOpen" dpName="ChromeOpen" dpValue="about:blank" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="2d8bfe38-1ffa-41ed-aeaf-0acffe42bea3" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Create a browser and go to the RPA v2.1.1 man page." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Chrome" key="CHROME_TypeOfBrowser" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Chrome" valuelist="Chrome;Edge" />
+        <Property type="Chrome" key="CHROME_BrowserType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_URL" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'about:blank'" />
+        <Property type="Chrome" key="CHROME_ChromePath" controlType="File" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="60" />
+        <Property type="Chrome" key="CHROME_ExtensionList" controlType="PropertyItemChromeInstalledExtensionsView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DownloadPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_3);]]></Script>
+    </Step>
+    <Step id="Sd74e2d76a54b4126bcba4e1d04cb8f01" ver="220526001" createVer="220526001" type="Chrome" name="ChromeClick" dpName="ChromeClick" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="6641e8c8-b52c-4b5f-9d2a-a67d8da8c4ae" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Click the Download icon." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_4);]]></Script>
+    </Step>
+    <Step id="Scfbdd8c5b49044bfacea1d8d99d30f68" ver="220526001" createVer="220526001" type="Chrome" name="ChromeClick" dpName="ChromeClick" dpValue="LATEST_BROWSER" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="d27ae522-48e5-470e-99b7-fa131118b681" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Click the file you want to download." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_5);]]></Script>
+    </Step>
+    <Step id="S89db3f495ed1494695835bf68d26198c" ver="220526001" createVer="220526001" type="Desktop" name="WaitFileCreation" dpName="WaitFileCreation" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="1c8d3c37-09ea-4bda-9b4b-564fec9d91e1" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="The 'Birty RPA User Manual (v2.1.1).pdf' file is downloaded and waits for the file to be created." />
+        <Property type="Desktop" key="Command_Path" controlType="File" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Desktop" key="Command_FileSize" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Boolean" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.WaitFileCreation', this.waitfilecreation_info_6);]]></Script>
+    </Step>
+    <Step id="Sef36b54c476040a48b8c3df961441827" ver="220526001" createVer="220526001" type="Chrome" name="ChromeClose" dpName="ChromeClose" dpValue="LATEST_BROWSER" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="3a87491b-ee3b-49d8-80db-467a13bf40b7" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Shut down the browser." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_7);]]></Script>
+    </Step>
+    <Step id="S354a173e4bc84e479c5344d81c156d23" ver="220526001" createVer="220526001" type="Pdf" name="SearchTextFromPdfActivity" dpName="SearchTextFromPdf" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="bd01a7ef-97c1-400d-b2c5-7beb981624fc" type="Pdf">
+        <Property type="Pdf" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Pdf" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="I store the page number that the 'Center' string belongs to in the 'this.pages' variable in the PDF document." />
+        <Property type="Pdf" key="Output_Result" controlType="OutputControlType" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Pdf" key="Input_File" controlType="PDF" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Pdf" key="Input_Password" controlType="PropertyItemPasswordView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="True" isChanged="Y" encryptedFrom="" value="A11VOTJag66CD4qf0LxEOA==" order="2" />
+        <Property type="Pdf" key="Input_MatchCase" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" order="3" />
+        <Property type="Pdf" key="Input_MatchWholeWord" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" order="4" />
+        <Property type="Pdf" key="Input_PageRange" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'All'" order="5" />
+        <Property type="Pdf" key="Input_TextForSearch" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="6" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ActivityWorker.Play('Pdf', 'SearchTextFromPdfActivity', this.activitylibraryitem_info_8);]]></Script>
+    </Step>
+    <Step id="Sb5274c9af72f4368bc72b8fd5a90c812" ver="220526001" createVer="220526001" type="Pdf" name="ExtractTextFromPdfActivity" dpName="ExtractTextFromPdf" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="166f97d2-d904-48ed-ae7d-0241de9424ef" type="Pdf">
+        <Property type="Pdf" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Pdf" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Store the text of every page of the PDF document in the variable 'this.text'." />
+        <Property type="Pdf" key="Output_Result" controlType="OutputControlType" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Pdf" key="Input_File" controlType="PDF" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Pdf" key="Input_Password" controlType="PropertyItemPasswordView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="True" isChanged="Y" encryptedFrom="" value="A11VOTJag66CD4qf0LxEOA==" order="2" />
+        <Property type="Pdf" key="Input_PageRange" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'All'" order="3" />
+        <Property type="Pdf" key="Input_SkipEmptyValue" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" order="4" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ActivityWorker.Play('Pdf', 'ExtractTextFromPdfActivity', this.activitylibraryitem_info_9);]]></Script>
+    </Step>
+    <Step id="S028f567c49e54aedbf42b99c15c0918d" ver="220526001" createVer="220526001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="60da822e-04e8-4aec-9a37-da67c14b08d3" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Displays the text of every page of the PDF document as a message box." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="S153b7c4fc9c74e37aab8991fb6cba986" ver="220526001" createVer="220526001" type="Flow" name="Loop" dpName="For" dpValue="this.i &lt; 1" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0">
+      <Properties id="b2db41dd-5c67-48e4-be70-84e4a938601c" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Repeat as many pages as the 'Center' string in the PDF document belongs to." />
+        <Property type="Flow" key="Conditions_InitializeIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i = 0" />
+        <Property type="Flow" key="Conditions_LoopCondition" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i &lt; 1" />
+        <Property type="Flow" key="Conditions_UpdateIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i++" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S77ac251a875a4e428f7ac623f6c3d963" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for (this.i = 0; this.i < 1; this.i++) {]]></Script>
+    </Step>
+    <Step id="S18dc2f8ee5c64383887e5013a95c4fd2" ver="220526001" createVer="220526001" type="Pdf" name="ExtractImageFromPdfActivity" dpName="ExtractImageFromPdf" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="b0abe836-cdfd-480a-85f4-5126e894b177" type="Pdf">
+        <Property type="Pdf" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Pdf" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Save the images on each page to which the 'Center' string of the PDF document belongs to the variable 'this.images'." />
+        <Property type="Pdf" key="Output_Result" controlType="OutputControlType" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Pdf" key="Input_File" controlType="PDF" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Pdf" key="Input_Password" controlType="PropertyItemPasswordView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="True" isChanged="Y" encryptedFrom="" value="A11VOTJag66CD4qf0LxEOA==" order="2" />
+        <Property type="Pdf" key="Input_PageRange" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'All'" order="5" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ActivityWorker.Play('Pdf', 'ExtractImageFromPdfActivity', this.activitylibraryitem_info_12);]]></Script>
+    </Step>
+    <Step id="S2022d379789846e4865244d6132afecf" ver="220526001" createVer="220526001" type="Flow" name="Loop" dpName="For" dpValue="this.i &lt; 1" dpValue2="" dpImage="" tag="" depth="2" stmttype="OpenBlock" enabled="True" mainSet="0">
+      <Properties id="2730f687-4ab0-45ed-b8ed-57338c09d868" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Repeat the number of images on each page to which the 'Center' string in the PDF document belongs." />
+        <Property type="Flow" key="Conditions_InitializeIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i = 0" />
+        <Property type="Flow" key="Conditions_LoopCondition" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i &lt; 1" />
+        <Property type="Flow" key="Conditions_UpdateIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i++" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S26f81200e54647278697256b8e8e6297" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for (this.i = 0; this.i < 1; this.i++) {]]></Script>
+    </Step>
+    <Step id="Sa789a39c9b5a45ad82a8da0032d914ba" ver="220526001" createVer="220526001" type="ImageConverter" name="SaveImage" dpName="SaveImage" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="262214a2-75b6-4996-b6ba-cfe3cd22b005" type="ImageConverter">
+        <Property type="ImageConverter" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="ImageConverter" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="It saves each image on each page to which the 'Center' string of the PDF document belongs to a file." />
+        <Property type="ImageConverter" key="ImageConvertAttr_InputBitmap" controlType="InputControlType" valueType="System.Drawing.Bitmap" formatType="Bitmap" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="ImageConverter" key="ImageFile_SavePath" controlType="Image" valueType="System.String" formatType="String_FilePath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="ImageConverter" key="ImageFile_OverWrite" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="ImageConverter" key="ImageFile_Encoding" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="png" valuelist="png;jpg;bmp" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('ImageConverter.SaveImage', this.saveimage_info_14);]]></Script>
+    </Step>
+    <Step id="S26f81200e54647278697256b8e8e6297" ver="220526001" createVer="220526001" type="Flow" name="EndLoop" dpName="End-For" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="e15108c7-6640-489d-a706-45ee4b2d6585" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S2022d379789846e4865244d6132afecf" type="Flow" name="Loop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="S77ac251a875a4e428f7ac623f6c3d963" ver="220526001" createVer="220526001" type="Flow" name="EndLoop" dpName="End-For" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="e6284e93-3530-4e2e-b6eb-fb2b3f6bc683" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S153b7c4fc9c74e37aab8991fb6cba986" type="Flow" name="Loop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="Sde709fabab78473a923ac893ac015c78" ver="220526001" createVer="220526001" type="Desktop" name="GetFileList" dpName="GetFileList" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="a6dd42a5-7c14-476d-8314-bacbecda879a" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="It stores the list of downloaded files and saved image files in the 'this.fileList' variable." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Command_Output" controlType="OutputControlType" valueType="System.Object[]" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_17);]]></Script>
+    </Step>
+    <Step id="Sd7e12cff805a4de88cf6447a943cfe86" ver="220526001" createVer="220526001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="4e87ea71-d23d-447c-8178-6b0cd8bc48f1" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Displays a list of downloaded and saved image files in a message box." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="S9864e638f89649b88ef3c3b610bcf56e" ver="220526001" createVer="220526001" type="Desktop" name="DeleteDirectory" dpName="DeleteDirectory" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="08661c9c-921f-4885-9597-bcf592c491a2" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Delete the temporarily created directory." />
+        <Property type="Desktop" key="Command_Path" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Desktop.DeleteDirectory', this.deletedirectory_info_19);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>FlowControl</string>
+    <string>System</string>
+    <string>Chrome</string>
+    <string>Pdf</string>
+    <string>ImageConverter</string>
+  </Libraries>
+  <JScript><![CDATA[function PDF_Data_Search() {
+
+    this.workDir;
+    this.browser;
+    this.pdfFileName = 'Birty RPA User Manual (v2.1.1).pdf';
+    this.pages;
+    this.images;
+    this.fileList;
+    this.text;
+    this.imageCount;
+    this.pageCount;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S39c7a396beb84b34a59226d2d28b6d87', '[1] Assign');
+        RESULT = ;
+
+        //------------------------------------------------
+        STEP('S364c370e6b5347cb9241bdc8e25540ea', '[2] CreateDirectory');
+        StepPlayer.Run('Desktop.CreateDirectory', this.createdirectory_info_2);
+
+        //------------------------------------------------
+        STEP('Sd69af6bcf4474f299ecb37f78a4f4eab', '[3] ChromeOpen');
+        RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_3);
+
+        //------------------------------------------------
+        STEP('Sd74e2d76a54b4126bcba4e1d04cb8f01', '[4] ChromeClick');
+        StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_4);
+
+        //------------------------------------------------
+        STEP('Scfbdd8c5b49044bfacea1d8d99d30f68', '[5] ChromeClick');
+        StepPlayer.Run('Chrome.ChromeClick', this.chromeclick_info_5);
+
+        //------------------------------------------------
+        STEP('S89db3f495ed1494695835bf68d26198c', '[6] WaitFileCreation');
+        RESULT = StepPlayer.Run('Desktop.WaitFileCreation', this.waitfilecreation_info_6);
+
+        //------------------------------------------------
+        STEP('Sef36b54c476040a48b8c3df961441827', '[7] ChromeClose');
+        StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_7);
+
+        //------------------------------------------------
+        STEP('S354a173e4bc84e479c5344d81c156d23', '[8] SearchTextFromPdf');
+        RESULT = ActivityWorker.Play('Pdf', 'SearchTextFromPdfActivity', this.activitylibraryitem_info_8);
+
+        //------------------------------------------------
+        STEP('Sb5274c9af72f4368bc72b8fd5a90c812', '[9] ExtractTextFromPdf');
+        RESULT = ActivityWorker.Play('Pdf', 'ExtractTextFromPdfActivity', this.activitylibraryitem_info_9);
+
+        //------------------------------------------------
+        STEP('S028f567c49e54aedbf42b99c15c0918d', '[10] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('S153b7c4fc9c74e37aab8991fb6cba986', '[11] For');
+        for (this.i = 0; this.i < 1; this.i++) {
+
+            //------------------------------------------------
+            STEP('S18dc2f8ee5c64383887e5013a95c4fd2', '[12] ExtractImageFromPdf');
+            RESULT = ActivityWorker.Play('Pdf', 'ExtractImageFromPdfActivity', this.activitylibraryitem_info_12);
+
+            //------------------------------------------------
+            STEP('S2022d379789846e4865244d6132afecf', '[13] For');
+            for (this.i = 0; this.i < 1; this.i++) {
+
+                //------------------------------------------------
+                STEP('Sa789a39c9b5a45ad82a8da0032d914ba', '[14] SaveImage');
+                StepPlayer.Run('ImageConverter.SaveImage', this.saveimage_info_14);
+
+            //------------------------------------------------
+            }
+            STEP('S26f81200e54647278697256b8e8e6297', '[15] End-For');
+
+        //------------------------------------------------
+        }
+        STEP('S77ac251a875a4e428f7ac623f6c3d963', '[16] End-For');
+
+        //------------------------------------------------
+        STEP('Sde709fabab78473a923ac893ac015c78', '[17] GetFileList');
+        RESULT = StepPlayer.Run('Desktop.GetFileList', this.getfilelist_info_17);
+
+        //------------------------------------------------
+        STEP('Sd7e12cff805a4de88cf6447a943cfe86', '[18] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('S9864e638f89649b88ef3c3b610bcf56e', '[19] DeleteDirectory');
+        StepPlayer.Run('Desktop.DeleteDirectory', this.deletedirectory_info_19);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S39c7a396beb84b34a59226d2d28b6d87" group_name="e7366fe4-5821-4eed-9981-3d9eb4ba5fc9_Untitled" folded="False" />
+      <StepNode step_id="S364c370e6b5347cb9241bdc8e25540ea" group_name="e7366fe4-5821-4eed-9981-3d9eb4ba5fc9_Untitled" folded="False" />
+      <StepNode step_id="Sd69af6bcf4474f299ecb37f78a4f4eab" group_name="c1a0f283-637e-4a60-8506-0176b88e76cc_Untitled" folded="False" />
+      <StepNode step_id="Sd74e2d76a54b4126bcba4e1d04cb8f01" group_name="c1a0f283-637e-4a60-8506-0176b88e76cc_Untitled" folded="False" />
+      <StepNode step_id="Scfbdd8c5b49044bfacea1d8d99d30f68" group_name="c1a0f283-637e-4a60-8506-0176b88e76cc_Untitled" folded="False" />
+      <StepNode step_id="S89db3f495ed1494695835bf68d26198c" group_name="c1a0f283-637e-4a60-8506-0176b88e76cc_Untitled" folded="False" />
+      <StepNode step_id="Sef36b54c476040a48b8c3df961441827" group_name="c1a0f283-637e-4a60-8506-0176b88e76cc_Untitled" folded="False" />
+      <StepNode step_id="S354a173e4bc84e479c5344d81c156d23" group_name="66e43c5e-7f07-40f8-9ffb-3217bc4b7829_Untitled" folded="False" />
+      <StepNode step_id="Sb5274c9af72f4368bc72b8fd5a90c812" group_name="b50cce1e-dd33-4203-9ca4-8d3275ecc18a_Untitled" folded="False" />
+      <StepNode step_id="S028f567c49e54aedbf42b99c15c0918d" group_name="b50cce1e-dd33-4203-9ca4-8d3275ecc18a_Untitled" folded="False" />
+      <StepNode step_id="S153b7c4fc9c74e37aab8991fb6cba986" group_name="" folded="False" />
+      <StepNode step_id="S18dc2f8ee5c64383887e5013a95c4fd2" group_name="68b212e1-951c-4d8b-8b85-99aca7391ecf_Untitled" folded="False" />
+      <StepNode step_id="S2022d379789846e4865244d6132afecf" group_name="" folded="False" />
+      <StepNode step_id="Sa789a39c9b5a45ad82a8da0032d914ba" group_name="f08b1b71-b5df-4f9e-9b58-4f3e67b2f456_Untitled" folded="False" />
+      <StepNode step_id="S26f81200e54647278697256b8e8e6297" group_name="" folded="False" />
+      <StepNode step_id="S77ac251a875a4e428f7ac623f6c3d963" group_name="" folded="False" />
+      <StepNode step_id="Sde709fabab78473a923ac893ac015c78" group_name="dfab92ab-cfbc-44d5-b0f7-e0d7cfb462a5_Untitled" folded="False" />
+      <StepNode step_id="Sd7e12cff805a4de88cf6447a943cfe86" group_name="dfab92ab-cfbc-44d5-b0f7-e0d7cfb462a5_Untitled" folded="False" />
+      <StepNode step_id="S9864e638f89649b88ef3c3b610bcf56e" group_name="dfab92ab-cfbc-44d5-b0f7-e0d7cfb462a5_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>9xfJfIDWr+xJi27kUeABNKF0by0=</DigestValue></Reference></SignedInfo><SignatureValue>r01XdX2tzz9/bN5xrw85YUWK4P5hZPWS4yi1cVJ8MLFTdR7G98MYvpgL6wHcm8N+IQ/EANiKaxXjKWcTTmBCuEAMthskdH3W2awSk5hdsI6dtUbxfSq1Vr+j8DHUHCujPoQGz3ao5o3Fp3a7dfWvIcypq/NCGqcLB++C5YO7rVsZ788JNC3OTdoAo6+H0ZjVKtxfuzYAVuaFr89HHQsUWTBo4bR7riPuoXEyy6ZjRFhqKoBBd03Pg8uXKAZcYM/Pfb4lZssFaNU2o5cZHSgnlrzRUuIW87hmLFBDv5cGKetGqnkkKdOVCPRAPwlIx/zQgVIL5mC352aP+SpQXPBEvQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-00255, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

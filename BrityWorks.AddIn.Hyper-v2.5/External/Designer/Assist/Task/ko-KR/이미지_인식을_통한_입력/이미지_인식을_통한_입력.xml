@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>이미지 인식을 통한 입력</Summary>
+  <Detail>로그인 화면에서 이미지를 인식하여 아이디 입력 칸에 아이디를 두 번 입력합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S3901d0c9334743e080b048c4bb590d42">
+      <Assists>
+        <Assist type="Summary" value="Daum 로그인 화면에서 입력 칸을 이미지로 인식하여 아이디를 두 번 입력해 봅니다." />
+        <Assist type="Property" propertyKey="CHROME_URL" value="Daum 로그인 페이지의 주소를 URL로 지정해두었습니다." />
+        <Assist type="Test" value="실행 버튼을 클릭하여, 크롬 브라우저를 열어보세요." />
+      </Assists>
+    </Step>
+    <Step id="Sb24679406378426eb05af4adbc376e1f">
+      <Assists>
+        <Assist type="Summary" value="이미지를 인식하여 첫 번째 아이디를 입력합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 아이디 입력 칸 전체를 드래그로 선택하고, 커서로 클릭할 곳을 클릭하여 마무리합니다." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="변수 창에 미리 생성한 변수를 아이디로 입력할 것입니다.&#xD;&#xA;this.firstID라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S04e4a6fafcca44148c5e9d7bbaf27126">
+      <Assists>
+        <Assist type="Summary" value="이미지를 인식하여 두 번째 아이디를 입력합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 아이디 입력 칸 전체를 드래그로 선택하고, 커서로 클릭할 곳을 클릭하여 마무리합니다." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="변수 창에 미리 생성한 변수를 아이디로 입력할 것입니다.&#xD;&#xA;this.secondID라고 입력합니다." />
+        <Assist type="Property" propertyKey="Options_OnError" value="이 액티비티는 인식하고자 하는 이미지가 변해버려 실패할 것이므로, 오류 발생시 처리 방법을 설정합니다.&#xD;&#xA;--Ignore--을 선택합니다." />
+      </Assists>
+    </Step>
+    <Step id="S8626115498a041cabec15c56af1084b2">
+      <Assists />
+    </Step>
+    <Step id="Sefda1210cd4a42c3b0851e05d3129ddc">
+      <Assists>
+        <Assist type="Summary" value="변하지 않는 이미지인 로고를 인식하여 첫 번째 아이디를 입력합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 로고를 드래그로 선택하고, 아이디의 입력 칸에서 커서로 클릭할 곳을 클릭하여 마무리합니다." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="변수 창에 미리 생성한 변수를 아이디로 입력할 것입니다.&#xD;&#xA;this.firstID라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S1c3961695a3642e3aa83a3c4336d7e7e">
+      <Assists>
+        <Assist type="Summary" value="변하지 않는 이미지인 로고를 인식하여 두 번째 아이디를 입력합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭 후, 로고를 드래그로 선택하고, 아이디의 입력 칸에서 커서로 클릭할 곳을 클릭하여 마무리합니다." />
+        <Assist type="Property" propertyKey="Keyboard_NewText" value="변수 창에 미리 생성한 변수를 아이디로 입력할 것입니다.&#xD;&#xA;this.secondID라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Se252ac1c25194f049c1f89eafc84a818">
+      <Assists />
+    </Step>
+  </Steps>
+</TaskDescription>

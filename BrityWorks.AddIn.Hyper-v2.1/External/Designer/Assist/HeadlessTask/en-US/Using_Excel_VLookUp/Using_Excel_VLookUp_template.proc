@@ -1,0 +1,153 @@
+<Process id="33e0f1f7-7ba1-4d84-85ea-f97f0db71eb4" type="LibraryTemplate" workType="background" name="Using_Excel_VLookUp" version="" designerVersion="2.4.900.00524.D1" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="# summary Using Excel VLookUp&#xD;&#xA;# detail Open a new Excel file, input data, and use VLookUp to get the desired value." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="5560x1920" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-27 14:12:51" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-30 09:35:39" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="data" scope="Normal" valueType="Any" formatType="Any" initValue="[['ID','Name','Age','','','',''],['1','Brity','30','','','',''],['2','RPA','25','','ID','Name','Age'],['3','Designer','35','','2','','']]" desc="" />
+    <Variable name="range" scope="Normal" valueType="Any" formatType="Any" initValue="'A1:C4'" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S1fc4bf1438054b6aacc4311503fa2616" ver="220526001" createVer="220526001" type="Excel" name="HeadlessNewExcel" dpName="HeadlessNewExcel" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="96ebdd07-ba6a-4971-8ce3-f22e60922b16" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Output_OutputExcel" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Excel" key="File_Invisible" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Excel.HeadlessNewExcel', this.headlessnewexcel_info_1);]]></Script>
+    </Step>
+    <Step id="S93091f26a95d44edb43f66265434ff60" ver="220526001" createVer="220526001" type="Excel" name="WriteRange" dpName="WriteRange" dpValue="ACTIVE_SHEET" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="3d4dc1b1-3dc6-46c5-a925-d80e241f3e36" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Input a value in the area specified in the Excel file." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Input_DataArray" controlType="Object[][]" valueType="System.Object[][]" formatType="Array2D" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_StartCell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="File_AutoSave" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.WriteRange', this.writerange_info_2);]]></Script>
+    </Step>
+    <Step id="S9a78146367a34f90861935b420468ee5" ver="220526001" createVer="220526001" type="Excel" name="VLookUp" dpName="VLookUp" dpValue="A1" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="ca7f8e0e-f294-493a-9a03-d07ea61a25a0" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Using VLookUp to get the Name value of the row with ID 2." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Cell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="VLookup_LookupValue" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="VLookup_TableRange" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="VLookup_TableIndex" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Excel" key="VLookup_PartMatch" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.VLookUp', this.vlookup_info_3);]]></Script>
+    </Step>
+    <Step id="S49188f15d7f9405a8066c1042070358b" ver="220526001" createVer="220526001" type="Excel" name="VLookUp" dpName="VLookUp" dpValue="A1" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="eb076d70-c53c-4404-942a-14f73ff74542" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Using VLookUp to get the Age value of the row with ID 2." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="Sheet_SheetName" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_SHEET" />
+        <Property type="Excel" key="Sheet_Cell" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1'" />
+        <Property type="Excel" key="VLookup_LookupValue" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="VLookup_TableRange" controlType="String" valueType="System.String" formatType="String_ExcelRange" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'A1:B2'" />
+        <Property type="Excel" key="VLookup_TableIndex" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Excel" key="VLookup_PartMatch" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.VLookUp', this.vlookup_info_4);]]></Script>
+    </Step>
+    <Step id="S7ed688fcb6d4488f90ac5c907c1ee56d" ver="220526001" createVer="220526001" type="Excel" name="SaveExcel" dpName="SaveExcel" dpValue="" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="d1764b89-5884-4ef1-8604-d9f9d007aa9a" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_SaveAs" controlType="Excel" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_5);]]></Script>
+    </Step>
+    <Step id="S2336e79244aa4457a552a082d3ae03ec" ver="220526001" createVer="220526001" type="Excel" name="CloseExcel" dpName="CloseExcel" dpValue="ACTIVE_EXCEL" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="8f3bd208-6380-423f-9adc-01e42fdf0435" type="Excel">
+        <Property type="Excel" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Excel" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Close the Excel document opened in the background." />
+        <Property type="Excel" key="Input_InputExcel" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="ACTIVE_EXCEL" />
+        <Property type="Excel" key="File_Force" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_6);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Excel</string>
+  </Libraries>
+  <JScript><![CDATA[function Using_Excel_VLookUp() {
+
+    this.data = [['ID','Name','Age','','','',''],['1','Brity','30','','','',''],['2','RPA','25','','ID','Name','Age'],['3','Designer','35','','2','','']];
+    this.range = 'A1:C4';
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S1fc4bf1438054b6aacc4311503fa2616', '[1] HeadlessNewExcel');
+        RESULT = StepPlayer.Run('Excel.HeadlessNewExcel', this.headlessnewexcel_info_1);
+
+        //------------------------------------------------
+        STEP('S93091f26a95d44edb43f66265434ff60', '[2] WriteRange');
+        StepPlayer.Run('Excel.WriteRange', this.writerange_info_2);
+
+        //------------------------------------------------
+        STEP('S9a78146367a34f90861935b420468ee5', '[3] VLookUp');
+        StepPlayer.Run('Excel.VLookUp', this.vlookup_info_3);
+
+        //------------------------------------------------
+        STEP('S49188f15d7f9405a8066c1042070358b', '[4] VLookUp');
+        StepPlayer.Run('Excel.VLookUp', this.vlookup_info_4);
+
+        //------------------------------------------------
+        STEP('S7ed688fcb6d4488f90ac5c907c1ee56d', '[5] SaveExcel');
+        StepPlayer.Run('Excel.SaveExcel', this.saveexcel_info_5);
+
+        //------------------------------------------------
+        STEP('S2336e79244aa4457a552a082d3ae03ec', '[6] CloseExcel');
+        StepPlayer.Run('Excel.CloseExcel', this.closeexcel_info_6);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S1fc4bf1438054b6aacc4311503fa2616" group_name="10c3161a-cf75-45e6-8b07-68bdc28d59ca_New Excel" folded="False" />
+      <StepNode step_id="S93091f26a95d44edb43f66265434ff60" group_name="10c3161a-cf75-45e6-8b07-68bdc28d59ca_New Excel" folded="False" />
+      <StepNode step_id="S9a78146367a34f90861935b420468ee5" group_name="61030186-2e9c-45a7-b887-79c701c5848b_Using VLookUp" folded="False" />
+      <StepNode step_id="S49188f15d7f9405a8066c1042070358b" group_name="61030186-2e9c-45a7-b887-79c701c5848b_Using VLookUp" folded="False" />
+      <StepNode step_id="S7ed688fcb6d4488f90ac5c907c1ee56d" group_name="2a885309-6750-4a46-a0e2-921d5a1328f0_Save&amp;Close Excel" folded="False" />
+      <StepNode step_id="S2336e79244aa4457a552a082d3ae03ec" group_name="2a885309-6750-4a46-a0e2-921d5a1328f0_Save&amp;Close Excel" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>85W8MkzTL1LFTzPWNL5YVMBM6yk=</DigestValue></Reference></SignedInfo><SignatureValue>py1nRugY0QsiakcB6qwG6bXwU1q3upcLF7skZYurtwKocZkC2L/6EvtHC9UrhyHBIKWZqc6h5bBJ4f4CpBMvaUYExRQg/uKnqn9hC9wqqb+fhQWCzvyOecqyKg2fPm48+U0Ck2oQNaqRJeedfctS8ChqlgxX79Zsx5hTN5QFeamVno3lEaxN5MgnY7FRqpnpM7r3g7FJBXbJSqPpABu7WevkuJF1TtF/Do5xzWzZLCLVgx4VYniYfAETu/CYaL68R8qEDAoTzZGcE7Bq4FekjGp8Gr2oI7EpJJG505fBJZGvS3dX4vO9k4EcIi4dUcLFwVAR6izUNB0dQF69GeQHEA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-HTLA2, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

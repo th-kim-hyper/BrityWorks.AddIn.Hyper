@@ -1,0 +1,118 @@
+<Process id="a8a141f7-77fd-4d66-8ad3-0c32d6aecdcd" type="LibraryTemplate" workType="foreground" name="웹_화면_캡처해서_저장하기" version="" designerVersion="2.4.900.00524.D1" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary 웹 화면 캡처해서 저장하기&#xD;&#xA;#detail 웹페이지 화면을 캡처해서 저장하고 해당 파일을 실행하여 캡처내용을 확인합니다." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="3840x1080" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-31 10:28:34" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-05-31 12:46:42" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="browser" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="screenshotFile" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S85473dcefa4c48288d68a8cd1a279745" ver="220526001" createVer="220526001" type="Chrome" name="ChromeOpen" dpName="ChromeOpen" dpValue="about:blank" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="96117357-73e9-4841-a93f-0320322899e4" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="크롬 브라우저를 실행하고 amazon 페이지로 이동합니다." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Chrome" key="CHROME_TypeOfBrowser" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Chrome" valuelist="Chrome;Edge" />
+        <Property type="Chrome" key="CHROME_BrowserType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_URL" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'about:blank'" />
+        <Property type="Chrome" key="CHROME_ChromePath" controlType="File" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="60" />
+        <Property type="Chrome" key="CHROME_ExtensionList" controlType="PropertyItemChromeInstalledExtensionsView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DownloadPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_1);]]></Script>
+    </Step>
+    <Step id="Sf0d888c98d224e3aadf6d03351261f27" ver="220526001" createVer="220526001" type="Chrome" name="ChromeScreenshot" dpName="ChromeScreenshot" dpValue="LATEST_BROWSER" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="4742f607-26f8-4a7b-a414-3207b70ddc10" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="현재 페이지 화면을 캡처해서 파일로 저장합니다." />
+        <Property type="Chrome" key="CHROME_Result" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_FilePath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox('Output 변수 설정을 해야합니다.')]]></Script>
+    </Step>
+    <Step id="Sa4edac9a73dd418e80e37c0561b3165d" ver="220526001" createVer="220526001" type="Chrome" name="ChromeClose" dpName="ChromeClose" dpValue="LATEST_BROWSER" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="9e5141d9-e0ed-4f8a-acd1-50d346466deb" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="브라우저를 종료합니다." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_3);]]></Script>
+    </Step>
+    <Step id="S1d3508650b7f43de94351dec8f31b900" ver="220526001" createVer="220526001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="7e4e977e-0626-4a84-9709-57f817e40f57" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="스크린샷이 저장된 파일 확인을 위해 파일이 저장된 경로를 표시합니다." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Chrome</string>
+    <string>System</string>
+  </Libraries>
+  <JScript><![CDATA[function 웹_화면_캡처해서_저장하기() {
+
+    this.browser;
+    this.screenshotFile;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S85473dcefa4c48288d68a8cd1a279745', '[1] ChromeOpen');
+        RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_1);
+
+        //------------------------------------------------
+        STEP('Sf0d888c98d224e3aadf6d03351261f27', '[2] ChromeScreenshot');
+        MsgBox('Output 변수 설정을 해야합니다.')
+
+        //------------------------------------------------
+        STEP('Sa4edac9a73dd418e80e37c0561b3165d', '[3] ChromeClose');
+        StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_3);
+
+        //------------------------------------------------
+        STEP('S1d3508650b7f43de94351dec8f31b900', '[4] MessageBox');
+        MsgBox(RESULT);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S85473dcefa4c48288d68a8cd1a279745" group_name="de4fffeb-96e9-4b5d-9de8-c78af76d351b_Untitled" folded="False" />
+      <StepNode step_id="Sf0d888c98d224e3aadf6d03351261f27" group_name="de4fffeb-96e9-4b5d-9de8-c78af76d351b_Untitled" folded="False" />
+      <StepNode step_id="Sa4edac9a73dd418e80e37c0561b3165d" group_name="de4fffeb-96e9-4b5d-9de8-c78af76d351b_Untitled" folded="False" />
+      <StepNode step_id="S1d3508650b7f43de94351dec8f31b900" group_name="84acceaa-9c56-441e-a4a3-b36ef2970618_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>PAsDGEAQZVbfyI6+45K6qy6MDTo=</DigestValue></Reference></SignedInfo><SignatureValue>P3kBZzHJft1gbd3hahwdFn1rAcutMwpBB1EbSvBqYfGzNt78I5Drgmtxo8dl2REoye4u+65FNsgBeNHFVo3aGfTU9EgzeKp1X3v5jO95tWuomxnPzoGVzFIQ1rCjKV0mEhedxk/01bWSoeBjkRCAQxXURIbnnVTrCtsl1hWvmzVXiRQD93Ui7TkxADRykjvmJWAWSqwGVkoIu8XDSJRS5JRVlE6UHPEMvsmiMMfmqQvKZ6xsGrLznjAwpKQgwu+qwzwQcWGGiqKbZpeXlNwBCzDs1r9KQDl0/BSq6wsIc3ahw7EouXuV3+hoNA5hOl9TTMFxROK54Q54KrY7Oewy1g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-00255, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

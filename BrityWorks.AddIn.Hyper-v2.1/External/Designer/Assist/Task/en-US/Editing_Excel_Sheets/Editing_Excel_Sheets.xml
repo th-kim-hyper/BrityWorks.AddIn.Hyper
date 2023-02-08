@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>Editing Excel Sheets</Summary>
+  <Detail>Open a new Excel file to add, delete, and select sheets.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S6100c3be1aed4d9facf9af657fc49c87">
+      <Assists>
+        <Assist type="Property" propertyKey="Output_OutputExcel" value="You can designate a variable to contain the opened Excel file.&#xD;&#xA;Store in RESULT by default." />
+        <Assist type="Test" value="Click the Run button to open a new Excel file." />
+      </Assists>
+    </Step>
+    <Step id="S44815509489b48a98584fc070eeae0a8">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_SheetName" value="Specifies the sheet name.&#xD;&#xA;Input 'Sheet Brity'." />
+        <Assist type="Property" propertyKey="Sheet_Position" value="You can specify the position where the new worksheet will be created.&#xD;&#xA;If set to 1, it is created after the first sheet." />
+        <Assist type="Test" value="Click the Run button to create a new sheet." />
+      </Assists>
+    </Step>
+    <Step id="S92d9e1fee97d458ab097d40dae041ff6">
+      <Assists>
+        <Assist type="Summary" value="Write a value in the area specified in the Excel file." />
+        <Assist type="Property" propertyKey="Input_DataArray" value="Specify the values ​​to be input as an array.&#xD;&#xA;Input this.data. (The variable is assigned a value to be Input.)" />
+        <Assist type="Property" propertyKey="Sheet_StartCell" value="Input the cell address to start typing.&#xD;&#xA;Values ​​are Input from 'A1'." />
+        <Assist type="Test" value="Click the Run button to check the input value." />
+      </Assists>
+    </Step>
+    <Step id="S8e006f4cb293427da0d21e55f13f9f54">
+      <Assists>
+        <Assist type="Property" propertyKey="File_SourceSheet" value="Specifies the sheet name to be copied.&#xD;&#xA;Input 'Sheet Brity'." />
+        <Assist type="Property" propertyKey="File_TargetSheet" value="Specifies the sheet name to be pasted.&#xD;&#xA;Input 'Sheet Brity 2'." />
+        <Assist type="Test" value="Click the Run button to check the copied sheet." />
+      </Assists>
+    </Step>
+    <Step id="Sf42449ba6e8a4025b1512a8b0c8b4d93">
+      <Assists>
+        <Assist type="Property" propertyKey="File_SourceSheet" value="Specifies the name of the sheet to be moved.&#xD;&#xA;Input 'Sheet Brity 2'" />
+        <Assist type="Property" propertyKey="File_BeforeSheet" value="Specify the sheet name to be placed behind the moving target.&#xD;&#xA;Input 'Sheet1' to move it to the front." />
+        <Assist type="Test" value="Click the Run Test button to check the moving worksheet." />
+      </Assists>
+    </Step>
+    <Step id="S7f0b7f4523d44258a6e4ebd081511e8b">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_Position" value="Input the sequence number of the worksheet to get the name from.&#xD;&#xA;Input 1 to get the first sheet name." />
+        <Assist type="Property" propertyKey="Output_SheetName" value="Specify the variable to save the sheet name.&#xD;&#xA;The first sheet name is assigned to RESULT." />
+      </Assists>
+    </Step>
+    <Step id="Sfdc902b39b7e4fc88d3c5735e3d7b5ec">
+      <Assists />
+    </Step>
+    <Step id="S70ad57936bae41259a016d62e56c1e10">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_SheetName" value="Specifies the name of the sheet to be deleted.&#xD;&#xA;Input 'Sheet Brity 2'." />
+        <Assist type="Test" value="Click the Run button to confirm that the 'Sheet Brity 2' sheet is deleted." />
+      </Assists>
+    </Step>
+    <Step id="S9b5b35653825499ca166eaa2c7f45c60">
+      <Assists>
+        <Assist type="Property" propertyKey="Sheet_SheetName" value="Specifies the name of the sheet name.&#xD;&#xA;Input 'Sheet Brity' to select the sheet you created." />
+        <Assist type="Test" value="Click the Run button to check the selected sheet." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

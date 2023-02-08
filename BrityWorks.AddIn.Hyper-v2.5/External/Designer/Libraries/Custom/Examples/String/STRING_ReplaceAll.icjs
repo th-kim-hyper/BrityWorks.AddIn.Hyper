@@ -1,0 +1,46 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id 969b91cb-2702-40fc-b628-e7c78e693352
+* @createdDate 2020-05-25 16:44:52
+* @lastModifiedDate 2020-05-25 16:44:52
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 입력 문자열중 지정된 문자열을 다른 문자열로 모두 대체하여 새로운 문자열을 반환한다.
+*  @brf (Returns a new string by replacing all of the specified strings among the input strings with other strings.)
+* @param inputString<String> (ex, '123 World 123')
+* @param from<String> (ex, '123')
+* @param to<String> (ex, 'Hello')
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.STRING_ReplaceAll == null || Script.JavaScript.STRING_ReplaceAll == undefined) {
+	Script.JavaScript.STRING_ReplaceAll = function (inputString, from, to) {
+	//Body Begin
+		var result = '';
+		var prev = 0;
+		var index = inputString.indexOf(from);
+		while (index >= 0) {
+		    if (prev < index) {
+		        result += inputString.substring(prev, index);
+		    }
+		    result += to;
+		    prev = index + from.length;
+		    index = inputString.indexOf(from, prev);
+		}
+		
+		if (prev < inputString.length) {
+		    result += inputString.substring(prev);
+		}
+		
+		return result;
+	//Body End
+	}
+}

@@ -1,0 +1,399 @@
+<Libraries>
+    <LibraryGroup name="Win" tokenize="true" equivalentTokenGroup="Net">
+        <Library name="Find" basedOn="">
+            <ChangeConditions/>
+            <Properties>
+                <Property key="Application_ProcessName" ref="" refCondition="" level="2"/>
+                <Property key="Application_ClassType" ref="" refCondition="" level="2"/>
+                <Property key="Application_Title" ref="Target_UseAppTitle" refCondition="true" level="1"/>
+                <Property key="Target_ClassType" ref="" refCondition="" level="2"/>
+                <Property key="Target_Name" ref="Target_UseName" refCondition="true" level="1"/>
+                <Property key="Target_Value" ref="Target_UseValue" refCondition="true" level="1"/>
+                <Property key="Target_ObjectPath" ref="Target_UseObjectPath" refCondition="true" level="1"/>
+            </Properties>
+        </Library>
+        <Library name="Click" basedOn="Find"/>
+        <Library name="RightClick" basedOn="Find"/>
+        <Library name="DoubleClick" basedOn="Find"/>
+        <Library name="MouseHover" basedOn="Find"/>
+        <Library name="MouseScroll" basedOn="Find"/>
+        <Library name="DragDrop" basedOn="Find"/>
+        <Library name="MouseDrag" basedOn="Find"/>
+        <Library name="MouseDrop" basedOn="Find"/>
+        <Library name="MouseLongPress" basedOn="Find"/>
+        <Library name="SelectListItem" basedOn="Find"/>
+        <Library name="SetText" basedOn="Find">
+            <ChangeConditions>
+                <ChangeConditionProperty key="Keyboard_UseDone" value="False"/>
+            </ChangeConditions>
+        </Library>
+        <Library name="TextInput" basedOn="Find">
+            <ChangeConditions>
+                <ChangeConditionProperty key="Keyboard_UseDone" value="False"/>
+            </ChangeConditions>
+        </Library>
+        <Library name="CredentialSetText" basedOn="Find">
+            <ChangeConditions>
+                <ChangeConditionProperty key="Keyboard_UseDone" value="False"/>
+            </ChangeConditions>
+        </Library>
+        <Library name="CredentialTextInput" basedOn="Find">
+            <ChangeConditions>
+                <ChangeConditionProperty key="Keyboard_UseDone" value="False"/>
+            </ChangeConditions>
+        </Library>
+        <Library name="KeyInput" basedOn=""/>
+        <Library name="SetCheckState" basedOn="Find"/>
+        <Library name="GetText" basedOn="Find"/>
+        <Library name="GetBounds" basedOn="Find"/>
+        <Library name="GetCheckState" basedOn="Find"/>
+        <Library name="WaitAppear" basedOn="Find"/>
+        <Library name="WaitDisappear" basedOn="Find"/>
+        <Library name="IsExist" basedOn="Find"/>
+        <Library name="IsVisible" basedOn="Find"/>
+        <Library name="IsRadioSelected" basedOn="Find"/>
+        <Library name="IsCheckedState" basedOn="Find"/>
+        <Library name="OpenApp" basedOn="">
+            <Properties>
+                <Property key="Application_Command" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="ActivateApp" basedOn="">
+            <Properties>
+                <Property key="Application_PID" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="CloseApp" basedOn="">
+            <Properties>
+                <Property key="Application_PID" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="CloseAll" basedOn="">
+            <Properties>
+                <Property key="Application_ProcessName" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="OpenWindow" basedOn="">
+            <Properties>
+                <Property key="Application_Command" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="CloseWindow" basedOn="">
+            <Properties>
+                <Property key="Application_ProcessName" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="FindAll" basedOn="Find"/>        
+        <Library name="FindElement" basedOn="">
+            <Properties>
+                <Property key="Target_IsFindAll" ref="" refCondition="" level="2"/>
+                <Property key="Target_TreeScope" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="RunAction" basedOn="">
+            <Properties>
+                <Property key="Application_Command" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="GetHierarchyInfo" basedOn="Find">
+            <Properties>
+                <Property key="Options_InTarget" ref="" refCondition="" level="2"/>
+                <Property key="Options_ResultType" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="GetListItems" basedOn="Find">
+            <Properties>
+                <Property key="Target_DataType" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="GetGridItems" basedOn="Find">
+            <Properties>
+                <Property key="Target_DataType" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="GetListItemIndex" basedOn="Find"/>
+        <Library name="GetGridItemIndex" basedOn="Find"/>
+        <Library name="MouseEvent" basedOn="">
+            <Properties>
+                <Property key="Mouse_Action" ref="" refCondition="" level="2"/>
+            </Properties>
+        </Library>
+        <Library name="KeyboardEvent" basedOn=""/>
+    </LibraryGroup>
+	<LibraryGroup name="Flow" tokenize="false" equivalentTokenGroup="">
+        <Library name="DataConverter" basedOn="">
+            <Properties>
+                <Property key="Converter_Type" ref="" refCondition="" level="2"/>
+				<Property key="Converter_Method" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="ExecuteLibrary" basedOn="">
+            <Properties>
+                <Property key="Conditions_LibraryName" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>	
+		<Library name="CustomLibrary" basedOn="">
+            <Properties>
+                <Property key="Conditions_LibraryName" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>			
+	</LibraryGroup>
+	<LibraryGroup name="Net" tokenize="true" equivalentTokenGroup="Win">        
+        <Library name="OpenBrowser" basedOn="">
+            <Properties>
+                <Property key="HTML_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="SendMail" basedOn="">
+            <Properties>
+                <Property key="Mail_HostName" ref="" refCondition="" level="2"/>
+				<Property key="Mail_Subject" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="ReceiveMail" basedOn="">
+            <Properties>
+                <Property key="Mail_HostName" ref="" refCondition="" level="2"/>
+				<Property key="Mail_Subject" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="SendRequest" basedOn="">
+            <Properties>
+                <Property key="REST_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="OpenSSH" basedOn="">
+            <Properties>
+                <Property key="NET_Host" ref="" refCondition="" level="2"/>
+				<Property key="NET_Port" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+	</LibraryGroup>
+	<LibraryGroup name="Web" tokenize="true" equivalentTokenGroup=""/>
+	<LibraryGroup name="Excel" tokenize="true" equivalentTokenGroup="">
+		<Library name="SaveExcel" basedOn="">
+            <Properties>
+                <Property key="File_SaveAs" ref="" refCondition="" level="1"/>
+			</Properties>
+        </Library>
+	</LibraryGroup>
+	<LibraryGroup name="Desktop" tokenize="false" equivalentTokenGroup="">
+        <Library name="ClipboardToFile" basedOn="">
+            <Properties>
+                <Property key="Command_DataFormat" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="GetSpecialFolder" basedOn="">
+            <Properties>
+                <Property key="Command_FolderType" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="GetRegistryValue" basedOn="">
+            <Properties>
+                <Property key="Command_BaseKey" ref="" refCondition="" level="2"/>
+				<Property key="Command_KeyName" ref="" refCondition="" level="2"/>
+				<Property key="Command_ValueName" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="SetRegistryValue" basedOn="">
+            <Properties>
+                <Property key="Command_BaseKey" ref="" refCondition="" level="2"/>
+				<Property key="Command_KeyName" ref="" refCondition="" level="2"/>
+				<Property key="Command_ValueName" ref="" refCondition="" level="2"/>
+				<Property key="Command_Value" ref="" refCondition="" level="2"/>
+				<Property key="Command_ValueKind" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="DBConnection" basedOn="">
+            <Properties>
+                <Property key="Connection_DSN" ref="" refCondition="" level="2"/>
+				<Property key="DataSource_SourceType" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>		
+	</LibraryGroup>
+	<LibraryGroup name="Chrome" tokenize="true" equivalentTokenGroup="">
+        <Library name="ChromeOpen" basedOn="">
+            <Properties>
+                <Property key="CHROME_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="ChromeNavigate" basedOn="">
+            <Properties>
+                <Property key="CHROME_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="ChromeWaitAppear" basedOn="">
+            <Properties>
+                <Property key="CHROME_ExecuteQuery" ref="" refCondition="" level="2"/>
+				<Property key="CHROME_IframeSrc" ref="" refCondition="" level="1"/>
+				<Property key="CHROME_IframeIndexes" ref="" refCondition="" level="1"/>
+				<Property key="CHROME_PageUrl" ref="CHROME_UsePageUrl" refCondition="true" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="ChromeWaitDisappear" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeFind" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeIsExist" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeClick" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeSelectListItem" basedOn="ChromeWaitAppear">
+			<Properties>
+                <Property key="CHROME_Text" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>
+		<Library name="ChromeGetData" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeSetText" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeCredentialSetText" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeRunAction" basedOn="">
+			<Properties>
+                <Property key="CHROME_Command" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>
+		<Library name="ChromeSetCheckState" basedOn="ChromeWaitAppear">
+			<Properties>
+                <Property key="CHROME_Command" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>
+		<Library name="ChromeGetCheckState" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeGetTableData" basedOn="ChromeWaitAppear"/>
+		<Library name="ChromeGetListData" basedOn="ChromeWaitAppear"/>
+	</LibraryGroup>
+	<LibraryGroup name="IE" tokenize="true" equivalentTokenGroup="">
+        <Library name="IEOpen" basedOn="">
+            <Properties>
+                <Property key="IE_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="IENavigate" basedOn="">
+            <Properties>
+                <Property key="IE_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="IEFind" basedOn="">
+            <Properties>
+                <Property key="IE_ExecuteQuery" ref="" refCondition="" level="2"/>
+				<Property key="IE_IframeSrc" ref="" refCondition="" level="1"/>
+				<Property key="IE_IframeIndexes" ref="" refCondition="" level="1"/>
+				<Property key="IE_IEURL" ref="IE_UseIEURL" refCondition="true" level="2"/>				
+			</Properties>
+        </Library>
+		<Library name="IEClick" basedOn="IEFind"/>
+		<Library name="IEIsExist" basedOn="IEFind"/>
+		<Library name="IEWaitAppear" basedOn="IEFind"/>
+		<Library name="IEWaitDisappear" basedOn="IEFind"/>
+		<Library name="IESetText" basedOn="IEFind"/>
+		<Library name="CredentialIESetText" basedOn="IEFind"/>
+		<Library name="IETextInput" basedOn="IEFind"/>
+		<Library name="CredentialIETextInput" basedOn="IEFind"/>
+		<Library name="IEGetCheckState" basedOn="IEFind"/>
+		<Library name="IESetCheckState" basedOn="IEFind">
+			<Properties>
+                <Property key="IE_Command" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>
+		<Library name="IEGetData" basedOn="IEFind"/>
+		<Library name="IESelectListItem" basedOn="IEFind">
+			<Properties>
+                <Property key="IE_Text" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>
+		<Library name="IERunAction" basedOn="">
+			<Properties>
+                <Property key="IE_Command" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>
+		<Library name="IEGetTableData" basedOn="IEFind"/>
+		<Library name="IEGetListData" basedOn="IEFind"/>
+	</LibraryGroup>
+	<LibraryGroup name="ImageConverter" tokenize="false" equivalentTokenGroup=""/>
+	<LibraryGroup name="ImageRecognition" tokenize="false" equivalentTokenGroup=""/>
+	<LibraryGroup name="KnoxPortal" tokenize="true" equivalentTokenGroup=""/>
+	<LibraryGroup name="Orchestra" tokenize="true" equivalentTokenGroup="">
+        <Library name="SetEmailEvent" basedOn="">
+            <Properties>
+                <Property key="Conditions_ServerUrl" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="QueueSendData" basedOn="">
+            <Properties>
+                <Property key="Queue_DataType" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="HttpRequest" basedOn="">
+            <Properties>
+				<Property key="REST_URL" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>		
+		<Library name="CallProcess" basedOn="">
+			<Properties>
+                <Property key="Conditions_ProcessActualId" ref="" refCondition="" level="2"/>
+			</Properties>
+		</Library>		
+	</LibraryGroup>
+	<LibraryGroup name="SAP" tokenize="true" equivalentTokenGroup="">
+        <Library name="Click" basedOn="">
+            <Properties>
+                <Property key="SAPObject_MainType" ref="" refCondition="" level="2"/>
+				<Property key="SAPObject_SubType" ref="" refCondition="" level="2"/>
+				<Property key="SAPObject_CtrlID" ref="" refCondition="" level="1"/>
+				<Property key="SAPObject_Name" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="DoubleClick" basedOn="Click"/>
+		<Library name="RightClick" basedOn="Click"/>
+		<Library name="MouseHover" basedOn="Click"/>
+		<Library name="SetText" basedOn="Click"/>
+		<Library name="CredentialSetText" basedOn="Click"/>
+		<Library name="GetText" basedOn="Click"/>
+		<Library name="IsExist" basedOn="Click"/>
+		<Library name="WaitSAPAppear" basedOn="Click"/>
+		<Library name="WaitSAPDisappear" basedOn="Click"/>
+		<Library name="SearchInGrid" basedOn="Click"/>            
+		<Library name="SelectGridRow" basedOn="Click"/>
+		<Library name="GetGridData" basedOn="Click"/>
+		<Library name="GetGridColumnID" basedOn="Click">
+			<Properties>
+                <Property key="SAPGrid_IsTitle" ref="" refCondition="" level="1"/>
+			</Properties>
+		</Library>
+		<Library name="GetGridRowCount" basedOn="Click"/>
+		<Library name="GetGridColCount" basedOn="Click"/>
+		<Library name="GetTableData" basedOn="Click"/>
+		<Library name="GetTableRowCount" basedOn="Click"/>
+		<Library name="GetTableColCount" basedOn="Click"/>
+		<Library name="GetTableCell" basedOn="Click"/>
+		<Library name="SetTableCell" basedOn="Click"/>
+		<Library name="SelectTreeNode" basedOn="Click"/>
+		<Library name="DoubleClickTreeNode" basedOn="Click"/>
+		<Library name="ExpandTreeNode" basedOn="Click"/>
+		<Library name="ColapseTreeNode" basedOn="Click"/>
+		<Library name="GetStatusType" basedOn="Click"/>
+		<Library name="GetStatusInfo" basedOn="Click"/>
+		<Library name="SelectMenu" basedOn="Click"/>
+		<Library name="SelectComboItem" basedOn="Click"/>		
+	</LibraryGroup>
+	<LibraryGroup name="Tesseract" tokenize="false" equivalentTokenGroup="">
+        <Library name="GetImageText" basedOn="">
+            <Properties>
+                <Property key="TessAttr_Tessdata" ref="" refCondition="" level="2"/>
+			</Properties>
+        </Library>
+		<Library name="GetImageTable" basedOn="GetImageText"/>
+		<Library name="GetImageTextInfo" basedOn="GetImageText"/>
+		<Library name="GetTextOnFile" basedOn="GetImageText"/>
+		<Library name="GetTableOnFile" basedOn="GetImageText"/>
+		<Library name="GetTextInfoOnFile" basedOn="GetImageText"/>
+		<Library name="TextClick" basedOn="GetImageText"/>
+		<Library name="TextDoubleClick" basedOn="TextClick"/>
+		<Library name="TextRightClick" basedOn="TextClick"/>
+		<Library name="TextHover" basedOn="TextClick"/>
+		<Library name="GetTextBound" basedOn="TextClick"/>
+		<Library name="WaitTextAppear" basedOn="TextClick"/>
+		<Library name="WaitTextDisappear" basedOn="TextClick"/>
+	</LibraryGroup>
+	<LibraryGroup name="Outlook" tokenize="true" equivalentTokenGroup="">
+        <Library name="GetMailItem" basedOn="">
+            <Properties>
+                <Property key="Input_MailField" ref="" refCondition=""/>
+			</Properties>
+        </Library>		
+	</LibraryGroup>
+	<LibraryGroup name="Pdf" tokenize="true" equivalentTokenGroup=""/>
+</Libraries>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Use different types of variables</Summary>
+  <Detail>Store the value entered by the user and use it in the forms of text, number, date and array.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S93a83b6523274505a1e40f1f27dcc103">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter the animals." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.animals." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Type as below\nBear, Tiger, Fox, Dog, Cat'" />
+      </Assists>
+    </Step>
+    <Step id="Sc2c12adb3a934b6da6ec8f436ff5d139">
+      <Assists>
+        <Assist type="Summary" value="Convert a string type variable the user entered into a array type variable." />
+        <Assist type="Property" propertyKey="Arguments_data" value="Specify a variable to be converted.&#xD;&#xA;Type this.animals." />
+        <Assist type="Property" propertyKey="Arguments_seperator" value="Enter the seperator.&#xD;&#xA;Type ', '." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the converted array.&#xD;&#xA;Type this.animalArray." />
+      </Assists>
+    </Step>
+    <Step id="S4ea06eff5e17442daabb5bd7c5556fac">
+      <Assists>
+        <Assist type="Summary" value="Print and check the converted array." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.animalArray." />
+      </Assists>
+    </Step>
+    <Step id="S2574742af0314600a89c1a0a30ae9d4f">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter today's date." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.today." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Enter today\'s date in the forms below. \n(2022-02-02, 2022/02/02, 2022.02.02)'" />
+      </Assists>
+    </Step>
+    <Step id="Sb7c782d62c984d418e489b88a4832c8d">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter the number of months." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.monthOld." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Enter how many months have passed after its birth. (ex&gt;12)'" />
+      </Assists>
+    </Step>
+    <Step id="Saa9517a12bea4df688b958171cdd05cd">
+      <Assists>
+        <Assist type="Summary" value="Gets the birthday by today's date and the number of months." />
+        <Assist type="Property" propertyKey="Arguments_date" value="Enter the date to which the number of months will be added&#xD;&#xA;Type this.today." />
+        <Assist type="Property" propertyKey="Arguments_monthValue" value="Enter the months to be added.&#xD;&#xA;Since we will subtract the number of months from the date, &#xD;&#xA;Type -this.monthOld." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the caculated date.&#xD;&#xA;Type this.birthday." />
+      </Assists>
+    </Step>
+    <Step id="Sd5084257a3cc458daa91b4b4aa21d9d9">
+      <Assists>
+        <Assist type="Summary" value="Convert the date to the specified format." />
+        <Assist type="Property" propertyKey="Arguments_date" value="Enter the date to be converted.&#xD;&#xA;Type this.birthday." />
+        <Assist type="Property" propertyKey="Arguments_format" value="Enter the format.&#xD;&#xA;Type 'yyyy : MM : dd'" />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the converted date.&#xD;&#xA;Type this.birthday to overwrite it." />
+      </Assists>
+    </Step>
+    <Step id="Sdebcad4261f843188582e4a51bd1d0b5">
+      <Assists>
+        <Assist type="Summary" value="Print and check the converted date." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.birthday." />
+      </Assists>
+    </Step>
+    <Step id="S7517bb6d8a994d1cba96c25e7327d330">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter the number of animals." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.count." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'Enter a number you want. You can either enter integer or decimal \n(ex&gt; 5, 10.123)'" />
+      </Assists>
+    </Step>
+    <Step id="Sd64b09a9b5cf4812be92cc29240fe261">
+      <Assists>
+        <Assist type="Summary" value="Round the number the user entered to make it integer." />
+        <Assist type="Property" propertyKey="Arguments_data" value="Enter the number to be rounded.&#xD;&#xA;Type this.count." />
+        <Assist type="Property" propertyKey="Arguments_decimals" value="Enter the number of decimal places to round to.&#xD;&#xA;Type 0." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="Specify a variable to store the rounded number.&#xD;&#xA;Type this.countRounded." />
+      </Assists>
+    </Step>
+    <Step id="Sf4f11f98fd6949aca80c3624d0fefb1a">
+      <Assists>
+        <Assist type="Summary" value="Print and check the rounded number." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Specify a variable to be printed.&#xD;&#xA;Type this.countRounded." />
+      </Assists>
+    </Step>
+    <Step id="S771165ec5c854b6ca3f4cf6770309cb1">
+      <Assists>
+        <Assist type="Summary" value="Ask the user to enter the index of the array." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="Specify a variable to store the value entered by the user.&#xD;&#xA;Type this.index." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="Enter a guide message as below.&#xD;&#xA;'What index of animals would you like to know?\n (ex&gt; 0)'" />
+      </Assists>
+    </Step>
+    <Step id="Sa81b70c5e1e14afda838513603bb2a04">
+      <Assists>
+        <Assist type="Summary" value="Print and check the animal of the index in the array." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Type a sentence to be printed as below.&#xD;&#xA;this.countRounded +' '+ this.animalArray[this.index] + ' were born in ' + this.birthday" />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

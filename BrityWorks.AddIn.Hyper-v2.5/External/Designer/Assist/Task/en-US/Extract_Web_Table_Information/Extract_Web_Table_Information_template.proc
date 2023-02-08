@@ -1,0 +1,243 @@
+<Process designerVersion="2.1.200.00531.D1" id="01ca7359-e52d-4434-b0f1-2772da0dc0bb" type="LibraryTemplate" workType="foreground" name="Extract_Web_Table_Information" version="" lastPublishedServer="" readonly="false" isValid="false" DesignedBy="Designer" Template="">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="#summary&#xA;Extracting web table information&#xA;#detail&#xA;Extracts the data inside the table excluding the header from the tabular data in the web page." enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="3840x1080" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 18:27:14" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2022-06-02 18:31:42" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables>
+    <Variable name="row" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="column" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="tableData" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+    <Variable name="dataText" scope="Normal" valueType="Any" formatType="Any" initValue="" desc="" />
+  </Variables>
+  <Steps>
+    <Step id="S628f88730e994e7fbbe174b72c52b651" ver="220526001" createVer="220526001" type="Chrome" name="ChromeOpen" dpName="ChromeOpen" dpValue="about:blank" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="cd891cea-e300-4d25-ac18-0094d88f578a" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Launch the Chrome browser and go to the page with table information." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Chrome" key="CHROME_TypeOfBrowser" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Chrome" valuelist="Chrome;Edge" />
+        <Property type="Chrome" key="CHROME_BrowserType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_URL" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="'about:blank'" />
+        <Property type="Chrome" key="CHROME_ChromePath" controlType="File" valueType="System.String" formatType="String_FilePath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Maximize" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="60" />
+        <Property type="Chrome" key="CHROME_ExtensionList" controlType="PropertyItemChromeInstalledExtensionsView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DownloadPath" controlType="Folder" valueType="System.String" formatType="String_DirectoryPath" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_1);]]></Script>
+    </Step>
+    <Step id="S26ecfb61cf6d49ad86aa38df9a943914" ver="220526001" createVer="220526001" type="Chrome" name="ChromeGetTableData" dpName="ChromeGetTableData" dpValue="RESULT" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="d936cf5b-1d41-4950-bb4e-0546d43c82d1" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="It extracts table information and stores it in the 'this.tableData' variable in the form of a two-dimensional array.&#xD;&#xA;If tables are merged, the size of the two-dimensional array may be different from the view, so please check the displayed array type when designating an object." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+        <Property type="Chrome" key="CHROME_WaitTimeSec" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Chrome" key="CHROME_PageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_UsePageUrl" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Chrome" key="CHROME_FullPageUrl" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeSrc" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_IframeIndexes" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ElementPath" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_ExecuteQuery" controlType="PropertyItemChromeQueryEditView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_QueryType" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" toggle="XPath;Selector" />
+        <Property type="Chrome" key="CHROME_FullHTML" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_Element" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="CHROME_DataType" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="Text" valuelist="Text;Element" order="1" />
+        <Property type="Chrome" key="CHROME_ExpectedValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="" valuelist="" order="2" />
+        <Property type="Chrome" key="CHROME_Scope" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="2" />
+        <Property type="Chrome" key="CHROME_Data" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = StepPlayer.Run('Chrome.ChromeGetTableData', this.chromegettabledata_info_2);]]></Script>
+    </Step>
+    <Step id="Sf1e9c9c120524fee9ceaf0ec3ccc0b7e" ver="220526001" createVer="220526001" type="Flow" name="Assign" dpName="Assign" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="e26e7c89-4cf5-473d-b073-c165e93ba35f" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="In table information, initialize 'this.dataText' before inputting information corresponding to each row cell into 'this.dataText'." />
+        <Property type="Flow" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Flow" key="Conditions_Value" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ;]]></Script>
+    </Step>
+    <Step id="Sb44b800b02a7491bb74df0fd69460521" ver="220526001" createVer="220526001" type="Flow" name="Loop" dpName="For" dpValue="this.i &lt; 1" dpValue2="" dpImage="" tag="" depth="1" stmttype="OpenBlock" enabled="True" mainSet="0">
+      <Properties id="ed0840be-1d98-43fd-92fa-1eda74914aec" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Repeats the number of rows in the extracted data to arrange the data into a string." />
+        <Property type="Flow" key="Conditions_InitializeIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i = 0" />
+        <Property type="Flow" key="Conditions_LoopCondition" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i &lt; 1" />
+        <Property type="Flow" key="Conditions_UpdateIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i++" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sab7aed05b41744e886e13a1278dab724" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for (this.i = 0; this.i < 1; this.i++) {]]></Script>
+    </Step>
+    <Step id="S94eb4f8bb59a4f8ba4929850f0e6e109" ver="220526001" createVer="220526001" type="Flow" name="Loop" dpName="For" dpValue="this.i &lt; 1" dpValue2="" dpImage="" tag="" depth="2" stmttype="OpenBlock" enabled="True" mainSet="0">
+      <Properties id="94d901d3-4247-416b-bfd5-0196b8149165" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Repeat as many as the number of columns in the extracted data to arrange the data into strings." />
+        <Property type="Flow" key="Conditions_InitializeIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i = 0" />
+        <Property type="Flow" key="Conditions_LoopCondition" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i &lt; 1" />
+        <Property type="Flow" key="Conditions_UpdateIndex" controlType="Object" valueType="System.Object" formatType="Expression" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="this.i++" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sd0a4ccf37d3445bdaeed05c4284578c8" type="Flow" name="EndLoop" />
+      </RelatedSteps>
+      <Script><![CDATA[for (this.i = 0; this.i < 1; this.i++) {]]></Script>
+    </Step>
+    <Step id="S792ccf52b00346e8b6fa6cce7fcffe9b" ver="220526001" createVer="220526001" type="Flow" name="Assign" dpName="Assign" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="3" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="e26e7c89-4cf5-473d-b073-c165e93ba35f" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Enter 'this.dataText' with the information separator ('|') corresponding to each cell in the table information." />
+        <Property type="Flow" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Flow" key="Conditions_Value" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ;]]></Script>
+    </Step>
+    <Step id="Sd0a4ccf37d3445bdaeed05c4284578c8" ver="220526001" createVer="220526001" type="Flow" name="EndLoop" dpName="End-For" dpValue="" dpValue2="" dpImage="" tag="" depth="3" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="5c285264-56ac-4942-bd09-72c5995e6a85" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="S94eb4f8bb59a4f8ba4929850f0e6e109" type="Flow" name="Loop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="S3ef62b3463fb43cfa035c0f501ad6ba7" ver="220526001" createVer="220526001" type="Flow" name="Assign" dpName="Assign" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="2" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="e26e7c89-4cf5-473d-b073-c165e93ba35f" type="Flow">
+        <Property type="Flow" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Enter a line break ('\n') to separate each line in the table information in 'this.dataText'." />
+        <Property type="Flow" key="Conditions_Variable" controlType="OutputControlType" valueType="System.Object" formatType="Variable" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Flow" key="Conditions_Value" controlType="PropertyItemTextView" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[RESULT = ;]]></Script>
+    </Step>
+    <Step id="Sab7aed05b41744e886e13a1278dab724" ver="220526001" createVer="220526001" type="Flow" name="EndLoop" dpName="End-For" dpValue="" dpValue2="" dpImage="" tag="" depth="2" stmttype="CloseBlock" enabled="True" mainSet="0">
+      <Properties id="bd69d7a1-0568-4f12-bebc-3d6bd4158415" type="Flow">
+        <Property type="Flow" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps>
+        <RelatedStep id="Sb44b800b02a7491bb74df0fd69460521" type="Flow" name="Loop" />
+      </RelatedSteps>
+      <Script><![CDATA[}]]></Script>
+    </Step>
+    <Step id="S19108e1dbc2342f5bad6faaf0afef129" ver="220526001" createVer="220526001" type="Desktop" name="MessageBox" dpName="MessageBox" dpValue="RESULT" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="2cc262d9-6767-44ec-9e42-e20904a191d3" type="Desktop">
+        <Property type="Desktop" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Desktop" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="A text string containing table information is displayed in a message box." />
+        <Property type="Desktop" key="Conditions_Arguments" controlType="Object" valueType="System.Object" formatType="Any" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="RESULT" />
+        <Property type="Desktop" key="Command_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[MsgBox(RESULT);]]></Script>
+    </Step>
+    <Step id="Sf52677204a84450b9907e55ff4a8039d" ver="220526001" createVer="220526001" type="Chrome" name="ChromeClose" dpName="ChromeClose" dpValue="LATEST_BROWSER" dpValue2="" dpImage="" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0">
+      <Properties id="9a0c176a-3ae3-43f1-973c-fc1c4895826e" type="Chrome">
+        <Property type="Chrome" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Chrome" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="Quit your browser." />
+        <Property type="Chrome" key="CHROME_Browser" controlType="InputControlType" valueType="System.Object" formatType="Variable" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="LATEST_BROWSER" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_11);]]></Script>
+    </Step>
+  </Steps>
+  <Libraries>
+    <string>Chrome</string>
+    <string>FlowControl</string>
+    <string>System</string>
+  </Libraries>
+  <JScript><![CDATA[function Extract_Web_Table_Information() {
+
+    this.row;
+    this.column;
+    this.tableData;
+    this.dataText;
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S628f88730e994e7fbbe174b72c52b651', '[1] ChromeOpen');
+        RESULT = StepPlayer.Run('Chrome.ChromeOpen', this.chromeopen_info_1);
+
+        //------------------------------------------------
+        STEP('S26ecfb61cf6d49ad86aa38df9a943914', '[2] ChromeGetTableData');
+        RESULT = StepPlayer.Run('Chrome.ChromeGetTableData', this.chromegettabledata_info_2);
+
+        //------------------------------------------------
+        STEP('Sf1e9c9c120524fee9ceaf0ec3ccc0b7e', '[3] Assign');
+        RESULT = ;
+
+        //------------------------------------------------
+        STEP('Sb44b800b02a7491bb74df0fd69460521', '[4] For');
+        for (this.i = 0; this.i < 1; this.i++) {
+
+            //------------------------------------------------
+            STEP('S94eb4f8bb59a4f8ba4929850f0e6e109', '[5] For');
+            for (this.i = 0; this.i < 1; this.i++) {
+
+                //------------------------------------------------
+                STEP('S792ccf52b00346e8b6fa6cce7fcffe9b', '[6] Assign');
+                RESULT = ;
+
+            //------------------------------------------------
+            }
+            STEP('Sd0a4ccf37d3445bdaeed05c4284578c8', '[7] End-For');
+
+            //------------------------------------------------
+            STEP('S3ef62b3463fb43cfa035c0f501ad6ba7', '[8] Assign');
+            RESULT = ;
+
+        //------------------------------------------------
+        }
+        STEP('Sab7aed05b41744e886e13a1278dab724', '[9] End-For');
+
+        //------------------------------------------------
+        STEP('S19108e1dbc2342f5bad6faaf0afef129', '[10] MessageBox');
+        MsgBox(RESULT);
+
+        //------------------------------------------------
+        STEP('Sf52677204a84450b9907e55ff4a8039d', '[11] ChromeClose');
+        StepPlayer.Run('Chrome.ChromeClose', this.chromeclose_info_11);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S628f88730e994e7fbbe174b72c52b651" group_name="e65a7f42-82a8-4259-99ea-e0c52eed5404_Untitled" folded="False" />
+      <StepNode step_id="S26ecfb61cf6d49ad86aa38df9a943914" group_name="e65a7f42-82a8-4259-99ea-e0c52eed5404_Untitled" folded="False" />
+      <StepNode step_id="Sf1e9c9c120524fee9ceaf0ec3ccc0b7e" group_name="e65a7f42-82a8-4259-99ea-e0c52eed5404_Untitled" folded="False" />
+      <StepNode step_id="Sb44b800b02a7491bb74df0fd69460521" group_name="" folded="False" />
+      <StepNode step_id="S94eb4f8bb59a4f8ba4929850f0e6e109" group_name="" folded="False" />
+      <StepNode step_id="S792ccf52b00346e8b6fa6cce7fcffe9b" group_name="41416614-e811-4899-9ca9-cdcc9feb9a7a_Untitled" folded="False" />
+      <StepNode step_id="Sd0a4ccf37d3445bdaeed05c4284578c8" group_name="" folded="False" />
+      <StepNode step_id="S3ef62b3463fb43cfa035c0f501ad6ba7" group_name="11615ef5-ed92-47c4-9ae0-0cad663ae3f0_Untitled" folded="False" />
+      <StepNode step_id="Sab7aed05b41744e886e13a1278dab724" group_name="" folded="False" />
+      <StepNode step_id="S19108e1dbc2342f5bad6faaf0afef129" group_name="28260d7a-6121-4707-8d6b-bc47492b311d_Untitled" folded="False" />
+      <StepNode step_id="Sf52677204a84450b9907e55ff4a8039d" group_name="28260d7a-6121-4707-8d6b-bc47492b311d_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>kABPy0lyh2xcp4yIstzuFAE4SeQ=</DigestValue></Reference></SignedInfo><SignatureValue>SbMdIRSredM6eCasHSqAXl83o3dpKB0mpV8xuoiLdMbEhqum5BdqnmHR1gx0b+G7Zh9DnjJGhiV8cQWIjr1t0J8eb1fq1GVDHQvbW3kvHoYGYaB22FMgA+ak9fOeFSl7WtCnFK+6e1SmYOZQj3Qn3hgV7V+lOJMIoPv25jPnX0HHW75MBhVi7JS04yIXXZeoeszXeLlpOmmtZQxC8YlB/STHK/gIM4tAb+H3kEPZtP90moPSEkO1hM6mQEpHWCd0ZRyRfW5SH1H+tOD3qTQ7IOu6+5idaNDMTYubN46K3cCil03STUuFvNlYPgWWfo9q5HElHhYphlgF06luMywadA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-00255, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

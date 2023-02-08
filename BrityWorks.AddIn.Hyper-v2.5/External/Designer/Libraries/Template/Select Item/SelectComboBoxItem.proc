@@ -1,0 +1,143 @@
+<Process id="c297f09e-4ade-4224-b36f-aa2e75bff0a2" type="LibraryTemplate" workType="foreground" name="SelectComboBoxItem" version="1.0" designerVersion="2.0.500.00701.D8" readonly="false" isValid="false" DesignedBy="Designer">
+  <Properties>
+    <Property key="Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onBefore" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onAfter" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="onError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" enabled="True" />
+    <Property key="Os" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="Microsoft Windows 10 Enterprise64비트" />
+    <Property key="Resolution" controlType="String" valueType="System.String" formatType="String_Size" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="1920x1080" />
+    <Property key="RunningTime" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="0" />
+    <Property key="Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="0" />
+    <Property key="CreatedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2021-06-08 17:05:42" />
+    <Property key="CreatedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+    <Property key="LastModifiedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="2021-07-26 14:21:59" />
+    <Property key="LastModifiedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedDate" controlType="String" valueType="System.String" formatType="String_DateTime" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+    <Property key="LastPublishedBy" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+  </Properties>
+  <LinkItems />
+  <Variables />
+  <Steps>
+    <Step id="S19a62628187b413e8e55b1fff72edea2" ver="210610001" createVer="210415001" type="Win" name="Click" dpName="Click" dpValue="" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="00cb2568-84e1-4e37-8e25-6ce928e9f68d" type="Win">
+        <Property type="Win" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="Y" value="Select ComboBox type" />
+        <Property type="Win" key="Target_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Win" key="Target_TargetNo" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Win" key="Target_UseName" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Win" key="Target_UseValue" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseLegacyValue" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseBounds" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseAppTitle" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseSetFocus" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Win" key="Target_DrawBounds" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Win" key="Target_UseObjectPath" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseSearchAround" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_SearchBounds" controlType="String" valueType="System.String" formatType="String_Rect" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Application_PID" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Win" key="Application_ProcessName" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Win" key="Application_Title" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Application_ClassName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Application_ClassType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Application_WindowHandle" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Win" key="Application_Bounds" controlType="Rect" valueType="System.Windows.Rect" formatType="Rect" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_SupportedPatterns" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_AutomationID" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_FrameworkID" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_RuntimeID" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_ClassName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_ClassType" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Win" key="Target_Name" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Target_ObjectPath" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_Bounds" controlType="Rect" valueType="System.Windows.Rect" formatType="Rect" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Mouse_WinPoint" controlType="Point" valueType="System.Windows.Point" formatType="Point" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Mouse_AppPoint" controlType="Point" valueType="System.Windows.Point" formatType="Point" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Mouse_Point" controlType="String" valueType="System.String" formatType="String_Point" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="11" />
+        <Property type="Win" key="Target_Value" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Target_LegacyValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Target_IsReadOnly" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_IsEditable" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_SizeTolerance" controlType="Size" valueType="System.Windows.Size" formatType="Size" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_TimeStamp" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="2021-06-08 17:05:52.770" />
+        <Property type="Win" key="Mouse_UseInvoke" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" toggle="Invoke;Click" />
+        <Property type="Win" key="Mouse_OriginPoint" controlType="PropertyItemDropDownView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="LeftTop" valuelist="LeftTop;RightTop;LeftBottom;RightBottom;Center" order="10" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Win.Click', this.click_info_1);]]></Script>
+    </Step>
+    <Step id="Sf1f7ea3bc63f4aaa88276e795521cf47" ver="210610001" createVer="210415001" type="Win" name="SelectListItem" dpName="SelectListItem" dpValue="" dpValue2="" dpImage="Target_Capture" tag="" depth="1" stmttype="Normal" enabled="True" mainSet="0" ready="False">
+      <Properties id="ed9669b0-23ce-483e-bbf8-bb88f396f19a" type="Win">
+        <Property type="Win" key="Options_OnError" controlType="PropertyItemEventHandlerView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Key_Description" controlType="PropertyItemTextEditorView" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="Y" value="set target to select when the list is opened" />
+        <Property type="Win" key="Target_Timeout" controlType="Int32" valueType="System.Int32" formatType="Integer" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="10" />
+        <Property type="Win" key="Target_TargetNo" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="" order="3" />
+        <Property type="Win" key="Target_UseName" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Win" key="Target_UseValue" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseLegacyValue" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseBounds" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseAppTitle" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseSetFocus" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="Y" value="False" />
+        <Property type="Win" key="Target_DrawBounds" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="True" />
+        <Property type="Win" key="Target_UseObjectPath" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_UseSearchAround" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_SearchBounds" controlType="String" valueType="System.String" formatType="String_Rect" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Application_PID" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Win" key="Application_ProcessName" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" order="1" />
+        <Property type="Win" key="Application_Title" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Application_ClassName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Application_ClassType" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Application_WindowHandle" controlType="Int32" valueType="System.Int32" formatType="Integer" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="0" />
+        <Property type="Win" key="Application_Bounds" controlType="Rect" valueType="System.Windows.Rect" formatType="Rect" required="False" visible="False" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_SupportedPatterns" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_AutomationID" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_FrameworkID" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_RuntimeID" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_ClassName" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_ClassType" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" order="2" />
+        <Property type="Win" key="Target_Name" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Target_ObjectPath" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_Bounds" controlType="Rect" valueType="System.Windows.Rect" formatType="Rect" required="False" visible="True" readonly="True" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Mouse_WinPoint" controlType="Point" valueType="System.Windows.Point" formatType="Point" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Mouse_AppPoint" controlType="Point" valueType="System.Windows.Point" formatType="Point" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Mouse_Point" controlType="String" valueType="System.String" formatType="String_Point" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_Value" controlType="String" valueType="System.String" formatType="String" required="True" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Target_LegacyValue" controlType="String" valueType="System.String" formatType="String" required="False" visible="True" readonly="False" encrypted="False" isChanged="N" value="''" />
+        <Property type="Win" key="Target_IsReadOnly" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_IsEditable" controlType="Boolean" valueType="System.Boolean" formatType="Boolean" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="False" />
+        <Property type="Win" key="Target_SizeTolerance" controlType="Size" valueType="System.Windows.Size" formatType="Size" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="" />
+        <Property type="Win" key="Target_TimeStamp" controlType="String" valueType="System.String" formatType="String" required="False" visible="False" readonly="False" encrypted="False" isChanged="N" value="2021-06-08 17:06:16.497" />
+      </Properties>
+      <RelatedSteps />
+      <Script><![CDATA[StepPlayer.Run('Win.SelectListItem', this.selectlistitem_info_2);]]></Script>
+    </Step>
+  </Steps>
+  <JScript><![CDATA[function SelectComboBoxItem() {
+
+    this.run = function() {
+
+        //------------------------------------------------
+        STEP('S19a62628187b413e8e55b1fff72edea2', '[1] Click');
+        StepPlayer.Run('Win.Click', this.click_info_1);
+
+        //------------------------------------------------
+        STEP('Sf1f7ea3bc63f4aaa88276e795521cf47', '[2] SelectListItem');
+        StepPlayer.Run('Win.SelectListItem', this.selectlistitem_info_2);
+
+
+    }
+
+    this.execute = function() {
+        var result = null;
+        result = this.run()
+        if (result != null)
+            return result;
+    }
+}
+]]></JScript>
+  <Diagram version="1.300" nodesize="Normal">
+    <StepNodes>
+      <StepNode step_id="S19a62628187b413e8e55b1fff72edea2" group_name="7782ca43-49af-4926-b4e0-159876cc3e6b_Untitled" folded="False" />
+      <StepNode step_id="Sf1f7ea3bc63f4aaa88276e795521cf47" group_name="7782ca43-49af-4926-b4e0-159876cc3e6b_Untitled" folded="False" />
+    </StepNodes>
+  </Diagram>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>UvVqUuOv36PaloMWyeFYtH8R4+8=</DigestValue></Reference></SignedInfo><SignatureValue>dF/JZWzf4IAtRm5F2GZck2h+vAuiOqPYH4BSTxZbusazqZuEhMUFAtbzIPVT9olaeO4p9yQoqdVSdMQldck+kztddBnrkChqVeX5Cl7/tIn3Yvxd5HIfaflbAfmlGnCEQBb/9KSmcsK3xkTvhTA3UJRjPLd4NRCnzPfGJf+3sqpJSk/2hQSCXgL7CL6xcDLSzopVfeUWVaz78yRZADb/08XE2U2maC13WOLRFkFL4Vw9tawih9gcggHbPeeI4SmEi6A1HZpnnVnu+0Qs/MGH2/HkOf4rhx1i74PfrFmnifADWFtJfoEXprKF4Lrf3SHCS/1RP68xeGbxHSP1TLQ8ng==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=DESIGNER-QDTW9, O=182.193.17.236, OU=IPA_DESIGNER, L="", S="", C=""</X509SubjectName></X509Data></KeyInfo></Signature></Process>

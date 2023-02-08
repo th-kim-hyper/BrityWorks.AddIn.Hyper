@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="800">
+  <Summary>조건에 맞는 경우에만 실행하기</Summary>
+  <Detail>사용자로부터 점수를 입력받아 시험의 합격 여부를 출력하고, 재시험 여부를 입력 받아 안내 메시지를 출력합니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S47073c1ff4554c75aaacd903fe576af0">
+      <Assists>
+        <Assist type="Summary" value="사용자로부터 시험 점수를 입력받아 변수에 저장합니다." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="변수 창에 생성되어 있는 변수를 활용합니다.&#xD;&#xA;this.score라고 입력하세요." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="안내 메시지를 아래와 같이 입력합니다.&#xD;&#xA;'시험 점수를 입력해주세요.'" />
+      </Assists>
+    </Step>
+    <Step id="S5800578b9f964b08a3e5a9f19d07e85b">
+      <Assists>
+        <Assist type="Summary" value="100 이하의 숫자를 입력하였을 때만 다음 단계가 실행되도록 합니다." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="조건문을 아래와 같이 입력합니다.&#xD;&#xA;this.score&lt;=100" />
+      </Assists>
+    </Step>
+    <Step id="S902e9afec21240c1bab42d08c40aae00">
+      <Assists>
+        <Assist type="Summary" value="값이 70 이상일 때와 아닐 때의 동작을 각각 정의합니다." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="조건문을 아래와 같이 입력합니다.&#xD;&#xA;this.score&gt;=70" />
+      </Assists>
+    </Step>
+    <Step id="S76b5523c2c874d4bbd0a67f08f8ccb8b">
+      <Assists>
+        <Assist type="Summary" value="값이 70 이상일 때의 메시지 박스입니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="표시할 내용을 아래와 같이 입력합니다.&#xD;&#xA;'시험 결과는 PASS입니다.'" />
+      </Assists>
+    </Step>
+    <Step id="S9311bd1e576d43d49a2ecc43d7fb0f97">
+      <Assists />
+    </Step>
+    <Step id="S7d42e57d47514d0f95ecb4d2a4d88a12">
+      <Assists>
+        <Assist type="Summary" value="값이 70 미만일 때의 메시지 박스입니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="표시할 내용을 아래와 같이 입력합니다.&#xD;&#xA;'시험 결과는 FAIL입니다.'" />
+      </Assists>
+    </Step>
+    <Step id="Sd1c38e4dc93d46b3843a73fdb6fac203">
+      <Assists>
+        <Assist type="Summary" value="사용자로부터 재수강 여부를 입력받아 변수에 저장합니다." />
+        <Assist type="Property" propertyKey="Conditions_Variable" value="변수 창에 생성되어 있는 변수를 활용합니다.&#xD;&#xA;this.retry라고 입력하세요." />
+        <Assist type="Property" propertyKey="Conditions_PromptMessage" value="안내 메시지를 아래와 같이 입력합니다.&#xD;&#xA;'재시험을 치시겠습니까? Y나 N을 입력하세요.'" />
+      </Assists>
+    </Step>
+    <Step id="Sad07e55c07d540668bc7287dc1405f6e">
+      <Assists>
+        <Assist type="Summary" value="사용자가 Y, N, 그 외의 것을 입력하였을 때 동작을 각각 정의합니다." />
+        <Assist type="Property" propertyKey="Conditions_Condition" value="조건을 판별할 대상을 입력합니다.&#xD;&#xA;this.retry라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sd685cdcc987240dbabf23e1e0e69f208">
+      <Assists>
+        <Assist type="Summary" value="사용자가 Y를 입력한 경우의 동작을 정의합니다." />
+        <Assist type="Property" propertyKey="Conditions_Case" value="조건값을 'Y'라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="S9ab0fd96e0254a12b80ed73e5b3432dc">
+      <Assists>
+        <Assist type="Summary" value="Y를 입력하였을 때의 메시지 박스입니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="표시할 내용을 아래와 같이 입력합니다.&#xD;&#xA;'재시험을 응원합니다!'" />
+      </Assists>
+    </Step>
+    <Step id="S30586e0f0213476f871ededb6b62095e">
+      <Assists />
+    </Step>
+    <Step id="S9ccff0aa28774883b95e6134b8d69f35">
+      <Assists>
+        <Assist type="Summary" value="사용자가 N을 입력한 경우의 동작을 정의합니다." />
+        <Assist type="Property" propertyKey="Conditions_Case" value="조건값을 'N'이라고 입력합니다." />
+      </Assists>
+    </Step>
+    <Step id="Sa01c6677fafd4af0ad107b7a79b55838">
+      <Assists>
+        <Assist type="Summary" value="N을 입력하였을 때의 메시지 박스입니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="표시할 내용을 아래와 같이 입력합니다.&#xD;&#xA;'아쉽습니다.'" />
+      </Assists>
+    </Step>
+    <Step id="Sd823af63c2b7447084447fdb5ce8a67b">
+      <Assists />
+    </Step>
+    <Step id="S6444a27199564a26a020a05688bbcd54">
+      <Assists>
+        <Assist type="Summary" value="사용자가 Y나 N 이외의 것을 입력하였을 때 동작을 정의합니다." />
+      </Assists>
+    </Step>
+    <Step id="S4bd8504798d54f52a5673817a97170c3">
+      <Assists>
+        <Assist type="Summary" value="Y나 N 이외의 것을 입력했을 때의 메시지 박스입니다." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="표시할 내용을 아래와 같이 입력합니다.&#xD;&#xA;'잘못 입력하셨습니다.'" />
+      </Assists>
+    </Step>
+    <Step id="S15371732d94c4c3ea85015f7d2010c87">
+      <Assists />
+    </Step>
+    <Step id="S093dd8c2faa54886867eaa39e6311aef">
+      <Assists>
+        <Assist type="Summary" value="값이 70이상일 때와 아닐 때의 동작이 완료되었습니다." />
+      </Assists>
+    </Step>
+    <Step id="S504198ee88a84ef09799be66d6115a13">
+      <Assists>
+        <Assist type="Summary" value="값이 100 이하일 때의 동작이 완료되었습니다." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

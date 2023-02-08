@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="2147483647">
+  <Summary>Using the clipboard</Summary>
+  <Detail>Writes, reads, and saves text to the clipboard as a file.</Detail>
+  <Library />
+  <Steps>
+    <Step id="Sd022850ebaac4f5c861a7bc037cf387f">
+      <Assists>
+        <Assist type="Summary" value="Save the 'sample text' text to the clipboard." />
+        <Assist type="Property" propertyKey="Command_Input" value="text to save to clipboard&#xD;&#xA;Enter 'sample text'." />
+      </Assists>
+    </Step>
+    <Step id="S8dc42d4fc9dc43169596f8a16c94d14e">
+      <Assists>
+        <Assist type="Summary" value="Get the 'sample text' text stored in the clipboard and save it to this.clipboard." />
+        <Assist type="Property" propertyKey="Command_Output" value="Get the text 'sample text' stored in the clipboard and input the variable 'this.clipboard' to save it." />
+      </Assists>
+    </Step>
+    <Step id="S5e1c0d4f55ef478ca08420a194b83cdd">
+      <Assists>
+        <Assist type="Summary" value="Outputs the value of this.clipboard to the message box." />
+        <Assist type="Property" propertyKey="Conditions_Arguments" value="Enter the variable 'this.clipboard' that stores the value to be displayed in the message box." />
+      </Assists>
+    </Step>
+    <Step id="S35549d03d6fb4a4b9f279c02fab6237c">
+      <Assists>
+        <Assist type="Summary" value="Saves the value ('sample text') stored in the clipboard as 'C:\\sampletext.txt' file." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the path and file 'C:\\sampletext.txt' to save the clipboard contents." />
+      </Assists>
+    </Step>
+    <Step id="S96e2b6fe2f7a460281099c9d255ae4d1">
+      <Assists>
+        <Assist type="Summary" value="Execute the 'C:\\sampletext.txt' file and save the pid of the launched app." />
+        <Assist type="Property" propertyKey="Command_Output" value="Enter the variable 'this.pid' to store the pid of the launched app." />
+        <Assist type="Property" propertyKey="Command_Path" value="File to run (including path)&#xD;&#xA;Enter 'C:\\sampletext.txt'." />
+      </Assists>
+    </Step>
+    <Step id="S77f069f419334dc4ad6aa9c57e3e2544">
+      <Assists>
+        <Assist type="Summary" value="Specify 3 seconds as the time to check the contents of the executed file." />
+        <Assist type="Property" propertyKey="Conditions_Second" value="Enter '3'." />
+      </Assists>
+    </Step>
+    <Step id="Se6b6001be2ab4978b16e33b48749c591">
+      <Assists>
+        <Assist type="Summary" value="The executed 'C:\\sampletext.txt' file is terminated using pid." />
+        <Assist type="Property" propertyKey="Command_Input" value="Enter the variable 'this.pid' where the pid of the app to be shut down is stored." />
+      </Assists>
+    </Step>
+    <Step id="S196205131d84418881dac16b33cf12a5">
+      <Assists>
+        <Assist type="Summary" value="Delete the 'C:\\sampletext.txt' file that has been verified." />
+        <Assist type="Property" propertyKey="Command_Path" value="Enter the path to be deleted and the file 'C:\\sampletext.txt'." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

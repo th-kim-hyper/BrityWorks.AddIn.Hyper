@@ -1,0 +1,49 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id 6e4cd725-6b5f-4c37-b7c6-3c9993aa76e5
+* @createdDate 2020-05-25 16:37:45
+* @lastModifiedDate 2020-05-25 16:38:16
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 값을 가장 가까운 정수나 지정된 소수 자릿수로 반올림합니다.
+*  @brf (Rounds a value to the nearest integer or to the specified number of fractional digits.)
+* @param value<Double> (ex, 100.3495686)
+* @param digits<Integer> (ex, 2)
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.MATH_Round == null || Script.JavaScript.MATH_Round == undefined) {
+	Script.JavaScript.MATH_Round = function (value, digits) {
+	//Body Begin
+		var num = value;
+		
+		if (digits < 0) {
+		    var move = 1;
+		    for (var i = 0; i > digits; i--)
+		        move *= 10;
+		
+		    num = Math.round(value * move) / move;
+		}
+		else if (digits > 0) {
+		    var move = 1;
+		    for (var i = 0; i < digits; i++)
+		        move *= 10;
+		
+		    num = Math.round(value / move) * move;
+		}
+		else {
+		    num = parseInt(value);
+		}
+		
+		return num;
+	//Body End
+	}
+}

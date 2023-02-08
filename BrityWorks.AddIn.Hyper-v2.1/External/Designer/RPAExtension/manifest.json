@@ -1,0 +1,39 @@
+{
+  "name": "Brity RPA",
+  "version": "2.1.0.4",
+  "manifest_version": 2,
+  "description": "Brity RPA is a program that is required to control web browsers generated from Brity Designer.",
+  "icons": {
+    "48": "icons/active_48.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [ "src/bg/background.js" ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/inactive_48.png",
+    "default_title": "Brity RPA"
+  },
+  "content_scripts": [
+    {
+      "matches": [ "<all_urls>" ],
+      "js": [ "js/inspect.js" ],
+      "all_frames": false
+    },
+    {
+      "matches": [ "<all_urls>" ],
+      "js": [ "js/inspectSub.js" ],
+      "all_frames": true
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "activeTab",
+    "storage"
+  ]
+}

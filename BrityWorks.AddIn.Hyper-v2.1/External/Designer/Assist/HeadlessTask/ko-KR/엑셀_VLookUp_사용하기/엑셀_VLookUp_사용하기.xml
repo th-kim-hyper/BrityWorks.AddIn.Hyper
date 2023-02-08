@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription>
+  <Summary>엑셀 VLookUp 사용하기</Summary>
+  <Detail>새 엑셀 파일을 열어 데이터를 입력하고, VLookUp을 활용하여 원하는 값을 가져옵니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S951b137d7389464884e6f66588ba6e5b">
+      <Assists>
+        <Assist type="Summary" value="Headless 모드로 빈 엑셀 문서를 엽니다." />
+        <Assist type="Property" propertyKey="Output_OutputExcel" value="열리는 엑셀 파일을 담을 변수를 지정할 수 있습니다.&#xD;&#xA;기본값으로 RESULT에 저장합니다." />
+        <Assist type="Property" propertyKey="File_Invisible" value="엑셀 문서를 열 떄 화면에 보이게 할지 여부를 지정합니다.&#xD;&#xA;활성화 시, 엑셀 파일이 보이지 않게 됩니다." />
+      </Assists>
+    </Step>
+    <Step id="Sbfa6d1c02df04dfe846f07ed650e684a">
+      <Assists>
+        <Assist type="Summary" value="엑셀 파일에 지정된 영역에 값을 입력합니다." />
+        <Assist type="Property" propertyKey="Input_DataArray" value="입력할 값을 배열로 지정합니다.&#xD;&#xA;this.data를 입력하세요. (해당 변수에는 입력할 값이 할당되어 있습니다.)" />
+        <Assist type="Property" propertyKey="Sheet_StartCell" value="입력을 시작할 셀 주소를 입력합니다.&#xD;&#xA;'A1'부터 값이 입력되게 됩니다." />
+      </Assists>
+    </Step>
+    <Step id="Sa81ef34363de4202a021fcad49354726">
+      <Assists>
+        <Assist type="Summary" value="VLookUp을 활용하여 ID가 2인 행의 Name 값을 가져옵니다." />
+        <Assist type="Property" propertyKey="VLookup_LookupValue" value="검색할려는 값이 있는 영역을 입력합니다.&#xD;&#xA;검색값이 있는 영역인 'E4'를 입력하세요." />
+        <Assist type="Property" propertyKey="VLookup_TableRange" value="검색 영역을 입력합니다.&#xD;&#xA;this.range를 입력하세요. (값: 'A1:C4')" />
+        <Assist type="Property" propertyKey="VLookup_TableIndex" value="값을 가져올 열의 위치를 입력합니다.&#xD;&#xA;Name 값을 가져오기 위해 2를 입력하세요." />
+        <Assist type="Property" propertyKey="Sheet_Cell" value="VLookUp 함수를 입력 받을 대상 Cell을 입력합니다.&#xD;&#xA;'F4'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="Sdff0ba1addbe424babe5d7649ab2a234">
+      <Assists>
+        <Assist type="Summary" value="VLookUp을 활용하여 ID가 2인 행의 Age 값을 가져옵니다." />
+        <Assist type="Property" propertyKey="VLookup_LookupValue" value="검색할려는 값이 있는 영역을 입력합니다.&#xD;&#xA;검색값이 있는 영역인 'E4'를 입력하세요." />
+        <Assist type="Property" propertyKey="VLookup_TableRange" value="검색 영역을 입력합니다.&#xD;&#xA;this.range를 입력하세요. (값: 'A1:C4')" />
+        <Assist type="Property" propertyKey="VLookup_TableIndex" value="값을 가져올 열의 위치를 입력합니다.&#xD;&#xA;Age 값을 가져오기 위해 3를 입력하세요." />
+        <Assist type="Property" propertyKey="Sheet_Cell" value="VLookUp 함수를 입력 받을 대상 Cell을 입력합니다.&#xD;&#xA;'G4'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S1720f429fd64470388e42137fc1dbb6d">
+      <Assists>
+        <Assist type="Summary" value="엑셀 파일을 저장합니다." />
+        <Assist type="Property" propertyKey="File_SaveAs" value="파일을 저장할 경로를 지정합니다.&#xD;&#xA;현재 프로젝트 경로에 저장하기 위해 Global.ProjectDir + 'test.xlsx'를 입력하세요." />
+      </Assists>
+    </Step>
+    <Step id="S88c53ef41f194f05965f70c239073b8f">
+      <Assists>
+        <Assist type="Summary" value="백그라운드로 열린 엑셀 문서를 닫습니다." />
+        <Assist type="Property" propertyKey="File_Force" value="강제 종료 여부를 지정합니다.&#xD;&#xA;강제 종료를 위해 활성화하세요." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>

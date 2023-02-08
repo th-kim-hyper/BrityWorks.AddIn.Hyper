@@ -1,0 +1,41 @@
+﻿/**
+*
+* @libraryType JavaScript
+* @id eee9f144-8660-46da-9c20-2e036048192d
+* @createdDate 2020-05-25 16:44:48
+* @lastModifiedDate 2020-05-25 16:44:48
+* @createdBy archi.lee
+* @lastModifiedBy archi.lee
+*
+* @designerVersion 1.6.500.07311
+* @brief 
+*  @brf 지정된 문자열이 알파벳 또는 숫자인지 여부를 반환합니다.
+*  @brf (Returns whether the specified string is alphabetical or numeric.)
+* @param stringValue<String> (ex, 'ABC123abc')
+*
+*/
+
+if(Script.JavaScript == undefined || Script.JavaScript == null) {
+	Script.JavaScript = new Object();
+}
+
+if(Script.JavaScript.STRING_IsAlphanum == null || Script.JavaScript.STRING_IsAlphanum == undefined) {
+	Script.JavaScript.STRING_IsAlphanum = function (stringValue) {
+	//Body Begin
+		this.IsValid = function (parm, val) {
+		    if (parm == "") return true;
+		    for (var i = 0; i < parm.length; i++) {
+		        if (val.indexOf(parm.charAt(i), 0) == -1)
+		            return false;
+		    }
+		    return true;
+		}
+		
+		var numb = '0123456789';
+		var lwr = 'abcdefghijklmnopqrstuvwxyz';
+		var upr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		
+		return this.IsValid(inputString, lwr + upr + numb);
+	//Body End
+	}
+}

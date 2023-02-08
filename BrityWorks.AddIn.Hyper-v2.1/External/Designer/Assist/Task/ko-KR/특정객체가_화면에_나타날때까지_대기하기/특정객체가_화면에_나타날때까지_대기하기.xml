@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TaskDescription order="400">
+  <Summary>특정 객체가 화면에 나타날 때까지 대기하기</Summary>
+  <Detail>크롬 브라우저로 Youtube에 접속하여 Youtube페이지 메뉴에서 '채널 탐색' 을 클릭합니다.
+App 라이브러리의 IsExist, WaitAppear 등의 액티비티를 활용하여 특정 객체가 화면에 존재하는지 검사하고, 화면에 나타날 때까지 기다렸다가 마우스 스크롤 하거나 클릭할 수 있습니다.</Detail>
+  <Library />
+  <Steps>
+    <Step id="S3637c18c2bfe47fb8ec1d391caefe367">
+      <Assists>
+        <Assist type="Summary" value="명령어를 통해 Chrome.exe를 실행합니다." />
+        <Assist type="Property" propertyKey="Application_Command" value="실행할 앱의 명령어 'chrome' 을 입력하세요." />
+        <Assist type="Property" propertyKey="Application_Arguments" value="chrome실행 후 이동할 URL을 실행 인자로 입력 할 수 있습니다. &#xD;&#xA;'www.youtube.com' 을 입력하세요." />
+        <Assist type="Property" propertyKey="Application_DerivedApp" value="크롬 실행 후 실행 여부를 확인할 앱의 이름을 입력할 수 있습니다. 검사 하지 않기 위해 null 을 입력하세요." />
+        <Assist type="Test" value="실행 버튼을 클릭하여 chrome브라우저가 실행되어 Youtube사이트가 표시되는지 확인해 보세요." />
+      </Assists>
+    </Step>
+    <Step id="Sa458198bf7764274ae0596f5503a8efb">
+      <Assists>
+        <Assist type="Summary" value="특정 객체가 화면에 존재하는지를 검사합니다. Youtube 페이지에서 좌측 메뉴가 표시되고 있는지를 판단할 수 있습니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하여 객체를 지정할 수 있습니다. 앞 단계에서 실행된 Youtube 페이지에서 왼쪽 메뉴 상단에 '홈' 글자를 클릭하여 객체를 지정해주세요." />
+        <Assist type="Property" propertyKey="Conditions_Result" value="객체가 화면에 존재하는지 검사한 결과를 저장할 변수를 입력합니다. this.IsExist 를 입력하세요.&#xD;&#xA;객체가 화면에 존재하면 this.IsExist 에 true 값이 저장되고, 존재하지 않으면 false 값이 저장됩니다." />
+      </Assists>
+    </Step>
+    <Step id="S05281414615943e6bc5b3f4eba1b7ef1">
+      <Assists>
+        <Assist type="Summary" value="특정 조건을 만족하는 경우에만 동작을 수행하게 지정할 수 있습니다." />
+        <Assist type="Property" propertyKey="Conditions_Expression1" value="앞 단계에서 객체가 화면에 존재하지 않으면 this.IsExist 변수에 false가 저장됩니다.&#xD;&#xA;Condition 속성 값에 this.IsExist == false 라고 입력하세요. 객체가 화면에 존재하지 않을 때에만 다음 스탭을 수행하고, 객체가 화면에 존재하면 다음 스텝을 건너 뜁니다." />
+      </Assists>
+    </Step>
+    <Step id="S333bfd5b5da14dddbbbe764d3b37c57e">
+      <Assists>
+        <Assist type="Summary" value="메뉴가 화면에 존재하지 않는 경우, 메뉴 아이콘을 선택하여 메뉴를 화면에 표시합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하여 객체를 지정할 수 있습니다. Youtube 페이지의 좌측 상단에 메뉴 아이콘을 선택하세요." />
+        <Assist type="Test" value="실행 버튼을 클릭하여 좌측 상단의 메뉴 아이콘을 클릭하는지 확인해 보세요." />
+      </Assists>
+    </Step>
+    <Step id="S6f168db48b7c42bc8fc9d10b923b2140">
+      <Assists />
+    </Step>
+    <Step id="Sd5b3d5779d394bdbb9c2584d76f6788d">
+      <Assists>
+        <Assist type="Summary" value="마우스 스크롤 하기 위해 '홈' 객체가 화면에 나타날 때까지 기다립니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하여 객체를 지정할 수 있습니다. 왼쪽메뉴 상단에 '홈' 글자를 클릭하여 객체를 지정해주세요.&#xD;&#xA;(객체 지정 시 '홈'이 포함된 넓은 영역보다는 '홈' 글자만 포함된 좁은 영역을 지정해야 정확도를 높일 수 있습니다.)" />
+      </Assists>
+    </Step>
+    <Step id="Sd41aeac5d6db42a2a0e1aec54c1f80c1">
+      <Assists>
+        <Assist type="Summary" value="'홈' 객체로부터 마우스 스크롤 합니다." />
+        <Assist type="Property" propertyKey="Mouse_WheelValue" value="스크롤을 올리거나 내릴 횟수를 지정할 수 있습니다. 마우스 스크롤을 4회 내리기 위해 4를 입력하세요." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하여 객체를 지정할 수 있습니다. 앞 단계에서 화면에 나타날 때까지 기다린 '홈' 글자를 클릭하여 객체를 지정해주세요.&#xD;&#xA;(객체 지정 시 '홈'이 포함된 넓은 영역보다는 '홈' 글자만 포함된 좁은 영역을 지정해야 정확도를 높일 수 있습니다.)" />
+        <Assist type="Test" value="실행 버튼을 클릭하여 '홈' 에서부터 마우스 스크롤 4회를 수행하는지 확인해 보세요." />
+      </Assists>
+    </Step>
+    <Step id="Sa15fd551056f47abbbc8949d09900190">
+      <Assists>
+        <Assist type="Summary" value="클릭 하기 위해 '채널 탐색' 객체가 화면에 나타날 때까지 기다립니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하여 객체를 지정할 수 있습니다. 앞 단계에서 실행된 Youtube 페이지의 왼쪽 메뉴에서 '채널 탐색' 글자를 클릭하여 객체를 지정해주세요.&#xD;&#xA;(객체 지정 시 '채널 탐색'이 포함된 넓은 영역보다는 '채널 탐색' 글자만 포함된 좁은 영역을 지정해야 정확도를 높일 수 있습니다.)" />
+      </Assists>
+    </Step>
+    <Step id="S2085dc20f46c4b19825d9931e93e9c87">
+      <Assists>
+        <Assist type="Summary" value="'채널 탐색' 객체를 찾아 클릭합니다." />
+        <Assist type="Target" value="하이라이트된 박스를 더블클릭하여 객체를 지정할 수 있습니다. 앞 단계에서 화면에 나타날 때까지 기다린 '채널 탐색' 글자를 클릭하여 객체를 지정해주세요.&#xD;&#xA;(객체 지정 시 '채널 탐색'이 포함된 넓은 영역보다는 '채널 탐색' 글자만 포함된 좁은 영역을 지정해야 정확도를 높일 수 있습니다.)" />
+        <Assist type="Test" value="실행 버튼을 클릭하여 '채널 탐색' 클릭을 수행하는지 확인해 보세요." />
+      </Assists>
+    </Step>
+  </Steps>
+</TaskDescription>
