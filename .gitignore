@@ -363,5 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # 디자이너 링크
-External/Designer
+External/Designer/
 .vs/
