@@ -1,74 +1,37 @@
-﻿using RPAGO.Common.Data;
-using System;
-using System.Collections.Generic;
-using Microsoft.ClearScript.V8;
+﻿using Microsoft.ClearScript.V8;
 using Microsoft.ClearScript;
 using PuppeteerSharp;
-using RPAGO.Common.Event;
-using BrityWorks.AddIn.Hi.Works.Properties;
 using RPAGO.AddIn;
-using RPAGO.Common.Library;
+using RPAGO.Common.Data;
+using RPAGO.Common.Event;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {
-    public class CaptureChrome : IActivityItem
+    public class CaptureChrome_v30 : CaptureChrome, IActivityItem
     {
-        // 디자이너 옵션들 (Resources/String/ xaml 파일들에서 세부내용 수정)
-        public static readonly PropKey OutputPropKey = new PropKey("Capture", "Prop1");
-        public static readonly PropKey InputPropKey_Find = new PropKey("Capture", "Prop2");
-        public static readonly PropKey InputPropKey_Path = new PropKey("Capture", "Prop3");
-        public static readonly PropKey InputPropKey_Name = new PropKey("Capture", "Prop4");
-        public static readonly PropKey FileExtension = new PropKey("Capture", "Prop5");
+        public new string DisplayName => "Chrome Find Capture v3.0";
 
-        // 카드 이름
-        public string DisplayName => "Chrome Find Capture";
-
-        // 아이콘 설정
-        public System.Drawing.Bitmap Icon => Resources.excute;
-
-        public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
-
-        // 아웃풋 설정
-        public PropKey DisplayTextProperty => OutputPropKey;
-        public PropKey OutputProperty => OutputPropKey;
-
-        // 아래에서 사용될 propertylist 선언
-        protected PropertySet PropertyList;
-
-        public virtual List<Property> OnCreateProperties()
-        {
-            var properties = new List<Property>()
-            {
-                // 카드의 옵션들에 대한 세부적인 설정 (내용, 들어가는 값 등)
-                new Property(this, OutputPropKey, "RESULT").SetRequired(),
-                new Property(this, InputPropKey_Find, "").SetRequired(),
-                new Property(this, InputPropKey_Path, "").SetRequired(),
-                new Property(this, InputPropKey_Name, "''").SetRequired(),
-                new Property(this, FileExtension, "png").SetDropDownList("png;jpeg;").SetValueChangedHandler(OnTogglePropValueChanged),
-            };
-
-            return properties;
-        }
-
-        // 선택하는 옵션 전용
-        protected virtual void OnTogglePropValueChanged(object oldValue, object newValue)
+        protected override void OnTogglePropValueChanged(object oldValue, object newValue)
         {
             var togglePropItem = PropertyList[FileExtension];
 
             // clearscript 이용하는 이유는, 자꾸 cast 과정에서 오류가 발생하여
             // 강제로 형변환을 하기 위해 이용
-            V8ScriptEngine v8 = new V8ScriptEngine();
+            //V8ScriptEngine v8 = new V8ScriptEngine();
 
-            v8.AddHostObject("obj", HostItemFlags.GlobalMembers, newValue);
-            v8.Execute("var nv = newValue");
+            //v8.AddHostObject("obj", HostItemFlags.GlobalMembers, newValue);
+            //v8.Execute("var nv = newValue");
 
-            var new_Value = (string)(v8.Evaluate("nv"));
+            var new_Value = newValue?.ToStr();
 
-            if ((string)new_Value == "png")
+            if ("png".EqualsEx(new_Value, true))
             {
                 togglePropItem.SetVisible(true);
             }
-            else if ((string)new_Value == "jpeg")
+            else if ("jpeg".EqualsEx(new_Value, true))
             {
                 togglePropItem.SetVisible(false);
             }
@@ -77,13 +40,15 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
         }
 
         // 로드 되었을 때
-        public virtual void OnLoad(PropertySet properties)
+        public override void OnLoad(PropertySet properties)
         {
+            properties[FileExtension].ResetValueChangedHandler().SetValueChangedHandler(OnTogglePropValueChanged);
+            properties.Values.ToList().ForEach((item) => item.SetOrder(properties.Values.ToList().IndexOf(item)));
             PropertyList = properties;
         }
 
         // 실행 시 (카드 run)
-        public virtual object OnRun(IDictionary<string, object> properties)
+        public override object OnRun(IDictionary<string, object> properties)
         {
             // 클리어스크립트 선언
             V8ScriptEngine v8 = new V8ScriptEngine();
@@ -113,9 +78,9 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
                 // 후에 작성할 파일 이름전용
                 string full_name = "";
-                
+
                 // 파일 확장자가 png로 설정되어있는지 확인
-                if ( extension == "png" )
+                if (extension == "png")
                 {
                     // 파일 이름이 없다면 Image.png 로, 있다면 파일이름 + .png 를 입력
                     full_name = String.IsNullOrWhiteSpace(name) || name == "null" ? "Image.png" : name + ".png";
@@ -127,7 +92,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
                     // 파일 이름이 없다면 Image.jpeg 로, 있다면 파일이름 + .jpeg 를 입력
                     full_name = String.IsNullOrWhiteSpace(name) || name == "null" ? "Image.jpeg" : name + ".jpeg";
                     // 퀄리티는 기본값 0, 0으로 할 경우 알아보기 힘들 정도로 형태가 이상해짐.
-                    option = new ScreenshotOptions { Quality = 100 , Type = ScreenshotType.Jpeg };
+                    option = new ScreenshotOptions { Quality = 100, Type = ScreenshotType.Jpeg };
                 }
 
                 // 다운로드 받을 경로를 합침

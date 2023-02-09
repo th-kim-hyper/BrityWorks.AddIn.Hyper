@@ -1,5 +1,5 @@
-﻿using BrityWorks.AddIn.Hyper.Properties;
-using HyperInfo.Lib.Net461.Mail;
+﻿using BrityWorks.AddIn.Hi.Works.Properties;
+using Hi.Works.Lib.Net461.Mail;
 using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Library;
@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using Bitmap = System.Drawing.Bitmap;
 
-namespace BrityWorks.AddIn.Hyper.Activities
+namespace BrityWorks.AddIn.Hi.Works.Activities
 {
     public class SendMail : IActivityItem
     {

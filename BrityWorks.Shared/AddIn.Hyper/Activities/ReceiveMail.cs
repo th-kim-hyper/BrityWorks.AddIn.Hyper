@@ -4,13 +4,13 @@ using RPAGO.Common.Event;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using HyperInfo.Lib.Net461.Dto;
+using Hi.Works.Lib.Net461.Dto;
 using System.Drawing;
-using BrityWorks.AddIn.Hyper.Properties;
+using BrityWorks.AddIn.Hi.Works.Properties;
 using RPAGO.Common.Library;
-using HyperInfo.Lib.Net461.Mail;
+using Hi.Works.Lib.Net461.Mail;
 
-namespace BrityWorks.AddIn.Hyper.Activities
+namespace BrityWorks.AddIn.Hi.Works.Activities
 {
     public class ReceiveMail : IActivityItem
     {

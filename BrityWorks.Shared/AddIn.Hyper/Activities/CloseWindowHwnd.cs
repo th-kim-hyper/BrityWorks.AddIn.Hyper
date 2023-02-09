@@ -1,4 +1,4 @@
-﻿using BrityWorks.AddIn.Hyper.Properties;
+﻿using BrityWorks.AddIn.Hi.Works.Properties;
 using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
 using RPAGO.AddIn;
@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using Win32;
 
-namespace BrityWorks.AddIn.Hyper.Activities
+namespace BrityWorks.AddIn.Hi.Works.Activities
 {
     public class CloseWindowHwnd : IActivityItem
     {
@@ -52,7 +52,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
         }
 
         // 창 닫기 전용
-        protected virtual void close_window(IntPtr hwnd, bool force, int outs)
+        protected virtual int close_window(IntPtr hwnd, bool force, int outs)
         {
             // 혹시 모르니, 한번 Active
             User.SendMessageTimeout(hwnd, 0x1C, 1, 1, 0x0, 1, ref outs);
@@ -69,6 +69,7 @@ namespace BrityWorks.AddIn.Hyper.Activities
                 User.SendMessageTimeout(hwnd, 0x10, 1, 1, 0x0, 1000, ref outs);
             }
 
+            return outs;
         }
 
         public virtual object OnRun(IDictionary<string, object> properties)
