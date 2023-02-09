@@ -9,10 +9,10 @@
     <Import_RootNamespace>BrityWorks</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\CaptureChrome.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\CloseWindowHwnd.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\ReceiveMail.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hyper\Activities\SendMail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\CaptureChrome.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\CloseWindowHwnd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\ReceiveMail.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\SendMail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Resources\Custom.png" />

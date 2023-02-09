@@ -18,10 +18,10 @@ namespace BrityWorks.AddIn.Hi.Works
         {
             List<IActivity> activities = new List<IActivity>
             {
-                new CloseWindowHwnd_v21(),
-                new CaptureChrome_v21(),
-                new SendMail_v21(),
-                new ReceiveMail_v21(),
+                new CloseWindowHwndV21(),
+                new CaptureChromeV21(),
+                new SendMailV21(),
+                new ReceiveMailV21(),
             };
 
             return activities;

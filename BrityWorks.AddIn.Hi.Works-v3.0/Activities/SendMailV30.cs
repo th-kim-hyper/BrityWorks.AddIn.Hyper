@@ -4,9 +4,9 @@ using System.Drawing;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {
-    public class SendMail_v30 : SendMail, IActivityItem
+    public partial class SendMailV30 : SendMail, IActivityItem
     {
-        public new string DisplayName => "Hi. Send Mail v3.0";
+        public new string DisplayName => "DisplayName_SendMailV30".GetResource("Hi. Send Mail v3.0");
         public new Bitmap Icon => Resources.send_mail;
     }
 }

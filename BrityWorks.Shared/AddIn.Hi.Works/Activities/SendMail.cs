@@ -3,17 +3,15 @@ using Hi.Works.Lib.Net461.Mail;
 using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Library;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Bitmap = System.Drawing.Bitmap;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {
     public class SendMail : IActivityItem
     {
-        public static readonly PropKey OutputPropKey = new PropKey("Output", "Result");
+        public static readonly PropKey OutputPropKey = new PropKey("OUTPUT", "Result");
 
         public static readonly PropKey HostNamePropKey = new PropKey("CONNECTION", "HostName");
         public static readonly PropKey PortPropKey = new PropKey("CONNECTION", "Port");
@@ -33,7 +31,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
         public string DisplayName => "Hi. Send Mail";
 
-        public Bitmap Icon { get; set; } = Resources.hi_works_excute;
+        public System.Drawing.Bitmap Icon { get; set; } = Resources.hi_works_excute;
 
         public LibraryHeadlessType Mode => LibraryHeadlessType.Both;
 
@@ -47,7 +45,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
         {
             var properties = new List<Property>()
             {
-                new Property(this, OutputPropKey, null).SetVisible(false),
+                new Property(this, OutputPropKey, "RESULT"),
                 new Property(this, HostNamePropKey, "'smtp.mail.com'").SetRequired(),
                 new Property(this, PortPropKey, 465).SetRequired(),
                 new Property(this, IdPorpKey, "'from@mail.com'").SetRequired(),
@@ -91,7 +89,6 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
         public virtual object OnRun(IDictionary<string, object> properties)
         {
-            string result = "";
             IList<FileInfo> files = null;
             var host = properties[HostNamePropKey]?.ToStr();
             var port = (int)properties[PortPropKey]?.ToIntValue();
@@ -119,14 +116,14 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
                     if (size > maxFileSize * megaByte)
                     {
-                        throw new Exception("첨부파일 크기가 최대값을 초과 하였습니다.");
+                        return false;
                     }
                 }
             }
 
-            result = HyperMail.SendMailWithFiles(attachments, host, port, useSsl, id, password, sender, receivers, subject, body, isHTML, ccs, bccs);
+            HyperMail.SendMailWithFiles(attachments, host, port, useSsl, id, password, sender, receivers, subject, body, isHTML, ccs, bccs);
 
-            return result;
+            return true;
         }
     }
 }

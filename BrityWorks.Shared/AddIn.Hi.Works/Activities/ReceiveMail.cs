@@ -28,6 +28,10 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
         public static readonly PropKey EndTimePropKey = new PropKey("MAIL", "EndTime");
         public static readonly PropKey SenderPropKey = new PropKey("MAIL", "Sender");
         public static readonly PropKey SubjectPropKey = new PropKey("MAIL", "Subject");
+
+        public static readonly PropKey MaxCountPropKey = new PropKey("MAIL", "MaxCount");
+        public static readonly PropKey StartNoPropKey = new PropKey("MAIL", "StartNo");
+
         public static readonly PropKey WithAttachmentsPropKey = new PropKey("MAIL", "WithAttachments");
         public static readonly PropKey SaveDirPropKey = new PropKey("MAIL", "SaveDir");
         public static readonly PropKey RecentFirstPropKey = new PropKey("MAIL", "RecentFirst");
@@ -44,7 +48,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
         protected PropertySet PropertyList;
 
-        public string PresetRange { get; set; } = "All;Today;This Week;This Month;This Year";
+        protected virtual string PresetRange => "PresetRange_ReceiveMail".GetResource("All;Today;This Week;This Month;This Year");
 
         protected virtual void OnProtocolChanged(object oldValue, object newValue)
         {
@@ -138,6 +142,8 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
                 new Property(this, EndTimePropKey, ""),
                 new Property(this, SenderPropKey, ""),
                 new Property(this, SubjectPropKey, ""),
+                new Property(this, MaxCountPropKey, "", DataTypes.Integer, DataFormatTypes.Integer),
+                new Property(this, StartNoPropKey, "", DataTypes.Integer, DataFormatTypes.Integer),
                 new Property(this, WithAttachmentsPropKey, false),
                 new Property(this, SaveDirPropKey, "").SetVisible(false),
                 new Property(this, RecentFirstPropKey, true),
@@ -149,7 +155,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
         public virtual void OnLoad(PropertySet properties)
         {
-            properties[DateTimeRangePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnPresetRangeChanged);
+            properties[DateTimeRangePropKey].ResetValueChangedHandler().SetDropDownList(PresetRange).SetValueChangedHandler(OnPresetRangeChanged);
             properties[BeginTimePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
             properties[EndTimePropKey].ResetValueChangedHandler().SetValueChangedHandler(OnDateTimeChanged);
 

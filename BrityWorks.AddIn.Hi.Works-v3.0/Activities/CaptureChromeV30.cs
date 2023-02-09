@@ -10,9 +10,9 @@ using System.Linq;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {
-    public class CaptureChrome_v30 : CaptureChrome, IActivityItem
+    public class CaptureChromeV30 : CaptureChrome, IActivityItem
     {
-        public new string DisplayName => "Chrome Find Capture v3.0";
+        public new string DisplayName => "DisplayName_CaptureChromeV30".GetResource("Chrome Find Capture v3.0");
 
         protected override void OnTogglePropValueChanged(object oldValue, object newValue)
         {

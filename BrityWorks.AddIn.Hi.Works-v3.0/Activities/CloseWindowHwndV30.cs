@@ -10,9 +10,9 @@ using System.Runtime.InteropServices;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {
-    public class CloseWindowHwnd_v30 : CloseWindowHwnd, IActivityItem
+    public class CloseWindowHwndV30 : CloseWindowHwnd, IActivityItem
     {
-        public new string DisplayName => "Close Window Hwnd v3.0";
+        public new string DisplayName => "DisplayName_CloseWindowHwndV30".GetResource("Close Window Hwnd v3.0");
 
         public override object OnRun(IDictionary<string, object> properties)
         {
