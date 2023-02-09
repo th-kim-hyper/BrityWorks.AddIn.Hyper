@@ -8,8 +8,8 @@
     <ProjectGuid>{9AE4D8A8-7AD4-4FF8-8D72-85B2A8521EC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HyperInfo.Lib.Net461</RootNamespace>
-    <AssemblyName>HyperInfo.Lib.Net461</AssemblyName>
+    <RootNamespace>Hi.Works.Lib.Net461</RootNamespace>
+    <AssemblyName>Hi.Works.Lib.Net461</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>hiworks.ico</ApplicationIcon>
+    <ApplicationIcon>hi.works.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
+    <Content Include="hi.works.ico" />
     <Content Include="hiworks.ico" />
     <Content Include="hiworks_over.ico" />
   </ItemGroup>

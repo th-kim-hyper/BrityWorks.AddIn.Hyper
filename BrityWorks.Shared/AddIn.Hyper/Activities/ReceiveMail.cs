@@ -32,7 +32,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
         public static readonly PropKey SaveDirPropKey = new PropKey("MAIL", "SaveDir");
         public static readonly PropKey RecentFirstPropKey = new PropKey("MAIL", "RecentFirst");
 
-        public string DisplayName => "Hyper Receive Mail";
+        public string DisplayName => "Hi. Receive Mail";
 
         public Bitmap Icon => Resources.hi_works_excute;
 

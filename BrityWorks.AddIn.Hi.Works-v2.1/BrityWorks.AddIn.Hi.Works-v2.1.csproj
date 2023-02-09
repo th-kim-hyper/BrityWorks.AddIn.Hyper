@@ -8,8 +8,8 @@
     <ProjectGuid>{3D252CCF-A88F-4FCE-85E1-E90FFB552A8F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BrityWorks.AddIn.Hyper</RootNamespace>
-    <AssemblyName>BrityWorks.AddIn.Hyper</AssemblyName>
+    <RootNamespace>BrityWorks.AddIn.Hi.Works</RootNamespace>
+    <AssemblyName>BrityWorks.AddIn.Hi.Works</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>hiworks.ico</ApplicationIcon>
+    <ApplicationIcon>hi.works.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -114,6 +114,7 @@
     <None Include="init.cmd" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="hi.works.ico" />
     <Content Include="hiworks.ico" />
     <Content Include="hiworks_over.ico" />
     <Content Include="ReadMe.txt" />

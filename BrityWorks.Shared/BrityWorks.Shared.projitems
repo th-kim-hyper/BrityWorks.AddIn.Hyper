@@ -27,4 +27,7 @@
     <None Include="$(MSBuildThisFileDirectory)Resources\send-mail.png" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Set.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Resources\hi.works.ico" />
+  </ItemGroup>
 </Project>

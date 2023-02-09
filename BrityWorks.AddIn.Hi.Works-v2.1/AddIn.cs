@@ -4,11 +4,11 @@ using RPAGO.AddIn;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace BrityWorks.AddIn.Hyper
+namespace BrityWorks.AddIn.Hi.Works
 {
     public class AddIn : ActivityAddInBase
     {
-        protected override string AddInDisplayName => "Hyperinformation v2.1";
+        protected override string AddInDisplayName => "Hi. Works v2.1";
 
         protected override Bitmap AddInIcon => Resources.Hyper;
 

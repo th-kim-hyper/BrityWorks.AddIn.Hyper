@@ -8,8 +8,8 @@
     <ProjectGuid>{C405AC91-33CC-4F2B-BC17-62F1FFFAF122}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BrityWorks.AddIn.Hyper</RootNamespace>
-    <AssemblyName>BrityWorks.AddIn.Hyper</AssemblyName>
+    <RootNamespace>BrityWorks.AddIn.Hi.Works</RootNamespace>
+    <AssemblyName>BrityWorks.AddIn.Hi.Works</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hi.works.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClearScript">
@@ -109,6 +112,7 @@
     <None Include="init.cmd" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="hi.works.ico" />
     <Content Include="ReadMe.txt" />
     <None Include="packages.config" />
     <None Include="Resources\Set.png" />

@@ -31,7 +31,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
         public static readonly PropKey BodyPropKey = new PropKey("MAIL", "Body");
         public static readonly PropKey IsHTMLPropKey = new PropKey("MAIL", "IsHTML");
 
-        public string DisplayName => "Hyper Send Mail";
+        public string DisplayName => "Hi. Send Mail";
 
         public Bitmap Icon { get; set; } = Resources.hi_works_excute;
 
