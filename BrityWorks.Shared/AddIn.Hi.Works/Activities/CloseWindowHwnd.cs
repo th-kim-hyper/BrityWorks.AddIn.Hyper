@@ -1,9 +1,11 @@
 ﻿using BrityWorks.AddIn.Hi.Works.Properties;
+using Hi.Works.Lib.Net461;
 using Microsoft.ClearScript;
 using Microsoft.ClearScript.V8;
 using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Library;
+using RPAGO.Core.WinDriver;
 using System;
 using System.Collections.Generic;
 using Win32;
@@ -51,84 +53,37 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
             PropertyList = properties;
         }
 
-        // 창 닫기 전용
-        protected virtual int close_window(IntPtr hwnd, bool force, int outs)
-        {
-            // 혹시 모르니, 한번 Active
-            User.SendMessageTimeout(hwnd, 0x1C, 1, 1, 0x0, 1, ref outs);
-
-            // 강제종료 여부 확인
-            if ( force )
-            {
-                // 강제종료시 WM_DESTRORY
-                User.SendMessageTimeout(hwnd, 0x2, 1, 1, 0x0, 1000, ref outs);
-            }
-            else
-            {
-                // 일반 종료시 WM_CLOSE
-                User.SendMessageTimeout(hwnd, 0x10, 1, 1, 0x0, 1000, ref outs);
-            }
-
-            return outs;
-        }
-
         public virtual object OnRun(IDictionary<string, object> properties)
         {
-            // 클리어 스크립트 선언 ( 형변환 전용 )
-            V8ScriptEngine v8 = new V8ScriptEngine();
-
-            bool success = true;
+            var result = true;
 
             try
             {
-                // properties[InputPorpKey] 자체가 object 형태이기 때문에, 전체가 아닌 해당 대상만 가져옴, hwnd 입력상태라면 hwnd을 가져옴
-                var obj = properties[InputPropKey];
+                var isHwnd = properties[OnOffPropKey].ToBoolValue();
+                var force = properties[ForcePropKey].ToBoolValue();
 
-                // Hwmd 추출
-                v8.AddHostObject("obj", HostItemFlags.GlobalMembers, obj);
+                int hwnd;
 
-                // hwnd 입력상태가 아니라면
-                if ( (bool)properties[OnOffPropKey] == false )
+                if (isHwnd)
                 {
-                    // Hwmd 추출
-                    v8.Execute("var hwnd = obj.AppHwnd");
+                    hwnd = properties[InputPropKey].ToIntValue();
                 }
                 else
                 {
-                    // Hwmd 추출
-                    v8.Execute("var hwnd = obj");
+                    var element = properties[InputPropKey] as UIAElement;
+                    hwnd = element.Hwnd;
                 }
 
-                // 형변환 int
-                var str = Convert.ToInt32(v8.Evaluate("hwnd"));
-
-                // str 체크 ( 잘못된 대상이면 0 )
-                if (str != 0)
-                {
-                    // 형변환 intptr
-                    IntPtr cast_str = new IntPtr(str);
-
-                    // 강제종료 여부
-                    bool force_chk = (bool)properties[ForcePropKey];
-
-                    // 창닫기 요청
-                    close_window(cast_str, force_chk, 0);
-                }
-                // 뭐 이상한거 있었으면 오류 발생
-                else
-                {
-                    success = false;
-                }
-
+                result = Convert.ToBoolean(BrityRPA.CloseWindowByHwnd(hwnd, force));
             }
             // 오류 발생시 success = false, throw 발생
             catch(Exception e)
             {
-                success = false;
+                result = false;
                 throw e.InnerException;
             }
 
-            return success;
+            return result;
         }
     }
 }
