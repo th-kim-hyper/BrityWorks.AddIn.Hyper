@@ -5,10 +5,6 @@ using PuppeteerSharp;
 using BrityWorks.AddIn.Hi.Works.Properties;
 using RPAGO.AddIn;
 using RPAGO.Common.Library;
-using System.Threading.Tasks;
-using Microsoft.ClearScript;
-using System.Windows;
-using System.Xml.Linq;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {
@@ -79,25 +75,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
                 {
                     var ctx = element.ExecutionContext;
                     var frame = ctx.Frame;
-                    //var isReady = element.IsIntersectingViewportAsync().Result;
-                    
-                    //frame.WaitForTimeoutAsync(2000).Wait();
-                    //var jtoken = ctx.EvaluateExpressionAsync("window.innerHeight + window.pageYOffset").Result;
-                    //ctx.EvaluateExpressionAsync("window.scrollTo(0, " + jtoken.ToIntValue() + ")").Wait(2000);
-
-                    //if (!isReady)
-                    //{
-                    //    //while(!isReady)
-                    //    //{
-                    //    //    ctx.EvaluateExpressionAsync("window.scrollBy(0, window.innerHeight)").Wait(2000);
-                    //    //    isReady = element.IsIntersectingViewportAsync().Result;
-                    //    //}
-
-                    //    var jtoken = ctx.EvaluateExpressionAsync("window.scrollTo(0, document.body.scrollHeight)").Wait(2000);
-                    //    //jtoken = ctx.EvaluateExpressionAsync("window.scrollTo(0, 0)").Wait(2000);
-                    //    //var props = element.GetPropertiesAsync().Result;
-                    //}
-                    frame.WaitForTimeoutAsync(2000).Wait();
+                    frame.WaitForTimeoutAsync(3000).Wait();
                     result = element.ScreenshotAsync(savePath, option).Wait(3000);
                 }
             }

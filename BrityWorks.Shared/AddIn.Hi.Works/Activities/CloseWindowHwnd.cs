@@ -1,14 +1,11 @@
 ﻿using BrityWorks.AddIn.Hi.Works.Properties;
 using Hi.Works.Lib.Net461;
-using Microsoft.ClearScript;
-using Microsoft.ClearScript.V8;
 using RPAGO.AddIn;
 using RPAGO.Common.Data;
 using RPAGO.Common.Library;
 using RPAGO.Core.WinDriver;
 using System;
 using System.Collections.Generic;
-using Win32;
 
 namespace BrityWorks.AddIn.Hi.Works.Activities
 {

@@ -58,6 +58,10 @@
       <HintPath>External\Designer\IPA.Core.Inspect.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="IPA.Lib.Chrome">
+      <HintPath>External\Designer\IPA.Lib.Chrome.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>External\Designer\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -100,6 +104,7 @@
   <ItemGroup>
     <Compile Include="Activities\CaptureChromeV30.cs" />
     <Compile Include="Activities\CloseWindowHwndV30.cs" />
+    <Compile Include="Activities\DialogHandlerV30.cs" />
     <Compile Include="Activities\ReceiveMailV30.cs" />
     <Compile Include="Activities\SendMailV30.cs" />
     <Compile Include="AddIn.cs" />

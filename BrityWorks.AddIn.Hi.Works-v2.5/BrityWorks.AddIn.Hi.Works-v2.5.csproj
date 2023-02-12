@@ -57,6 +57,13 @@
       <HintPath>External\Designer\IPA.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="IPA.Core.Inspect">
+      <HintPath>..\BrityWorks.AddIn.Hi.Works-v3.0\External\Designer\IPA.Core.Inspect.dll</HintPath>
+    </Reference>
+    <Reference Include="IPA.Lib.Chrome">
+      <HintPath>External\Designer\IPA.Lib.Chrome.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>External\Designer\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>

@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\CaptureChrome.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\CloseWindowHwnd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\DialogHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\ReceiveMail.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AddIn.Hi.Works\Activities\SendMail.cs" />
   </ItemGroup>
