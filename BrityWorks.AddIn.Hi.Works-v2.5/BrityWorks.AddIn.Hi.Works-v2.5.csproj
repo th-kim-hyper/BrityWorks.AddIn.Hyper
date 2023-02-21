@@ -58,7 +58,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="IPA.Core.Inspect">
-      <HintPath>..\BrityWorks.AddIn.Hi.Works-v3.0\External\Designer\IPA.Core.Inspect.dll</HintPath>
+      <HintPath>External\Designer\IPA.Core.Inspect.dll</HintPath>
     </Reference>
     <Reference Include="IPA.Lib.Chrome">
       <HintPath>External\Designer\IPA.Lib.Chrome.dll</HintPath>

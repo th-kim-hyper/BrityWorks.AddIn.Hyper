@@ -11,13 +11,13 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 {
     public class CloseWindowHwnd : IActivityItem
     {
-        public static readonly PropKey OutputPropKey = new PropKey("Close", "Prop1");
+        public static readonly PropKey OutputPropKey = new PropKey("OUTPUT", "Result");
 
-        public static readonly PropKey InputPropKey = new PropKey("Close", "Prop2");
+        public static readonly PropKey TargetPropKey = new PropKey("Close", "Target");
 
-        public static readonly PropKey ForcePropKey = new PropKey("Close", "Prop3");
+        public static readonly PropKey ForcePropKey = new PropKey("Close", "Force");
 
-        public static readonly PropKey OnOffPropKey = new PropKey("Close", "Prop4");
+        public static readonly PropKey IsHwndPropKey = new PropKey("Close", "IsHwnd");
 
         public string DisplayName => "Close Window Hwnd";
 
@@ -36,10 +36,10 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
             var properties = new List<Property>()
             {
                 new Property(this, OutputPropKey, "RESULT").SetRequired(),
-                new Property(this, InputPropKey, "").SetRequired(),
+                new Property(this, TargetPropKey, "").SetRequired(),
 
                 new Property(this, ForcePropKey, false).SetControlType(PropertyControls.PropertyItemToggleView),
-                new Property(this, OnOffPropKey, false).SetControlType(PropertyControls.PropertyItemToggleView)
+                new Property(this, IsHwndPropKey, false).SetControlType(PropertyControls.PropertyItemToggleView)
             };
 
             return properties;
@@ -56,20 +56,22 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
 
             try
             {
-                var isHwnd = properties[OnOffPropKey].ToBoolValue();
+                var isHwnd = properties[IsHwndPropKey].ToBoolValue();
                 var force = properties[ForcePropKey].ToBoolValue();
 
                 int hwnd;
 
                 if (isHwnd)
                 {
-                    hwnd = properties[InputPropKey].ToIntValue();
+                    hwnd = properties[TargetPropKey].ToIntValue();
                 }
                 else
                 {
-                    var element = properties[InputPropKey] as UIAElement;
+                    var element = properties[TargetPropKey] as UIAElement;
                     hwnd = element.Hwnd;
                 }
+
+                BrityRPA.ActivateWindowByHwnd(hwnd);
 
                 result = Convert.ToBoolean(BrityRPA.CloseWindowByHwnd(hwnd, force));
             }

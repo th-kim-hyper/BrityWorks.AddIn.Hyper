@@ -65,6 +65,7 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
                 var extension = properties[FileExtensionPropKey].ToStr();
                 var option = new ScreenshotOptions() { Type = ScreenshotType.Png };
                 var savePath = System.IO.Path.Combine(dir, $"{fileName}.{extension}");
+                var frame = element.ExecutionContext.Frame;
 
                 if (!extension.EqualsEx("png", true))
                 {
@@ -73,10 +74,9 @@ namespace BrityWorks.AddIn.Hi.Works.Activities
                 
                 if (element is ElementHandle)
                 {
-                    var ctx = element.ExecutionContext;
-                    var frame = ctx.Frame;
-                    frame.WaitForTimeoutAsync(3000).Wait();
-                    result = element.ScreenshotAsync(savePath, option).Wait(3000);
+                    element.EvaluateFunctionAsync("(e) => e.scrollIntoView(true)").Wait();
+                    frame.WaitForTimeoutAsync(2000).Wait();
+                    result = element.ScreenshotAsync(savePath, option).Wait(2000);
                 }
             }
             // 오류 발생시 success 를 false로 설정하고, throw로 exception을 던짐.
